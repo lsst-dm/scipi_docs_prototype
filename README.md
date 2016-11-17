@@ -1,5 +1,7 @@
-# lsst-dm-stack-dox
+# scipi_docs_prototype
 
-reST dox version to explain what's going on in the DM code.  Clone the repo, build from within the dir using 'make html' (this assumes you have sphinx installed), and look at it locally in dir: 
+Prototype for doing docs for the DM code structure (written in reST).
 
-   file:///[dir you cloned to]/build/index.html
+If you'd like to see the results, clone the repo, build from within the dir using 'make html' (this does assume you have sphinx installed), and look at it locally in dir: 
+
+   file:///[dir you cloned to]/_build/index.html
