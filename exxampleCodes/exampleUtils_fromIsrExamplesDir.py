@@ -1,3 +1,4 @@
+# MSSG mods: Nov 2016
 import numpy
 
 from lsst.afw.cameraGeom import DetectorConfig, PIXELS
@@ -185,6 +186,7 @@ def makeFakeWcs():
                            afwGeom.Point2D(0.0, 0.0), 1.0, 0.0, 0.0, 1.0)
 
 def makeExpFromIm(im, detector):
+    print " ******* In: makeExpFromIm" 
     wcs = makeFakeWcs()
     var = afwImage.ImageF(im)
     mask = afwImage.MaskU(im.getDimensions())
@@ -200,10 +202,15 @@ def makeAmpInput(detector):
     \return a dictionary of amp exposures keyed on the amp names
     '''
     inputData = {}
+    print " \n ********* Inside makeAmpInput(detector) " 
     for amp in detector:
         im = cameraGeomUtils.makeImageFromAmp(amp, imageFactory=afwImage.ImageF)
         exp = makeExpFromIm(im, detector)
         inputData[amp.getName()] = exp
+#        print " \n ********* amp = ", amp
+        print "  amp.getName() = ", amp.getName()
+#        print " im = ", im
+#        print " exp = ", exp
     return inputData
 
 def makeAssemblyInput(isPerAmp, doTrim=False):
@@ -236,18 +243,20 @@ def makeAssemblyInput(isPerAmp, doTrim=False):
     ext = 1
 
     detector = createDetector(nAmpX, nAmpY, nPixX, nPixY, pre, hOscan, vOscan, ext, isPerAmp)
-    print " \n\n detector = ", detector #mssg
+    print " \n\n *********** Inside makeAssemblyInput -- detector = ", detector #mssg
     
     if isPerAmp:
-        print " \n makeAmpInput(detector) = ", makeAmpInput(detector)
+        print " \n ****************** isPerAmp = True, About to call makeAmpInput(detector)  "
+#        print "  makeAmpInput(detector) = ", makeAmpInput(detector)
         return makeAmpInput(detector)
     else:
+        print " \n ****************** isPerAmp = F, About to call camGeomUtils "
         im = cameraGeomUtils.makeImageFromCcd(detector, isTrimmed=doTrim, imageFactory=afwImage.ImageF)
-        print " \n img = ", im
+        print " \n ********* img = ", im
         ccdAssemblyInput = makeExpFromIm(im, detector)
-        print " \n initial ccdAssemblyInput = ", ccdAssemblyInput
+        print " \n ********* initial ccdAssemblyInput = ", ccdAssemblyInput
         ccdAssemblyInput.setDetector(detector)
-        print " \n final ccdAssemblyInput = ", ccdAssemblyInput
+        print " \n ********** final ccdAssemblyInput = ", ccdAssemblyInput
         return ccdAssemblyInput
 
 def makeRaw(darkval, oscan, gradient, exptime):

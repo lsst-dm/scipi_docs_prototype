@@ -32,6 +32,8 @@ Examples
 
 This code is in runAssembleTask.py in the examples subdir (of $IP_ISR_DIR).
 
+(It runs fully successfully on the 4/2016 stack.)
+
 Specific functions of class
 +++++++++++++++++++++++++++
 
