@@ -139,3 +139,8 @@ Returns an *lsst.pipe.base.Struct* with these fields:
 - matchMeta -- metadata needed to unpersist matches (an *lsst.daf.base.PropertyList*)
 
 
+
+Examples
+++++++++
+
+photoCalTask.py in $PIPE_TASKS_DIR

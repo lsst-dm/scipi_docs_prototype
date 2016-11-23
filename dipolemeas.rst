@@ -30,7 +30,7 @@ Detailed descrip of primary functions in the class
 Examples
 ++++++++
 
-The example code is dipoleMeasTask.py in the examples directory (and the doxygen page gives a very detailed step-through of it).
+The example code is dipoleMeasTask.py in the examples directory of $IP_DIFFIM_DIR  (and the doxygen page gives a very detailed step-through of it).
 
 What it returns
 +++++++++++++++

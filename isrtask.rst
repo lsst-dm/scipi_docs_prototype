@@ -1,6 +1,9 @@
 
-Doing the Instrumental Signature Removal
+IsrTask
 =========================================
+
+- `Doxygen link`_
+.. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#IsrTask_
 
 
 Instrumental Signature Removal (ISR) is a sequence of steps taken to
@@ -347,3 +350,9 @@ ____
 
 
 [Reference: Doxygen comments in code, and Section 4 of LSST DATA CHALLENGE HANDBOOK (2011), and http://hsca.ipmu.jp/public/index.html ]
+
+Examples
+++++++++
+
+runIsrTask.py in $IP_ISR_DIR/examples ; try with --ds9 flag on
+

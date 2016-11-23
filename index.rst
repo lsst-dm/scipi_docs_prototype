@@ -21,6 +21,53 @@ the user has this installed already, along with the entire DM Stack
 for the cmds to work.  For quick pointers on where to go to know how
 to do the install, see the first link in the 'Contents' below.
 
+Current Status
+--------------
+
+-   astrometry    ---- photoCalTask.py -- DOESN'T RUN properly
+-   assembleccd   ---- runAssembleTask.py -- runs fine on old stack; covered at a decent level, needs cleanup
+-   calibimg      ---- *calibrateTask.py -- runs fine on old stack - not on new one; needs covering
+-   charimg       ---- *calibrateTask.py -- runs fine on old stack - not on new one; needs covering
+-   coaddsrcxform ---- no example given
+-   diacat         ---- no example given
+-   decorrALkernel ---- *This task has no standalone example, however it is applied as a subtask of ImageDifferenceTask  
+-   deblendimg     ---- no example given
+-   detectcoaddsrcs ---- *The whole example is spelled out in some detail on the doxygen page.
+-   dipolemeas     ---- * dipoleMeasTask.py -- has probs, doesn't run through on old or cur stack
+-   examplecmdline  ---- *The whole example is on the doxygen page.
+-   examplesigmaclippedstats
+-   examplesimplestats
+-   fittansip     ---- *this is exercised through photoCalTask.py -- which DOESN'T RUN properly
+-   forcedmeas     ----  no example given
+-   forcedsrcxform ---- no example given
+-   imagepsfmatch  ----  *imagePsfMatchTask.py -- runs fine on old stack - and appears to on new one too 
+-   ingest
+-   installgaussianpsf
+-   isrtask        ---- *runIsrTask.py --  runs fine on old stack - not on new one; needs covering
+-   loadastrom
+-   loadrefobjects
+-   measureapcorr
+-   measuremergedcoaddsrcs
+-   mergedets
+-   mergemeasts
+-   modelpsfmatch
+-   objectsizestarsel
+-   processccd
+-   propvisitflags
+-   psfmatch
+-   readfitscat
+-   readtextcat
+-   safeclipassemble
+-   secondmomentstarsel
+-   singleframemeas
+-   sourcedet
+-   srcxform
+-   subtractbkgd
+-   snapcombine
+-   snappsfmatch
+-   xform
+-   template
+
 Brief description of image processing
 --------------------------------------
 
@@ -42,6 +89,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   install	      
    astrometry   
    assembleccd
    calibimg

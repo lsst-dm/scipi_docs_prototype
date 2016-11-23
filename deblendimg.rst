@@ -1,6 +1,10 @@
 
-Deblending an Image
+SourceDeblendTask
 ===================
+
+
+- `Doxygen link`_
+.. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1deblender_1_1deblend_1_1_source_deblend_task.html#SourceDeblendTask_
 
 
 Debugging
@@ -58,3 +62,9 @@ and properly set the footprint for each of these, which can be an
 involved process to not overlap any pixels etc. [is that what the long
 kids loop does?]  ]
 
+
+
+Examples
+++++++++
+
+None given.

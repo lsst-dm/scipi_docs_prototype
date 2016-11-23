@@ -19,9 +19,9 @@ AssembleCcdTask
 How to call with options/flags
 ++++++++++++++++++++++++++++++
 
-The primary method of this Task is *assembleCcd*.  If you follow the example below, *runAssembleTask.py*, you will find what it does in the *main* method is call another method *runAssembler*.  What this does in turn is set up the config params for the *assembleTask*, then initialize an *assembleTask* obj.
+The primary method of this Task is *assembleCcd*.  If you run the example below, *runAssembleTask.py*, you will find what it does in the *main* method is call another method inside of it, *runAssembler*.  What this does in turn is set up the config params for the *assembleTask* class, then initialize an *assembleTask* obj.
 
-It then shows you how this Task works for 2 situations: where there is no variation between a set of amps, and where there is.  In the case where there isn't, it simply makes up one img (an ExposureF obj, via the *makeAssemblyInput* method of the utility class *exampleUtils.py*, found in the same examples dir), and then passes it back.  If there is an actual set of amps, it makes a dict object, with the key being the amp name, and an ExposureF obj for each key, and passes this back.  Once back in *runAssembleTask.py*, it makes the final product, also an ExposureF obj, via::
+It then shows you how this Task works for 2 situations: where there is no variation between a set of amps, and where there is.  In the case where there isn't, it simply makes up one img (an ExposureF obj, via the utility class *exampleUtils.py*, found in the same examples dir; to construct this, first the *makeAssemblyInput* method of this class is called, which then calls *makeAmpInput* and finally the *makeExpFromIm* function), and then passes it back.  If there is an actual set of amps, it makes a dict object, with the key being the amp name, and the value being an ExposureF obj for each key, and passes this back.  Once back in *runAssembleTask.py*, it makes the final product, also an ExposureF obj, via::
 
             assembledExposure = assembleTask.assembleCcd(assemblyInput)
 
@@ -45,7 +45,7 @@ Examples
 
 This code is in runAssembleTask.py in the examples subdir (of $IP_ISR_DIR).
 
-(It runs fully successfully on the 4/2016 stack.)
+(It runs fully successfully on the 4/2016 stack -- though the current version is having probs with the 11/2016 stack, see Jira tikt DM-8355.)
 
 Specific functions of class
 +++++++++++++++++++++++++++

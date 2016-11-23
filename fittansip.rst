@@ -69,7 +69,9 @@ Fit a Wcs based on the matches and a guess Wcs
 Examples
 ++++++++
 
-FitTanSipWcsTask is a subtask of AstrometryTask, which is called by PhotoCalTask. See meas_photocal_photocal_Example.
+FitTanSipWcsTask is a subtask of AstrometryTask, which is called by photoCalTask.py in $PIPE_TASKS_DIR.
+
+
 
 
 What it returns

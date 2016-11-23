@@ -105,7 +105,7 @@ Match sources in icSourceCat (which is a source catalog from the *CharacterizeIm
 Examples
 ++++++++
 
-This code is in calibrateTask.py in the examples directory, and can be run as, e.g.:
+This code is in calibrateTask.py in the $PIPE_TASKS/examples directory, and can be run as, e.g.:
 
      python examples/calibrateTask.py --display
 
