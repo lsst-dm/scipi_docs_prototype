@@ -1,6 +1,7 @@
-# mssg changes: 11/16/2016
+# mssg changes -- start: 11/16/2016
 
 from lsst.ip.isr import AssembleCcdTask
+# import assembleCcdTask_fromIP_ISR_4_2016
 import lsst.afw.display.ds9 as ds9
 import exampleUtils_fromIsrExamplesDir
 import sys # mssg
@@ -21,22 +22,32 @@ def runAssembler():
     #2. On a single amp mosaic image
     #Both methods should produce the same output.
     for isPerAmp in (True, False):
-        print " &&&& isPerAmp = ", isPerAmp
-        print " \n\n ******************************** About to call exampleUtils_fromIsrExamplesDir.makeAssemblyInput(isPerAmp)"
+        print "\n\n &&&& isPerAmp = ", isPerAmp
+        print " \n ******************************** About to call exampleUtils_fromIsrExamplesDir.makeAssemblyInput(isPerAmp)"
         assemblyInput = exampleUtils_fromIsrExamplesDir.makeAssemblyInput(isPerAmp)
         print " \n *** Back in runAssembler, isPerAmp = ", isPerAmp
         print " assemblyInput = ", assemblyInput
-        print " \n\n ******** About to call assembleTask.assembleCcd(assemblyInput) " 
+        print " \n ******** About to call assembleTask.assembleCcd(assemblyInput) " 
+        ##### mssg: Getting a sense for what assemblyInput is, and probing values
+        if (isPerAmp == True):
+            ai = assemblyInput
+            print type(assemblyInput)
+            skeys = sorted(assemblyInput.keys())
+            print type(skeys), skeys
+            print type(skeys[0])
+            print ai['A:0,0']    
+        ###### sys.exit()
         assembledExposure = assembleTask.assembleCcd(assemblyInput)
         ae = assembledExposure
         print " \n *** assembledExposure = ", assembledExposure
         aemi = assembledExposure.getMaskedImage()
-        ds9.mtv(aemi, frame=frame, title="Per amp input is %s"%(isPerAmp))
-#        ds9.mtv(ae, frame=frame, title=" non-masked -- Per amp input is %s"%(isPerAmp))  # mssg - nothing dif
+#        ds9.mtv(aemi, frame=frame, title="Per amp input is %s"%(isPerAmp))
+#        ds9.mtv(ae, frame=frame, title=" non-masked -- Per amp input is %s"%(isPerAmp))  # mssg - i found nothing dif in the two ds9 displays
 
         print " \n ************* assembledExposure.getMaskedImage() = ", assembledExposure.getMaskedImage()
 
         frame += 1
+        print "\n framecounter = ", frame
 #        sys.exit()
         
 if __name__ == "__main__":
@@ -54,3 +65,4 @@ if __name__ == "__main__":
             print >> sys.stderr, e
     print " ****** About to call runAssembler"        
     runAssembler()
+    print " >>>>>>>>>>>>>>>>>> Done out over"

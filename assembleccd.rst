@@ -1,4 +1,7 @@
 
+
+3/4
+
 AssembleCcdTask
 =========================================
 
@@ -15,6 +18,16 @@ AssembleCcdTask
     
 How to call with options/flags
 ++++++++++++++++++++++++++++++
+
+The primary method of this Task is *assembleCcd*.  If you follow the example below, *runAssembleTask.py*, you will find what it does in the *main* method is call another method *runAssembler*.  What this does in turn is set up the config params for the *assembleTask*, then initialize an *assembleTask* obj.
+
+It then shows you how this Task works for 2 situations: where there is no variation between a set of amps, and where there is.  In the case where there isn't, it simply makes up one img (an ExposureF obj, via the *makeAssemblyInput* method of the utility class *exampleUtils.py*, found in the same examples dir), and then passes it back.  If there is an actual set of amps, it makes a dict object, with the key being the amp name, and an ExposureF obj for each key, and passes this back.  Once back in *runAssembleTask.py*, it makes the final product, also an ExposureF obj, via::
+
+            assembledExposure = assembleTask.assembleCcd(assemblyInput)
+
+Then *assembleCcd* knows how to put together the final obj, an ExposureF obj, testing for either case, and it passes this back.
+
+(And *runAssembleTask.py* then actually displays both imgs by default in a 2 frame ds9 window that it opens.)
 
 Debugging
 +++++++++ 
