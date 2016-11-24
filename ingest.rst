@@ -1,6 +1,9 @@
 Ingesting
 =========
 
+
+>>>> This is actually not on the Doxygen Task list page.
+
 The first thing a user needs to do to process any image is ingest data files on disk.
 
 The LSST DM Stack uses EUPS to manage the software packages and versions to be used, so we first take care of those commands.

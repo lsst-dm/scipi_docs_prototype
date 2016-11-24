@@ -25,24 +25,24 @@ Current Status
 --------------
 
 -   astrometry    ---- photoCalTask.py in pipetasks -- DOESN'T RUN properly
--   assembleccd   ---- runAssembleTask.py -- runs fine on old stack; covered at a decent level, needs cleanup
--   calibimg      ---- *calibrateTask.py -- runs fine on old stack - not on new one; needs covering
--   charimg       ---- *calibrateTask.py -- runs fine on old stack - not on new one; needs covering
+-   assembleccd   ---- runAssembleTask.py in ipisr -- runs fine on old stack; covered at a decent level, needs cleanup
+-   calibimg      ---- *calibrateTask.py in pipetasks -- runs fine on old stack - not on new one; needs covering
+-   charimg       ---- *calibrateTask.py in pipetasks -- runs fine on old stack - not on new one; needs covering
 -   coaddsrcxform ---- no example given
 -   diacat         ---- no example given
 -   decorrALkernel ---- *This task has no standalone example, however it is applied as a subtask of ImageDifferenceTask  
 -   deblendimg     ---- no example given
 -   detectcoaddsrcs ---- *The whole example is spelled out in some detail on the doxygen page.
--   dipolemeas     ---- * dipoleMeasTask.py -- has probs, doesn't run through on old or cur stack
+-   dipolemeas     ---- * dipoleMeasTask.py in ipdiffimg -- has probs, doesn't run through on old or cur stack
 -   examplecmdline  ---- *The whole example is on the doxygen page.
--   examplesigmaclippedstats
+-   examplesigmaclippedstats -- exampleStatsTask.py in pipetasks ; runs fine on old, needs afwdata on new
 -   examplesimplestats
 -   fittansip     ---- *this is exercised through photoCalTask.py in pipetasks-- which DOESN'T RUN properly
 -   forcedmeas     ----  no example given
 -   forcedsrcxform ---- no example given
--   imagepsfmatch  ----  *imagePsfMatchTask.py -- runs fine on old stack - and appears to on new one too 
--   ingest
--   installgaussianpsf --- 
+-   imagepsfmatch  ----  *imagePsfMatchTask.py in ipdiffimg -- runs fine on old stack - and appears to on new one too 
+-   ingest --- not on doxygen Task list page
+-   installgaussianpsf --- installGaussian.exx.py in exx dir (made off doxygen page) -- executes fine, old and new
 -   isrtask        ---- *runIsrTask.py --  runs fine on old stack - not on new one; needs covering
 -   loadastrom --- *this is exercised through photoCalTask.py in pipetasks -- which DOESN'T RUN properly
 -   loadrefobjects --- none
@@ -108,7 +108,6 @@ Contents:
    forcedsrcxform
    imagepsfmatch
    ingest
-   install
    installgaussianpsf
    isrtask
    loadastrom
