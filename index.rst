@@ -24,7 +24,7 @@ to do the install, see the first link in the 'Contents' below.
 Current Status
 --------------
 
--   astrometry    ---- photoCalTask.py -- DOESN'T RUN properly
+-   astrometry    ---- photoCalTask.py in pipetasks -- DOESN'T RUN properly
 -   assembleccd   ---- runAssembleTask.py -- runs fine on old stack; covered at a decent level, needs cleanup
 -   calibimg      ---- *calibrateTask.py -- runs fine on old stack - not on new one; needs covering
 -   charimg       ---- *calibrateTask.py -- runs fine on old stack - not on new one; needs covering
@@ -37,21 +37,21 @@ Current Status
 -   examplecmdline  ---- *The whole example is on the doxygen page.
 -   examplesigmaclippedstats
 -   examplesimplestats
--   fittansip     ---- *this is exercised through photoCalTask.py -- which DOESN'T RUN properly
+-   fittansip     ---- *this is exercised through photoCalTask.py in pipetasks-- which DOESN'T RUN properly
 -   forcedmeas     ----  no example given
 -   forcedsrcxform ---- no example given
 -   imagepsfmatch  ----  *imagePsfMatchTask.py -- runs fine on old stack - and appears to on new one too 
 -   ingest
--   installgaussianpsf
+-   installgaussianpsf --- 
 -   isrtask        ---- *runIsrTask.py --  runs fine on old stack - not on new one; needs covering
--   loadastrom
--   loadrefobjects
--   measureapcorr
--   measuremergedcoaddsrcs
--   mergedets
--   mergemeasts
--   modelpsfmatch
--   objectsizestarsel
+-   loadastrom --- *this is exercised through photoCalTask.py in pipetasks -- which DOESN'T RUN properly
+-   loadrefobjects --- none
+-   measureapcorr --- none given
+-   measuremergedcoaddsrcs --- exx on page, but needs some prereqs first
+-   mergedets --- exx on page, but needs some prereqs first
+-   mergemeasts --- exx on page, but needs some prereqs first
+-   modelpsfmatch --- modelPsfMatchTask.py  in ipdiffimg; works fine on old and new
+-   objectsizestarsel --- none
 -   processccd  --- on old, immediate prob with setup obs_test: 'Unable to find an acceptable version of obs_test', same for pipe_tasks - but the actual script does run through! ; one listed on the doxygen page works all the way straight through on new code.
 -   propvisitflags --- minimal exx on page, but it has some prereqs, doesn't work right off
 -   psfmatch --- no code for this, they say to look at the other \*match codes
