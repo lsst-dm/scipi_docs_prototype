@@ -83,6 +83,8 @@ Initialise the detection procedure by setting the PSF and WCS
 Examples
 ++++++++
 
+None Given.
+
 What it returns
 +++++++++++++++
 

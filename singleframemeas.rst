@@ -2,6 +2,9 @@
 SingleFrameMeasurementTask
 ===========================
 
+- `Doxygen link`_
+.. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1base_1_1sfm_1_1_single_frame_measurement_task.html#SingleFrameMeasurementTask_
+
 A subtask for measuring the properties of sources on a single exposure.
 
 The task is configured with a list of "plugins": each plugin defines

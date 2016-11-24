@@ -52,20 +52,20 @@ Current Status
 -   mergemeasts
 -   modelpsfmatch
 -   objectsizestarsel
--   processccd
--   propvisitflags
--   psfmatch
--   readfitscat
--   readtextcat
--   safeclipassemble
--   secondmomentstarsel
--   singleframemeas
--   sourcedet
--   srcxform
--   subtractbkgd
--   snapcombine
--   snappsfmatch
--   xform
+-   processccd  --- on old, immediate prob with setup obs_test: 'Unable to find an acceptable version of obs_test', same for pipe_tasks - but the actual script does run through! ; one listed on the doxygen page works all the way straight through on new code.
+-   propvisitflags --- minimal exx on page, but it has some prereqs, doesn't work right off
+-   psfmatch --- no code for this, they say to look at the other \*match codes
+-   readfitscat --- old stack: the readfitscat code is not in measalg, is it moved..?
+-   readtextcat --- old stack: the readtxtcat code is not in measalg, is it moved..?
+-   safeclipassemble --- assembleCoadd.py --- ??? this is in the main pipetasks dir, and isn't an exx..?
+-   secondmomentstarsel -- None given..
+-   singleframemeas --  runSingleFrameTask.py* in measbase - works fine on old, not on new 
+-   sourcedet --- measAlgTasks.py in measalg - old doesn't work, new needs afwdata
+-   srcxform --- none
+-   subtractbkgd ---  subtractBackgroundExample.py in measalg -- doesn't exist in old (??), needs afwdata for new
+-   snapcombine --- none
+-   snappsfmatch  --- snapPsfMatchTask.py in ipdiffim -- works old and new
+-   xform --- none
 -   template
 
 Brief description of image processing

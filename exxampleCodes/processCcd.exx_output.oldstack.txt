@@ -1,0 +1,53 @@
+For: processCcd.py $OBS_TEST_DIR/data/input --output processCcdOut --id
+
+: Loading config overrride file '/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/obs_test/2016_01.0-3-gafa6dd0+7/config/processCcd.py'
+: Config override file does not exist: '/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/obs_test/2016_01.0-3-gafa6dd0+7/config/test/processCcd.py'
+: input=/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/obs_test/2016_01.0-3-gafa6dd0+7/data/input
+: calib=None
+: output=/Users/m/fizzAndAstro/lsst/lsstsw/ci_hsc/processCcdOut
+CameraMapper: Loading registry registry from /Users/m/fizzAndAstro/lsst/lsstsw/ci_hsc/processCcdOut/_parent/registry.sqlite3
+CameraMapper: Loading registry registry from /Users/m/fizzAndAstro/lsst/lsstsw/ci_hsc/processCcdOut/_parent/registry.sqlite3
+processCcd: Processing {'filter': 'g', 'visit': 1}
+processCcd.isr: Performing ISR on sensor {'filter': 'g', 'visit': 1}
+: Empty WCS extension, using FITS header
+: Empty WCS extension, using FITS header
+processCcd.charImage: Processing {'filter': 'g', 'visit': 1}
+processCcd.charImage.repair: Identified 0 cosmic rays.
+processCcd.charImage.detectAndMeasure.detection: Detected 28 positive sources to 50 sigma.
+processCcd.charImage.detectAndMeasure.detection: Resubtracting the background after object detection
+processCcd.charImage.detectAndMeasure.measurement: Measuring 28 sources (28 parents, 0 children) 
+processCcd.charImage.measurePsf: Measuring PSF
+/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/meas_algorithms/2016_01.0-9-g3ec4b9e+3/python/lsst/meas/algorithms/objectSizeStarSelector.py:135: RuntimeWarning: invalid value encountered in less
+  update = dist < minDist
+processCcd.charImage.measurePsf: PSF star selector found 10 candidates
+processCcd.charImage.measurePsf: PSF determination using 5/10 stars.
+processCcd.charImage: iter 1; PSF sigma=1.58, dimensions=(27, 27); median background=191.50
+processCcd.charImage.repair: Identified 0 cosmic rays.
+processCcd.charImage.detectAndMeasure.detection: Detected 28 positive sources to 50 sigma.
+processCcd.charImage.detectAndMeasure.detection: Resubtracting the background after object detection
+processCcd.charImage.detectAndMeasure.measurement: Measuring 28 sources (28 parents, 0 children) 
+processCcd.charImage.measurePsf: Measuring PSF
+processCcd.charImage.measurePsf: PSF star selector found 10 candidates
+processCcd.charImage.measurePsf: PSF determination using 5/10 stars.
+processCcd.charImage: iter 2; PSF sigma=1.58, dimensions=(27, 27); median background=191.50
+processCcd.charImage.repair: Identified 0 cosmic rays.
+processCcd.charImage.detectAndMeasure.measurement: Measuring 28 sources (28 parents, 0 children) 
+processCcd.charImage.detectAndMeasure.measureApCorr: Measuring aperture corrections for 2 flux fields
+processCcd.charImage.detectAndMeasure.measureApCorr: Aperture correction for base_PsfFlux: RMS 0.006751 from 5
+processCcd.charImage.detectAndMeasure.measureApCorr: Aperture correction for base_GaussianFlux: RMS 0.002078 from 5
+processCcd.charImage.detectAndMeasure.measurement: Measuring 28 sources (28 parents, 0 children) 
+processCcd.charImage.detectAndMeasure.measurement.applyApCorr: Applying aperture corrections to 2 flux fields
+processCcd.charImage.detectAndMeasure.measurement.applyApCorr: Use naive flux sigma computation
+processCcd.calibrate: Processing {'filter': 'g', 'visit': 1}
+processCcd.calibrate.detectAndMeasure.detection: Detected 158 positive sources to 5 sigma.
+processCcd.calibrate.detectAndMeasure.detection: Resubtracting the background after object detection
+processCcd.calibrate.detectAndMeasure.deblend: Deblending 158 sources
+processCcd.calibrate.detectAndMeasure.deblend: Deblended: of 158 sources, 12 were deblended, creating 27 children, total 185 sources
+processCcd.calibrate.detectAndMeasure.measurement: Measuring 185 sources (158 parents, 27 children) 
+/Users/m/fizzAndAstro/lsst/lsstsw/miniconda/lib/python2.7/site-packages/numpy/core/_methods.py:59: RuntimeWarning: Mean of empty slice.
+  warnings.warn("Mean of empty slice.", RuntimeWarning)
+/Users/m/fizzAndAstro/lsst/lsstsw/miniconda/lib/python2.7/site-packages/numpy/core/_methods.py:70: RuntimeWarning: invalid value encountered in true_divide
+  ret = ret.dtype.type(ret / rcount)
+processCcd.calibrate.detectAndMeasure.measurement.applyApCorr: Applying aperture corrections to 2 flux fields
+processCcd.calibrate.detectAndMeasure.measurement.applyApCorr: Use naive flux sigma computation
+processCcd.calibrate: Copying flags from icSourceCat to sourceCat for 28 sources

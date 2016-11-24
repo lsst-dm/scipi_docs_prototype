@@ -2,6 +2,11 @@
 SafeClipAssembleCoaddTask
 =========
 
+
+- `Doxygen link`_
+.. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1assemble_coadd_1_1_safe_clip_assemble_coadd_task.html#SafeClipAssembleCoaddTask_
+
+
 Assemble a coadded image from a set of coadded temporary exposures, being careful to clip & flag areas with potential artifacts.
 
 Read the documentation for AssembleCoaddTask first since SafeClipAssembleCoaddTask subtasks that task. In AssembleCoaddTask, we compute the coadd as an clipped mean (i.e. we clip outliers). The problem with doing this is that when computing the coadd PSF at a given location, individual visit PSFs from visits with outlier pixels contribute to the coadd PSF and cannot be treated correctly. In this task, we correct for this behavior by creating a new badMaskPlane 'CLIPPED'. We populate this plane on the input coaddTempExps and the final coadd where i. difference imaging suggests that there is an outlier and ii. this outlier appears on only one or two images. Such regions will not contribute to the final coadd. Furthermore, any routine to determine the coadd PSF can now be cognizant of clipped regions. Note that the algorithm implemented by this task is preliminary and works correctly for HSC data. Parameter modifications and or considerable redesigning of the algorithm is likley required for other surveys.

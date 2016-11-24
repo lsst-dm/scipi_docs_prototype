@@ -1,6 +1,11 @@
 Processing a CCD
 ================
 
+
+- `Doxygen link`_
+.. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1process_ccd_1_1_process_ccd_task.html#ProcessCcdTask_
+
+
 Next, we will look at the actual steps of how an image is processed
 from raw data to a science-grade image that can be used in analyses.
 
@@ -112,3 +117,7 @@ Now the most general outline of the steps processCcd takes:
    detection, deblending and single-frame measurement, refine the WCS
    and fit the photometric zero-points.
 
+Examples
+---------
+
+The one listed on the doxygen page works all the way straight through on tiger.

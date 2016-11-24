@@ -50,6 +50,10 @@ def loadData(pixelScale=1.0):
 
     # Load sample input from disk
     mypath = lsst.utils.getPackageDir('afwdata')
+ 
+    print(" mypath = ", mypath) # mssg -- error happens before i can even possibly print this                                                                  
+#    sys.exit()
+
     imFile = os.path.join(mypath, "CFHT", "D4", "cal-53535-i-797722_small_1.fits")
 
     exposure = afwImage.ExposureF(imFile)
