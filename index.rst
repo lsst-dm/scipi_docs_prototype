@@ -97,7 +97,6 @@ Contents:
    coaddsrcxform
    diacat
    decorrALkernel
-   deblendimg
    detectcoaddsrcs
    dipolemeas
    examplecmdline
@@ -126,6 +125,7 @@ Contents:
    safeclipassemble
    secondmomentstarsel
    singleframemeas
+   srcdeblendimg
    sourcedet
    srcxform
    subtractbkgd

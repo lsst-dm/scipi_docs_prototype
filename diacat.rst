@@ -2,6 +2,10 @@
 DiaCatalogSourceSelectorTask
 =============================
 
+- `Doxygen link`_
+.. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1diffim_1_1dia_catalog_source_selector_1_1_dia_catalog_source_selector_task.html#DiaCatalogSourceSelectorTask_
+
+
 A naive star selector based on second moments. Use with caution.
 
 [Yes, that's it, on the doxygen page.]

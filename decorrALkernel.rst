@@ -2,6 +2,11 @@
 DecorrelateALKernelTask
 ========================
 
+
+- `Doxygen link`_
+.. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1diffim_1_1image_decorrelation_1_1_decorrelate_a_l_kernel_task.html#DecorrelateALKernelTask_
+
+
 Decorrelate the effect of convolution by Alard-Lupton matching kernel in image difference. 
 
 Pipe-task that removes the neighboring-pixel covariance in an image
