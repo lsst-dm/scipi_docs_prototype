@@ -7,6 +7,7 @@ SnapCombineTask
 - `Doxygen link`_
 .. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1snap_combine_1_1_snap_combine_task.html#SnapCombineTask_
 
+Combine snaps.
 
 How to call with options/flags
 ++++++++++++++++++++++++++++++

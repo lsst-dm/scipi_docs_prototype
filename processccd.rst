@@ -1,4 +1,4 @@
-Processing a CCD
+ProcessCCD
 ================
 
 

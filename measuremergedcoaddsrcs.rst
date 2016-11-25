@@ -6,7 +6,7 @@ MeasureMergedCoaddSourcesTask
 - `Doxygen link`_
 .. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1multi_band_1_1_measure_merged_coadd_sources_task.html#MeasureMergedCoaddSourcesTask_
 
-Deblend sources from master catalog in each coadd seperately and measure. 
+Deblend sources from master catalog in each coadd separately and measure. 
 
 Command-line task that uses peaks and footprints from a master catalog to perform deblending and measurement in each coadd.
 
