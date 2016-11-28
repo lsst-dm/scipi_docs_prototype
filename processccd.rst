@@ -123,4 +123,9 @@ Now the most general outline of the steps processCcd takes:
 Examples
 ---------
 
-The one listed on the doxygen page works all the way straight through on tiger.
+The one listed on the doxygen page works all the way straight through
+on the old stack including all my print statements.  However, my print
+statements cause some prob with the version on tiger of the form
+below (in all 3 of the pipetask codes).  The orig version works though.
+
+(ImportError: No module named detectAndMeasure)

@@ -22,21 +22,21 @@ Functional Framework
 
 - `Multiple CCD Img processing`_
 
----------------------------------------------- `Img proc`_
+---------------------------------------------- `Img processing`_
 
-- `PSF matching and proc`_
+- `PSF matching and processing`_
 
-- `Extracting srcs`_
+- `Extracting sources`_
 
-- `Functions to extract srcs from a single processed CCD`_
+- `Functions to extract sources from a single processed CCD`_
 
--  `Functions to extract srcs from a coadded exp`_
+-  `Functions to extract sources from a coadded exp`_
   
----------------------------------------------- `Post-catalog proc`_
+---------------------------------------------- `Post-catalog processing`_
 
 - `Basic catalog functions`_
 
-- `Properties of srcs`_
+- `Properties of sources`_
 
 - `Single exps`_
 
@@ -65,13 +65,10 @@ Functions that would be called to process single raw CCDs
 
 - \+ IsrTask- Instrumental Signature Removal (ISR) is a sequence of steps taken to ‘clean’ images of various aspects of defects that any system of optics and detectors will imprint on an image by default. 
 
-
-
+- ~ CharImg -- Detect and measure bright sources on an exp, repair cosmic rays, measure and subtract background, measure the PSF
 
 - \+ CalibTask -- Run detectAndMeasure subtask on an exp to peform deep detection and measurement, run astrometry subtask to fit an improved WCS, and run photoCal subtask to fit the exposure’s photometric zero-point
 
-
-- ~ CharImg -- Detect and measure bright sources on an exp, repair cosmic rays, measure and subtract background, measure the PSF
 
 
 - ? SubtractBackgroundTask -- Fit a model of the background of an exposure and subtract it.
@@ -94,11 +91,11 @@ Multiple CCD Img processing
 
 ---------------------------------------------------
 
-Img proc
+Img processing
 --------
 
 
-PSF matching and proc
+PSF matching and processing
 +++++++++++++++++++++
 
 - ++ InstallGaussianPsfTask -- Install a Gaussian PSF model in an exposure.
@@ -118,18 +115,18 @@ PSF matching and proc
 - \+ SnapPsfMatchTask -- This Task differs from ImagePsfMatchTask in that it matches two Exposures assuming that the images have been acquired very closely in time. 
 
 
-Extracting srcs
+Extracting sources
 ++++++++++++++++
 
 
-Functions to extract srcs from a single processed CCD
+Functions to extract sources from a single processed CCD
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 - ? SourceDetectionTask --  Detect positive and negative sources on an exposure and return a new table.SourceCatalog.
 
  
-Functions to extract srcs from a coadded exp
+Functions to extract sources from a coadded exp
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - \+ DetectCoaddSourcesTask -- Command-line task that detects sources on a coadd of exposures obtained with a single filter.
@@ -137,7 +134,7 @@ Functions to extract srcs from a coadded exp
 
 ---------------------------------------------
 
-Post-catalog proc
+Post-catalog processing
 -----------------
 
 
@@ -150,7 +147,7 @@ Basic catalog functions
 
 
 
-Properties of srcs
+Properties of sources
 +++++++++++++++++++
 
 
@@ -209,13 +206,13 @@ Higher level, or unclear ones , for later
 -----------------------------------------
 
 
-- \- CoaddSrcTransformTask --Transform measuremenents made on coadds to calibrated form. This is a specialization of RunTransformTaskBase which operates on measurements made on coadds. Refer to the parent documentation for details.
+- \- CoaddSourceTransformTask --Transform measuremenents made on coadds to calibrated form. This is a specialization of RunTransformTaskBase which operates on measurements made on coadds. Refer to the parent documentation for details.
 
 
 - \- DecorrelateALKernelTask -- Decorrelate the effect of convolution by Alard-Lupton matching kernel in image difference.
 
 
-- \-  ForcedSrcTransformTask -- Transform forced_src measuremenents to calibrated form.
+- \-  ForcedSourceTransformTask -- Transform forced_source measuremenents to calibrated form.
 
 
 - \- LoadReferenceObjectsTask -- Abstract base class for tasks that load objects from a reference catalog in a particular region of the sky.
@@ -229,7 +226,7 @@ Higher level, or unclear ones , for later
 
 - ++ ReadTextCatalogTask --Read an object catalog from a text file.
 
--  \- SrcTransformTask -- Transform src measuremenents to calibrated form.
+-  \- SourceTransformTask -- Transform source measuremenents to calibrated form.
 
 
 - \- TransformTask -- Transform a SourceCatalog containing raw measurements to calibrated form.
