@@ -127,6 +127,8 @@ class ProcessCcdTask(pipeBase.CmdLineTask):
     _DefaultName = "processCcd"
 
     def __init__(self, **kwargs):
+        print "In processccd init" # mssg
+        sys.exit()
         pipeBase.CmdLineTask.__init__(self, **kwargs)
         self.makeSubtask("isr")
         self.makeSubtask("charImage")

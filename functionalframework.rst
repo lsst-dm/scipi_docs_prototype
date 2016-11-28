@@ -60,7 +60,7 @@ Processing CCDs
 Functions that would be called to process single raw CCDs
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-- \+ ProcessCCD -- Does the  actual steps of how an image is processed from raw data to a science-grade image that can be used in analyses.  Calls the 3 main tasks below.
+- \++ ProcessCCD -- Does the  actual steps of how an image is processed from raw data to a science-grade image that can be used in analyses.  Calls the 3 main tasks below.
 
 
 - \+ IsrTask- Instrumental Signature Removal (ISR) is a sequence of steps taken to ‘clean’ images of various aspects of defects that any system of optics and detectors will imprint on an image by default. 
