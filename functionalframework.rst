@@ -22,7 +22,11 @@ Functional Framework
 
 - `Multiple CCD Image processing`_
 
+<<<<<<< HEAD
 ---------------------------------------------- `Image processing`_
+=======
+---------------------------------------------- `Img processing`_
+>>>>>>> f04f8c683118aace31667b08a0df05fcb9f9bae3
 
 - `PSF matching and processing`_
 
@@ -65,13 +69,10 @@ Functions that would be called to process single raw CCDs
 
 - \+ IsrTask- Instrumental Signature Removal (ISR) is a sequence of steps taken to ‘clean’ images of various aspects of defects that any system of optics and detectors will imprint on an image by default. 
 
-
-
+- ~ CharImg -- Detect and measure bright sources on an exp, repair cosmic rays, measure and subtract background, measure the PSF
 
 - \+ CalibTask -- Run detectAndMeasure subtask on an exp to peform deep detection and measurement, run astrometry subtask to fit an improved WCS, and run photoCal subtask to fit the exposure’s photometric zero-point
 
-
-- ~ CharImg -- Detect and measure bright sources on an exp, repair cosmic rays, measure and subtract background, measure the PSF
 
 
 - ? SubtractBackgroundTask -- Fit a model of the background of an exposure and subtract it.
@@ -94,7 +95,11 @@ Multiple CCD Image processing
 
 ---------------------------------------------------
 
+<<<<<<< HEAD
 Image processing
+=======
+Img processing
+>>>>>>> f04f8c683118aace31667b08a0df05fcb9f9bae3
 --------
 
 

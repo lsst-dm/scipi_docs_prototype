@@ -2,6 +2,7 @@
 ..
  measure faint sources, fit an improved WCS and get the photometric zero-point
 
+2/4
 
 CalibrateTask
 =====================
