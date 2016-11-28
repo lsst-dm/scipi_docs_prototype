@@ -241,6 +241,9 @@ class CharacterizeImageTask(pipeBase.CmdLineTask):
         @param[in,out] schema  initial schema (an lsst.afw.table.SourceTable), or None
         @param[in,out] kwargs  other keyword arguments for lsst.pipe.base.CmdLineTask
         """
+
+        print " \n ******* Now in the charImg init function " #mg
+        
         pipeBase.CmdLineTask.__init__(self, **kwargs)
         if schema is None:
             schema = SourceTable.makeMinimalSchema()
@@ -280,6 +283,8 @@ class CharacterizeImageTask(pipeBase.CmdLineTask):
 
         @return same data as the characterize method
         """
+
+        print " \n ******* Now in the charImg run function " #mg
         self._frame = self._initialFrame # reset debug display frame
         self.log.info("Processing %s" % (dataRef.dataId))
 
@@ -304,6 +309,8 @@ class CharacterizeImageTask(pipeBase.CmdLineTask):
                 dataRef.put(charRes.exposure, "icExp")
                 dataRef.put(charRes.background, "icExpBackground")
 
+        print " \n ******* charRes = " , charRes # mg
+        print " \n ******* Now exiting the charImg run function " #mg
         return charRes
 
     @pipeBase.timeMethod
@@ -335,6 +342,8 @@ class CharacterizeImageTask(pipeBase.CmdLineTask):
         - background: model of background subtracted from exposure (an lsst.afw.math.BackgroundList)
         - psfCellSet: spatial cells of PSF candidates (an lsst.afw.math.SpatialCellSet)
         """
+
+        print " \n ******* Now in the charImg char function " #mg
         self._frame = self._initialFrame # reset debug display frame
 
         if not self.config.doMeasurePsf and not exposure.hasPsf():

@@ -24,6 +24,9 @@ import lsst.pex.config as pexConfig
 import lsst.pipe.base as pipeBase
 from .calibrate import CalibrateTask
 from .characterizeImage import CharacterizeImageTask
+import sys # mg
+import pdb # mg
+import os # mg
 
 __all__ = ["ProcessCcdConfig", "ProcessCcdTask"]
 
@@ -126,12 +129,18 @@ class ProcessCcdTask(pipeBase.CmdLineTask):
     ConfigClass = ProcessCcdConfig
     _DefaultName = "processCcd"
 
+    os.system("clear"); # mg
+    
+    print " \n ****** Starting -- in processCcd in pipetasks dir" # mg
+
     def __init__(self, **kwargs):
+        print " \n ****** In processCcd: defining the init function" # mg
         pipeBase.CmdLineTask.__init__(self, **kwargs)
         self.makeSubtask("isr")
         self.makeSubtask("charImage")
         self.makeSubtask("calibrate", icSourceSchema=self.charImage.schema)
-
+        print " \n ****** In processCcd: finished defining the init function" # mg
+        
     @pipeBase.timeMethod
     def run(self, sensorRef):
         """Process one CCD
@@ -151,9 +160,13 @@ class ProcessCcdTask(pipeBase.CmdLineTask):
         - exposure: final exposure (an lsst.afw.image.ExposureF)
         - background: final background model (an lsst.afw.math.BackgroundList)
         """
+
+        print " \n ******* Now in the processCcd run function " #mg
+        
         self.log.info("Processing %s" % (sensorRef.dataId))
 
         exposure = self.isr.runDataRef(sensorRef).exposure
+        sys.exit()
 
         charRes = self.charImage.run(
             dataRef = sensorRef,
