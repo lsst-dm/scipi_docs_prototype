@@ -90,6 +90,7 @@ Contents:
    :maxdepth: 2
 	      
    functionalframework	      
+   eppoNotes
    install	      
    astrometry   
    assembleccd

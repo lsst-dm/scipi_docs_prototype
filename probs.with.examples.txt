@@ -1,0 +1,98 @@
+
+
+Problem running photoCalTask.py example script from $PIPE_TASKS_DIR/examples
+
+hi all- as part of my writing documentation for various DM Tasks, I'm working through some of the examples in the Tasks (as listed on the doxygen pages), and though some work straight off, others are not doing so, and I'm posting one of the first of those here in case it's a real issue.  The photoCalTask.py example script is supposed to exercise at least both AstrometryTask and FitTanSipWcsTask.
+
+Also NB: I'm testing on 2 versions of the stack, an old one (from April 2016) and a recent one, so in case it helps diagnose any, I'll give both versions of the errors I'm finding.  
+
+So, on the Princeton Tiger-Sumire machine, after doing:
+
+```source /tigress/HSC/LSST/stack_20160915/eups/bin/setups.sh
+setup miniconda2
+setup lsst_apps ```
+
+doing out of the box `python photoCalTask.py` (this is using python ver 2.7.11) yields on the current stack:
+
+``` CameraMapper INFO: Unable to locate registry registry in root: /tigress/HSC/LSST/stack_20160915/Linux64/meas_astrom/12.1-3-gb143333+21/tests/data/sdssrefcat/registry.sqlite3
+CameraMapper INFO: Unable to locate registry registry in current dir: ./registry.sqlite3
+CameraMapper INFO: Loading Posix registry from /tigress/HSC/LSST/stack_20160915/Linux64/meas_astrom/12.1-3-gb143333+21/tests/data/sdssrefcat
+Adding columns to the source catalogue
+LoadIndexedReferenceObjectsTask INFO: Loading reference objects using center (1023.5, 2305.5) pix = Fk5Coord(215.5935957, 53.0687594, 2000.00) sky and radius 0.133712386891 deg
+LoadIndexedReferenceObjectsTask INFO: Loaded 566 reference objects
+astrometricSolver.matcher INFO: filterStars purged 0 reference stars, leaving 566 stars
+astrometricSolver.matcher INFO: Purged 0 unusable sources, leaving 337 usable sources
+astrometricSolver.matcher INFO: Matched 268 sources
+astrometricSolver.matcher INFO: filterStars purged 0 reference stars, leaving 566 stars
+astrometricSolver.matcher INFO: Purged 0 unusable sources, leaving 337 usable sources
+astrometricSolver.matcher INFO: Matched 247 sources
+astrometricSolver.matcher INFO: filterStars purged 0 reference stars, leaving 566 stars
+astrometricSolver.matcher INFO: Purged 0 unusable sources, leaving 337 usable sources
+astrometricSolver.matcher INFO: Matched 237 sources
+astrometricSolver INFO: Matched and fit WCS in 3 iterations; found 237 matches with scatter = 0.106 +- 0.073 arcsec
+photoCal INFO: Not applying color terms because config.applyColorTerms is False
+photoCal INFO: Magnitude zero point: 31.325627 +/- 0.000303 from 55 stars
+Used 57 calibration sources out of 237 matches
+RMS error is 0.062mmsg (robust 0.054, Calib says 0.000) ```
+
+
+----------------------------------------
+
+
+Problem running calibTask.py example script from $PIPE_TASKS_DIR/examples
+
+hi all- as part of my writing documentation for various DM Tasks, I'm working through some of the examples in the Tasks (as listed on the doxygen pages), and though some work straight off, others are not doing so, and I'm posting one of the first of those here in case it's a real issue.  The calibTask.py example script is supposed to exercise both CalibTask and CharacterizeImageTask.
+
+Also NB: I'm testing on 2 versions of the stack, a very old local one (from April 2016) and a recent one, which is the one that matters most, so that's the one from which I'll report the error.  (In this case, the example actually runs fine locally).
+
+
+So, on the Princeton Tiger-Sumire machine, after logging in and doing:
+
+```source /tigress/HSC/LSST/stack_20160915/eups/bin/setups.sh
+setup miniconda2
+setup lsst_apps ```
+
+then going to $PIPE_TASKS_DIR/examples and running out of the box `python photoCalTask.py` (this uses by default python ver 2.7.11 btw), yields the below, which indicates some problem with a file possibly being moved?  (The schema subdir in fact doesn't exist at all).
+
+------------------ Output:
+
+```
+Traceback (most recent call last):
+  File "calibrateTask.py", line 175, in <module>
+    run(display=args.display)
+  File "calibrateTask.py", line 128, in run
+    calibrateTask = CalibrateTask(butler, config=config)
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/pipe_tasks/12.1-10-gcf06047+5/python/lsst/pipe/tasks/calibrate.py", line 279, in __init__
+    icSourceSchema = butler.get("icSrc_schema", immediate=True).schema
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/daf_persistence/12.1-11-gb70df55+1/python/lsst/daf/persistence/butler.py", line 749, in get
+    return callback()
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/daf_persistence/12.1-11-gb70df55+1/python/lsst/daf/persistence/butler.py", line 744, in <lambda>
+    callback = lambda: self._read(location)
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/daf_persistence/12.1-11-gb70df55+1/python/lsst/daf/persistence/butler.py", line 888, in _read
+    results = location.repository.read(location)
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/daf_persistence/12.1-11-gb70df55+1/python/lsst/daf/persistence/repository.py", line 152, in read
+    return self._storage.read(butlerLocation)
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/daf_persistence/12.1-11-gb70df55+1/python/lsst/daf/persistence/posixStorage.py", line 276, in read
+    raise RuntimeError("No such FITS catalog file: " + logLoc.locString())
+RuntimeError: No such FITS catalog file: /tigress/HSC/LSST/stack_20160915/Linux64/obs_test/12.1-9-g3e397f1+2/data/input/schema/icSrc.fits
+{tiger-sumire:/tigress/HSC/LSST/stack_20160915/Linux64/pipe_tasks/12.1-10-gcf06047+5/examples}py calibrateTask.py 
+Traceback (most recent call last):
+  File "calibrateTask.py", line 175, in <module>
+    run(display=args.display)
+  File "calibrateTask.py", line 128, in run
+    calibrateTask = CalibrateTask(butler, config=config)
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/pipe_tasks/12.1-10-gcf06047+5/python/lsst/pipe/tasks/calibrate.py", line 279, in __init__
+    icSourceSchema = butler.get("icSrc_schema", immediate=True).schema
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/daf_persistence/12.1-11-gb70df55+1/python/lsst/daf/persistence/butler.py", line 749, in get
+    return callback()
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/daf_persistence/12.1-11-gb70df55+1/python/lsst/daf/persistence/butler.py", line 744, in <lambda>
+    callback = lambda: self._read(location)
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/daf_persistence/12.1-11-gb70df55+1/python/lsst/daf/persistence/butler.py", line 888, in _read
+    results = location.repository.read(location)
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/daf_persistence/12.1-11-gb70df55+1/python/lsst/daf/persistence/repository.py", line 152, in read
+    return self._storage.read(butlerLocation)
+  File "/tigress/HSC/LSST/stack_20160915/Linux64/daf_persistence/12.1-11-gb70df55+1/python/lsst/daf/persistence/posixStorage.py", line 276, in read
+    raise RuntimeError("No such FITS catalog file: " + logLoc.locString())
+RuntimeError: No such FITS catalog file: /tigress/HSC/LSST/stack_20160915/Linux64/obs_test/12.1-9-g3e397f1+2/data/input/schema/icSrc.fits
+```
+
