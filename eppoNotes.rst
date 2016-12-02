@@ -387,14 +387,155 @@ There are many topic types that don’t fall into the task or reference categori
 This is certainly not the approach advocated in Information Mapping. 
 
 
+Chapter 10. EPPO Topics Establish their Context
 ------------------------
+
+Because readers may come from anywhere, and often arrive at a topic through an imprecise mechanism such as a Google search, a topic should clearly establish its context in the subject domain. As noted in Chapter 6, What is a Topic?, the scent of information is key to the information forager finding your content. Properly establishing the context of your topic in the real world is a key part of making it smell right.
+
+If you have ever landed in the middle of a help system from a search and found that you have no idea where you are, you have experienced the lack of context that so many topics exhibit.
+
+------------ 10.1. Establishing context
+
+***** A self-contained topic must establish its context, and readers must be able to come to it from anywhere and know where they have arrived. Most Every Page is Page One topics orient themselves quickly. A lead paragraph of a sentence or two often suffices to set the scene for what is to come.
+
+Putting a topic in context means locating the subject of the topic in the real world. Placing an Up to TOC link on a topic does not place that topic in context.
+
+There are many mechanisms you can use to establish context. A good title is a great start. A succinct, context-setting first paragraph, as in Figure 10.2, “Context-setting example”, is also important.
+
+***** Another way to establish context is to use a graphic.
+
+Metadata[20] is yet another mechanism for establishing context. A good example of this the entry for the Blue-Footed Booby from All About Birds (see Figure 10.4, “Blue-Footed Booby”). The place of the Blue-Footed Booby in the Linnaean taxonomy of animals is shown as part of the frame around the content. 
+
+
+
+
+
+
+------------ 10.2. Context and the imprecision of search
+
+When you find documentation on the Web, search will sometimes land you in the documentation for a different version of a product than the version you own. There are two problems here. First, in burst-book content, an individual page may not identify which version of the product it applies to. Secondly, if you land on a page for the wrong version, there may be no convenient way to get to the equivalent page for the right version.
+
+Atlassian handles this very well in the Confluence documentation.  If you hit a page that is not for the current version, you get a banner at the top of the page advising you of this and a link to the same page in the current documentation
+
+The Wikipedia article about Ottawa (Figure 10.3, “Wikipedia article on Ottawa”) has another nice context-setting feature that I think should be imitated in every large content set. If a word has more than one meaning within the content set (in this case, if there is more than one item in the encyclopedia with the name Ottawa), then there is a disambiguation line above the content that states which article this one is and offers a link to a list of the other articles on this subject.
+
+This highlights a problem Google and other search engines have. They always return the most popular results. After all, that’s what they are designed to do. However, this means that less common subjects that happen to share terminology with more common subjects get pushed far down in the search results. You need significant search skills to compose a search string to get the results you need. But with Wikipedia, you don’t need those skills, because you can browse the more obscure topics right at the top of the most popular topic. This is the sort of thing we should all be doing.
+
+
+------------------------ Chapter 11. EPPO Topics Assume the Reader is Qualified
+
+Authors tend to write books assuming they will be read straight through by readers with a wide variety of backgrounds and skills.
+
+This approach is not appropriate for Every Page is Page One topics, and it violates many of the other properties of EPPO topics, such as having a specific and limited purpose, staying on one level, and conforming to a type. An EPPO topic should be written for a qualified reader.
+
+
+Of course, when it comes to technical content, the Web does not always provide an answer. Some things may be unique to your product, in which case your doc set needs to provide them. But the same principle applies. Individual topics should make appropriate assumptions about the qualifications of the reader. If there is a possibility that not all your readers will be qualified, you should provide the topics they will need to qualify themselves. Then you should make sure readers can find them.
+
+
+When you write prerequisite topics for users who are not qualified to read your initial topic, those topics should also be Every Page is Page One topics, and they should assume that their readers are qualified to read them. And if you need another set of topics to prepare the readers to read these topics, create them as well.
+
+The How to Sweat Vegetables topic serves a reader’s derived purpose. Sweating vegetables will never be a reader’s main purpose. However, when a reader needs to sweat vegetables for any recipe, this topic can serve that derived purpose. Serving readers’ derived purposes is a major part of what technical communicators should be doing.
+
+------------ 11.1. Reader dependencies vs. subject dependencies
+
+ An EPPO topic has to assume the reader is qualified and refrain from trying to meet reader dependencies for readers who are not. Otherwise the topic will cease to be manageable for qualified readers.
+
+
+ When we say a topic is self-contained, we mean that it is free of subject dependencies. We do not mean, and cannot reasonably demand, that it is free of reader dependencies.  Most readers will have dependencies. To meet those dependencies, the reader is sometimes going to need to consult other topics. To assist them, a good EPPO topic links richly to ancillary topics, something I will discuss in Chapter 13, EPPO Topics Link Richly.
+
+
+ To be considered self-contained, a topic must meet the reader’s reasonable expectation of a topic of this sort. It does not have to satisfy all the reader’s personal dependencies.
+
+
+
+------------ 11.2. Determining the qualified reader
+
+Determining the qualified reader is not an arbitrary or subjective process. It follows from the specific and limited purpose of the topic. A qualified reader is a reader who knows everything needed to perform the specific and limited purpose of the topic except the specifics of the case that the topic covers.
+
+The appropriate level of qualification for a topic is probably best assessed at the level of someone who does this task regularly.
+
+
+------------ 11.3. Choosing the level of understanding
+
+when you select an audience for your topic you are not just selecting the vocabulary, you’re also making assumptions about the level of interest and the degree of extrapolation that audience is capable of. If you are writing a general interest topic on the Web, that decision may be more or less arbitrary. But if you are writing for a technical audience, these assumptions aren’t arbitrary, they are directly related to the task. The task tells you the level of interest and the level of extrapolation expected, which in turn tells you who normally does this job, what they know, and what they expect to be able to do with the information you give them.
+
+Of course, individual users differ greatly in their levels of technical knowledge and interest. Unless you can address each individual, you have to write for an aggregate level of interest. Generally speaking, you want to aim for a level of knowledge that will enable the reader to accomplish a new task or attain a higher level of productivity with an existing task. In the end, you should enable action and not accommodate infinite varieties of curiosity. Focus on the levels of knowledge required to accomplish concrete tasks.
+
+
+------------ 11.4. Avoid arbitrary labels
+
+The term novice is problematic for designers of training. Its use exposes a technocratic ideology of learning that is insulting. Adult learners can never be thought of as novices. They are experts, though perhaps in domains other than the one in which they are training.
+
+ each reader will come to the topic with a different set of qualifications. A good EPPO topic set allows each reader to choose a unique path based on his or her information needs. Artificially defined levels like novice, intermediate, and expert don’t help readers create a unique path.
+
+ If your workplace has well-defined roles with separate responsibilities, then it can make sense to use those roles to define the qualified user for each topic or topic type. But artificial or poorly defined classifications will only confuse and frustrate users.
+
+ 
+
+
+------------ 11.5. Qualification and findability
+
+The way you reach your readers is to write topics on subjects they are interested in and assume your readers are qualified. That is the only way you will capture their attention. Then, provide a clear context statement in each topic. This should enough to signal unqualified readers that they need more background. If you then provide links to prerequisite material, your readers can get to the information they need to become qualified.
+
+
+------------------------ Chapter 12. EPPO Topics Stay on One Level
+
+There are multiple levels to every subject: levels of detail; levels of abstraction; strategic, tactical, and operational levels of interest; even subject matter of interest to different levels of an organization or pertaining to different layers of a multi-layered systems or the different roles that operate on those layers. Most people need information on more than one level in order to complete all of their tasks, or a single complex task. However, it is preferable for a topic to stick to one level.
+
+Changes of level are a necessary part of any course of study. As you study a subject, you sometimes need to dive down into the details in order to get a practical illustration of a general principle. When you are working on some detail, you sometimes need to understand a more general principle that explains why the detail works the way it does
+
+'If they wanted cow, they would have searched for cow.'
+
+The decision about when to change levels, therefore, is best left to the individual.
+
+
+
+------------ 12.1. Books change levels at the author’s fiat
+
+Most books don’t stay on one level.[23] In books, this one included, it is the author who decides when to present the big picture and when to delve into details.
+
+This is a necessary consequence of the linear structure of a book. Most books are designed to be read in a particular order, and that means the book will change levels when and where the author chooses.
+
+readers, trying to get their work done, seldom have the patience or subservience to subject themselves to the author’s curriculum, however well planned it may be. And today they are more free than ever to take command of the curriculum for themselves.
+
+ One of the interesting things about the Wikipedia process is that an article may not meet all the EPPO criteria all the time, but, through the refactoring process, most articles take on EPPO characteristics with remarkable consistency.
+
+ Writing on one level is not an artificial discipline. It is what writers naturally do when they view their work as an independent topic. The challenge for technical communicators, especially those who have spent a career writing books, is to think of their project as a set of independent topics.
+
+ 
+------------ 12.2. Keeping topics on one level
+
+Keeping a topic on one level can be a particular challenge for writers used to creating books. The key to creating topics that stay on one level is to keep in mind the following characteristics of Every Page is Page One topics, which should be familiar by now.
+
+- Self-contained: If your topic starts to feel like a car with a mattress strapped to the roof, that is a good sign that you are changing levels, and it’s time to create a new topic.
+
+- Specific and limited purpose:  Sometimes it is necessary to discipline yourself by writing down the limits you put on each topic type. 
+
+- Conform to type: On the other hand, if you find your topic starting to change levels, and the topic type is not pushing back, you probably need to tighten your topic type definition to keep other topics from straying away from their proper level.
+
+- Establish context: The context of the topic orients readers, giving them a sense of whether or not they are qualified.   
+
+- Assume qualified:  an EPPO topic assumes that the reader is appropriately qualified to complete the specific and limited purpose. If you are not sure that all readers will be qualified to understand a point, record it in a list of prospective topics (preferably a centrally maintained one).
+    
+Capturing the possible qualification deficit is important because it is difficult to anticipate all the qualification deficits readers may face. When you discover one, always write it down and share it with the rest of your team.
+
+don’t handle the deficit yourself by changing levels in your current topic. Not only does that distort the topic, it means that the information is lost to the rest of the team. A topic that might serve many purposes besides supporting your topic may never get created.
+
+This is not to say that changing levels is wrong when you design a book or a chapter. In many respects changing levels works well when a book is read in the order the author intended (as I am sure you are diligently reading this book). However, it doesn’t work in EPPO topics. Topics and chapters are fundamentally different beasts, and you cannot make good topics by chopping up books.
+
+------------ Chapter 13. EPPO Topics Link Richly
+
+
 ------------
-------------------------
 ------------
-------------------------
 ------------
-------------------------
+------------
+------------
+------------
+------------
+------------
 ------------
 ------------
 
 
+------------------------
