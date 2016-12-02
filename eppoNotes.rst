@@ -1,12 +1,15 @@
 
 
 Notes for "Every Page is Page One"
------------------------------------------
+==================================
+
 
 By: Mark Baker
 Pub. Date: December 3, 2013
 
------------------------- Chapter 5. Information Architecture Bottom Up
+
+Chapter 5. Information Architecture Bottom Up
+-----------------------------------------
 
 Paper encyclopedias have to be ordered alphabetically or topically, but ask how Wikipedia is ordered, and the question proves to be absurd. Wikipedia isn’t ordered either topically or alphabetically. It is not ordered at all. It is connected.
 
@@ -64,7 +67,9 @@ In Section 4.3, “Curriculum versus classification” we saw that most books at
 Lists are common on the Web and can be considered a type of Every Page is Page One topic.
 3A list is open ended.  Lists can provide a connective layer between higher- and lower-level topics.
 
------------------------------ Chapter 6. What is a Topic?
+
+Chapter 6. What is a Topic?
+-----------------------------------------
 
 The challenge for writers is to produce effective Every Page is Page One topics with a strong information scent.
 
@@ -174,7 +179,10 @@ There is nothing worse then following the scent of pizza into the lunch room onl
 A good EPPO topic that is self-contained represents a complete meal for a hungry information seeker.
 
 
------------- Chapter 8. EPPO Topics have a Specific and Limited Purpose
+
+
+Chapter 8. EPPO Topics have a Specific and Limited Purpose
+----------------------------------------------------------------------------------
 
 We can only determine if a topic is self-contained if we know what purpose it is meant to fulfill. A topic needs a specific purpose.
 
@@ -272,13 +280,113 @@ When people search the Web, they are looking for content that meets their specif
 
 
 
------------------------- Chapter 9. EPPO Topics Conform to a Type
 
------------- 
 
-------------
+Chapter 9. EPPO Topics Conform to a Type
+----------------------------------------------------------------------------------
 
-------------
+A topic type is a plan or a prescription for a topic. It tells the writer how the topic should be written and the reader how it should be read. A topic type defines the content, order, and form of a topic.
+
+Good Every Page is Page One topics frequently share a clear topic type with other topics that have a similar purpose.
+
+Conforming to a type is the principal way in which we ensure that an EPPO topic meets its specific and limited purpose. But more than that, conformance to a type helps the content smell right.
+
+A recipe or an API reference could be written to contain the same information without following the conventions for its type, but then it would not look or smell like a recipe or an API reference. Readers might arrive at the topic and not recognize that it contains the information they want, simply because it doesn’t look like what they expected.
+
+Topic type is determined by the information needed to fulfill a purpose, not by its visual appearance. A visual layout that reflects the type usually helps the reader, but it is the type that is the master and the layout the slave, not the other way round.
+
+Many other topics in Wikipedia have similarly well-defined topic types: vehicles, languages, flora, fauna, novels, and on and on. Simply browsing Wikipedia is an effective short course on topic typing. Once again, no standards committee established these topic types. Rather, they are the result of thousands of contributors gradually building up topics, filling in gaps, and refactoring and refining the structure.
+
+When it comes to topics, adherence to a type is the norm, not the exception. Find a topic that does not seem to have a type or does not conform to the common structure of topics with a similar purpose, and you will almost always discover that that topic has strayed from its purpose or never had a well-defined purpose.
+
+
+
+
+------------ 9.2. Discovering and defining topic types
+
+Topic types are a reflection and a formalization of the specific and limited purpose of topics. Therefore, defining explicit topic types begins by exploring what is needed to fulfill the topic’s purpose.
+
+Because topic types fall naturally out of the specific and limited purpose of a topic, you might think your topics will naturally fall into types without any attempt to explicitly think about the topic type. Unfortunately, it’s not that easy.
+
+Creating topic types is a two-part effort of discovering existing topic types and then using your discoveries to define the topic types you need. Once you do that, you will want to document your topic types and set up your authoring environment to support them. The best way to do that is through structured writing (Ch. 18).
+
+---- 9.2.1. Discovering topic types
+
+One of the most effective ways to discover topic types is by looking at existing topics designed to serve the same purpose. You can look on the Web, in your competitor’s documentation, and in your own existing documentation. Make a collection of diverse sources and make lists of the repeating fields and sections that you find in each sample.
+
+Remember when you do this ... You are looking for the limited set of specific pieces of information required to meet the user need this topic is designed to fulfill.
+
+
+---- 9.2.2. Defining topic types
+
+Once you have done your research, it is time to create your topic definition. Now is the time to get specific.
+
+An API reference doesn’t just contain a line of code. It contains a function signature, and that function signature has a particular format that all programmers understand:
+
+[return type]? [function name] [[parameter name] [parameter type]]…
+Even when topics naturally conform to a type, individual authors may implement that type with a different organization and different inclusions and exclusions. For a systematic authoring project, you need create a stricter definition of each topic type to ensure consistency and completeness.
+
+What is most important is to make sure you capture the information a topic needs to have to serve its purpose.
+
+To do this, you need to start with the specific and limited purpose you have defined for each topic type. What information must each topic include to achieve its specific and limited purpose? What information does a user need?
+
+Stay focused on the specific and limited purpose. It is easy to start imagining all kinds of things a hypothetical user might want to know. By all means keep a list of these things, because they may be clues to other topic types you need, but don’t let them creep into your topic type definition.
+
+
+---- 9.2.3. Handling optional material
+
+You can have optional parts in your topic type, but you should only include them if they are sufficiently related to the topic’s purpose.
+
+---- 9.2.4. Serving the commercial purpose
+
+Ultimately, every part of a topic type definition needs to serve either the reader, the publisher, or (preferably) both.
+
+
+
+------------ 9.3. Concept, task, and reference reconsidered
+
+It has become an axiom of technical communications in the last few years that all content falls into one of three types: concept, task, or reference. However, EPPO topic types are more specific and varied than this simple trio. 
+
+------ 9.3.1. The origins of concept, task, and reference
+
+The concept, task, reference trio originates with DITA’s adoption of these three types,
+
+The problem is that, in the popular conception, the words concept, task, and reference have been reduced to shapes.
+
+We have somehow gone from the laudable idea that users want information that helps them perform a specific task (as opposed to information that simply described the machine) to presenting single procedures by themselves.
+
+This is certainly not the approach advocated in Information Mapping.  
+
+If there is a problem with DITA, it is not that it lacks a theory of information design, but rather that many people believe that DITA’s concept/task/reference trio is a theory of information design.
+
+The result is that when you talk about topic types today, people’s minds go at once to the DITA trio. For EPPO, that’s a problem because a typical EPPO topic has a much more specific type definition, which may contain several different types of information blocks. It is important, therefore, to spend some time looking at why the trio of concept/task/reference, though useful for some purposes, is not sufficient either as a set of topic types or as a principle of information design.
+
+
+------ 9.3.2. A task is not a procedure
+
+
+
+------9.3.3. A reference is more than a topic
+
+
+
+------ 9.3.4. Everything else is not a concept
+
+ there are plenty of topic types that are not, by any reasonable definition, either tasks or references, nor are they big-C concepts. And they aren’t generic either. An example from my background writing about programming languages and operating systems is the annotated code-sample topic.
+
+Programmers want two things above all else in a documentation set: a thorough API reference and working code samples.
+
+There are many topic types that don’t fall into the task or reference categories, but only one qualifies as a true concept. Concept is not the right word to describe “everything else.” And it isn’t useful to single out tasks and references as particular types and then assign everything else to a single category, however you name that category. To do so is akin to dividing the animal kingdom into cats, dogs, and everything else.
+
+
+
+------
+
+
+
+This is certainly not the approach advocated in Information Mapping. 
+
+
 ------------------------
 ------------
 ------------------------
