@@ -422,7 +422,9 @@ The Wikipedia article about Ottawa (Figure 10.3, “Wikipedia article on Ottawa�
 This highlights a problem Google and other search engines have. They always return the most popular results. After all, that’s what they are designed to do. However, this means that less common subjects that happen to share terminology with more common subjects get pushed far down in the search results. You need significant search skills to compose a search string to get the results you need. But with Wikipedia, you don’t need those skills, because you can browse the more obscure topics right at the top of the most popular topic. This is the sort of thing we should all be doing.
 
 
------------------------- Chapter 11. EPPO Topics Assume the Reader is Qualified
+Chapter 11. EPPO Topics Assume the Reader is Qualified
+------------------------------------------------
+
 
 Authors tend to write books assuming they will be read straight through by readers with a wide variety of backgrounds and skills.
 
@@ -478,7 +480,9 @@ The term novice is problematic for designers of training. Its use exposes a tech
 The way you reach your readers is to write topics on subjects they are interested in and assume your readers are qualified. That is the only way you will capture their attention. Then, provide a clear context statement in each topic. This should enough to signal unqualified readers that they need more background. If you then provide links to prerequisite material, your readers can get to the information they need to become qualified.
 
 
------------------------- Chapter 12. EPPO Topics Stay on One Level
+Chapter 12. EPPO Topics Stay on One Level
+------------------------------------------------
+
 
 There are multiple levels to every subject: levels of detail; levels of abstraction; strategic, tactical, and operational levels of interest; even subject matter of interest to different levels of an organization or pertaining to different layers of a multi-layered systems or the different roles that operate on those layers. Most people need information on more than one level in order to complete all of their tasks, or a single complex task. However, it is preferable for a topic to stick to one level.
 
@@ -523,13 +527,259 @@ don’t handle the deficit yourself by changing levels in your current topic. No
 
 This is not to say that changing levels is wrong when you design a book or a chapter. In many respects changing levels works well when a book is read in the order the author intended (as I am sure you are diligently reading this book). However, it doesn’t work in EPPO topics. Topics and chapters are fundamentally different beasts, and you cannot make good topics by chopping up books.
 
------------- Chapter 13. EPPO Topics Link Richly
 
 
-------------
-------------
-------------
-------------
+Chapter 13. EPPO Topics Link Richly
+--------------------------------------------------
+	
+Links are the visible manifestation of the author giving up any claim to completeness or even sufficiency; links invite the reader to browse the network in which the work is enmeshed, an acknowledgement that thinking is something that we do together .
+Linking is surprisingly controversial in technical communication and content strategy.
+
+ it is probably true that linking will lead people away from the content they are reading if that content is not very nutritious. The question is, should we care?
+
+ We have always known, of course, that users seldom sit down and read our manuals as they were designed to be read.
+
+ An Every Page is Page One information design, on the other hand, does not start from the premise that the goal is to stop the user from wandering. Rather, it starts by acknowledging that this is how users behave and recognizing that, based on the limits of knowledge and the urgency of their tasks, information foraging really is the optimal information seeking behavior for most people most of the time. However, even if you don’t agree that information foraging is optimal, it is still how users behave. We can’t beat it. We’ve tried every trick in the book to no avail. It’s time that we started to facilitate it instead.
+
+
+Every Page is Page One information design is built around two propositions: 1) the way to keep readers is to provide the content they need, and 2) if readers want to move to content that better meets their needs, we should help them get there. That means linking richly.
+
+From the author’s point of view, links serve to keep readers in your content. A foraging reader is more likely to move to a new patch when it’s easy to get there. By providing links, you can lead readers to other information patches you own, reducing the temptation for them to move to a competitor’s content.
+
+
+------------ 13.1. Links and the democratization of knowledge
+
+the Web democratizes information both by making information easy to get and by making obscure information easier to decode and burrow your way into. Some may despair at this, preferring a world in which expertise is left to the experts and dilettantes are left in the cold. Much as been written on the virtues or vices of this development.[26] The debate is outside the scope of this book, but there is no question that links are the great democratizing elements of the Web. 
+
+------------ 13.2. Linking and findability
+
+Jared Spool has found that readers are much more successful at finding content using links than using a local site search.
+
+ 	
+Overall, users found the correct answer in 42% of the tests. When they used an on-site search engine (we did not study Internet search engines), their success rate was only 30%. In tasks where they used only links, however, users succeeded 53% of the time. … our testing data suggests that designers would have more success by focusing instead on creating effective links.
+
+n particular, there are two important reasons why your context-setting material should be rich with links:
+
+First, readers are most likely to discover that they lack qualifications while they are reading your context-setting material.
+
+Second, search, and other methods of finding content, can be imprecise, because of both the limits of search engine technology and the limits of readers’ skills in framing search terms. This imprecision may land readers on your topic when they really wanted a related topic. Linking to contextually near topics gives readers the means to travel the last mile to the content they really need.
+
+Links should help readers follow the scent of information and navigate the lines of subject affinity between topics.
+
+
+Part III. Writing Every Page is Page One Topics
+--------------------------- 
+
+How do I go about writing Every Page is Page One topics, and how do I cover a large subject with only topics?
+
+
+Chapter 14. Writing Every Page is Page One Topics
+------------------------
+
+The Every Page is Page One topic is not a new invention. As the examples in the previous chapters have demonstrated, Every Page is Page One topics can be found all over the Web. Nor are EPPO topics unique to the Web. Essays and articles in journals and magazine have followed the Every Page is Page One format for centuries. The difference today is the ease with which readers working in the context of the Web can move around from one piece of content to another.
+
+Whether you are delivering your technical content on the Web today, tomorrow, or never plan to, your readers are reading in the context of the Web, and you will serve them best by writing EPPO topics.
+
+There is nothing new about writing EPPO topics. It is something most skilled writers do naturally if they are writing a single article or contributing an entry to Wikipedia. What writers often find more difficult is to create a set of EPPO topics to cover a broad piece of subject matter such as the documentation for a major product.
+
+------------ 14.1. Textbooks vs. user assistance
+
+The textbook model assumes readers want to learn about a subject, and that if they are going to act on what they have learned, they will do so afterwards. The user assistance model assumes readers are working, have hit a snag, and need immediate aid. It assumes that readers will plunge into the work, as far as working conditions allow them to, and use any resource they can find to get moving forward again.
+
+The move to Every Page is Page One, and thus to a user-assistance style of writing, does not mean abandoning the attempt to educate the user. If anything, it means moving to a style that has proven to be more effective in educating people.
+
+Interestingly, Carroll found that even those people who believed that they were systematic learners turned out not to be.
+
+This, of course, was in the 1980s, before most people had seen any kind of interactive information system, let alone the Web.
+
+Rather, it stems from the fact that their current picture of the world is more real to them than anything they are reading, and it takes real world experience to shift that picture. As Carroll wrote (emphasis his):
+
+The problem is not that people cannot follow simple steps; it is that they do not. People are thrown into action (Winograd and Flores, 1986) they can understand only through the effectiveness of their actions in the world. People are situated in a world more real to them than a series of steps (Suchman, 1987), a world that provides rich context and convention for everything they do. People are always already trying things out, thinking things through, trying to relate what they already know to what is going on, recovering from errors. In a word, they are too busy learning to make much use of the instruction. This is the paradox of sense-making (Carroll and Rosson, 1987).
+
+
+
+------------ 14.2. Writing topics
+
+the right way to write topics is one at a time.
+
+The best way to do this is to focus on the characteristics of Every Page is Page One topics, which we covered in Part II, “Characteristics of Every Page is Page One Topics”.
+
+
+------ 14.2.1. Topics are self-contained
+
+An EPPO topic is self-contained, which means writing an EPPO topic is also self-contained, in the sense that when you are writing, you should be focused on that topic and that topic alone.
+
+
+There are a couple of reasons to avoid switching back and forth between topics. The first is that switching tasks creates cognitive overhead and makes it difficult to get into, and stay in, a state of flow, which is necessary to effectively and efficiently complete an intellectually demanding task.[28]
+
+The second reason is to avoid unconsciously thinking of the topic as parts of a larger whole. Certainly you need to plan your topic set, but when you are actually writing an Every Page is Page One topic, it is best to approach it as an independent topic designed to fulfill a specific purpose for a qualified reader.
+
+To achieve this degree of independence, it is useful to create a separate plan for each topic. Obviously, you don’t need to do an extensive planning exercise for every topic. You need a plan that is commensurate in scale to size of the task. But at the very least, your plan should state the specific and limited purpose of the topic and the topic type.
+
+
+------ 14.2.2. Topics have a specific and limited purpose
+
+If you can only keep one characteristic of EPPO design in mind as you are writing, it should be this: define the specific and limited purpose your topic is meant to serve. Remember that your topic is an aid to the performance of a task and that a task is not simply a procedure.
+
+Often when we write, our minds become engaged with the implications and side issues that arise from what we have just written, especially if, as is often the case, the act of writing has caused us to realize something new about the subject.
+
+Of course, those ideas should not be lost.
+
+They should be recorded and fed back into the topic creation pipeline.
+
+The other virtue of explicitly stating the limits of the topic’s purpose is that it helps you make sure you really do have a definite purpose in mind. Sometimes what seems like a clear statement of purpose can turn out to be amorphous and undefined when you set out to execute it. Documenting the boundaries helps to ensure that there is something real and concrete to define a boundary around.
+
+Again, keep it simple and brief.
+
+
+------ 14.2.3. Topics conform to a type
+
+Working with a good set of type definitions can really help in planning and executing a topic. A well-defined type will eliminate most of the planning required for topics of that type. The topic type is itself a plan for a topic of that type.
+
+
+
+When writing a new topic, determine which of your established types fits its defined purpose and follow it. If you find yourself wanting to include material that does not fit the model, ask yourself the following questions:
+
+Have I correctly defined and limited the purpose of this topic? (Chapter 8, EPPO Topics have a Specific and Limited Purpose)
+Have I correctly identified the topic type that supports that purpose? (Chapter 9, EPPO Topics Conform to a Type)
+Am I attempting to change levels within my topic because I fear the reader might not understand something? (Chapter 12, EPPO Topics Stay on One Level)
+Am I trying to fit the subject matter of two topics into one or divide the subject matter of one topic into two?
+Have I discovered a special, weird edge case? These do happen, and the best solution is often to write a generic, untyped topic to cover them rather than adding support for every edge case to the normal topic type. This keeps the normal topic type simple to understand, follow, and audit.
+
+If you exhaust all those possibilities, record it as a bug in the topic type definition. If your topic types are defined in a structured writing system, use a generic topic type for your topic until the topic type is fixed. Always note that you have deviated from the model and why.
+
+If you define the specific and limited purpose for your topic and then find that there is no topic type defined for it, record the fact that a new topic type is required and write your topic as a generic type, trying as much as you can to develop a topic type as you go. The material you create will be an important ingredient in the topic type definition process for this new topic type.
+
+
+------ 14.2.4. Topics establish their context
+
+Your working assumption for every topic should be that readers will arrive at the topic.. They will go straight to this topic without reading anything else. This is their page one. Therefore the first thing to do is to help them figure out if they are actually in the right place. To do this, the topic needs to establish its context.
+
+there is no guarantee that people will use your navigation. People are increasingly search-dominant in their information seeking behavior,[29] so chances are they will arrive via search.
+
+Your topic, therefore, must orient the reader, just as page one of any document must do.
+
+Make your context-setting paragraph brief and succinct. Don’t fall into the trap of thinking you have to explain all the subjects you mention in the context-setting paragraph. Keep in mind the limits you have defined for this topic. However, go ahead and link from those subjects to topics that cover them.
+
+
+------ 14.2.5. Topics assume the reader is qualified
+
+A big part of defining topic types is determining who the qualified reader is. Your topic type definition should tell you what qualifications to assume, and you should think about who the qualified reader is before you begin to write each topic.
+
+
+
+------ 14.2.6. Topics stay on one level
+
+Every Page is Page One, on the other hand, concedes that the process of acquiring understanding is not one we can successfully model or plan, and certainly not one we can generalize to an entire population of readers. Readers will change levels when they are good and ready, and thus EPPO topics do not attempt to impose level changes. They stay on one level.
+
+In a book, the author decides whether or not to change levels; in EPPO, the author provides the means for readers to decide for themselves. Such moments always occur at points of subject affinity.
+
+ The list of subject affinities collected while developing content is invaluable to planning and managing your topic set.
+
+ 
+------ 14.2.7. Topics link richly
+
+Linking in an EPPO topic should not be done selectively or on a hunch. It is fundamental to the bottom-up organization of topics and, therefore, something that should be done systematically.
+
+
+
+------------ 14.3. The question of style
+
+ There is no micro-scale reason why the style of one EPPO topic in a domain needs to be identical to the style of other EPPO topics in that domain. Every page is page one, so there is no expectation of continuity between one topic and the next.
+ 
+43.41% of respondents chose a distinctive voice, even over compelling and exclusive content. Now this is one small survey, specific to blogs, but there are broader reasons to believe in the power of a distinctive voice on the Web today. David Weinberger’s observations that the Web gives us access to experience as well as authority and that we now give our trust to our social networks more than to institutions suggest that the bland and anonymous corporate tone may not be the most appealing choice in every case.
+
+Topics with a distinct style and tone often stand out and, therefore, are more likely to be filtered into the set of topics a reader chooses. This is even more so when the topic comes from an identified person that the reader knows and trusts.
+
+Put the author’s name and photo on each EPPO topic, and you will have a much better foundation for building a community around your documentation. Atlassian is an example of a company that puts the name (though not photo) of the author on each documentation topic.
+
+[.......?]
+
+------------ 14.4. Concerning reference information
+
+In an EPPO information set, references play a special role. Because EPPO information sets are link-based, topics frequently have occasion to link directly into references. A reference, then, is a rich link target in an EPPO information set. The existence of a solid foundation of reference content makes it easier for topics to stay on one level and stick to their specific and limited purpose.
+
+
+
+------------ 14.5. Concerning tutorials
+
+A tutorial is systematic instruction, and, as John Carroll demonstrated, systematic instruction often does not work well. On the other hand (and as Carroll also discovered) readers are not always realistic about what they want, and they often ask for tutorials.
+
+Are tutorials compatible with the Every Page is Page model?
+
+ if you have the more realistic expectation that readers will probably only follow the tutorial for a few minutes before striking off on their own, then the answer is yes.
+
+  EPPO tutorials should be written with the assumption that readers will be qualified to take whichever tutorial they choose
+
+  As a practical matter, tutorials are often written in a sequence where the output you create in performing one tutorial is the input you need to do the next tutorial.
+
+  A tutorial topic, in other words, should be written like any EPPO topic. It should be self-contained, have a specific and limited purpose, conform to a type, stay on one level, assume the reader is qualified, and link richly.
+
+  
+------------ 14.6. Concerning videos
+
+Video is becoming an increasingly important part of technical communications. It is often users who are taking the lead and producing their own how-to videos on YouTube, but professional technical communicators are catching on, too. How-to videos are almost always Every Page is Page One in nature.
+
+A good video always starts by establishing its context. In this respect, videos sometimes have an advantage over text because they can use multiple media to establish context.
+
+One of the interesting properties of videos is that they are significantly harder to edit than text.
+Once a video is complete, it is very unlikely that someone will come along later and make significant revisions or add new material.
+
+ in an EPPO video, as in a written EPPO topic, it is best to stay on one level and let the reader choose whether and when to change levels by selecting a different topic or video.
+ 
+------ 14.6.1. Videos and linking
+
+One of the chief problem of video, as compared to text, is that there is no good way to embed inline linking in a video. It is not technically impossible to insert a link into a video, but it does not work very well.
+
+Therefore, when you use videos in your documentation, consider putting them in a frame so you can include links to related subjects.
+
+[.......?]
+
+------ 14.6.2. Videos as topics
+
+Since videos share so much in common with Every Page is Page One topics, it makes sense to treat them as topics for purposes of organization.
+
+Because the means to view videos, particularly videos that rely on sound, may not always be available, you may wish to provide an alternative text topic covering the same material.
+
+ it makes better sense to provide a textual topic twin that is written as an EPPO topic.
+
+ The text and video twin topics should be kept together as much as possible.
+
+  Twinning text and video topics like this can go a long way to solving the SEO and linking problems associated with video. It can also be an answer for viewers/readers who get impatient because they can’t skip and skim a video. They can switch to the textual twin if they get too impatient to sit through the video to the end
+  
+
+------ 14.6.3. Videos as objects
+
+ If a video is not Every Page is Page One by itself, then it needs to be embedded inside a regular EPPO topic (or a reference entry), just like a picture or a drawing.
+
+
+
+Chapter 15. Every Page is Page One Topics and the Big Picture
+------------------------------------------------------------
+
+ most are not interested in sitting down and learning everything before they do anything. Indeed, most would prefer to learn as much as possible by doing, turning to documentation only when they are stuck and have no other recourse.
+
+ 
+------------ 15.1. Books and the big picture
+
+Technical communications, in any case, is not a field where meaning should be left to implication. If there is some information that the reader needs, it should be explicitly stated, not implied by a TOC or by the order of chapters.
+
+------------ 15.2. The priority of the big picture
+
+t the Every Page is Page One approach also acknowledges that until readers want the big picture, they won’t seek it out, and there is no point trying to force it on them before they are ready.
+
+we can harken back to the idea that the main task of documentation is decision support, which we discussed in Chapter 8, EPPO Topics have a Specific and Limited Purpose. We know that the odds of our users reading the textbook explanation of the big picture is slight. But if we document individual tasks with a decision support focus, the ways in which the big picture affects the performance of those tasks will always be present. And if the task topic is richly linked, as it should be, it will link to the big-picture topic.
+
+Few people start with the big picture. Without practical experience, the big picture is an abstraction that it is difficult to fit into one’s view of the problem space.
+
+ The desire for the big picture generally arises from the desire to make sense of specific concrete experiences.
+
+ 
+
+------------ 15.3. Writing the big-picture topic
+
+
+
 ------------
 ------------
 ------------
@@ -537,5 +787,10 @@ This is not to say that changing levels is wrong when you design a book or a cha
 ------------
 ------------
 
+------
+------
+------
+------
+------
 
 ------------------------
