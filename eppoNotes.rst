@@ -778,17 +778,121 @@ Few people start with the big picture. Without practical experience, the big pic
 
 ------------ 15.3. Writing the big-picture topic
 
+The job of the big-picture topic is to give the big picture without delving too deep into the details. It is not an overview of a book or a curriculum, it is the 10,000-foot view of the subject. Like any EPPO topic, it should be self-contained and stick to its level.
+
+For an example of a good big-picture topic, check out “What Is Google App Engine?” in the Google App Engine docs.
+
+Whoever designed this article clearly knew minimalism because the Get Started column is all about getting some initial experience. It assumes that the desire for a big-picture topic will come later, when the reader is ready for a deep dive into the subject, and that is where it is placed.
+
+Big picture topics tend to be long,
+
+An EPPO big-picture topic won’t change level and, therefore, will make it easier for readers to grasp the big picture whenever they are ready for it.
 
 
-------------
-------------
-------------
-------------
-------------
-------------
 
-------
-------
+------------ 15.4. Finding the end of the string
+
+Getting the big picture of a complex product is not something that happens in a few minutes of reading. We don’t learn that way. We build up a big picture over time, through experience and exposure.
+
+No matter how good your big-picture topic is, no reader is going to read it through and immediately understand the big picture. As much as anything, the role of the big-picture topic in a properly linked topic set is navigational.
+
+It helps users find the area of the product they need to focus on and provides rapid access to the topics that describe that area.
+
+What most users want is a way to get going. They don’t want the whole big picture. They just want to find the door marked Enter. But each user is looking for a different door
+
+Because of this, the big-picture topic can play a second role, that of being a room full of doors. In this case, even if a user doesn’t grasp the entire big picture, the big-picture topic still provides the context needed to select the right door.
+
+ The words “Getting Started” are familiar and comforting to readers, and that alone is justification for retaining those words,
+
+  a Getting Started topic should do what minimalism always prescribed, which is to avoid artificial tutorials and get readers started on real-world work as soon as possible.
+
+  
+------------ 15.5. Pathfinder topics
+
+One step below the big picture – and in line with the idea that different readers are looking to get started on their own projects, not on toy learning projects – there is frequently a need for what I call pathfinder topics.
+
+
+A pathfinder topic shows the reader the overall path for accomplishing some real goal with your product. It is not a beginner topic because it does not assume that users want to do something very simple for practice.
+
+Instead, a pathfinder topic covers the full range of tasks and features in a way that helps the user get a grip on how to attack a problem. But it gives none of the details.
+
+Pathfinder topics fit at a level below the big-picture topic and above workflow or task topics.
+
+
+A straight-up big-picture topic is certainly worth having, but the real work of guiding users down the right path belongs to the pathfinder topic.
+
+For an example of a pathfinder topic, check out the WordPress Codex topic titled “Photoblogs and Galleries.”
+
+This topic is not a big-picture topic for WordPress as a whole. Nor does it provide specific instructions on how to perform any particular task. Rather, it addresses a fairly high-level subject: how to create a Photoblog or Gallery.
+
+It does so by walking the reader though the difference between a photoblog and regular blogs (context setting) and then discusses the various options and resources available.
+
+Readers will have to read other topics to get specific directions on using these tools (though they may just install them and learn by trial and error).
+
+But this topic helps readers understand what capabilities are available and start choosing how to proceed. In other words, it sets readers on the right path.
+
+Chapter 16. Sequence of Tasks vs. Sequence of Topics
+------------------------------------------------------------
+
+One of the objections I often hear from writers is that Every Page is Page One’s insistence on removing sequential dependencies makes it difficult to create a defined order of topics, for example when a set of topics forms a workflow. The question I ask in return is, if there is a workflow here, shouldn’t you have a topic describing that workflow explicitly? A workflow is too important to be expressed only by the table of contents.
+
+The Every Page is Page One solution to the sequence-of-tasks problem is to write a single, separate workflow topic that captures the overall sequence and points to the constituent tasks in the appropriate order.
+
+no matter the medium, a workflow should always be described in a topic of its own. Since workflows generally consist of multiple tasks or procedures, a workflow topic can refer to those tasks and procedures and link to the topics that describe them.
+
+Whenever information is implied – by a TOC, the order of chapters, or any other mechanism – there is a danger that the writer won’t fully understand the big picture. By requiring writers to fully document a workflow that was formerly only implied, you may expose holes in their understanding. (It is said with reason that you never really learn something until you try to teach it.)
+
+
+
+
+------------ 16.1. Working backwards
+
+Sometimes readers begin a task without reading the documentation, get stuck, and, only then, consult the documentation. Often, the reason they are stuck is not related to the task they were working on when they realized they were stuck, but to something they did earlier. At that point, what they need to do is walk backwards, not just through the content, but through the work they have been performing.
+
+Have the topic provide the means to work backwards, particularly in the context-setting section.
+
+By making a topic’s context navigable, you support this kind of walking backwards through the subject matter.
+
+Chapter 17. EPPO and Minimalism
+------------------------------------ 
+
+One of the foundational ideas of Every Page is Page One information design comes directly from John Carroll’s studies that led to the creation of minimalism – his observation that what he called the systematic approach to instruction, in which everything is laid out for the reader in systematic fashion – simply does not work. People won’t follow the system.
+
+
+------------ 17.1. EPPO as a platform for minimalism
+
+Every Page is Page One is founded on the idea that people simply will not read linearly or sequentially, a fact confirmed by any number of studies of reader behavior on the Web,[30] as well as studies that showed the same behavior with paper manuals.[31]
+
+Every Page is Page One is designed to accommodate and facilitate this non-linear reader behavior, rather than to resist or punish it.
+
+By making each topic self-contained, without reliance on previous or next topics, EPPO allows readers to choose any topic at any time.
+By having a specific and limited purpose, EPPO topics avoid extraneous material and focus on the reason readers came to them.
+By establishing their context, EPPO topics make it easy for readers to determine where they have arrived.
+By conforming to a type, EPPO topics make it easy for readers to skip and skim or hone in on one particular piece of data.
+By assuming readers are qualified, EPPO topics don’t waste time on introductions that readers are not interested in.
+By linking richly along lines of subject affinity, EPPO topics help readers jump around in the subject area and find the information they want next.
+
+
+------------ 17.2. Is EPPO minimalist?
+
+EPPO is not, in itself, minimalism and is open to the possibility that minimalism might not always be appropriate.
+
+However, EPPO does draw strong inspiration from the minimalism experiments, and it does provide a good platform on which to create a minimalist documentation set.
+
+A key finding of the minimalism studies is that readers strike off on their own paths through information rather than sticking to the path created by the author.
+
+ A key principle of EPPO is to create content that facilitates, rather than frustrates, readers in choosing their own paths.
+
+ The reader’s ability to immediately select the parts of a topic that are of interest is enhanced when the different pieces of information that make up a topic are clearly laid out and consistently related with each other. Far from getting in the way, these characteristics of an EPPO topic help readers locate and focus on the information they are looking for.
+
+ A good EPPO topic is optimized for both micro-scale searching and for narrative reading. 
+ 
+
+------------ 17.3. Minimal vs. comprehensive
+
+
+
+
 ------
 ------
 ------
