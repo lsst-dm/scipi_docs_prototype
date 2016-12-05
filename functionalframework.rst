@@ -20,9 +20,10 @@ Functional Framework
 
 - `Functions that would be called to process single raw CCDs`_
 
-- `Multiple CCD Img processing`_
+- `Multiple CCD Image processing`_
 
----------------------------------------------- `Img processing`_
+
+---------------------------------------------- `Image processing`_
 
 - `PSF matching and processing`_
 
@@ -77,7 +78,7 @@ Functions that would be called to process single raw CCDs
 
 
 
-Multiple CCD Img processing
+Multiple CCD Image processing
 ++++++++++++++++++++++++++++++
 
 - \+ AssembleCcdTask -- This task assembles sections of an image into a larger mosaic. The sub-sections are typically amplifier sections and are to be assembled into a detector size pixel grid. 
@@ -91,7 +92,11 @@ Multiple CCD Img processing
 
 ---------------------------------------------------
 
+<<<<<<< HEAD
+Image processing
+=======
 Img processing
+>>>>>>> f04f8c683118aace31667b08a0df05fcb9f9bae3
 --------
 
 
