@@ -22,11 +22,8 @@ Functional Framework
 
 - `Multiple CCD Image processing`_
 
-<<<<<<< HEAD
+
 ---------------------------------------------- `Image processing`_
-=======
----------------------------------------------- `Img processing`_
->>>>>>> f04f8c683118aace31667b08a0df05fcb9f9bae3
 
 - `PSF matching and processing`_
 
