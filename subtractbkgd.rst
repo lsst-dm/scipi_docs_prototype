@@ -70,7 +70,15 @@ Examples
 
 This code is in subtractBackgroundExample.py in the examples directory of $MEAS_ALGORITHMS_DIR (detail on how to run on doxygen page).
 
+Doesn't work on old stack:
 
+..
+      from lsst.meas.algorithms import SubtractBackgroundTask
+      ImportError: cannot import name SubtractBackgroundTask
+
+And on the new one, it requires afwdata.
+      
+      
 What it returns
 +++++++++++++++
 

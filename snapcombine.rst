@@ -84,7 +84,7 @@ Initialise the detection procedure by setting the PSF and WCS
 Examples
 ++++++++
 
-None Given.
+None given.
 
 What it returns
 +++++++++++++++

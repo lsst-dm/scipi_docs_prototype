@@ -68,7 +68,7 @@ Make a list of acceptable KernelCandidates.
 Examples
 ++++++++
 
-This code is imagePsfMatchTask.py in the examples directory of $IP_DIFFIM_DIR (described in detail on the doxygen page).
+This code is imagePsfMatchTask.py in the examples directory of $IP_DIFFIM_DIR (described in detail on the doxygen page).  Works perfectly locally and on curstack, giving steady printing info to the screen as it goes.
 
 What it returns
 +++++++++++++++

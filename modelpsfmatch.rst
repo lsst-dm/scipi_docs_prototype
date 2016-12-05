@@ -39,7 +39,7 @@ Build a SpatialCellSet for use with the solve method.
 Examples
 ++++++++
 
-This code is modelPsfMatchTask.py in the examples directory (described in detail on the doxygen page).
+This code is modelPsfMatchTask.py in the examples directory of ipdiffim (described in detail on the doxygen page).  Works perfectly locally and on curstack, with a few lines of printout to screen.
 
 What it returns
 +++++++++++++++

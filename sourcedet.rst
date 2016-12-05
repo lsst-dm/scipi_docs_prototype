@@ -119,6 +119,24 @@ Examples
 
 This code is in measAlgTasks.py in the examples directory of  $MEAS_ALGORITHMS_DIR (detail on how to run on doxygen page).
 
+Locally, fails with::
+
+  Traceback (most recent call last):
+  File "./examples/measAlgTasks.py", line 123, in <module>
+    run(display=args.ds9)
+  File "./examples/measAlgTasks.py", line 82, in run
+    tab = afwTable.SourceTable.make(schema)
+  File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/afw/2.2016.10-10-gac5da67/python/lsst/afw/table/tableLib.py", line 8704, in make
+    return _tableLib.SourceTable_make(*args)
+    lsst.pex.exceptions.wrappers.NotFoundError: 
+  File "src/table/Schema.cc", line 239, in SchemaItem<T> lsst::afw::table::detail::SchemaImpl::find(const std::string &) const [T = double]
+    Field or subfield withname 'base_CircularApertureFlux_3_0_flux' not found with type 'D'. {0}
+    lsst::pex::exceptions::NotFoundError: 'Field or subfield withname 'base_CircularApertureFlux_3_0_flux' not found with type 'D'.'
+
+On curstack, can't yet run, requires afwdata.
+
+  
+
 
 What it returns
 +++++++++++++++

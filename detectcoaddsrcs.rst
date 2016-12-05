@@ -89,7 +89,25 @@ _makeArgumentParser
 Examples
 ++++++++
 
-The whole example is spelled out in some detail on the doxygen page.
+The whole example is spelled out in some detail on the doxygen page, doing it as so::
+
+   detectCoaddSources.py $CI_HSC_DIR/DATA --id patch=5,4 tract=0 filter=HSC-I --output curout
+
+Some required syntax to make it work  even locally is missing right now, as cur output is::
+   
+  \: Config override file does not exist: '/Users/m/fizzAndAstro/lsst/lsstsw/obs_subaru/config/detectCoaddSources.py'
+  \: Config override file does not exist: '/Users/m/fizzAndAstro/lsst/lsstsw/obs_subaru/config/hsc/detectCoaddSources.py'
+  \: input=/Users/m/fizzAndAstro/lsst/lsstsw/ci_hsc/DATA
+  \: calib=None
+  \: output=/Users/m/fizzandastro/lsst/otherLSSTGithubPkgs/scipi_docs_prototype/exxampleCodes/curout
+  CameraMapper: Loading registry registry from /Users/m/fizzandastro/lsst/otherLSSTGithubPkgs/scipi_docs_prototype/exxampleCodes/curout/_parent/registry.sqlite3
+  CameraMapper: Loading calibRegistry registry from /Users/m/fizzAndAstro/lsst/lsstsw/ci_hsc/DATA/CALIB/calibRegistry.sqlite3
+  CameraMapper: Loading registry registry from /Users/m/fizzandastro/lsst/otherLSSTGithubPkgs/scipi_docs_prototype/exxampleCodes/curout/_parent/registry.sqlite3
+  CameraMapper: Loading calibRegistry registry from /Users/m/fizzAndAstro/lsst/lsstsw/ci_hsc/DATA/CALIB/calibRegistry.sqlite3
+  WARNING: Not running the task because there is no data to process; you may preview data using "--show data"
+
+ 
+  
 
 What it returns
 +++++++++++++++

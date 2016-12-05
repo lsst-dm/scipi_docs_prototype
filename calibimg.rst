@@ -110,6 +110,13 @@ This code is in calibrateTask.py in the $PIPE_TASKS/examples directory, and can 
 
      python examples/calibrateTask.py --display
 
+Works totally fine locally (except for when the --display flag is turned on, which causes probs).  On current stack, it yields:
+
+..
+   ... File "/tigress/HSC/LSST/stack_20160915/Linux64/daf_persistence/12.1-15-gaf6b168/python/lsst/daf/persistence/posixStorage.py", line 280, in read
+    raise RuntimeError("No such FITS catalog file: " + logLoc.locString())
+   RuntimeError: No such FITS catalog file: /tigress/HSC/LSST/stack_20160915/Linux64/obs_test/12.1-9-g3e397f1+4/data/input/schema/icSrc.fits"
+
     
 What it returns
 +++++++++++++++

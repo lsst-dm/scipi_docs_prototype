@@ -88,7 +88,8 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-	      
+
+   statusOfExamples   
    functionalframework	      
    eppoNotes
    install	      

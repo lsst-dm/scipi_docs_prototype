@@ -163,3 +163,8 @@ to the calling function (i.e. *characterize*).
   468         - estimate background and subtract it from the exposure
   469         - detect, deblend and measure sources, and subtract a refined background model;
   470         - if config.doMeasurePsf:
+
+Examples
+---------
+
+See calibImg.

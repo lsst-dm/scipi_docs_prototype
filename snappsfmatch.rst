@@ -39,7 +39,7 @@ Not described..
 Examples
 ++++++++
 
-There is an example called snapPsfMatchTask.py in the examples directory (described in detail on the doxygen page).
+There is an example called snapPsfMatchTask.py in the examples directory of ipdiffim (described in detail on the doxygen page).  This prints a boatload of info to screen, and executes just fine, locally and on curstack.
 
 What it returns
 +++++++++++++++

@@ -57,7 +57,7 @@ Find footprints from individual tempExp footprints for large footprints,
 Examples
 ++++++++
 
-This code is assembleCoadd.py in the examples directory (described in detail on the doxygen page).
+This code is assembleCoadd.py  ( and example is described in detail on the doxygen page).
 
 What it returns
 +++++++++++++++
