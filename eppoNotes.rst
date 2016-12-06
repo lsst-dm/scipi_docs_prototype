@@ -7,6 +7,152 @@ Notes for "Every Page is Page One"
 By: Mark Baker
 Pub. Date: December 3, 2013
 
+  Audience
+----------------
+
+This book is for technical writers, information architects, content strategists, and anyone interested in designing information that will be consumed on the Web or in the context of the Web.
+
+
+
+Chapter 1. Introduction
+------------------------
+
+people’s behavior on the Web follows a pattern similar to the optimal foraging patterns of wild animals. The name for this behavior is information foraging. The key concept in information foraging is information scent
+
+This foraging behavior is not exclusive to the Web, of course.
+
+ Readers have become habituated to information snacking.
+
+----------- 1.1. Every page is page one
+
+The consequence of this information snacking behavior is that every page the reader reads becomes a new page one. When you search for information on the Web, whether you use a search engine or follow a link, and you land on one of the billions of pages on the Web, that page, for you, is page one.
+
+My aim in writing this book is to begin to define a rigor and a discipline for writing and organizing Every Page is Page One pages.
+
+------------ 1.2. Why do we still write books?
+
+Why, after all this time, do so many tech writers still produce books and organize help systems as if they were books?
+
+people make decisions based on one of two models: the consequences model or the identity model. Decisions based on the consequences model are made by looking at what will happen as a result of the decision: “if I throw this brick through this jeweler’s window, I will get arrested and go to jail.” Decisions based on the identity model are made by asking what kind of person I am: “although there are no cops around, I am not the sort of person who throws bricks through jeweler’s windows.”
+
+
+
+We write books because we are the sort of people who write books.
+
+But, even more so than in the past, our readers are not the sort of people who read books.
+
+----------- 1.3. About the book
+
+- Content in the context of the Web
+  
+- Characteristics of Every Page is Page One Topics
+  
+- Writing Every Page is Page Topics
+
+
+Chapter 2. Include it all. Filter it afterward
+------------------------------------------------
+
+When readers forage the Web, rather than picking up a book, they are expressing a preference to, in David Weinberger’s words from Too Big to Know [Weinberger, 2011], “Include it all. Filter it afterward.”
+
+-------- 2.1. Just Google it
+
+People prefer to search the Web because it lets them find more content in less time.
+
+
+-------- 2.2. The long tail
+
+all kinds of information gets put on the Web that would never find its way into a book. 
+
+--------- 2.3. Authority and experience
+
+One of the ways the Web changes how we think about knowledge and information is that it give us access to people whose expertise comes from experience as well as those with credentials.
+
+People prefer to search the Web because it gives them access to experience as well as credentials.
+
+--------- 2.4. Aggregation and curation
+
+The Web is not just an environment for searching, it is also an environment in which you can aggregate and curate content and tailor collections of content for you own needs.
+
+--------- 2.5. Filter it afterward
+
+The Web is full of filters, and most of us spend most of our time on the Web creating and using those filters.
+
+
+Chapter 3. The Distributed Nature of Content on the Web
+--------------------------------------------------------
+
+In many cases, in fact, we don’t use websites at all. What we actually use are:
+
+The Web
+Web pages
+
+--------- 3.1. How we use the Web
+
+If we find a particularly useful page, we bookmark the page, not the website. If we want to share with friends, we share the page, not the website.
+
+----------  3.2. Dynamic semantic clustering
+
+
+When you do a search or apply a filter to the Web, you get a set of results that is built dynamically around the semantics of the filter you applied, clustering pages related to your search terms or filter. We can call this process dynamic semantic clustering.
+
+
+Chapter 4. Information Architecture Top Down
+---------------------------------------------
+
+There are essentially two ways you can organize anything: top down and bottom up. In the book world, we organized everything top down, and for the most part we have brought that model to the Web. But does the top-down model work on the Web?
+
+--------- 4.1. Book navigation
+
+
+Traditional book organization is either linear or hierarchical.
+
+----------- 4.2. The trouble with TOCs
+
+If you expand out all levels of the table of contents, the information starts to look really complex. Users may feel intimidated and overwhelmed about where to even begin. It’s too much to learn.
+
+------------ 4.3. Curriculum versus classification
+
+Where the subject matter itself is naturally hierarchical, hierarchical organization works well.
+
+----------- 4.4. The limits of hierarchies
+
+But what if the subject matter is not naturally hierarchical?
+
+---------- 4.5. The cultural bias toward hierarchies
+
+We are culturally imprinted to organize using hierarchies. We use hierarchies to organize all kinds of things that are not hierarchical by nature.
+
+In the physical world, putting something next to one thing means moving it further from another thing. In the digital world, you can put something near any number of other things in any number of dimensions.
+
+Our experience of organizing things in the real world has conditioned us to think that the compromises the physical world imposes are inevitable and even natural.
+
+---------- 4.6. The rise of the Frankenbooks
+
+Here’s the hard truth: hierarchies become less logical and more arbitrary the larger they become. Look at any large TOC and arbitrariness, not logic, is the prevailing feature. Hierarchies simply do not scale.
+
+---------- 4.7. Faceted navigation
+
+In faceted navigation you choose a value from column A and a value from column B, and the system shows you the items that match both selections. You can then select something from column C to narrow the result even further. Faceted navigation systems work interactively. Rather than making all your selections at once, you can start with a simple search on one factor. The system then shows you a list of results and populates the other selection fields only with the values from items that match the first query.
+
+---------- 4.8. The limits of classification
+
+The problem with classification as a principle of organization is that it only works when readers are familiar with the classification scheme, and most of the time they aren’t.
+
+---------- 4.9. Where top-down works
+
+When does top-down navigation work and when doesn’t it?
+
+- It works when users want a curriculum.
+
+
+- It works when you can provide a classification scheme that makes intuitive sense to the reader, ideally one where the reader has already classified the query before starting.
+  
+
+- It works when the classification scheme, natural or not, has been made canonical by a discipline or trade, has become part of the language of practitioners, and the audience consists entirely of fellow practitioners.
+
+  
+
 
 Chapter 5. Information Architecture Bottom Up
 -----------------------------------------
