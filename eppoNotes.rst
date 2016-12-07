@@ -1,15 +1,15 @@
 
 
-Notes for "Every Page is Page One"
-==================================
+RD Condensed Version of "Every Page is Page One"
+=================================================
 
-Author: Mark Baker
+- Author: Mark Baker
 
-Pub. Date: December 3, 2013
+- Pub. Date: December 3, 2013
 
-The large majority of these words are extracts from Baker, but I
-edited freely, to make them coherently readable.  From here on "I" or
-"my" will be Baker referring to himself.  -MSSG
+The large majority of these words are straight extracts from Baker,
+but I edited little bits in places, to make them coherently readable.
+From here on "I" or "my" will be Baker referring to himself.  -MSSG
 
 Audience
 ----------------
@@ -50,15 +50,13 @@ and organize help systems as if they were books?
 People make decisions based on one of two models: the consequences
 model or the identity model.
 
-- Decisions based on the consequences model
-are made by looking at what will happen as a result of the decision:
-“if I throw this brick through this jeweler’s window, I will get
-arrested and go to jail.”
+-Decisions based on the consequences model are made by looking at
+what will happen as a result of the decision: “if I throw this brick
+through this jeweler’s window, I will get arrested and go to jail.”
 
-- Decisions based on the identity model are
-made by asking what kind of person I am: “although there are no cops
-around, I am not the sort of person who throws bricks through
-jeweler’s windows.”
+-Decisions based on the identity model are made by asking what kind
+of person I am: “although there are no cops around, I am not the sort
+of person who throws bricks through jeweler’s windows.”
 
 
 We write books because we are the sort of people who write books.
@@ -637,15 +635,33 @@ talking about answering questions like:
 - Where are the valid values for this field listed?
 - What do each of the field values mean?
 - How will the system change as a result of this setting?
-- Does this setting form part of a collection of settings that are used to achieve an overall objective for the system.
-- What are the side effects of setting a particular value? Are there trade-offs on performance, access, or security as a result of changing this setting?
-- Should this setting match a value set elsewhere in the system? If so, which value, and which is the master and which is the slave?
+
+- Does this setting form part of a collection of settings that are
+  used to achieve an overall objective for the system.
+
+- What are the side effects of setting a particular value? Are there
+  trade-offs on performance, access, or security as a result of
+  changing this setting?
+
+- Should this setting match a value set elsewhere in the system? If
+  so, which value, and which is the master and which is the slave?
+
 - Are there larger questions to consider before choosing the value for this setting?
+
 - Will the system validate this setting? How will I know if I have the right setting?
-- Does my choice for this setting depend on what other users have done, and, if so, what questions do I need to ask them before I change this setting?
+
+- Does my choice for this setting depend on what other users have
+  done, and, if so, what questions do I need to ask them before I
+  change this setting?
+
 - Can I change this setting later, or will there be irrevocable consequences?
+
 - Could this setting result in loss of data or change how data is processed?
-- Who else might be affected by this setting, and what do I need to tell them so they can make good decisions about their own parts of the system?
+
+- Who else might be affected by this setting, and what do I need to
+  tell them so they can make good decisions about their own parts of
+  the system?
+
 - How is this setting affected by optional components?
 
 A good Every Page is Page One task topic should address these kinds of
@@ -862,7 +878,11 @@ the lack of context that so many topics exhibit.
 
 ------------ 10.1. Establishing context
 
-**A self-contained topic must establish its context, and readers must be able to come to it from anywhere and know where they have arrived. Most Every Page is Page One topics orient themselves quickly. A lead paragraph of a sentence or two often suffices to set the scene for what is to come.**
+**A self-contained topic must establish its context, and readers must
+be able to come to it from anywhere and know where they have
+arrived. Most Every Page is Page One topics orient themselves
+quickly. A lead paragraph of a sentence or two often suffices to set
+the scene for what is to come.**
 
 Putting a topic in context means locating the subject of the topic in
 the real world. Placing an Up to TOC link on a topic does not place
@@ -1347,15 +1367,24 @@ fits its defined purpose and follow it. If you find yourself wanting
 to include material that does not fit the model, ask yourself the
 following questions:
 
-- Have I correctly defined and limited the purpose of this topic? (Chapter 8, EPPO Topics have a Specific and Limited Purpose)
+- Have I correctly defined and limited the purpose of this topic?
+  (Chapter 8, EPPO Topics have a Specific and Limited Purpose)
 
-- Have I correctly identified the topic type that supports that purpose? (Chapter 9, EPPO Topics Conform to a Type)
+- Have I correctly identified the topic type that supports that
+  purpose? (Chapter 9, EPPO Topics Conform to a Type)
 
-- Am I attempting to change levels within my topic because I fear the reader might not understand something? (Chapter 12, EPPO Topics Stay on One Level)
+- Am I attempting to change levels within my topic because I fear the
+  reader might not understand something? (Chapter 12, EPPO Topics Stay
+  on One Level)
 
-- Am I trying to fit the subject matter of two topics into one or divide the subject matter of one topic into two?
+- Am I trying to fit the subject matter of two topics into one or
+  divide the subject matter of one topic into two?
 
-- Have I discovered a special, weird edge case? These do happen, and the best solution is often to write a generic, untyped topic to cover them rather than adding support for every edge case to the normal topic type. This keeps the normal topic type simple to understand, follow, and audit.
+- Have I discovered a special, weird edge case? These do happen, and
+  the best solution is often to write a generic, untyped topic to
+  cover them rather than adding support for every edge case to the
+  normal topic type. This keeps the normal topic type simple to
+  understand, follow, and audit.
 
 If you exhaust all those possibilities, record it as a bug in the
 topic type definition. If your topic types are defined in a structured
@@ -1754,12 +1783,24 @@ showed the same behavior with paper manuals.[31]
 Every Page is Page One is designed to accommodate and facilitate this
 non-linear reader behavior, rather than to resist or punish it.
 
-- By making each topic self-contained, without reliance on previous or next topics, EPPO allows readers to choose any topic at any time.
-- By having a specific and limited purpose, EPPO topics avoid extraneous material and focus on the reason readers came to them.
-- By establishing their context, EPPO topics make it easy for readers to determine where they have arrived.
-- By conforming to a type, EPPO topics make it easy for readers to skip and skim or hone in on one particular piece of data.
-- By assuming readers are qualified, EPPO topics don’t waste time on introductions that readers are not interested in.
-- By linking richly along lines of subject affinity, EPPO topics help readers jump around in the subject area and find the information they want next.
+- By making each topic self-contained, without reliance on previous or
+  next topics, EPPO allows readers to choose any topic at any time.
+
+- By having a specific and limited purpose, EPPO topics avoid
+  extraneous material and focus on the reason readers came to them.
+
+- By establishing their context, EPPO topics make it easy for readers
+  to determine where they have arrived.
+
+- By conforming to a type, EPPO topics make it easy for readers to
+  skip and skim or hone in on one particular piece of data.
+
+- By assuming readers are qualified, EPPO topics don’t waste time on
+  introductions that readers are not interested in.
+
+- By linking richly along lines of subject affinity, EPPO topics help
+  readers jump around in the subject area and find the information
+  they want next.
 
 
 ------------ 17.2. Is EPPO minimalist?
@@ -1810,146 +1851,239 @@ need it.
 Chapter 18. Structured Writing
 --------------------------
 
-In Chapter 9, EPPO Topics Conform to a Type, I said a topic type defines three things: the content, the order, and the form of a topic. That is what structured writing is all about: capturing, guiding, and validating the content, order, and form of a piece of content.
+In Chapter 9, EPPO Topics Conform to a Type, I said a topic type
+defines three things: the content, the order, and the form of a
+topic. That is what structured writing is all about: capturing,
+guiding, and validating the content, order, and form of a piece of
+content.
 
- one hallmark of professionals is that they govern their own work by defining structure for themselves.
+One hallmark of professionals is that they govern their own work by
+defining structure for themselves.
 
-  True professionals are not self-indulgent, nor are they self-deluding. They know they are only human and that if they do not govern, discipline, and test their work against consistent, well-founded structures, they won’t produce work of consistent quality and utility.
+True professionals are not self-indulgent, nor are they
+self-deluding. They know they are only human and that if they do not
+govern, discipline, and test their work against consistent,
+well-founded structures, they won’t produce work of consistent quality
+and utility.
 
-  Therefore, structured writing is not the enemy of professional writers, but a natural and proper part of their professional tool chest.
+Therefore, structured writing is not the enemy of professional
+writers, but a natural and proper part of their professional tool
+chest.
   
  
 ------------ 18.1. The varieties of structured writing
 
 
-There are many ways to specify the content, order, and form of information, and thus many forms of structured writing.
+There are many ways to specify the content, order, and form of
+information, and thus many forms of structured writing.
 
-First, we need to distinguish two distinct but related types of structured writing, which I will call rhetorically structured writing and computably structured writing.
+First, we need to distinguish two distinct but related types of
+structured writing, which I will call rhetorically structured writing
+and computably structured writing.
 
 ------ 18.1.1. Rhetorically structured writing
 
-I will use the term rhetorically structured to mean systems and approaches that formally define how the content, order, and form of information are expressed in order to make that information easier to consume and understand. Examples of rhetorical structure include the following:
+I will use the term rhetorically structured to mean systems and
+approaches that formally define how the content, order, and form of
+information are expressed in order to make that information easier to
+consume and understand. Examples of rhetorical structure include the
+following:
 
-the traditional newspaper pyramid structure
-the classic essay structure of introduction, body, and conclusion
-the standard form of a recipe
-the standard form of an API reference
-Information Mapping, which sees an effective document as consisting of a collection of information blocks of defined types
-The principle that an Every Page is Page One topic should begin by establishing its context is also an example of rhetorical structure.
+- the traditional newspaper pyramid structure
+- the classic essay structure of introduction, body, and conclusion
+- the standard form of a recipe
+- the standard form of an API reference
+
+- Information Mapping, which sees an effective document as consisting
+  of a collection of information blocks of defined types
+
+- The principle that an Every Page is Page One topic should begin by
+  establishing its context is also an example of rhetorical structure.
 
 Rhetorical structure includes rhetorical devices that apply broadly to many types of writing.
 
- As long as you follow a consistent rhetorical template, you are doing structured writing – rhetorically structured writing – and that’s a good thing.
+As long as you follow a consistent rhetorical template, you are doing
+structured writing – rhetorically structured writing – and that’s a
+good thing.
 
 
 ------ 18.1.2. Computably structured writing
 
-I will use the term computably structured to describe systems in which content is encoded in a machine-readable format so it can be processed in multiple ways after it is written. Computable structures also deal with the content, order, and form of information, but they vary greatly in how strictly or loosely they define those things.
+I will use the term computably structured to describe systems in which
+content is encoded in a machine-readable format so it can be processed
+in multiple ways after it is written.
 
-Essentially, you are doing computably structured writing if you are aware of the structure, creating it deliberately, and specifying how it will be processed.
+Computable structures also deal with the content, order, and form of
+information, but they vary greatly in how strictly or loosely they
+define those things.
 
-In technical communication, the most common way to create a data structure for content is with XML. Technical communicators use standard XML schemas like DocBook, DITA, or S1000D; industry vertical schemas; or custom schemas.
+Essentially, you are doing computably structured writing if you are
+aware of the structure, creating it deliberately, and specifying how
+it will be processed.
+
+In technical communication, the most common way to create a data
+structure for content is with XML. Technical communicators use
+standard XML schemas like DocBook, DITA, or S1000D; industry vertical
+schemas; or custom schemas.
 
 The data structures that you choose may or may not support or enforce a rhetorical structure. 
 
 ------ 18.1.3. A word about SPFE
 
-I am working on a project I call the SPFE[34] architecture, which is a structured writing architecture designed specifically to support the creation and management of EPPO topics. 
+I am personally working on a project I call the SPFE architecture, which is a
+structured writing architecture designed specifically to support the
+creation and management of EPPO topics.
 
 ------ 18.1.4. Other forms of computable structure
 
- Any format that captures the content, order, and form you need in a computable manner will work, and, often, non-XML formats will be easier for contributors to learn and use.
+Any format that captures the content, order, and form you need in a
+computable manner will work, and, often, non-XML formats will be
+easier for contributors to learn and use.
 
 ------ 18.1.5. Open and closed formats
 
-Figure 18.2, “Structure matrix” shows some of the various forms of structured writing, both rhetorically structured and computably structured.
+Figure 18.2, “Structure matrix” shows some of the various forms of
+structured writing, both rhetorically structured and computably
+structured.
 
-.....
 
 ------ 18.1.6. The varieties of computable structures
 
-XML: The XML tags divide the content into distinct elements ,  This enables you to process the content in ways that are specific to movie reviews.
+XML: The XML tags divide the content into distinct elements , This
+enables you to process the content in ways that are specific to movie
+reviews.
 
-html: There is no way a program could pull a list of the titles of all the reviewed movies in a collection based on this markup because the collection does not contain the necessary subject-specific markup.
+Html: There is no way a program could pull a list of the titles of all
+the reviewed movies in a collection based on this markup because the
+collection does not contain the necessary subject-specific markup.
 
 DocBook is a little more specific about the document structure.  (This book was written in DocBook.)
 
+HTML5 adds some basic document structured markup to HTML, including
+tags like article and section, bringing it slightly closer to what
+DocBook provides, though DocBook remains far richer in document
+semantics.
 
-
-HTML5 adds some basic document structured markup to HTML, including tags like article and section, bringing it slightly closer to what DocBook provides, though DocBook remains far richer in document semantics.
-
-Markdown is a simplified language for writing Web pages using markup inspired by the way people format plain text email. See http://daringfireball.net/projects/markdown/.
+Markdown is a simplified language for writing Web pages using markup
+inspired by the way people format plain text email. See
+http://daringfireball.net/projects/markdown/.
 
 
 
 ------------ 18.2. Benefits of computably structured writing
 
-Structured writing, especially computably structured writing, provides a variety of benefits, some of which depend on the format. 
+Structured writing, especially computably structured writing, provides
+a variety of benefits, some of which depend on the format.
 
 ------ 18.2.1. Improved content quality
 
-The first and most important reason to adopt structured writing is to improve the quality of your content. Defining firm rhetorical structures for all your content can help ensure that content is complete, consistent, and navigable.
+The first and most important reason to adopt structured writing is to
+improve the quality of your content. Defining firm rhetorical
+structures for all your content can help ensure that content is
+complete, consistent, and navigable.
 
 
 ------ 18.2.2. Guidance for writers
 
-Writing remains a craft. It relies on the experienced touch of the individual writer to say the right thing and to say it well. But like professionals in other crafts, writers can improve the quality and consistency of their work by using guides and templates.
+Writing remains a craft. It relies on the experienced touch of the
+individual writer to say the right thing and to say it well. But like
+professionals in other crafts, writers can improve the quality and
+consistency of their work by using guides and templates.
 
 
 ------ 18.2.3. Conformance and quality
 
-When people make the case for investment in technical communication, they often point to technical communication problems that have contributed to notable accidents. Using a schema that requires each component to be present helps prevent errors and omissions that could lead to user frustration (at least) or catastrophic loss (at worst).
+When people make the case for investment in technical communication,
+they often point to technical communication problems that have
+contributed to notable accidents. Using a schema that requires each
+component to be present helps prevent errors and omissions that could
+lead to user frustration (at least) or catastrophic loss (at worst).
 
-By enforcing your schema in your authoring tools, you give writers and editors direct, immediate feedback, which can help them become more productive, both in terms of the speed and the quality of their work.
+By enforcing your schema in your authoring tools, you give writers and
+editors direct, immediate feedback, which can help them become more
+productive, both in terms of the speed and the quality of their work.
 
 
 
 ------ 18.2.4. Linking
 
-Every Page is Page One topics link richly along lines of subject affinity. You can use structured markup to capture subject affinities in your content and use them to generate linking automatically. 
+Every Page is Page One topics link richly along lines of subject
+affinity. You can use structured markup to capture subject affinities
+in your content and use them to generate linking automatically.
 
 ------ 18.2.5. Content manipulation
 
-Computably structured content lets you treat your content like a database and write query expressions against it. Thus you could run queries such as: show me all the movie reviews that mention both John Wayne and Howard Hawkes, or give me a list of all the API routines that take or return a config record data structure.
+Computably structured content lets you treat your content like a
+database and write query expressions against it. Thus you could run
+queries such as: show me all the movie reviews that mention both John
+Wayne and Howard Hawkes, or give me a list of all the API routines
+that take or return a config record data structure.
 
 ------ 18.2.6. Future proofing
 
-You can always translate your content from an older format to a newer one. The real question is, will the content have the structure you will need in the future?
+You can always translate your content from an older format to a newer
+one. The real question is, will the content have the structure you
+will need in the future?
 
-What you really should care about for future proofing are the following two things:
+What you really should care about for future proofing are the
+following two things:
 
-- Semantics:  In general, the more semantic information your content contains, the easier it will be to translate it into a future format.
+- Semantics: In general, the more semantic information your content
+  contains, the easier it will be to translate it into a future
+  format.
 
-Medium: The nature of your current output medium will affect how easy your content is to work with in the future.  Even if you are not delivering to the Web today, creating EPPO topics rather than writing linear books is the best way to future proof your information.
+- Medium: The nature of your current output medium will affect how
+  easy your content is to work with in the future.  Even if you are
+  not delivering to the Web today, creating EPPO topics rather than
+  writing linear books is the best way to future proof your
+  information.
 
 ------ 18.2.7. Single sourcing
 
-One of the most common phrases used to describe structured writing is “separation of content from format.” This refers to the ability to create content once, in a format-independent way, and then generate output to various media by adding formatting appropriate to each medium.
+One of the most common phrases used to describe structured writing is
+“separation of content from format.” This refers to the ability to
+create content once, in a format-independent way, and then generate
+output to various media by adding formatting appropriate to each
+medium.
 
-However, separating content from formatting is not enough to enable you to organize content differently for different media.
+However, separating content from formatting is not enough to enable
+you to organize content differently for different media.
 
-More than formatting separates the linear organization of a book from the random-access structure of the Web.
+More than formatting separates the linear organization of a book from
+the random-access structure of the Web.
 
 Separating content from formatting is not enough to change top-down organization to bottom-up organization.
 
-
-
 ------ 18.2.8. Reuse
 
-reuse looks at outputting one piece of content to multiple publications or displaying it in multiple contexts.
+Reuse looks at outputting one piece of content to multiple
+publications or displaying it in multiple contexts.
 
 ------ 18.2.9. Content exchange
 
 If you want to exchange content with other people, you need to deliver it in a format they can process.
 
- You can always exchange content (or data) if the other party’s data has the same semantics as yours (regardless of syntax) or if your content is semantically up hill from their content. That is, you can exchange content if the semantics of your content can be transformed into the semantics of their content without loss. This can happen if your content semantics are richer than theirs, but not if they are poorer.
+You can always exchange content (or data) if the other party’s data
+has the same semantics as yours (regardless of syntax) or if your
+content is semantically up hill from their content. That is, you can
+exchange content if the semantics of your content can be transformed
+into the semantics of their content without loss. This can happen if
+your content semantics are richer than theirs, but not if they are
+poorer.
 
- Of course, creating subject-specific markup has its costs as well, so you have to weigh the costs and benefits. But the conformance and quality advantages are compelling, especially for Every Page is Page One topics, which work best when written to a well-defined structure.
+Of course, creating subject-specific markup has its costs as well, so
+you have to weigh the costs and benefits. But the conformance and
+quality advantages are compelling, especially for Every Page is Page
+One topics, which work best when written to a well-defined structure.
 
  
 ------------ 18.3. Structured writing and bottom-up organization
 
-While bottom-up organization and navigation and irregular subject affinities can be difficult to manage by hand, they can be managed effectively by an algorithm. But for the algorithm to work, it needs computably structured content. Computably structured writing can be a big help in organizing content from the bottom up.
+While bottom-up organization and navigation and irregular subject
+affinities can be difficult to manage by hand, they can be managed
+effectively by an algorithm. But for the algorithm to work, it needs
+computably structured content. Computably structured writing can be a
+big help in organizing content from the bottom up.
 
 
 
@@ -1957,64 +2091,128 @@ While bottom-up organization and navigation and irregular subject affinities can
 Chapter 19. Metadata
 ------------------------------------
 
- Metadata is used in many ways for many purposes, but often people see metadata in just one role – as the information attached to a document or a web page to help people find it.
+Metadata is used in many ways for many purposes, but often people see
+metadata in just one role – as the information attached to a document
+or a web page to help people find it.
 
-  if you use an authoring method from the Open Format side of the matrix, you will be creating a lot more metadata, and most, and possibly all, of the metadata will be created before or during the authoring of the content,
+If you use an authoring method from the Open Format side of the
+matrix, you will be creating a lot more metadata, and most, and
+possibly all, of the metadata will be created before or during the
+authoring of the content,
 
- To put it simply structure is defined by metadata. But the metadata that defines structure is not on the outside of the content, like the label on a pasta jar, it is inside the content, labeling its individual parts and pieces.
+To put it simply: structure is defined by metadata. But the metadata
+that defines structure is not on the outside of the content, like the
+label on a pasta jar, it is inside the content, labeling its
+individual parts and pieces.
 
  
   
 
 ------------ 19.1. The meaning of metadata
 
-Metadata is simply information about data or, to put it another way, data that describes other data.
+Metadata is simply information about data or, to put it another way,
+data that describes other data.
 
-Metadata is ubiquitous. Indeed, most data is useless without metadata to tell us what it means. And because metadata is also data, we need metadata to tell us what the metadata means.
+Metadata is ubiquitous. Indeed, most data is useless without metadata
+to tell us what it means. And because metadata is also data, we need
+metadata to tell us what the metadata means.
 
-Not all forms of metadata are referred to as metadata. Many forms of metadata have their own long-standing names: index, schema, data dictionary, table of contents, catalog, tag, label, and so forth.
+Not all forms of metadata are referred to as metadata. Many forms of
+metadata have their own long-standing names: index, schema, data
+dictionary, table of contents, catalog, tag, label, and so forth.
 
- metadata can refer to a bunch of things that are all called metadata and to a bunch more things that are not commonly called metadata, but which still are metadata.
+Metadata can refer to a bunch of things that are all called metadata
+and to a bunch more things that are not commonly called metadata, but
+which still are metadata.
 
  
 ------------ 19.2. Topics should merit their metadata
- the secret to making information findable is not organization, but metadata. In other words, as we saw in Chapter 3, The Distributed Nature of Content on the Web, web pages are organized dynamically by the Web itself, and the thing that makes it possible for the Web to filter content accurately is metadata (both the metadata authors create while writing the content and the metadata readers create by tagging, liking, or linking to the content).
-  The Web is driven by metadata.
 
+The secret to making information findable is not organization, but
+metadata. In other words, as we saw in Chapter 3, The Distributed
+Nature of Content on the Web, web pages are organized dynamically by
+the Web itself, and the thing that makes it possible for the Web to
+filter content accurately is metadata (both the metadata authors
+create while writing the content and the metadata readers create by
+tagging, liking, or linking to the content).
 
+The Web is driven by metadata.
 
-  It is not hard to add metadata, but it is hard to add good metadata. If your content is going to get filtered in when and where it should be, its metadata has to accurately reflect the topic.
+It is not hard to add metadata, but it is hard to add good
+metadata. If your content is going to get filtered in when and where
+it should be, its metadata has to accurately reflect the topic.
 
-  You cannot attach more metadata to an object than that object’s intrinsic properties deserve, at least, not if you want a reliable result. If the pieces you are labeling are too small or if their boundaries are poorly defined, the metadata will not fit properly.
+You cannot attach more metadata to an object than that object’s
+intrinsic properties deserve, at least, not if you want a reliable
+result. If the pieces you are labeling are too small or if their
+boundaries are poorly defined, the metadata will not fit properly.
 
- Useful content metadata can only be applied to useful units of content. Break content down into chunks that are smaller than is useful to a reader and you cannot attach metadata to it that will be useful to the reader.
+Useful content metadata can only be applied to useful units of
+content. Break content down into chunks that are smaller than is
+useful to a reader and you cannot attach metadata to it that will be
+useful to the reader.
 
- The qualities a piece of useful content must have to merit its metadata turn out to be the same qualities that EPPO topics have.
+The qualities a piece of useful content must have to merit its
+metadata turn out to be the same qualities that EPPO topics have.
 
-Self-contained: To be labeled accurately, an object must be self-contained. If it is a component of something larger, the topic label belongs on the larger object.
-Specific and limited purpose: Metadata is essentially a description of what a piece of data does. If the purpose of the content is not specific, there is no way to attach specific metadata to it. If the purpose is not limited, the metadata required cannot be limited either, and unlimited metadata is as bad as no metadata.
-Conform to type: A well-defined content type defines every aspect of a piece of content, and metadata labels each aspect of the content. If the aspects of the content are not consistent, the metadata cannot be consistent. And inconsistent metadata is of little use. If you can’t rely on the metadata, you can’t use it to find, create, manage, or maintain content.
-Establish context: When a topic explicitly establishes its context for the reader, it confirms that the metadata for the topic is correct. Showing the metadata as part of the topic, as we saw in the Blue-footed Booby topic in All About Birds (see Figure 10.4, “Blue-Footed Booby”), is one of the most useful ways to establish context.
-Assume the reader is qualified:  Every topic is written for someone. The metadata should identify the audience, either explicitly or by implication. If the topic does not stick to what is stated or implied, it does not merit the metadata.
-Stay on one level: As with reader qualification, the metadata should identify the level, either explicitly or implicitly. If the topic does not stick to that level, it does not merit the metadata.
+- Self-contained: To be labeled accurately, an object must be
+  self-contained. If it is a component of something larger, the topic
+  label belongs on the larger object.
 
-the metadata that is appropriate for labeling your reusable content chunks is not the metadata that applies to an EPPO topic built from them.
+- Specific and limited purpose: Metadata is essentially a description
+  of what a piece of data does. If the purpose of the content is not
+  specific, there is no way to attach specific metadata to it. If the
+  purpose is not limited, the metadata required cannot be limited
+  either, and unlimited metadata is as bad as no metadata.
+
+- Conform to type: A well-defined content type defines every aspect of
+  a piece of content, and metadata labels each aspect of the
+  content. If the aspects of the content are not consistent, the
+  metadata cannot be consistent. And inconsistent metadata is of
+  little use. If you can’t rely on the metadata, you can’t use it to
+  find, create, manage, or maintain content.
+
+- Establish context: When a topic explicitly establishes its context
+  for the reader, it confirms that the metadata for the topic is
+  correct. Showing the metadata as part of the topic, as we saw in the
+  Blue-footed Booby topic in All About Birds (see Figure 10.4,
+  “Blue-Footed Booby”), is one of the most useful ways to establish
+  context.
+
+- Assume the reader is qualified: Every topic is written for
+  someone. The metadata should identify the audience, either
+  explicitly or by implication. If the topic does not stick to what is
+  stated or implied, it does not merit the metadata.
+
+- Stay on one level: As with reader qualification, the metadata should
+  identify the level, either explicitly or implicitly. If the topic
+  does not stick to that level, it does not merit the metadata.
+
+The metadata that is appropriate for labeling your reusable content
+chunks is not the metadata that applies to an EPPO topic built from
+them.
 
 
 
 ------------ 19.3. Metadata comes first
 
-To create content that truly merits its metadata, the best thing to do is to start with the metadata first. That is, define the metadata up front – all of it – and then write a topic that merits that metadata.
+To create content that truly merits its metadata, the best thing to do
+is to start with the metadata first. That is, define the metadata up
+front – all of it – and then write a topic that merits that metadata.
 
-In fact, this would make an excellent definition of structured writing, whether we are talking about rhetorically structured, computably structured, or both: when you do structured writing, create the metadata first and the content afterwards.
+In fact, this would make an excellent definition of structured
+writing, whether we are talking about rhetorically structured,
+computably structured, or both: when you do structured writing, create
+the metadata first and the content afterwards.
 
-
-
-This approach is similar to the test-driven development practice that is part of agile software development.
+**This approach is similar to the test-driven development practice that
+is part of agile software development.**
 
 In many ways, the metadata for a topic is a test for the topic’s content.
 
-The first and most important piece of metadata about an EPPO topic is its type. The most elementary part of defining the metadata first is to choose the topic type before you start writing.
+The first and most important piece of metadata about an EPPO topic is
+its type. The most elementary part of defining the metadata first is
+to choose the topic type before you start writing.
 
 
 
@@ -2023,156 +2221,263 @@ Chapter 20. Linking
 
 Linking is an important aspect of Every Page is Page One topic design.
 
-
 ------------ 20.1. Crowdsourced links
 
-Crowdsourced links are generated by the community rather than by authors and editors.
+Crowdsourced links are generated by the community rather than by
+authors and editors.
 
-I would love to hear from you if you have made crowdsourced linking work in your organization.
+I would love to hear from you if you have made crowdsourced linking
+work in your organization.
 
 
 ------------ 20.2. Soft linking based on subject affinities
 
- Soft linking is a technique in which links are generated automatically based on subject affinities recorded in structured data.
+Soft linking is a technique in which links are generated automatically
+based on subject affinities recorded in structured data.
 
- Soft linking is not difficult to implement. The secret is to have content that properly identifies and fulfills its purpose so the system can form useful links to the right content.
-
-
-
- links in Every Page is Page One topics are not usually used to make explicit references to particular documents. They are mostly used to provide access to related content along lines of subject affinity.
-
- Here are some advantages to not requiring authors to identify particular resources:
-
-- It saves time. If all authors have to do is note that a particular string has a subject affinity, they can work much more quickly than if they have to stop and identify a resource to link to.
-
-- While you’re developing an information set, the resources you might want to create links to may not exist yet. But even if you can’t create a hard link to a resource that does not exist, you can note an affinity to the subject.
-
-- Relying on authors to find resources to link to can result in inconsistent linking.
-Author behavior, like that of readers, tends to be satisficing. Authors generally won’t keep looking for the best link target once they have one that seems good enough. They will pick the first “good enough” target they find, resulting in a topic set full of “good enough,” rather than excellent, links.
+Soft linking is not difficult to implement. The secret is to have
+content that properly identifies and fulfills its purpose so the
+system can form useful links to the right content.
 
 
-- If you reuse content in different information products, you may find that trying to reuse a topic that contains hard-coded links will result in broken links because the target topics don’t get included in the new information set.
-If you simply note the subject affinities, the soft links can be resolved at build time to point to available resources in the current information set.
+Links in Every Page is Page One topics are not usually used to make
+explicit references to particular documents. They are mostly used to
+provide access to related content along lines of subject affinity.
 
-Soft linking based on subject affinities does not require XML. Any data format that allows you to highlight subject affinities in a computable manner can be used.
+Here are some advantages to not requiring authors to identify particular resources:
+
+- It saves time. If all authors have to do is note that a particular
+  string has a subject affinity, they can work much more quickly than
+  if they have to stop and identify a resource to link to.
+
+- While you’re developing an information set, the resources you might
+  want to create links to may not exist yet. But even if you can’t
+  create a hard link to a resource that does not exist, you can note
+  an affinity to the subject.
+
+- Relying on authors to find resources to link to can result in
+inconsistent linking.  Author behavior, like that of readers, tends to
+be satisficing. Authors generally won’t keep looking for the best link
+target once they have one that seems good enough. They will pick the
+first “good enough” target they find, resulting in a topic set full of
+“good enough,” rather than excellent, links.
+
+
+- If you reuse content in different information products, you may find
+that trying to reuse a topic that contains hard-coded links will
+result in broken links because the target topics don’t get included in
+the new information set.  If you simply note the subject affinities,
+the soft links can be resolved at build time to point to available
+resources in the current information set.
+
+Soft linking based on subject affinities does not require XML. Any
+data format that allows you to highlight subject affinities in a
+computable manner can be used.
 
 ------ 20.2.1. Soft linking is not indirection
 
-What follows is the most technical thing in this whole book. I include it because it is important not to confuse soft linking with another technique known as indirection. Both techniques are useful – and each has pluses and minuses – but they are different, and you can miss the true power of soft linking if you confuse it with indirection.
+Details in this section are the most technical thing in this whole
+book. I include it because it is important not to confuse soft linking
+with another technique known as indirection. Both techniques are
+useful – and each has pluses and minuses – but they are different, and
+you can miss the true power of soft linking if you confuse it with
+indirection.
 
 
 ------------ 20.3. Soft linking and list generation
 
-One of the things you may have realized about the soft-linking approach is that when you run a query on a particular subject expressed by subject-affinity markup, you may get more than one result. Since conventional Web links only point to one page, what do you do when you get multiple results?
+One of the things you may have realized about the soft-linking
+approach is that when you run a query on a particular subject
+expressed by subject-affinity markup, you may get more than one
+result. Since conventional Web links only point to one page, what do
+you do when you get multiple results?
 
-one way to deal with multiple resources is to create a list of links on the page.
+- One way to deal with multiple resources is to create a list of links on the page.
 
- you might prefer to have the list presented as a pop-up of some kind,
+- You might prefer to have the list presented as a pop-up of some kind,
  
-A third option is to create separate list pages. 
+- A third option is to create separate list pages. 
 
 
 
 Chapter 21. Reuse
 ------------------------
 
-Reuse is the hot topic in content strategy and technical communications today. So how does writing and managing Every Page is Page One topics fit with reuse?
+Reuse is the hot topic in content strategy and technical
+communications today. So how does writing and managing Every Page is
+Page One topics fit with reuse?
 
-To accomplish this, companies will often break down content into very small pieces, the building-block topics we talked about in Chapter 6, What is a Topic?.
+To accomplish this, companies will often break down content into very
+small pieces, the building-block topics we talked about in Chapter 6,
+What is a Topic?.
 
-These building blocks are often smaller than Every Page is Page One topics, so if you want to make Every Page is Page One topics from building blocks, you need to plan in advance.
+These building blocks are often smaller than Every Page is Page One
+topics, so if you want to make Every Page is Page One topics from
+building blocks, you need to plan in advance.
 
 
 ------------ 21.1. Reuse on the Web
-Placing the same content in many publications can present a problem in the Web world. One of the key things to remember about the Web, or even your own help system, is that it is a flat information space. Duplication makes sense in the paper world, because each paper document lives in its own little valley with steep mountains between it and the next document
 
-The Web is not a valley. It is one vast flat plain. By default, any search searches the whole thing.
+Placing the same content in many publications can present a problem in
+the Web world. One of the key things to remember about the Web, or
+even your own help system, is that it is a flat information
+space. Duplication makes sense in the paper world, because each paper
+document lives in its own little valley with steep mountains between
+it and the next document
 
-the bottom line is, duplicate and near-duplicate content is bad for SEO (Search Engine Optimization). At least some of your duplicate content won’t show up in search, and duplication may prevent search engines from thoroughly indexing your site.[40]
+The Web is not a valley. It is one vast flat plain. By default, any
+search searches the whole thing.
 
-“assume your information will be used out of context,” “modularize your information,” and “use specific language,” all things that a good EPPO topic should do.
+The bottom line is, duplicate and near-duplicate content is bad for
+SEO (Search Engine Optimization). At least some of your duplicate
+content won’t show up in search, and duplication may prevent search
+engines from thoroughly indexing your site.
 
-the emphasis in the paper world is on authors reusing content themselves (usually by hand) to create multiple static publications, on the Web, the emphasis is on enabling readers to reuse content dynamically for themselves using automated means.
+“Assume your information will be used out of context,” “modularize
+your information,” and “use specific language,” all things that a good
+EPPO topic should do.
+
+The emphasis in the paper world is on authors reusing content
+themselves (usually by hand) to create multiple static publications,
+on the Web, the emphasis is on enabling readers to reuse content
+dynamically for themselves using automated means.
 
 
 
 ------------ 21.2. Static vs. dynamic reuse
 
- With static reuse, you create a piece of content once and then assign it one or more distinct roles.
+With static reuse, you create a piece of content once and then assign it one or more distinct roles.
 
- Dynamic reuse, on the other hand, is more like creating a single piece of content to play a single role that allows it to appear in multiple places.
+Dynamic reuse, on the other hand, is more like creating a single piece
+of content to play a single role that allows it to appear in multiple
+places.
 
 
 ------------ 21.3. Other forms of reuse
 
-There are other forms of reuse besides deploying topics to more than one publication. Variable substitution, similar to that used in a mail-merge application, can be used to produce different variations of a topic.
+There are other forms of reuse besides deploying topics to more than
+one publication. Variable substitution, similar to that used in a
+mail-merge application, can be used to produce different variations of
+a topic.
 
-Conditional text markers can be used to hide or reveal different pieces of text within a topic based on certain conditions.
+Conditional text markers can be used to hide or reveal different
+pieces of text within a topic based on certain conditions.
 
 
 ------------ 21.4. Reuse, linking, and interactive pages
 
 As noted above, linking can be an alternative to reuse.
 
-In EPPO, you could handle the same situation by writing multiple workflow topics, each of which linked to the specific task or procedure topics.
+In EPPO, you could handle the same situation by writing multiple
+workflow topics, each of which linked to the specific task or
+procedure topics.
 
-with interactive content, if you are reading a workflow topic and you click on the link to a specific task or procedure, the link might result in the task or procedure being shown inline rather than by moving you to a new page.
+With interactive content, if you are reading a workflow topic and you
+click on the link to a specific task or procedure, the link might
+result in the task or procedure being shown inline rather than by
+moving you to a new page.
 
 Chapter 22. Making the Case for Every Page is Page One
 ------------------------------------------------------
 
-Throughout this book, I have been making the case that Every Page is Page One is the right information design pattern for most technical communication applications. The heart of that argument is that people learn through experience and through information acquired in the context of experience, and that they want short pieces of content that serve their specific purpose.
+Throughout this book, I have been making the case that Every Page is
+Page One is the right information design pattern for most technical
+communication applications. The heart of that argument is that people
+learn through experience and through information acquired in the
+context of experience, and that they want short pieces of content that
+serve their specific purpose.
 
-This has always been the case, and the systematic textbook model has never been the right one for technical communication. But the advent of the Web has made the need for an Every Page is Page One information design more acute by reducing the distance between information sources to zero and allowing information foragers to move effortlessly from one information source to another.
+This has always been the case, and the systematic textbook model has
+never been the right one for technical communication. But the advent
+of the Web has made the need for an Every Page is Page One information
+design more acute by reducing the distance between information sources
+to zero and allowing information foragers to move effortlessly from
+one information source to another.
 
 
 ------------ 22.1. EPPO and resource constraints
 
 Technical communicators need to find ways to work more efficiently.
 
-Producing nearly any complex product in small units is more efficient than producing it in large units, largely because small units are easier to create, errors are found sooner, and production can flow more evenly.[
+Producing nearly any complex product in small units is more efficient
+than producing it in large units, largely because small units are
+easier to create, errors are found sooner, and production can flow
+more evenly.[
 
 Reuse may provide further savings
 
-By allowing you to work in smaller units, EPPO allows you to turn content around more quickly
+By allowing you to work in smaller units, EPPO allows you to turn content around more quickly.
 
-etc.
 
 ------------ 22.2. EPPO and continuous delivery
 
-Much of the useful information about how to use, connect, troubleshoot, and fix a product is developed after the product is released.
+Much of the useful information about how to use, connect,
+troubleshoot, and fix a product is developed after the product is
+released.
 
 This has become even more true in the age of the Web.
 
-More than ever, the issues that people struggle with are not, “how do I make this program or device work by itself,” but “how do I get it to talk to everything else.”
+More than ever, the issues that people struggle with are not, “how do
+I make this program or device work by itself,” but “how do I get it to
+talk to everything else.”
 
-Traditionally, technical publications have provided only information that was available before the product was released.
+Traditionally, technical publications have provided only information
+that was available before the product was released.
 
 Multiple factors make this deliver-once-at-release-time model nonviable:
 
-- Customer expectations are now driven by the Web. Customers expect documentation to always be up to date with the latest known information, and they see no reason why they should have to look in two unconnected sources (the documentation and the knowledge base) for information about the same product.
+- Customer expectations are now driven by the Web. Customers expect
+  documentation to always be up to date with the latest known
+  information, and they see no reason why they should have to look in
+  two unconnected sources (the documentation and the knowledge base)
+  for information about the same product.
 
-- Software products (and hardware products such as phones and tablets that are largely animated by software) are increasingly moving away from the major release model towards a more continuous roll out of features. Information needs to be updated on the same schedule.
+- Software products (and hardware products such as phones and tablets
+  that are largely animated by software) are increasingly moving away
+  from the major release model towards a more continuous roll out of
+  features. Information needs to be updated on the same schedule.
 
-- The growth of software as a service means companies can roll out new services as soon as they are ready. Again, information delivery has to keep pace.
+- The growth of software as a service means companies can roll out new
+  services as soon as they are ready. Again, information delivery has
+  to keep pace.
 
   For any of these types of continuous delivery, Every Page is Page One topics are ideal.
 
-   Because Every Page is Page One topics have no sequential dependencies, they are essentially plug and play. You can add and remove topics from the content set at any time without disrupting anything.
+Because Every Page is Page One topics have no sequential dependencies,
+they are essentially plug and play. You can add and remove topics from
+the content set at any time without disrupting anything.
    
 **(You will, of course, need to manage link dependencies when you do this.)**
    
-  Every Page is Page One handles continuous delivery better than building-block approaches, which require you to assemble and sequence building blocks into larger and/or hierarchical information products for each delivery.
+Every Page is Page One handles continuous delivery better than
+building-block approaches, which require you to assemble and sequence
+building blocks into larger and/or hierarchical information products
+for each delivery.
 
 ------------ 22.3. EPPO and content change
 
-Keeping up with changes is an ongoing problem for technical communicators. This is not just the problem of updating content from release to release. Most product documentation was originally designed for version 1.0 of the product, when it was fairly small and simple. But products grow over time. New features are added, and the product is adapted to fit new uses.
+Keeping up with changes is an ongoing problem for technical
+communicators. This is not just the problem of updating content from
+release to release. Most product documentation was originally designed
+for version 1.0 of the product, when it was fairly small and
+simple. But products grow over time. New features are added, and the
+product is adapted to fit new uses.
 
-Technical writers rarely have the time and opportunity to design a book with a mature holistic view of the subject matter. Even if you own the whole book and start from scratch, as opposed to updating an existing book, you are always documenting a moving target against an unreasonable deadline. This is not a work environment that is conducive to creating a brilliantly designed curriculum.
+Technical writers rarely have the time and opportunity to design a
+book with a mature holistic view of the subject matter. Even if you
+own the whole book and start from scratch, as opposed to updating an
+existing book, you are always documenting a moving target against an
+unreasonable deadline. This is not a work environment that is
+conducive to creating a brilliantly designed curriculum.
 
-with Every Page is Page One topics you are always working with a manageable unit. There may not be time in the cycle to fix all the topics, but there is always time to fix the topic you are working on.
+With Every Page is Page One topics you are always working with a
+manageable unit. There may not be time in the cycle to fix all the
+topics, but there is always time to fix the topic you are working on.
 
-You can keep individual topics in good shape, and if you get a spare day or a spare week, you can make progress on the backlog of topics that need fixing. Working topics will allow you to make steady progress on improving the quality and organization of your content.
+You can keep individual topics in good shape, and if you get a spare
+day or a spare week, you can make progress on the backlog of topics
+that need fixing. Working topics will allow you to make steady
+progress on improving the quality and organization of your content.
 
 
 
@@ -2182,120 +2487,214 @@ One of the biggest content management problems for documentation sets and websit
 
 However, removing obsolete content is not simple. 
 
-Every Page is Page One information design helps alleviate this problem by reducing or eliminating the tangles between old and new content. Of course, an Every Page is Page One topic does link richly to other topics and other topics link to it, and these tangles have to be dealt with. But if your linking strategy is based on subject affinities and soft links, the links between topics do not create hard dependencies.
+Every Page is Page One information design helps alleviate this problem
+by reducing or eliminating the tangles between old and new content. Of
+course, an Every Page is Page One topic does link richly to other
+topics and other topics link to it, and these tangles have to be dealt
+with. But if your linking strategy is based on subject affinities and
+soft links, the links between topics do not create hard dependencies.
 
-. If you use the soft-linking technique described in Chapter 20, Linking, this will happen automatically, and you can simply remove the obsolete topic without worrying about the tangles.
+If you use the soft-linking technique described in Chapter 20,
+Linking, this will happen automatically, and you can simply remove the
+obsolete topic without worrying about the tangles.
 
-Another aspect of content aging is identifying topics that are obsolete. Fundamentally this depends on the metadata attached to a topic when it is authored. Metadata should include the information needed to implement an appropriate content aging strategy.
+Another aspect of content aging is identifying topics that are
+obsolete. Fundamentally this depends on the metadata attached to a
+topic when it is authored. Metadata should include the information
+needed to implement an appropriate content aging strategy.
 
-Every Page is Page One does not make any special contribution to defining and managing such metadata. However, Every Page is Page One does help ensure that topics fully merit the metadata that is applied to them (Chapter 19, Metadata), which means that you can rely on the metadata with greater confidence when implementing an aging strategy.
+Every Page is Page One does not make any special contribution to
+defining and managing such metadata. However, Every Page is Page One
+does help ensure that topics fully merit the metadata that is applied
+to them (Chapter 19, Metadata), which means that you can rely on the
+metadata with greater confidence when implementing an aging strategy.
 
 ------------ 22.5. EPPO and agile methodologies
 
-The adoption of agile methodologies by software development organizations has been challenging for many technical communication organizations.
+The adoption of agile methodologies by software development
+organizations has been challenging for many technical communication
+organizations.
 
-Organizations that use agile processes should be making frequent deliveries to customers to get the feedback necessary to guide product development.
+Organizations that use agile processes should be making frequent
+deliveries to customers to get the feedback necessary to guide product
+development.
 
-Instead of trying to adopt the development group’s agile process, I suggest that technical communication groups should look into developing their own lean[45] development process and integrating it with the development group’s agile process.
+Instead of trying to adopt the development group’s agile process, I
+suggest that technical communication groups should look into
+developing their own lean development process and integrating it with
+the development group’s agile process.
 
-In an agile process, you can deliver EPPO topics to each sprint without having to worry about how they will fit into a larger structure.
+In an agile process, you can deliver EPPO topics to each sprint
+without having to worry about how they will fit into a larger
+structure.
 
-And if additional documentation requirements emerge after release, you can add EPPO topics to the documentation set without the need to restructure or reissue it.
+And if additional documentation requirements emerge after release, you
+can add EPPO topics to the documentation set without the need to
+restructure or reissue it.
 
-One of the features of Agile development is that you do not spell out every detail of the design before development begins.
+One of the features of Agile development is that you do not spell out
+every detail of the design before development begins.
 
-Instead, the development process is designed to flush out user needs by giving both the development team and customers experience with working prototypes.
+Instead, the development process is designed to flush out user needs
+by giving both the development team and customers experience with
+working prototypes.
 
-This same process of deliberate discovery of requirements through the development process applies to technical communication as well (and is why you should deliver to customers on a regular basis, just as development does). This means you will be working without a complete, detailed documentation plan (there’s no complete, detailed product plan to base it on anyway).
+This same process of deliberate discovery of requirements through the
+development process applies to technical communication as well (and is
+why you should deliver to customers on a regular basis, just as
+development does). This means you will be working without a complete,
+detailed documentation plan (there’s no complete, detailed product
+plan to base it on anyway).
 
-Because Every Page is Page One topics are, ideally, organized bottom up, managing subject affinities is an important part of developing EPPO content. Once you start managing subject affinities, you will quickly discover how powerful an aid they are to planning content requirements and to maintaining and developing a content plan through an agile development process.
-
-
+Because Every Page is Page One topics are, ideally, organized bottom
+up, managing subject affinities is an important part of developing
+EPPO content. Once you start managing subject affinities, you will
+quickly discover how powerful an aid they are to planning content
+requirements and to maintaining and developing a content plan through
+an agile development process.
 
 ------------ 22.6. EPPO and content management
 
-You can start creating Every Page is Page One content with your current tools today, without spending a cent on new systems or interrupting your current workflow. You can do it using the word processor, desktop publishing system, help authoring tool, wiki, or Web CMS you use today.
+You can start creating Every Page is Page One content with your
+current tools today, without spending a cent on new systems or
+interrupting your current workflow. You can do it using the word
+processor, desktop publishing system, help authoring tool, wiki, or
+Web CMS you use today.
 
+At the same time, every tool has an inherent bias towards a particular
+kind of information design.
 
-
-At the same time, every tool has an inherent bias towards a particular kind of information design.
-
-if you are planning to move to EPPO information design or are planning to move to Web delivery, don’t buy new tools before you have a new information design and delivery method firmly in mind.
+If you are planning to move to EPPO information design or are planning
+to move to Web delivery, don’t buy new tools before you have a new
+information design and delivery method firmly in mind.
 
 
 ------------ 22.7. EPPO and PDF/help
 
-Even if you don’t have legal reasons to continue to provide PDF files, it’s the height of hubris (and stupidity) to assume your customers will immediately accept content distributed in new ways. Instead, be smart by offering your customers choices in how they consume content.
+Even if you don’t have legal reasons to continue to provide PDF files,
+it’s the height of hubris (and stupidity) to assume your customers
+will immediately accept content distributed in new ways. Instead, be
+smart by offering your customers choices in how they consume content.
 
 At the same time, it is worth investigating seriously whether the demand for PDF is real or not.
 
- 	
 We know that people will tell you that they prefer PDF.
 
-a study of those customers who said they preferred PDF, when they offered them both PDF and HTML-based topic-based assistance online they found that even the people who said they preferred PDF all actually selected the topics and the HTML output at a ratio of 26 to 1. So lots of times when you get that feedback that people prefer PDF, it is mostly because it is the only thing that people know to tell you.
+A study of those customers who said they preferred PDF, when they
+offered them both PDF and HTML-based topic-based assistance online
+they found that even the people who said they preferred PDF all
+actually selected the topics and the HTML output at a ratio of 26
+to 1. So lots of times when you get that feedback that people prefer
+PDF, it is mostly because it is the only thing that people know to
+tell you.
 
-We are not always great analysts of our own preferences and behavior patterns, and sometimes we ask for the conventional thing with the familiar name rather than the thing that actually works best for us. As Steve Jobs famously said, “It’s really hard to design products by focus groups. A lot of times, people don’t know what they want until you show it to them.”
+We are not always great analysts of our own preferences and behavior
+patterns, and sometimes we ask for the conventional thing with the
+familiar name rather than the thing that actually works best for
+us. As Steve Jobs famously said, “It’s really hard to design products
+by focus groups. A lot of times, people don’t know what they want
+until you show it to them.”
 
-the upcoming generation is unlikely to take any comfort in the structure of a book.
+The upcoming generation is unlikely to take any comfort in the
+structure of a book.
 
-That is essentially all there is to making a manual out of Every Page is Page One topics. Choose a set of topics to include, figure out which aspects of their subjects make the most sense as static groupings, and create a table of contents.
+That is essentially all there is to making a manual out of Every Page
+is Page One topics. Choose a set of topics to include, figure out
+which aspects of their subjects make the most sense as static
+groupings, and create a table of contents.
 
-Avoid the temptation to add linking text or string the EPPO topics into a narrative. It isn’t necessary. Few, if any, will read the book through
+Avoid the temptation to add linking text or string the EPPO topics
+into a narrative. It isn’t necessary. Few, if any, will read the book
+through
 
- EPPO topics can also be assembled into a hierarchical help system.
+EPPO topics can also be assembled into a hierarchical help system.
  
 
 ------------ 22.8. EPPO and content marketing
 
-Is putting technical content on the Web going to make your product look more or less attractive? Two things are pretty clear.
+Is putting technical content on the Web going to make your product
+look more or less attractive? Two things are pretty clear.
 
-You don’t want the technical content to get in the way of visitors accomplishing their tasks, including buying stuff.
-You don’t want to make your company’s product look hard to use, which is exactly what you are doing if you show them something like Figure 22.1, “Big docs make products look hard to use”:
+You don’t want the technical content to get in the way of visitors
+accomplishing their tasks, including buying stuff.  You don’t want to
+make your company’s product look hard to use, which is exactly what
+you are doing if you show them something like Figure 22.1, “Big docs
+make products look hard to use”:
 
-Putting up a traditional help system, with a table of contents on every page, rubs the user’s nose in just how big the documentation set is. While there are a few people who revel in this kind of thing, by and large it is a big turn off.
+Putting up a traditional help system, with a table of contents on
+every page, rubs the user’s nose in just how big the documentation set
+is. While there are a few people who revel in this kind of thing, by
+and large it is a big turn off.
 
-Bottom-up navigation never overwhelms readers with how big the information set is, it just makes it easy to navigate along any line of subject affinity.
+Bottom-up navigation never overwhelms readers with how big the
+information set is, it just makes it easy to navigate along any line
+of subject affinity.
 
-Clutter is not a product of the amount of content on your site. Wikipedia is not cluttered nor is Amazon. Clutter is a matter of how much the content gets in the way of users instead of facilitating their path to the information they want.
+Clutter is not a product of the amount of content on your
+site. Wikipedia is not cluttered nor is Amazon. Clutter is a matter of
+how much the content gets in the way of users instead of facilitating
+their path to the information they want.
 
+Wikipedia has that small and simple feel on every page even though it
+is actually mammoth. And, despite being mammoth, it is easy to move
+around in. So is Amazon. So is YouTube. Why? Because they all use
+bottom-up navigation and because every page is a hub of its immediate
+area in subject space.
 
-Wikipedia has that small and simple feel on every page even though it is actually mammoth. And, despite being mammoth, it is easy to move around in. So is Amazon. So is YouTube. Why? Because they all use bottom-up navigation and because every page is a hub of its immediate area in subject space.
-
-Adopting Every Page is Page One information design will allow you to create a mammoth documentation set that feels small, safe, and comfortable.
+Adopting Every Page is Page One information design will allow you to
+create a mammoth documentation set that feels small, safe, and
+comfortable.
 
 
 
 
 ------------ 22.9. EPPO and DITA
 
-EPPO and DITA are orthogonal to each other. EPPO is an information design pattern. DITA is, in the words of one of its creators, Don Day, “basically just a generic but extensible markup standard.”
+EPPO and DITA are orthogonal to each other. EPPO is an information
+design pattern. DITA is, in the words of one of its creators, 
+“basically just a generic but extensible markup standard.”
 
 ------------ 22.10. EPPO and wikis
 
-Wikis are a natural Every Page is Page One medium. Wikipedia, which is a poster child for the Every Page is Page One design pattern, illustrates how well the form fits the medium.
+Wikis are a natural Every Page is Page One medium. Wikipedia, which is
+a poster child for the Every Page is Page One design pattern,
+illustrates how well the form fits the medium.
 
 If you have decided to move to an EPPO information design then a wiki
 is an excellent tool choice if you do not want to go down the
 structured writing route.
 
 
-
 ------------ 22.11. Making the case for technical communication on the Web
 
-This section provides suggestions on how you can make the case for putting your technical communications on the Web and how you can answer some of the objections you may face.
+This section provides suggestions on how you can make the case for
+putting your technical communications on the Web and how you can
+answer some of the objections you may face.
 
- But technical communication groups often meet other objections when they try to move their content to the web. The potential objections from the marketing department have been noted above, and I have discussed how an Every Page is Page One approach can help alleviate those concerns. Here are some other objections and ways to handle them.
+But technical communication groups often meet other objections when
+they try to move their content to the web. The potential objections
+from the marketing department have been noted above, and I have
+discussed how an Every Page is Page One approach can help alleviate
+those concerns. Here are some other objections and ways to handle
+them.
 
  
 
 ------ 22.11.1. Competitors will steal our ideas
 
- Some companies fear that if they put their documentation on the Web, their competitors will copy their products. Here are some ways to answer this objection.
+Some companies fear that if they put their documentation on the Web,
+their competitors will copy their products. Here are some ways to
+answer this objection.
 
-- First, make sure the people you are talking with understand what you mean by documentation. If they think you mean engineering drawings or product specifications, then of course they don’t want them on the Web. Explain that you are talking about end-user documentation, which, in most cases, is not supposed to contain trade secrets.
+- First, make sure the people you are talking with understand what you
+  mean by documentation. If they think you mean engineering drawings
+  or product specifications, then of course they don’t want them on
+  the Web. Explain that you are talking about end-user documentation,
+  which, in most cases, is not supposed to contain trade secrets.
 
 
-- Second, ask what it would take for a competitor to get hold of your documentation today. In most cases, it would be trivially easy.
+- Second, ask what it would take for a competitor to get hold of your
+  documentation today. In most cases, it would be trivially easy.
   
 - Show them what results come up today when people do a Web search for help with your product.
   
@@ -2309,13 +2708,16 @@ If it comes from a sincere belief that users want PDFs, then Section 22.7, “EP
 
 ------ 22.11.3. No one reads the documentation anyway
 
-If by “reads the documentation,” they mean sits down and reads the manual like a novel, then this objection is entirely true. 
+If by “reads the documentation,” they mean sits down and reads the
+manual like a novel, then this objection is entirely true.
 
 But people do read documentation – or, at least, technical information – when they get stuck and need help.
 
 People seek out and read technical information when they have a specific problem and need help.
 
-The status quo in information design and information delivery is not a viable place to remain. We live in a world were every page is page one. It is no exaggeration to say that we must adapt or die.
+The status quo in information design and information delivery is not a
+viable place to remain. We live in a world were every page is page
+one. It is no exaggeration to say that we must adapt or die.
 
 
 Chapter 23. Afterword: EPPO, but Not for Everything
@@ -2324,16 +2726,33 @@ Chapter 23. Afterword: EPPO, but Not for Everything
 EPPO is not for everything.
 
 
-There is a difference between documenting a product and documenting an idea.
+There is a difference between documenting a product and documenting an
+idea.
 
- if you write an EPPO topic incorrectly, your authoring application is not going to beep and display an error message
+If you write an EPPO topic incorrectly, your authoring application is not going to beep and display an error message
 
- Part of what I have tried to do in Part II, “Characteristics of Every Page is Page One Topics” is to provide a set of reasonably concrete benchmarks to evaluate your EPPO topics against. But all of these measurements are, to one extent or another, judgment calls. Your experience, and the feedback you get from your readers, will help hone your judgment in these matters, but you need a fair amount of theoretical grounding just to get to that point.
+Part of what I have tried to do in Part II, “Characteristics of Every
+Page is Page One Topics” is to provide a set of reasonably concrete
+benchmarks to evaluate your EPPO topics against. But all of these
+measurements are, to one extent or another, judgment calls. Your
+experience, and the feedback you get from your readers, will help hone
+your judgment in these matters, but you need a fair amount of
+theoretical grounding just to get to that point.
 
- This is the sort of thing that people need a book for. It is why John Carroll wrote a book about how learners don’t read books. It is why David Weinberger wrote two books about why the book is an inadequate vessel for knowledge. It is why I wrote this book about how to stop writing books and start writing Every Page is Page One topics. It is why you should still write a book too, if you are dealing with this kind of subject matter.
+This is the sort of thing that people need a book for. It is why a
+book was written about how learners don’t read books. It is why two
+other books were written about why the book is an inadequate vessel
+for knowledge. It is why I wrote this book about how to stop writing
+books and start writing Every Page is Page One topics.
 
- But technical communication, product documentation in particular, is not usually this kind of subject matter.
+**It is why you should still write a book too, if you are dealing with
+this kind of subject matter.**
 
-  if professional technical communicators want to remain relevant in this world, they need to create more Every Page is Page One topics and fewer books and manuals.
+But technical communication, product documentation in particular, is
+not usually this kind of subject matter.
+
+If professional technical communicators want to remain relevant in
+this world, they need to create more Every Page is Page One topics and
+fewer books and manuals.
 
   
