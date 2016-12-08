@@ -175,8 +175,6 @@ Functions to extract sources from a coadded exp
 
 - \+ DetectCoaddSourcesTask -- 
 
-
-
 The whole example is spelled out in some detail on the doxygen page, doing it as so::
 
    detectCoaddSources.py $CI_HSC_DIR/DATA --id patch=5,4 tract=0 filter=HSC-I --output curout
@@ -204,9 +202,70 @@ Post-catalog processing
 Basic catalog functions
 ++++++++++++++++++++++++
 
-- \+ AstrometryTask -- 
-- \+ LoadAstrometryNetObjects -- 
-- \+ FitTanSipWcsTask -- 
+- \+ AstrometryTask -- Run python photoCalTask.py from pipetasksdir.
+
+Broken locally as so::
+
+    Adding columns to the source catalogue
+    astrometricSolver.refObjLoader: Loading reference objects using center (1023.5, 2305.5) pix = Fk5Coord(215.5935957, 53.0687594, 2000.00) sky and radius 0.133712386891 deg
+    astrometricSolver.refObjLoader: Loaded 262 reference objects
+    astrometricSolver.matcher: filterStars purged 0 reference stars, leaving 262 stars
+    Traceback (most recent call last):
+    File "photoCalTask.py", line 143, in <module>
+    run()
+    File "photoCalTask.py", line 114, in run
+    matches = aTask.run(exposure, srcCat).matches
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/pipe_base/2016_01.0-7-gee41fc9+2/python/lsst/pipe/base/timer.py", line 118, in wrapper
+    res = func(self, *args, **keyArgs)
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/meas_astrom/2016_01.0-7-gb2f4996+3/python/lsst/meas/astrom/astrometry.py", line 198, in run
+    res = self.solve(exposure=exposure, sourceCat=sourceCat)
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/pipe_base/2016_01.0-7-gee41fc9+2/python/lsst/pipe/base/timer.py", line 118, in wrapper
+    res = func(self, *args, **keyArgs)
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/meas_astrom/2016_01.0-7-gb2f4996+3/python/lsst/meas/astrom/astrometry.py", line 312, in solve
+    maxMatchDist = maxMatchDist,
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/pipe_base/2016_01.0-7-gee41fc9+2/python/lsst/pipe/base/timer.py", line 118, in wrapper
+    res = func(self, *args, **keyArgs)
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/meas_astrom/2016_01.0-7-gb2f4996+3/python/lsst/meas/astrom/astrometry.py", line 427, in _matchAndFitWcs
+    maxMatchDist = maxMatchDist,
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/pipe_base/2016_01.0-7-gee41fc9+2/python/lsst/pipe/base/timer.py", line 118, in wrapper
+    res = func(self, *args, **keyArgs)
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/meas_astrom/2016_01.0-7-gb2f4996+3/python/lsst/meas/astrom/matchOptimisticB.py", line 294, in matchObjectsToSources
+    usableSourceCat.extend(s for s in sourceCat if sourceInfo.isUsable(s))
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/afw/2.2016.10-10-gac5da67/python/lsst/afw/table/tableLib.py", line 9216, in extend
+    for record in iterable:
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/meas_astrom/2016_01.0-7-gb2f4996+3/python/lsst/meas/astrom/matchOptimisticB.py", line 294, in <genexpr>
+    usableSourceCat.extend(s for s in sourceCat if sourceInfo.isUsable(s))
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/meas_astrom/2016_01.0-7-gb2f4996+3/python/lsst/meas/astrom/matchOptimisticB.py", line 152, in isUsable
+    or (source.get(self.fluxKey)/source.get(self.fluxSigmaKey) > self.minSnr))
+    ZeroDivisionError: float division by zero
+    
+Works fine on curstack as so::
+
+  CameraMapper INFO: Unable to locate registry registry in root: /tigress/HSC/LSST/stack_20160915/Linux64/meas_astrom/12.1-3-gb143333+27/tests/data/sdssrefcat/registry.sqlite3
+  CameraMapper INFO: Unable to locate registry registry in current dir: ./registry.sqlite3
+  CameraMapper INFO: Loading Posix registry from /tigress/HSC/LSST/stack_20160915/Linux64/meas_astrom/12.1-3-gb143333+27/tests/data/sdssrefcat
+  Adding columns to the source catalogue
+  LoadIndexedReferenceObjectsTask INFO: Loading reference objects using center (1023.5, 2305.5) pix = Fk5Coord(215.5935957, 53.0687594, 2000.00) sky and radius 0.133712386891 deg
+  LoadIndexedReferenceObjectsTask INFO: Loaded 566 reference objects
+  astrometricSolver.matcher INFO: filterStars purged 0 reference stars, leaving 566 stars
+  astrometricSolver.matcher INFO: Purged 0 unusable sources, leaving 337 usable sources
+  astrometricSolver.matcher INFO: Matched 268 sources
+  astrometricSolver.matcher INFO: filterStars purged 0 reference stars, leaving 566 stars
+  astrometricSolver.matcher INFO: Purged 0 unusable sources, leaving 337 usable sources
+  astrometricSolver.matcher INFO: Matched 247 sources
+  astrometricSolver.matcher INFO: filterStars purged 0 reference stars, leaving 566 stars
+  astrometricSolver.matcher INFO: Purged 0 unusable sources, leaving 337 usable sources
+  astrometricSolver.matcher INFO: Matched 237 sources
+  astrometricSolver INFO: Matched and fit WCS in 3 iterations; found 237 matches with scatter = 0.106 +- 0.073 arcsec
+  photoCal INFO: Not applying color terms because config.applyColorTerms is False
+  photoCal INFO: Magnitude zero point: 31.325627 +/- 0.000303 from 55 stars
+  Used 57 calibration sources out of 237 matches
+  RMS error is 0.062mmsg (robust 0.054, Calib says 0.000)
+   
+
+- \+ LoadAstrometryNetObjects --  Exercised by photoCalTask.py from pipetasksdir, see output for   AstrometryTask above.
+  
+- \+ FitTanSipWcsTask --   Exercised by photoCalTask.py from pipetasksdir, see output for   AstrometryTask above.
 
 
 
@@ -217,38 +276,126 @@ Properties of sources
 Single exps
 ~~~~~~~~~~~~
 
-- \+ DipoleMeasurementTask -- 
+- \+ DipoleMeasurementTask -- Run: dipoleMeasTask.py in the examples directory of $IP_DIFFIM_DIR.
+
+Fails locally with much output, ending in::
+
+    .... dipoleMeasurement WARNING: Error in base_SkyCoord.measure on record 86: Wcs not attached to exposure.  Required for base_SkyCoord algorithm
+    dipoleMeasurement WARNING: Error in base_SkyCoord.measure on record 87: Wcs not attached to exposure.  Required for base_SkyCoord algorithm
+    Traceback (most recent call last):
+    File "dipoleMeasTask.py", line 126, in <module>
+    run(args)
+    File "dipoleMeasTask.py", line 100, in run
+    measureTask.measure(exposure, diaSources)
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/meas_base/2016_01.0-16-g36ec2c5/python/lsst/meas/base/sfm.py", line 360, in measure
+    self.run(measCat, exposure)
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/ip_diffim/2016_01.0-4-g34b2cfc/python/lsst/ip/diffim/dipoleMeasurement.py", line 337, in run
+    self.classify(sources)
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/pipe_base/2016_01.0-7-gee41fc9+2/python/lsst/pipe/base/timer.py", line 118, in wrapper
+    res = func(self, *args, **keyArgs)
+    File "/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/ip_diffim/2016_01.0-4-g34b2cfc/python/lsst/ip/diffim/dipoleMeasurement.py", line 303, in classify
+    self.log.log(self.log.INFO, "Classifying %d sources" % len(sources))
+    TypeError: object of type 'ExposureF' has no len()
 
 
-- ++ ExampleCmdLineTask -- 
+Curstack, after repointing afwdata, fails as so::
 
+  sourceDetection INFO: Detected 29 positive sources to 3 sigma.
+  sourceDetection.background WARN: Too few points in grid to constrain fit: min(nx, ny) < approxOrder) [min(3, 3) < 6]
+  sourceDetection.background WARN: Reducing approxOrder to 2
+  sourceDetection INFO: Resubtracting the background after object detection
+  sourceDetection INFO: Detected 31 negative sources to 3 sigma
+  Merged 60 Sources into 29 diaSources (from 29 +ve, 31 -ve)
+  dipoleMeasurement INFO: Measuring 29 sources (29 parents, 0 children) 
+  dipoleMeasurement WARN: Error in ip_diffim_PsfDipoleFlux.measure on record 72: 
+  File "src/image/Image.cc", line 91, in static lsst::afw::image::ImageBase<PixelT>::_view_t lsst::afw::image::ImageBase<PixelT>::_makeSubView(const Extent2I&, const Extent2I&, const _view_t&) [with PixelT = double; lsst::afw::image::ImageBase<PixelT>::_view_t = boost::gil::image_view<boost::gil::memory_based_2d_locator<boost::gil::memory_based_step_iterator<boost::gil::pixel<double, boost::gil::layout<boost::mpl::vector1<boost::gil::gray_color_t> > >*> > >; lsst::afw::geom::Extent2I = lsst::afw::geom::Extent<int, 2>]
+    Box2I(Point2I(20,19),Extent2I(74,2)) doesn't fit in image 21x21 {0}
+    lsst::pex::exceptions::LengthError: 'Box2I(Point2I(20,19),Extent2I(74,2)) doesn't fit in image 21x21'
 
-- ++ExampleSimpleStatsTask -- 
+    dipoleMeasurement WARN: Error in ip_diffim_PsfDipoleFlux.measure on record 79: 
+  File "src/image/Image.cc", line 91, in static lsst::afw::image::ImageBase<PixelT>::_view_t lsst::afw::image::ImageBase<PixelT>::_makeSubView(const Extent2I&, const Extent2I&, const _view_t&) [with PixelT = double; lsst::afw::image::ImageBase<PixelT>::_view_t = boost::gil::image_view<boost::gil::memory_based_2d_locator<boost::gil::memory_based_step_iterator<boost::gil::pixel<double, boost::gil::layout<boost::mpl::vector1<boost::gil::gray_color_t> > >*> > >; lsst::afw::geom::Extent2I = lsst::afw::geom::Extent<int, 2>]
+    Box2I(Point2I(-131,-523),Extent2I(132,524)) doesn't fit in image 21x21 {0}
+    lsst::pex::exceptions::LengthError: 'Box2I(Point2I(-131,-523),Extent2I(132,524)) doesn't fit in image 21x21'
 
+- ++ ExampleCmdLineTask -- From pipetasks examples dir, do::
 
-- ++ ExampleSigmaClippedStatsTask -- 
+    ./exampleCmdLineTask.py $OBS_TEST_DIR/data/input --id --output cur_exxCLTaskOut
 
+Works fine locally, with fits files you can display in the output dir, and also screen output::
 
-- ForcedMeasurementTask --
+  ./exampleCmdLineTask.py $OBS_TEST_DIR/data/input --id --output cur_exxCLTaskOut
+  \: Config override file does not exist: '/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/obs_test/2016_01.0-3-gafa6dd0+7/config/exampleTask.py'
+  \: Config override file does not exist: '/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/obs_test/2016_01.0-3-gafa6dd0+7/config/test/exampleTask.py'
+  : input=/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/obs_test/2016_01.0-3-gafa6dd0+7/data/input
+  : calib=None
+  : output=/Users/m/fizzandastro/lsst/lsstsw/stack/DarwinX86/pipe_tasks/2016_01.0-35-g183e2ce/examples/cur_exxCLTaskOut
+  CameraMapper: Loading registry registry from /Users/m/fizzandastro/lsst/lsstsw/stack/DarwinX86/pipe_tasks/2016_01.0-35-g183e2ce/examples/cur_exxCLTaskOut/_parent/registry.sqlite3
+  CameraMapper: Loading registry registry from /Users/m/fizzandastro/lsst/lsstsw/stack/DarwinX86/pipe_tasks/2016_01.0-35-g183e2ce/examples/cur_exxCLTaskOut/_parent/registry.sqlite3
+  exampleTask: Processing data ID {'filter': 'g', 'visit': 1}
+  exampleTask.stats: clipped mean=1184.70; meanErr=0.02; stdDev=33.64; stdDevErr=1.04
+
   
-+ SingleFrameMeasurementTask -- 
+Works fine also on curstack, with fits files you can display in the output dir, and also screen output::
 
+  root INFO: Running: ./exampleCmdLineTask.py /tigress/HSC/LSST/stack_20160915/Linux64/obs_test/12.1-9-g3e397f1+6/data/input --id --output cur_exxCLTaskOut
+  exampleTask INFO: Processing data ID {'filter': 'g', 'visit': 1}
+  exampleTask.stats INFO: clipped mean=1184.70; meanErr=0.02; stdDev=33.64; stdDevErr=1.04
+  exampleTask INFO: Processing data ID {'filter': 'g', 'visit': 2}
+  exampleTask.stats INFO: clipped mean=1228.79; meanErr=0.02; stdDev=34.19; stdDevErr=nan
+  exampleTask INFO: Processing data ID {'filter': 'r', 'visit': 3}
+  exampleTask.stats INFO: clipped mean=1433.76; meanErr=0.03; stdDev=37.36; stdDevErr=0.93
 
+    
 
+- ++ExampleSimpleStatsTask -- From pipetasks examples dir, do::
 
+    ./exampleStatsTask.py 
 
+Works fine locally, with screen output::
+
+  computing statistics on '/Users/m/fizzAndAstro/lsst/lsstsw/stack/DarwinX86/afwdata/2.2016.10/data/med.fits'
+
+  running ExampleSimpleStatsTask
+  exampleSimpleStats: simple mean=2846.29; meanErr=2.57; stdDev=1521.14; stdDevErr=nan
+  result  = Struct(meanErr=2.571202746482615; stdDevErr=nan; stdDev=1521.1440586716005; mean=2846.2888800000915)
+
+  running ExampleSigmaClippedStatsTask
+  exampleSigmaClippedStats: clipped mean=2811.17; meanErr=0.08; stdDev=45.22; stdDevErr=nan
+  result  = Struct(meanErr=0.07771313326235756; stdDevErr=nan; stdDev=45.217358373691106; mean=2811.1677216591843)
+
+Curstack -- my repointing afwdata trick isn't working..?
+
+- ++ ExampleSigmaClippedStatsTask -- Exercised by above exampleStatsTask.py
+
+- ForcedMeasurementTask -- None
+  
++ SingleFrameMeasurementTask -- Run runSingleFrameTask.py in measbase/examples, locally output is many lines, and::
+
+    .... sourceDetection: Detected 23 positive sources to 3 sigma.
+    sourceDetection: Resubtracting the background after object detection
+    sourceDetection: Detected 6 negative sources to 3 sigma
+    Found 29 sources (23 +ve, 6 -ve)
+    measurement: Measuring 29 sources (29 parents, 0 children) 
+
+    
+Curstack -- probs::
+
+  Traceback (most recent call last):
+  File "runSingleFrameTask.py", line 30, in <module>
+    from lsst.utils import getProductDir
+    ImportError: cannot import name getProductDir
 
 
 Coadded exp further processing
 ++++++++++++++++++++++++++++++++
 
-- ++ MeasureMergedCoaddSourcesTask -- 
+- ++ MeasureMergedCoaddSourcesTask -- From pipetasks/bin, need to run measureCoaddSources.py with some flags, as on dox pages.
 
 
-- ++ MergeDetectionsTask -- 
+- ++ MergeDetectionsTask -- Also, from pipetasks/bin, need to run mergeCoaddDetections.py with some flags, as on dox pages.
 
 
-- ++ PropagateVisitFlagsTask -- 
+- ++ PropagateVisitFlagsTask -- My little extracted propflagsexx in the exxamples dir doesn't work.
 
 
 

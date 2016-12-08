@@ -91,6 +91,7 @@ Contents:
 
    statusOfExamples   
    functionalframework	      
+   eppoNotesCore
    eppoNotes
    install	      
    astrometry   
