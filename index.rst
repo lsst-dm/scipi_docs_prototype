@@ -137,3 +137,9 @@ Contents:
    snappsfmatch
    xform
    template
+   template.forModules
+   template.forFrameworks
+   template.forReadmes
+   template.forTasks
+
+   

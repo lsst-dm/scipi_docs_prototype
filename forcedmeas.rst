@@ -2,6 +2,11 @@
 ForcedMeasurementTask
 =============================
 
+
+- `Doxygen link`_
+.. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1base_1_1forced_measurement_1_1_forced_measurement_task.html#ForcedMeasurementTask_
+
+
 A subtask for measuring the properties of sources on a single exposure, using an existing "reference" catalog to constrain some aspects of the measurement. 
 
 The task is configured with a list of "plugins": each plugin defines the values it measures (i.e. the columns in a table it will fill) and conducts that measurement on each detected source (see ForcedPlugin). The job of the measurement task is to initialize the set of plugins (which includes setting up the catalog schema) from their configuration, and then invoke each plugin on each source.
@@ -52,3 +57,6 @@ What it returns
 +++++++++++++++
 
 Returns: Source catalog ready for measurement
+
+
+   
