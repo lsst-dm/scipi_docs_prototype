@@ -5,40 +5,46 @@ Template For Tasks
 TaskName
 --------
 
-Summary/context (1 sentence).
+- Summary/context (1 sentence).
 
-Summary of logic/algorith in a paragaph and/or bullet list. Include a sentence about each step, which can be either a) retargetable sub-task, or b) method within task.
+- Summary of logic/algorithm in a paragaph and/or bullet list. Include a sentence about each step, which can be either a) retargetable sub-task, or b) method within task.
 
 Configuration
+----------------
 
-Document fields in associated config class
+- Document fields in associated config class
 
-For subtasks, provide list of everything to which this could be retargeted.
+- For subtasks, provide list of everything to which this could be retargeted.
 
 Entrypoint
+--------
 
-Link to API page for the "run" method
+- Link to API page for the "run" method
 
 Butler Inputs
+----------------
 
-dataset type + description of Butler gets()
+- Dataset type + description of Butler gets()
 
-Best effort for now; hopefully auto-doc'd in SuperTask framework
+- Best effort for now; hopefully auto-doc'd in SuperTask framework
 
 Butler Outputs
+----------------
 
-dataset type + description of Butler puts()
+- Dataset type + description of Butler puts()
 
-Best effort for now; hopefully auto-doc'd in SuperTask framework
+- Best effort for now; hopefully auto-doc'd in SuperTask framework
 
 Examples
+--------
 
-self-contained example of using this task that can be tested
+- Self-contained example of using this task that can be tested
 
 Debugging
+----------------
 
-Debugging framework hooks
+- Debugging framework hooks
 
-Algorithm details
+- Algorithm details
 
-Extended description with mathematical details
+- Extended description with mathematical details

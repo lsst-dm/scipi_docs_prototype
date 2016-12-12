@@ -93,6 +93,12 @@ Contents:
    functionalframework	      
    eppoNotesCore
    eppoNotes
+   template
+   template.forModules
+   template.forFrameworks
+   template.forReadmes
+   template.forTasks
+	      
    install	      
    astrometry   
    assembleccd
@@ -136,10 +142,5 @@ Contents:
    snapcombine
    snappsfmatch
    xform
-   template
-   template.forModules
-   template.forFrameworks
-   template.forReadmes
-   template.forTasks
 
    

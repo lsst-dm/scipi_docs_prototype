@@ -1,16 +1,17 @@
 Template For ReadMes
 ====================
 
-package_name
+Package name
+---------------
 
 Desciption from summary line in bold weight.
+---------------------------------------------
 
-This package is part of the LSST Science Pipelines: https://pipelines.lsst.io.
+- This package is part of the LSST Science Pipelines: https://pipelines.lsst.io.
 
-Join us at https://community.lsst.org.
+- Join us at https://community.lsst.org.
 
 Module Documentation
+------------------------------
 
-module homepage link
-
-for each module in the package
+- Module homepage link for each module in the package
