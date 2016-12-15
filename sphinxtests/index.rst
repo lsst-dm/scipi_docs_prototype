@@ -11,17 +11,14 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-.. automodule:: tstcode
-   :members:
-   :undoc-members:
-   :inherited-members:
-   :show-inheritance:
-
-       
+   primer_for_autodoc	      
+   tstcode
+   vbasedocs
+   blobs
+	      
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
