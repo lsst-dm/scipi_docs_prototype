@@ -66,7 +66,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'lsst-dm-stack-dox'
+project = u'scipi_docs_prototype'
 copyright = u'2016, M.S.S. Gill'
 
 # The version info for the project you're documenting, acts as replacement for

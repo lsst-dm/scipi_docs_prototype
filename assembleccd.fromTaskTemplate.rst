@@ -1,17 +1,29 @@
 
+
+AssembleCcdTask.fromTaskTemplate
+=========================================
+
 Template For Tasks
 ====================
 
 TaskName
 --------
 
-- Summary/context (1 sentence).
+-     This task assembles sections of an image into a larger mosaic.
 
-- Summary of logic/algorithm in a paragaph and/or bullet list. Include a sentence about each step, which can be either a:
-  
-  - a) retargetable sub-task
+- The sub-sections are typically amplifier sections and are to be
+    assembled into a detector size pixel grid.  The assembly is driven
+    by the entries in the raw amp information.  The task can be
+    configured to:
 
-  - b) method within a task.
+    - return a detector image with non-data (e.g. overscan) pixels
+    included.
+
+    - or to renormalize the pixel values to a nominal gain of 1.
+
+    - by default remove exposure metadata that has context in raw
+    amps, but not in trimmed detectors.
+      
 
 Configuration
 ----------------
