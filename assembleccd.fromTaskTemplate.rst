@@ -1,17 +1,14 @@
 
 
 AssembleCcdTask.fromTaskTemplate
-=========================================
+================================
 
-Template For Tasks
-====================
+AssembleCcdTask
+---------------
 
-TaskName
---------
+This task assembles sections of an image into a larger mosaic.
 
--     This task assembles sections of an image into a larger mosaic.
-
-- The sub-sections are typically amplifier sections and are to be
+The sub-sections are typically amplifier sections and are to be
     assembled into a detector size pixel grid.  The assembly is driven
     by the entries in the raw amp information.  The task can be
     configured to:
@@ -23,33 +20,27 @@ TaskName
 
     - by default remove exposure metadata that has context in raw
     amps, but not in trimmed detectors.
-      
+
+[ link to methods API pages -- fill in in a narrative sort of way, make links to all the dif methods]
 
 Configuration
-----------------
+-------------
+
+- ``setGain`` (`bool`) - Set the gain , default is `True`.
+
+- ``doRenorm`` 
+
+- ``keysToRemove`` (`str`) - FITS headers to remove (in addition to ``DATASEC``, ``BIASSEC``, ``TRIMSEC`` and perhaps ``GAIN``)
 
 - Document fields in associated config class
 
 - For subtasks, provide list of everything to which this could be retargeted.
 
 Entrypoint
---------
+----------
 
-- Link to API page for the "run" method
+`AssembleCcdTask.assembleCcd` 
 
-Butler Inputs
-----------------
-
-- Dataset type + description of Butler gets()
-
-- Best effort for now; hopefully auto-doc'd in SuperTask framework
-
-Butler Outputs
-----------------
-
-- Dataset type + description of Butler puts()
-
-- Best effort for now; hopefully auto-doc'd in SuperTask framework
 
 Examples
 --------
@@ -58,6 +49,11 @@ Examples
 
 Debugging
 ----------------
+
+``display`` -  A dictionary containing debug point names as keys with frame number as value. Valid keys are:
+assembledExposure
+
+display assembled exposure
 
 - Debugging framework hooks
 
