@@ -1,9 +1,7 @@
 
-Template For Tasks
-====================
-
-TaskName
---------
+#########
+Task Name
+#########
 
 - Summary/context (1 sentence).
 
@@ -14,38 +12,44 @@ TaskName
   - b) method within a task.
 
 Configuration
-----------------
+=============
+
 
 - Document fields in associated config class
 
 - For subtasks, provide list of everything to which this could be retargeted.
 
 Entrypoint
---------
+==========
+
 
 - Link to API page for the "run" method
 
 Butler Inputs
-----------------
+=============
+
 
 - Dataset type + description of Butler gets()
 
 - Best effort for now; hopefully auto-doc'd in SuperTask framework
 
 Butler Outputs
-----------------
+==============
+
 
 - Dataset type + description of Butler puts()
 
 - Best effort for now; hopefully auto-doc'd in SuperTask framework
 
 Examples
---------
+========
+
 
 - Self-contained example of using this task that can be tested
 
 Debugging
-----------------
+=========
+
 
 - Debugging framework hooks
 

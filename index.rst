@@ -102,8 +102,9 @@ Contents:
    install	      
    astrometry   
    assembleccd
-   assembleccd.fromTaskTemplate
+   assembleccd.doxversion
    calibimg
+   calibimg.doxversion
    charimg
    coaddsrcxform
    diacat
