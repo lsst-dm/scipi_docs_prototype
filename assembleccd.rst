@@ -9,9 +9,7 @@ The sub-sections are typically amplifier sections and are to be
 assembled into a detector size pixel grid.  This is done overall by
 calling the ``lsst.ip.isr.assembleCcdTask.assembleCcd`` method.
 
-After this primary method is called, one can do some further
-processing through methods such as
-``lsst.ip.isr.assembleCcdTask.setGain`` which will renormalize the
+As a part of the running of this primary method, other task methods may be called, such as ``lsst.ip.isr.assembleCcdTask.setGain`` which will renormalize the
 gain across the amps, if requested, and set gain metadata,
 ``lsst.ip.isr.assembleCcdTask.setWcs``, which will set output WCS
 equal to input WCS (adjusted as required for the image coordinates
