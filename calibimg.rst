@@ -115,5 +115,5 @@ The example code is ``calibrateTask.py`` in the ``$PIPE_TASKS/examples`` directo
 Debugging
 =========
 
-- ``calibrate`` - frame (an int; <= 0 to not display) in which to display the exposure, sources and matches. See ``lsst.meas.astrom.displayAstrometry`` for the meaning of the various symbols.
+- ``calibrate`` - frame (an int; :math:`\le 0` to not display) in which to display the exposure, sources and matches. See ``lsst.meas.astrom.displayAstrometry`` for the meaning of the various symbols.
 

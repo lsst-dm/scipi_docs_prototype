@@ -16,17 +16,10 @@ to:
 
     - by default remove exposure metadata that has context in raw amps, but not in trimmed detectors.
 
-    
-Methods
-=======
-    
-- ``lsst.ip.isr.assembleCcdTask.assembleCcd`` - Assemble a set of amps into a single CCD size image.
+      
+This task is implemented in the ``lsst.ip.isr`` module.
 
-- ``lsst.ip.isr.assembleCcdTask.postprocessExposure`` - Set exposure non-image attributes, including wcs and metadata and display exposure (if requested)
 
-- ``lsst.ip.isr.assembleCcdTask.setWcs`` - Set output WCS equal to input WCS, adjusted as required for datasecs not starting at lower left corner 
-
-- ``lsst.ip.isr.assembleCcdTask.setGain`` - Renormalize, if requested, and set gain metadata
   
 Configuration
 =============
@@ -49,7 +42,7 @@ Configuration
 Entrypoint
 ==========
 
-``AssembleCcdTask.assembleCcd`` - Does the actual assembly.
+``lsst.ip.isr.assembleCcdTask.assembleCcd``
 
 
 Examples
