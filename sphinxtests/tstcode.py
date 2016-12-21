@@ -1,6 +1,7 @@
 # 12/21/2016
 # MSSG
 
+
 """This class is a rather simplistic example, to just start learning the ropes of autodoc in sphinx."""
 
 # Orig From: http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html
