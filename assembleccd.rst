@@ -68,9 +68,9 @@ configuration assigning this to the object `assembleTask`.  It then
 shows how the assembly is done in two situations, on a dictionary of
 amp size images, and then on a single amp mosaic image.  It prepares
 the input to the task in each of these situations, then runs the
-primary `assembleCcd` method of this task on the `assembleTask`
-object.  Then by default it calls the viewer to show the result to the
-screen.
+primary ``lsst.ip.isr.assembleCcdTask.assembleCcd`` method of this
+task on the `assembleTask` object.  Then by default it calls the
+viewer to show the result to the screen.
   
 
 Debugging
