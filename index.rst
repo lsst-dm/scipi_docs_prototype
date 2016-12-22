@@ -106,6 +106,7 @@ Contents:
    calibimg
    calibimg.doxversion
    charimg
+   charimg.doxversion
    coaddsrcxform
    diacat
    decorrALkernel
@@ -121,6 +122,7 @@ Contents:
    ingest
    installgaussianpsf
    isrtask
+   isrtask.doxversion
    loadastrom
    loadrefobjects
    measureapcorr
@@ -130,6 +132,7 @@ Contents:
    modelpsfmatch
    objectsizestarsel
    processccd
+   processccd.doxversion
    propvisitflags
    psfmatch
    readfitscat

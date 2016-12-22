@@ -3,9 +3,9 @@
 AssembleCcdTask
 ###############
 
-This task assembles sections of an image into a larger mosaic.
+This task assembles sections of an image (e.g. typically amplifier-defined sub-images) into a larger mosaic.
 
-The sub-sections are typically amplifier sections and are to be
+In more detail: The sub-sections are most often amplifier sections and are to be
 assembled into a detector size pixel grid.  This is done overall by
 calling the ``lsst.ip.isr.assembleCcdTask.assembleCcd`` method.
 

@@ -7,21 +7,41 @@ CalibrateTask
 Given a properly characterized exposure, detect sources, measure their
 positions, and do a photometric measurement on them.
 
-More precisely: given an exposure with a good PSF model and aperture
+In more detail: given an exposure with a good PSF model and aperture
 correction map (e.g. as provided by ``CharacterizeImageTask``),
-``CalibTask`` performs the following operations on it:
+``CalibTask`` calls the entrypoint function,
+``lsst.pipe.tasks.calibrate.run`` which will calibrate an exposure,
+optionally unpersisting inputs and persisting outputs.  This is a
+wrapper around the ``lsst.pipe.tasks.calibrate.calibrate`` method that
+unpersists inputs (if ``doUnpersist`` `true`) and persists outputs (if
+``config.doWrite`` `true`), and does the actual calibration of an
+exposure (either a science image or a coadd).
 
-    - Runs ``lsst.pipe.tasks.detectAndMeasure`` to peform deep detection and measurement
-      
-    - Runs ``lsst.meas.astrom.astrometry`` to fit an improved WCS
+In sequence, the following operations are then performed on the exposure:
 
-    - Runs ``lsst.pipe.tasks.photoCal`` to fit the exposure's photometric zero-point
+    - ``lsst.pipe.tasks.detectAndMeasure`` is run to peform deep detection and measurement
+
+    - At this point if the optional flags are set, ``lsst.pipe.tasks.calibrate.copyIcSourceFields`` will be run to match sources in icSourceCat and sourceCat and copy the specified fields.
+	
+    - ``lsst.meas.astrom.astrometry`` is run to fit an improved WCS
+
+    -  ``lsst.pipe.tasks.photoCal`` is run to fit the exposure's photometric zero-point (and ``lsst.pipe.tasks.calibrate.setMetadata`` is run as part of this procedure to set task and exposure metadata and will log a warning and continue if needed data is missing).
+
+If the outputs are to be persisted, ``lsst.pipe.tasks.calibrate.writeOutputs`` is called after all this in ``run`` to write output data to the output repository.
+ 
+
+
+- [	``lsst.pipe.tasks.calibrate.getSchemaCatalogs`` -- -- Also an entrypoint..? ]
+
 
 
 Configuration
 =============
 
-- 	doWrite  (`bool`) - defaults to `True` - Save calibration results?
+Flags and utility variables
+---------------------------
+
+- doWrite  (`bool`) - defaults to `True` - Save calibration results?
  
 -   doWriteHeavyFootprintsInSources (`bool`) - defaults to `True` -
     Include HeavyFootprint data in source table? If false then heavy
@@ -56,6 +76,9 @@ Configuration
 	
 -----------
 
+Subtasks
+--------
+
 - 	refObjLoader - target=LoadAstrometryNetObjectsTask -   reference object loader
  
 - 	astrometry - target=AstrometryTask - Perform astrometric calibration to refine the WCS
@@ -73,24 +96,6 @@ Configuration
 - 	applyApCorr - target=ApplyApCorrTask - Subtask to apply aperture corrections
  
 - 	catalogCalculation - target=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
-
-Methods
-=======
-
--  ``lsst.pipe.tasks.calibrate.run`` - 	Calibrate an exposure, optionally unpersisting inputs and persisting outputs.  This is a wrapper around the ``calibrate`` method that unpersists inputs (if ``doUnpersist`` `true`) and persists outputs (if ``config.doWrite`` `true`).
-
-
- 
-- 	``lsst.pipe.tasks.calibrate.calibrate`` - 	Calibrate an exposure (science image or coadd) 
- 
-- 	``lsst.pipe.tasks.calibrate.writeOutputs`` - Write output data to the output repository
- 
-- 	``lsst.pipe.tasks.calibrate.getSchemaCatalogs``
- 
-- 	``lsst.pipe.tasks.calibrate.setMetadata`` -	Set task and exposure metadata.  Logs a warning and continues if needed data is missing.
-
- 
-- 	``lsst.pipe.tasks.calibrate.copyIcSourceFields`` - Match sources in icSourceCat and sourceCat and copy the specified fields.
 
 
 
@@ -115,5 +120,5 @@ The example code is ``calibrateTask.py`` in the ``$PIPE_TASKS/examples`` directo
 Debugging
 =========
 
-- ``calibrate`` - frame (an int; :math:`\le 0` to not display) in which to display the exposure, sources and matches. See ``lsst.meas.astrom.displayAstrometry`` for the meaning of the various symbols.
+- ``calibrate`` -  (an `int`, set to :math:`\le 0` to not display) frame in which to display the exposure, sources and matches. See ``lsst.meas.astrom.displayAstrometry`` for the meaning of the various symbols.
 

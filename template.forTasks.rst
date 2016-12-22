@@ -16,9 +16,16 @@ Configuration
 =============
 
 
+Flags  and utility variables
+----------------------------
+
+Subtasks
+--------
+
 - Document fields in associated config class
 
 - For subtasks, provide list of everything to which this could be retargeted.
+
 
 Entrypoint
 ==========
@@ -54,6 +61,9 @@ Debugging
 
 - Debugging framework hooks
 
+
+
+  
 - Algorithm details
 
 - Extended description with mathematical details

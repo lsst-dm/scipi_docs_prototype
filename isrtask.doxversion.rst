@@ -1,167 +1,113 @@
 
-#######
-IsrTask 
-#######
+2/4
+
+IsrTask.doxygenVersion
+=========================================
+
+- `Doxygen link`_
+.. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#IsrTask_
 
 
 Instrumental Signature Removal (ISR) is a sequence of steps taken to
 'clean' images of various aspects of defects that any system of optics
-and detectors will imprint on an image by default, and is generally
-one of the very first procedures carried out on an exposure.
+and detectors will imprint on an image by default.  Though the process
+for correcting imaging data is very similar from camera to camera,
+depending on the image, various of the defects will be present and
+need to be removed, and thus the sequence of steps taken will vary
+from image to image.  Generally these corrections are done one CCD at
+a time, but with all the amplifiers at once for a CCD.  This is how
+the DM code ingests and processes the information.
 
-In more detail: though the process for correcting imaging data is very
-similar from camera to camera, depending on the image, various of the
-defects will be present and need to be removed, and thus the sequence
-of steps taken will vary from image to image.  Generally these
-corrections are done one CCD at a time, but with all the amplifiers at
-once for a CCD.  This is how the framework code ingests and processes
-the information.
+The ISR code is at::
+   
+     $IP_ISR_DIR/python/lsst/ip/isr/isrTask.py.
 
 IsrTask provides a generic vanilla implementation of doing these
 corrections, including the ability to turn certain corrections off if
 they are not needed.
 
-The inputs to the entrypoint method, ``lsst.pipe.tasks.isrTask.run``, are the
-raw exposure to be corrected and the calibration data products. The
-raw input is a single chip-sized mosaic of all amps including
-overscans and other non-science pixels.
+The inputs to the primary method, 'run', are a raw exposure to be
+corrected and the calibration data products. The raw input is a single
+chip-sized mosaic of all amps including overscans and other
+non-science pixels.
 
-IsrTask performs instrument signature removal on an exposure following
-these overall steps:
+IsrTask performs instrument signature removal on an exposure following these overall steps:
 
+- Detects saturation: finding out which pixels have current which overfills their potential wells
 
+- Does bias subtraction: removing the pedestal introduced by the instrument for a zero-second exposure (may use the overscan correction function)
 
-- ``lsst.pipe.tasks.isrTask.IsrTask.saturationDetection`` - Detects saturation: finding out which pixels have current which overfills their potential wells
+- Does dark correction: i.e. removing the dark current, which is the residual current seen even when no light is falling on the sensors
 
-- ``lsst.ip.isr.isrTask.IsrTask.biasCorrection`` - Does bias subtraction: removing the pedestal introduced by the instrument for a zero-second exposure (may use the overscan correction function)
+- Does flat-fielding: i.e. correcting for the different responsivity of the current coming from pixels to the same amount of light falling on them
 
-- ``lsst.ip.isr.isrTask.IsrTask.darkCorrection`` - Does dark correction: i.e. removing the dark current, which is the residual current seen even when no light is falling on the sensors
-
-- ``lsst.ip.isr.isrTask.IsrTask.flatCorrection`` - Does flat-fielding: i.e. correcting for the different responsivity of the current coming from pixels to the same amount of light falling on them
-
-- ``lsst.ip.isr.isrTask.IsrTask.brighterFatterCorrection`` - Does the brighter fatter correction: i.e. accounting for the distortion of the electric field lines at the bottom of pixels when bright objects liberate many charges that get trapped at the bottom of the potential wells
+- Does the brighter fatter correction: i.e. accounting for the distortion of the electric field lines at the bottom of pixels when bright objects liberate many charges that get trapped at the bottom of the potential wells
 
 
-- [Performs CCD assembly  ----> is this a funct of isrTask..?]
+- Performs CCD assembly
 
-- ``lsst.ip.isr.isrTask.IsrTask.maskAndInterpDefect`` , and ``lsst.ip.isr.isrTask.IsrTask.maskAndInterpNan`` - Mask known bad pixels, defects, saturated pixels and all NaNs and interpolate over them
+- Masks known bad pixels
 
-- [Provides a preliminary WCS ----> don't see this show up anywhere.]
+- Interpolates over defects, saturated pixels and all NaNs
 
+- Provides a preliminary WCS
 
-This task is implemented in the ``lsst.ip.isr`` module.
+List of IsrTask Functions
++++++++++++++++++++++++++
 
-Configuration
-=============
+Functions the code is capable of handling, though not all are used,
+depending on an image (in alphabetical order), with the links here going to the actual code:
 
-Flags  and utility variables
-----------------------------
+- `Bias`_
+.. _Bias: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#aa6ccdf9dcf1735c5ed90c2c23e496725
+- `Brighter fatter correction`_
+.. _Brighter fatter correction: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#abcef49896d412c901f42e960dce9e280
+- `Dark`_
+.. _Dark: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#ab41dc49d2b1df5388fe3f653bfadcfd6 
+- `Flat-fielding`_
+.. _Flat-fielding: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#ae6918c99805e1f902687842a7b09cf56
 
--	doBias
- 
--	doDark
- 
--	doFlat
- 
--	doFringe
- 
--	doWrite
- 
--	gain
- 
--	readNoise
- 
--	saturation
- 
--	fringeAfterFlat
- 
--	fwhm
- 
--	saturatedMaskName
- 
--	suspectMaskName
- 
--	flatScalingType
- 
--	flatUserScale
- 
--	overscanFitType
- 
--	overscanOrder
- 
--	overscanRej
- 
--	growSaturationFootprintSize
- 
--	fluxMag0T1
- 
--	setGainAssembledCcd
- 
--	keysToRemoveFromAssembledCcd
- 
--	doAssembleIsrExposures
- 
--	doAssembleCcd
- 
--	doLinearize
- 
--	doBrighterFatter
- 
--	brighterFatterKernelFile
- 
--	brighterFatterMaxIter
- 
--	brighterFatterThreshold
- 
--	brighterFatterApplyGain
- 
--	datasetType
- 
--	fallbackFilterName
+- Fringing
 
-Subtasks
---------
+- `Gain`_
+.. _Gain: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#ae1a9c9352c1c1064957726788209362a
+- `Linearization`_ 
+.. _Linearization: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#aea4a28fc61394c45adbb104248828e60
+- `Mask defects, and interpolate over them`_ 
+.. _Mask defects, and interpolate over them: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#ac938896ee62ee77619f07fb85de47350
+- `Mask NaNs`_  
+.. _Mask NaNs: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#a5ae0dffccdb1be2188a1538baed45412
+- `Overscan`_ 
+.. _Overscan: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#a5e5c48656c428d20fb981a6858ee98cb
+- `Saturation detection`_ 
+.. _Saturation detection: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#a853d9470afa9e178fb42bb050e6fc3a4
+- `Saturation interpln`_ 
+.. _Saturation interpln: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#a7d6b3e4ec6233d1da18a514be8d82f63
+- `Suspect pixel detection`_ 
+.. _Suspect pixel detection: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#a0fd004b4c3ec4dfd9e8779421a806c4a
+- `Update variance plane`_ 
+.. _Update variance plane: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#a8f5afe71d7d8b7bc824fd15f63257b8f
 
--	assembleCcd
-
--	fringe
- 
-
-
-
-Entrypoint
-==========
-
-- ``lsst.pipe.tasks.isrTask.run``
-
-
-Butler Inputs
-=============
-
-`dataRef` – a ``daf.persistence.butlerSubset.ButlerDataRef`` of the detector data to be processed
-
-
-Examples
-========
-
-If you want to see an example of the ISR algorithm in action, run the example while in the ``$IP_ISR_DIR/examples`` as follows::
+If you want to see an example of the ISR algorithm in action, run the example while in the $IP_ISR_DIR as follows::
 
   python  examples/runIsrTask.py  --write --ds9
 
-The `write` flag tells the code to write the post-ISR image file to disk.  In this example code, this output file is called:: 
+The ‘write’ flag tells the code to write the post-ISR image file to disk.  In this example code, this output file is called:: 
 
    postISRCCD.fits
 
-The `ds9` flag tells it to bring up ds9 (if installed) and show the post-ISR FITS image.
+The ‘ds9’ flag tells it to bring up ds9 (if installed) and show the post-ISR FITS image.
 
-
-
+  
+.. ISR does the following:
+            - assemble raw amplifier images into an exposure with image, variance and mask planes
+    
 	    
 Specific functions of IsrTask via example
 +++++++++++++++++++++++++++++++++++++++++
 
 To use a concrete example, we will follow the simple steps in
-``runIsrTask`` to trace how a specific code would do ISR processing -- it
+runIsrTask to trace how a specific code would do ISR processing -- it
 will be different for every camera and exposure.
 
 The first several lines of runIsrTask (after imports) define a
@@ -205,9 +151,9 @@ Finally, the output is produced with the line::
 
 And returned at the end of the function.
 
-(The ``main`` function of runIsrTask simply calls this runIsr function,
-and also brings up ds9 to view the final output exposure if that flag
-is set on, and writes the img to disk if that flag is set.)
+(The 'main' function of runIsrTask simply calls this runIsr function, and also brings
+up ds9 to view the final output exposure if that flag is set on, and
+writes the img to disk if that flag is set.)
 
 Next, let's look at the two specific functions that the example uses.
 
@@ -240,7 +186,7 @@ Other ISR steps
 +++++++++++++++
 
 Now we describe corrections that are not in the example, but
-that IsrTask can also correct for, leading to final corrected
+that IsrTask can also take correct for, leading to final corrected
 images.
 
 Bias correction
@@ -323,8 +269,7 @@ background varies with time and telescope pointing.
 Gain
 ----
 
-This is accounting for how many electrons correspond to each ADU
-coming out of the sensors.
+This is accounting for how many electrons correspond to each ADU coming out of the sensors. 
 
 
 Linearity Correction
@@ -340,6 +285,20 @@ Were a correction necessary it would likely be implemented with a
 look-up table, and executed following the dark correction but prior to
 fringe correction.
 
+..
+ Mask defects
+ ------------
+
+ How to find the pixels that have problems 
+
+ Masked pixel interpolation
+ ----------------------------
+
+ Mask NaNs
+ ------------
+
+ Masked NaN interpolation
+ ----------------------------
 
 
 Overscan Correction
@@ -379,50 +338,25 @@ only done in the x-direction, extending 2 pixels on each side of the
 defect. This is done both for simplicity and to ameliorate the way
 that saturation trails interact with bad columns.
 
+..
+ Suspect pixel detection
+ ------------------------
 
-Debugging
-=========
+ This seems to be part of the overscan correction in isr.py
 
-- ``display`` - A dictionary containing debug point names as keys with frame number as value.  The only valid key is:
-``postISRCCD`` (to display exposure after ISR has been applied)
+..
+ Update variance plane
+ -----------------------
 
-
-
-
-
-List of IsrTask Functions
-+++++++++++++++++++++++++
-
-Functions the code is capable of handling, though not all are used,
-depending on an image (in alphabetical order).
+____
 
 
-- `Bias`
+[Reference: Doxygen comments in code, and Section 4 of LSST DATA CHALLENGE HANDBOOK (2011), and http://hsca.ipmu.jp/public/index.html ]
 
-- `Brighter fatter correction`
+Examples
+++++++++
 
-- `Dark`
+runIsrTask.py in $IP_ISR_DIR/examples ; try with --ds9 flag on.
 
-- `Flat-fielding`
 
-- `Fringing`
 
-- `Gain`
-
-- `Linearization`
-
-- `Mask defects, and interpolate over them`
-  
-- `Mask NaNs`
-  
-- `Overscan`
-  
-- `Saturation detection`
-  
-- `Saturation interpln`
-  
-- `Suspect pixel detection`
-  
-- `Update variance plane`
-
-  [Reference: Doxygen comments in code, and Section 4 of LSST DATA CHALLENGE HANDBOOK (2011), and http://hsca.ipmu.jp/public/index.html ]
