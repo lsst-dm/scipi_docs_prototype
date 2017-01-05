@@ -17,9 +17,6 @@ Some of its primary functions are to:
 
   - Measure the PSF
 
-Module membership
-=================
-
 This task is implemented in the ``lsst.pipe.tasks`` module.
 
 .. seealso::

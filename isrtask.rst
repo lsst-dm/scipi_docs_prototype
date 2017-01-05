@@ -21,10 +21,6 @@ IsrTask provides a generic vanilla implementation of doing these
 corrections, including the ability to turn certain corrections off if
 they are not needed.
 
-
-Module membership
-=================
-
 This task is implemented in the ``lsst.ip.isr`` module.
 
 .. seealso::

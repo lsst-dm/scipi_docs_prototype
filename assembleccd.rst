@@ -9,9 +9,6 @@ amplifier-defined sub-images) into a larger mosaic.
 The sub-sections are most often amplifier sections and are to be
 assembled into a detector size pixel grid.  See below for details.
 
-Module membership
-=================
-
 This task is implemented in the ``lsst.ip.isr`` module.
 
 .. seealso::

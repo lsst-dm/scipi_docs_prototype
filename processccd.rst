@@ -34,9 +34,6 @@ astronomers using by using the SCAMP and SWARP codes, 'pinning' the
 image on the positions of known stars), and figures out the
 photometric zero-point for the image.
 
-Module membership
-=================
-
 This task is implemented in the ``lsst.pipe.tasks`` module.
 
 See also

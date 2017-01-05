@@ -7,10 +7,6 @@ CalibrateTask
 Given a properly characterized exposure, detect sources, measure their
 positions, and do a photometric measurement on them.
 
-
-Module membership
-=================
-
 This task is implemented in the ``lsst.pipe.tasks`` module.
 
 .. seealso::
