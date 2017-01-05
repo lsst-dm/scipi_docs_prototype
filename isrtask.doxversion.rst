@@ -356,7 +356,7 @@ ____
 Examples
 ++++++++
 
-runIsrTask.py in $IP_ISR_DIR/examples ; try with --ds9 flag on.
+
 
 
 

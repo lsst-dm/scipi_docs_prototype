@@ -1,8 +1,8 @@
 
 
-##########
-ProcessCCD
-##########
+##############
+ProcessCcdTask
+##############
 
 ProcessCcd (which is a ``CL task``) executes the steps of how an image
 is processed from raw data to a science-grade image that can be used
@@ -11,15 +11,13 @@ in analyses.
 In more detail: ProcessCcd as a whole executes many of the functions
 that are in multiple packages in other astronomy analysis frameworks.
 
-``lsst.pipe.tasks.calibrate.CalibrateTask.run`` is the entrypoint
-function, and will begin the processing, with the initial step being
-to correct the images for all the issues involved in taking a raw
-image CCD through to a processed one (e.g. doing the bias and dark
-current corrections, flat-fielding, etc.) by first doing everything
-that astronomers have used a medley of customized codes typically for
-each telescope before (like IRAF, UNIX shellscripts, IDL scripts
-etc.).  These tasks are usually grouped together under the general
-term 'Instrumental Signature Removal.'
+The initial step is to run isrTask to correct the images for all the
+issues involved in taking a raw image CCD through to a processed one
+(e.g. doing the bias and dark current corrections, flat-fielding,
+etc.) by first doing everything that astronomers have used a medley of
+customized codes typically for each telescope before (like IRAF, UNIX
+shellscripts, IDL scripts etc.).  These tasks are usually grouped
+together under the general term 'Instrumental Signature Removal.'
 
 The second step groups together several functions as 'Image
 Characterization', which includes for our purposes: object detection
@@ -36,7 +34,14 @@ astronomers using by using the SCAMP and SWARP codes, 'pinning' the
 image on the positions of known stars), and figures out the
 photometric zero-point for the image.
 
+Module membership
+=================
+
 This task is implemented in the ``lsst.pipe.tasks`` module.
+
+See also
+=========
+
 
 Configuration
 =============
@@ -87,13 +92,13 @@ The main method, ``run``, takes a single butler data reference for the raw input
 Examples
 ========
 
-The following commands will process all raw data in obs_test's data repository. Note: be sure to specify an --output that does not already exist::
+The following commands will process all raw data in obs_test's data repository. Note: be sure to specify an ``--output`` that does not already exist::
 
   setup obs_test
   setup pipe_tasks
   processCcd.py $OBS_TEST_DIR/data/input --output processCcdOut --id
 
-The data is read from the small repository in the obs_test package and written to: ./processCcdOut (or whatever output you specified). Specifying --id with no values processes all data. Add the option --help to see more options.
+The data is read from the small repository in the ``obs_test`` package and written to: ``./processCcdOut`` (or whatever output you specified). Specifying ``--id`` with no values processes all data. Add the option ``--help`` to see more options.
 
 
 Debugging

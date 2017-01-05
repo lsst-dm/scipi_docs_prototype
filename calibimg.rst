@@ -7,33 +7,15 @@ CalibrateTask
 Given a properly characterized exposure, detect sources, measure their
 positions, and do a photometric measurement on them.
 
-In more detail: given an exposure with a good PSF model and aperture
-correction map (e.g. as provided by ``CharacterizeImageTask``),
-``CalibTask`` calls the entrypoint function,
-``lsst.pipe.tasks.calibrate.run`` which will calibrate an exposure,
-optionally unpersisting inputs and persisting outputs.  This is a
-wrapper around the ``lsst.pipe.tasks.calibrate.calibrate`` method that
-unpersists inputs (if ``doUnpersist`` `true`) and persists outputs (if
-``config.doWrite`` `true`), and does the actual calibration of an
-exposure (either a science image or a coadd).
 
-In sequence, the following operations are then performed on the exposure:
+Module membership
+=================
 
-    - ``lsst.pipe.tasks.detectAndMeasure`` is run to peform deep detection and measurement
+This task is implemented in the ``lsst.pipe.tasks`` module.
 
-    - At this point if the optional flags are set, ``lsst.pipe.tasks.calibrate.copyIcSourceFields`` will be run to match sources in icSourceCat and sourceCat and copy the specified fields.
-	
-    - ``lsst.meas.astrom.astrometry`` is run to fit an improved WCS
-
-    -  ``lsst.pipe.tasks.photoCal`` is run to fit the exposure's photometric zero-point (and ``lsst.pipe.tasks.calibrate.setMetadata`` is run as part of this procedure to set task and exposure metadata and will log a warning and continue if needed data is missing).
-
-If the outputs are to be persisted, ``lsst.pipe.tasks.calibrate.writeOutputs`` is called after all this in ``run`` to write output data to the output repository.
- 
-
-
-- [	``lsst.pipe.tasks.calibrate.getSchemaCatalogs`` -- -- Also an entrypoint..? ]
-
-
+.. seealso::
+   
+    This task is most commonly called by :doc:`ProcessCcd <processccd>`.
 
 Configuration
 =============
@@ -102,12 +84,15 @@ Subtasks
 Entrypoint
 ==========
 
-- ``lsst.pipe.tasks.calibrate.run`` 
+- ``lsst.pipe.tasks.calibrate.CalibrateTask.run`` 
 
 Butler Inputs
 =============
 
 The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly.
+
+Butler Outputs
+==============
 
 Examples
 ========
@@ -122,3 +107,32 @@ Debugging
 
 - ``calibrate`` -  (an `int`, set to :math:`\le 0` to not display) frame in which to display the exposure, sources and matches. See ``lsst.meas.astrom.displayAstrometry`` for the meaning of the various symbols.
 
+
+Algorithm details
+====================
+
+  In more detail: given an exposure with a good PSF model and aperture
+correction map (e.g. as provided by ``CharacterizeImageTask``),
+``CalibTask`` calls the entrypoint function,
+``lsst.pipe.tasks.calibrate.run`` which will calibrate an exposure,
+optionally unpersisting inputs and persisting outputs.  This is a
+wrapper around the ``lsst.pipe.tasks.calibrate.calibrate`` method that
+unpersists inputs (if ``doUnpersist`` `true`) and persists outputs (if
+``config.doWrite`` `true`), and does the actual calibration of an
+exposure (either a science image or a coadd).
+
+In sequence, the following operations are then performed on the exposure:
+
+    - ``lsst.pipe.tasks.detectAndMeasure`` is run to peform deep detection and measurement
+
+    - At this point if the optional flags are set, ``lsst.pipe.tasks.calibrate.copyIcSourceFields`` will be run to match sources in icSourceCat and sourceCat and copy the specified fields.
+	
+    - ``lsst.meas.astrom.astrometry`` is run to fit an improved WCS
+
+    -  ``lsst.pipe.tasks.photoCal`` is run to fit the exposure's photometric zero-point (and ``lsst.pipe.tasks.calibrate.setMetadata`` is run as part of this procedure to set task and exposure metadata and will log a warning and continue if needed data is missing).
+
+If the outputs are to be persisted, ``lsst.pipe.tasks.calibrate.writeOutputs`` is called after all this in ``run`` to write output data to the output repository.
+ 
+
+
+- [	``lsst.pipe.tasks.calibrate.getSchemaCatalogs`` -- -- Also an entrypoint..? ]

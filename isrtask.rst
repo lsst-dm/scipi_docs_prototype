@@ -21,35 +21,16 @@ IsrTask provides a generic vanilla implementation of doing these
 corrections, including the ability to turn certain corrections off if
 they are not needed.
 
-The inputs to the entrypoint method, ``lsst.pipe.tasks.isrTask.run``, are the
-raw exposure to be corrected and the calibration data products. The
-raw input is a single chip-sized mosaic of all amps including
-overscans and other non-science pixels.
 
-IsrTask performs instrument signature removal on an exposure following
-these overall steps:
-
-
-
-- ``lsst.pipe.tasks.isrTask.IsrTask.saturationDetection`` - Detects saturation: finding out which pixels have current which overfills their potential wells
-
-- ``lsst.ip.isr.isrTask.IsrTask.biasCorrection`` - Does bias subtraction: removing the pedestal introduced by the instrument for a zero-second exposure (may use the overscan correction function)
-
-- ``lsst.ip.isr.isrTask.IsrTask.darkCorrection`` - Does dark correction: i.e. removing the dark current, which is the residual current seen even when no light is falling on the sensors
-
-- ``lsst.ip.isr.isrTask.IsrTask.flatCorrection`` - Does flat-fielding: i.e. correcting for the different responsivity of the current coming from pixels to the same amount of light falling on them
-
-- ``lsst.ip.isr.isrTask.IsrTask.brighterFatterCorrection`` - Does the brighter fatter correction: i.e. accounting for the distortion of the electric field lines at the bottom of pixels when bright objects liberate many charges that get trapped at the bottom of the potential wells
-
-
-- [Performs CCD assembly  ----> is this a funct of isrTask..?]
-
-- ``lsst.ip.isr.isrTask.IsrTask.maskAndInterpDefect`` , and ``lsst.ip.isr.isrTask.IsrTask.maskAndInterpNan`` - Mask known bad pixels, defects, saturated pixels and all NaNs and interpolate over them
-
-- [Provides a preliminary WCS ----> don't see this show up anywhere.]
-
+Module membership
+=================
 
 This task is implemented in the ``lsst.ip.isr`` module.
+
+.. seealso::
+   
+    This task is most commonly called by :doc:`ProcessCcd <processccd>`.
+
 
 Configuration
 =============
@@ -122,9 +103,9 @@ Flags  and utility variables
 Subtasks
 --------
 
--	assembleCcd
+-	assembleCcd -- target=AssembleCcdTask -  CCD assembly task
 
--	fringe
+-	fringe --  target=FringeTask - Fringe subtraction task
  
 
 
@@ -132,19 +113,28 @@ Subtasks
 Entrypoint
 ==========
 
-- ``lsst.pipe.tasks.isrTask.run``
+- ``lsst.ip.isr.isrTask.IsrTask.run``
 
 
 Butler Inputs
 =============
 
-`dataRef` – a ``daf.persistence.butlerSubset.ButlerDataRef`` of the detector data to be processed
+`dataRef` – a ``daf.persistence.butlerSubset.ButlerDataRef`` of the
+detector data to be processed
 
+The inputs to the entrypoint method are the raw exposure to be
+corrected and the calibration data products. The raw input is a single
+chip-sized mosaic of all amps including overscans and other
+non-science pixels.
+
+Butler Outputs
+==============
 
 Examples
 ========
 
-If you want to see an example of the ISR algorithm in action, run the example while in the ``$IP_ISR_DIR/examples`` as follows::
+If you want to see an example of the ISR algorithm in action, run the
+example while in the ``$IP_ISR_DIR/examples`` as follows::
 
   python  examples/runIsrTask.py  --write --ds9
 
@@ -384,14 +374,15 @@ Debugging
 =========
 
 - ``display`` - A dictionary containing debug point names as keys with frame number as value.  The only valid key is:
-``postISRCCD`` (to display exposure after ISR has been applied)
+
+  ``postISRCCD`` (to display exposure after ISR has been applied)
 
 
 
 
 
 List of IsrTask Functions
-+++++++++++++++++++++++++
+=========================
 
 Functions the code is capable of handling, though not all are used,
 depending on an image (in alphabetical order).
@@ -425,4 +416,33 @@ depending on an image (in alphabetical order).
   
 - `Update variance plane`
 
+
+Algorithm details
+====================
+
+  IsrTask performs instrument signature removal on an exposure following
+these overall steps:
+
+- ``lsst.pipe.tasks.isrTask.IsrTask.saturationDetection`` - Detects saturation: finding out which pixels have current which overfills their potential wells
+
+- ``lsst.ip.isr.isrTask.IsrTask.biasCorrection`` - Does bias subtraction: removing the pedestal introduced by the instrument for a zero-second exposure (may use the overscan correction function)
+
+- ``lsst.ip.isr.isrTask.IsrTask.darkCorrection`` - Does dark correction: i.e. removing the dark current, which is the residual current seen even when no light is falling on the sensors
+
+- ``lsst.ip.isr.isrTask.IsrTask.flatCorrection`` - Does flat-fielding: i.e. correcting for the different responsivity of the current coming from pixels to the same amount of light falling on them
+
+- ``lsst.ip.isr.isrTask.IsrTask.brighterFatterCorrection`` - Does the brighter fatter correction: i.e. accounting for the distortion of the electric field lines at the bottom of pixels when bright objects liberate many charges that get trapped at the bottom of the potential wells
+
+
+- [Performs CCD assembly  ----> is this a funct of isrTask..?]
+
+- ``lsst.ip.isr.isrTask.IsrTask.maskAndInterpDefect`` , and ``lsst.ip.isr.isrTask.IsrTask.maskAndInterpNan`` - Mask known bad pixels, defects, saturated pixels and all NaNs and interpolate over them
+
+- [Provides a preliminary WCS ----> don't see this show up anywhere.]
+
+
+-------------
+  
   [Reference: Doxygen comments in code, and Section 4 of LSST DATA CHALLENGE HANDBOOK (2011), and http://hsca.ipmu.jp/public/index.html ]
+
+  
