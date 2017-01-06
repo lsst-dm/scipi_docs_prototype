@@ -97,16 +97,15 @@ Contents:
    template.forModules
    template.forFrameworks
    template.forReadmes
-   template.forTasks
-	      
+   template.forTasks	      
    install	      
    astrometry   
    assembleccd
-   assembleccd.doxversion
+   doxygenVersions/assembleccd.doxversion
    calibimg
-   calibimg.doxversion
+   doxygenVersions/calibimg.doxversion
    charimg
-   charimg.doxversion
+   doxygenVersions/charimg.doxversion
    coaddsrcxform
    diacat
    decorrALkernel
@@ -122,7 +121,7 @@ Contents:
    ingest
    installgaussianpsf
    isrtask
-   isrtask.doxversion
+   doxygenVersions/isrtask.doxversion
    loadastrom
    loadrefobjects
    measureapcorr
@@ -132,7 +131,7 @@ Contents:
    modelpsfmatch
    objectsizestarsel
    processccd
-   processccd.doxversion
+   doxygenVersions/processccd.doxversion
    propvisitflags
    psfmatch
    readfitscat
