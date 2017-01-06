@@ -34,65 +34,68 @@ Configuration
 Flags  and utility variables
 ----------------------------
 
--	doBias
- 
--	doDark
- 
--	doFlat
- 
--	doFringe
- 
--	doWrite
- 
--	gain
- 
--	readNoise
- 
--	saturation
- 
--	fringeAfterFlat
- 
--	fwhm
- 
--	saturatedMaskName
- 
+-``doBias`` -- ( `bool`) --  defaults to `True` - Apply bias frame correction?
+
+-``doDark`` -- ( `bool`) --  defaults to `True` - Apply dark frame correction?
+
+-``doFlat`` -- ( `bool`) --  defaults to `True` - Apply flat field correction?
+
+-``doFringe`` -- ( `bool`) --  defaults to `True` - Apply fringe correction?
+
+-``doWrite`` -- ( `bool`) --  defaults to `True` - Persist postISRCCD?
+
+-``gain`` -- ( `float`) --  defaults to `float("NaN")` - The gain to use if no Detector is present in the Exposure (ignored if NaN)
+
+-``readNoise`` -- ( `float`) --  defaults to `0.0` - The read noise to use if no Detector is present in the Exposure
+
+-``saturation`` -- ( `float`) --  defaults to `float("NaN")` - The saturation level to use if no Detector is present in the Exposure (ignored if NaN)
+
+-``fringeAfterFlat`` -- ( `bool`) --  defaults to `True` - Do fringe subtraction after flat-fielding?
+
+-``fwhm`` -- ( `float`) --  defaults to `1.0` - FWHM of PSF (arcsec)
+
+-``saturatedMaskName`` -- ( `str`) --  defaults to `"SAT"` - Name of mask plane to use in saturation detection and interpolation
+
+-``flatUserScale`` -- ( `float`) --  defaults to `1.0` - If flatScalingType is 'USER' then scale flat by this amount; ignored otherwise
+
+-``overscanOrder`` -- ( `int`) --  defaults to `1` - Order of polynomial or to fit if overscan fit type is a polynomial
+
+-``overscanRej`` -- ( `float`) --  defaults to `3.0` - Rejection threshold (sigma) for collapsing overscan before fit
+
+-``growSaturationFootprintSize`` -- ( `int`) --  defaults to `1` - Number of pixels by which to grow the saturation footprints
+
+-``fluxMag0T1`` -- ( `float`) --  defaults to `1e10` - The approximate flux of a zero-magnitude object in a one-second exposure
+
+-``setGainAssembledCcd`` -- ( `bool`) --  defaults to `True` - update exposure metadata in the assembled ccd to reflect the effective gain of the assembled chip
+
+-``doAssembleIsrExposures`` -- ( `bool`) --  defaults to `False` - Assemble amp-level calibration exposures into ccd-level exposure?
+
+-``doAssembleCcd`` -- ( `bool`) --  defaults to `True` - Assemble amp-level exposures into a ccd-level exposure?
+
+-``doBrighterFatter`` -- ( `bool`) --  defaults to `False` - Apply the brighter fatter correction
+
+-``brighterFatterKernelFile`` -- ( `str`) --  defaults to `empty string` - Kernel file used for the brighter fatter correction
+
+-``brighterFatterMaxIter`` -- ( `int`) --  defaults to `18` - Maximum number of iterations for the brighter fatter correction
+
+-``brighterFatterThreshold`` -- ( `float`) --  defaults to `1000` - Threshold used to stop iterating the brighter fatter correction.  It is the absolute value of the difference between the current corrected image and the one from the previous iteration summed over all the pixels.
+
+-``brighterFatterApplyGain`` -- ( `bool`) --  defaults to `True` - Should the gain be applied when applying the brighter fatter correction?
+
+-``datasetType`` -- ( `str`) --  defaults to `"raw"` - Dataset type for input data; users will typically leave this alone
+
+-``fallbackFilterName`` -- ( `default`) --  no default - Fallback default filter name for calibrations
+
+
 -	suspectMaskName
- 
+	
 -	flatScalingType
- 
--	flatUserScale
  
 -	overscanFitType
  
--	overscanOrder
- 
--	overscanRej
- 
--	growSaturationFootprintSize
- 
--	fluxMag0T1
- 
--	setGainAssembledCcd
- 
 -	keysToRemoveFromAssembledCcd
  
--	doAssembleIsrExposures
- 
--	doAssembleCcd
- 
 -	doLinearize
- 
--	doBrighterFatter
- 
--	brighterFatterKernelFile
- 
--	brighterFatterMaxIter
- 
--	brighterFatterThreshold
- 
--	brighterFatterApplyGain
- 
--	datasetType
  
 -	fallbackFilterName
 
