@@ -60,6 +60,9 @@ for l in range(0,len(lines)-1):
 
     descrip = lines[l+1].split('doc')[1].split(',')[0].strip('"').strip(' = "')  # To extract the piece that is the description field requires some  further processing of splits and strips
 
-    print( "``" + line1[ll1-3] + "``" + str(' -- ( `' + line2[2].strip(',') +'`) -- ' ) + ' defaults to `' + line2[ll2-5].strip(',') + '` - ' + descrip)
+    print (varname + vartype + defaultval + descrip)
+    
+#    print( "``" + line1[ll1-3] + "``" + str(' -- ( `' + line2[2].strip(',') +'`) -- ' ) + ' defaults to `' + line2[ll2-5].strip(',') + '` - ' + descrip)
 
+ 
 
