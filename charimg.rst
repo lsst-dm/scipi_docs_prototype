@@ -29,52 +29,53 @@ Configuration
 Flags  and utility variables
 ----------------------------
 
-- 	doDeblend - (`bool`) - defaults to `True` - Run deblender on input exposure?
+-``doDeblend`` - (`bool`) - defaults to `True` - Run deblender on input exposure?
  
-- 	doApCorr - (`bool`) - defaults to `True` -  Run subtasks to measure and apply aperture corrections
+-``doApCorr`` - (`bool`) - defaults to `True` -  Run subtasks to measure and apply aperture corrections
 
--	doMeasurePsf - (`bool`) - defaults to `True` - Measure the PSF? If `False` then keep the existing PSF model (which must exist) and use that model for all operations."
+-``doMeasurePsf`` - (`bool`) - defaults to `True` - Measure the PSF? If `False` then keep the existing PSF model (which must exist) and use that model for all operations."
  
--	doWrite - (`bool`) - defaults to `True` - Persist results?
+-``doWrite`` - (`bool`) - defaults to `True` - Persist results?
  
--	doWriteExposure - (`bool`) - defaults to `True` - Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite False.
+-``doWriteExposure`` - (`bool`) - defaults to `True` - Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite False.
 
--	useSimplePsf - (`bool`) - defaults to `True` - Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
+-``useSimplePsf`` - (`bool`) - defaults to `True` - Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
 
 	
--	psfIterations - (`int`) - defaults to 2, min=1 -    Number of iterations of detect sources, measure sources, estimate PSF. If `useSimplePsf`='all_iter' then 2 should be plenty; otherwise more may be wanted.  ******** This seems to be an error, as `useSimplePsf` is described as a `bool` in the dox pages.
+-``psfIterations`` - (`int`) - defaults to 2, min=1 -    Number of iterations of detect sources, measure sources, estimate PSF. If `useSimplePsf`='all_iter' then 2 should be plenty; otherwise more may be wanted.  ******** This seems to be an error, as `useSimplePsf` is described as a `bool` in the dox pages.
 
-- 	checkUnitsParseStrict (`str`) - Strictness of Astropy unit compatibility check, can be 'raise', 'warn' or 'silent'
+-``checkUnitsParseStrict`` (`str`) - Strictness of Astropy unit compatibility check, can be 'raise', 'warn' or 'silent'
 
 Subtasks
 --------
 
--	background - target = SubtractBackgroundTask -    Configuration for initial background estimation
+-	``background`` - target = SubtractBackgroundTask -    Configuration for initial background estimation
  
--	detection - target = SourceDetectionTask - Detect sources
+-	``detection`` - target = SourceDetectionTask - Detect sources
  
--	deblend - target = SourceDeblendTask - Split blended source into their components
+-	``deblend`` - target = SourceDeblendTask - Split blended source into their components
  
--	measurement - target = SingleFrameMeasurementTask - Measure sources
+-	``measurement`` - target = SingleFrameMeasurementTask - Measure sources
  
--	measureApCorr -  target = MeasureApCorrTask - Subtask to measure aperture corrections
+-	``measureApCorr`` -  target = MeasureApCorrTask - Subtask to measure aperture corrections
  
--	applyApCorr - target = ApplyApCorrTask - Subtask to apply aperture corrections
+-	``applyApCorr`` - target = ApplyApCorrTask - Subtask to apply aperture corrections
  
--	catalogCalculation - target = CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
+-	``catalogCalculation`` - target = CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
  
--	installSimplePsf -  target = InstallGaussianPsfTask - Install a simple PSF model
+-	``installSimplePsf`` -  target = InstallGaussianPsfTask - Install a simple PSF model
  
--	refObjLoader -  target = LoadAstrometryNetObjectsTask - Reference object loader
+-	``refObjLoader`` -  target = LoadAstrometryNetObjectsTask - Reference object loader
  
--	astrometry - target = AstrometryTask - Task to load and match reference objects. Only used if `measurePsf` can use matches. Warning: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
+-	``astrometry`` - target = AstrometryTask - Task to load and match reference objects. Only used if `measurePsf` can use matches. Warning: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
 
--	measurePsf - target = MeasurePsfTask - Measure PSF
+-	``measurePsf`` - target = MeasurePsfTask - Measure PSF
 
  
--	repair -  target = RepairTask - Remove cosmic rays
+-	``repair`` -  target = RepairTask - Remove cosmic rays
  
-------> [Where does the validate function go..?  And setDefaults?]
+..
+  ------> [Where does the validate function go..?  And setDefaults?]
 
 
 Entrypoint

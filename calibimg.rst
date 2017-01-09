@@ -19,61 +19,61 @@ Configuration
 Flags and utility variables
 ---------------------------
 
-- doWrite  (`bool`) - defaults to `True` - Save calibration results?
+-``doWrite``  (`bool`) - defaults to `True` - Save calibration results?
  
--   doWriteHeavyFootprintsInSources (`bool`) - defaults to `True` -
+-``doWriteHeavyFootprintsInSources`` (`bool`) - defaults to `True` -
     Include HeavyFootprint data in source table? If false then heavy
     footprints are saved as normal footprints, which saves some space
  
-- 	doWriteMatches  (`bool`) - defaults to `True` - Write reference matches? (ignored if doWrite `false`)
+-``doWriteMatches``  (`bool`) - defaults to `True` - Write reference matches? (ignored if doWrite `false`)
  
-- 	doAstrometry (`bool`) - defaults to `True` - Run subtask to apply aperture correction?
+-``doAstrometry`` (`bool`) - defaults to `True` - Run subtask to apply aperture correction?
  
-- 	requireAstrometry (`bool`) - defaults to `True` - Raise an exception if astrometry fails? (ignored if doAstrometry `false`)
+-``requireAstrometry`` (`bool`) - defaults to `True` - Raise an exception if astrometry fails? (ignored if doAstrometry `false`)
  
-- 	doPhotoCal (`bool`) - defaults to `True` - Perform phometric calibration?
+-``doPhotoCal`` (`bool`) - defaults to `True` - Perform photometric calibration?
 
 	
-- 	requirePhotoCal  (`bool`) - defaults to `True`- Raise an exception if photoCal fails? (ignored if doPhotoCal false)
+-``requirePhotoCal``  (`bool`) - defaults to `True`- Raise an exception if photoCal fails? (ignored if doPhotoCal false)
 
--   icSourceFieldsToCopy (`str`) - defaults to ("calib_psfCandidate",
+-``icSourceFieldsToCopy`` (`str`) - defaults to ("calib_psfCandidate",
     "calib_psfUsed", "calib_psfReserved"), - Fields to copy from the
     icSource catalog to the output catalog for matching sources Any
     missing fields will trigger a RuntimeError exception.  Ignored if
     icSourceCat is not provided.
 
-- 	checkUnitsParseStrict (`str`) - Strictness of Astropy unit compatibility check, can be 'raise', 'warn' or 'silent'
+-``checkUnitsParseStrict`` (`str`) - Strictness of Astropy unit compatibility check, can be 'raise', 'warn' or 'silent'
 
 
-- 	doApCorr (`bool`) - defaults to `True`- Run subtask to apply aperture correction?
+-``doApCorr`` (`bool`) - defaults to `True`- Run subtask to apply aperture correction?
 
 
--    matchRadiusPix (`float`) - defaults to 3 - Match radius for matching icSourceCat objects to sourceCat objects (pixels)
+-``matchRadiusPix`` (`float`) - defaults to 3 - Match radius for matching icSourceCat objects to sourceCat objects (pixels)
 
-- 	doDeblend (`bool`) - defaults to `True` - Run deblender input exposure?
+-``doDeblend`` (`bool`) - defaults to `True` - Run deblender input exposure?
 	
 -----------
 
 Subtasks
 --------
 
-- 	refObjLoader - target=LoadAstrometryNetObjectsTask -   reference object loader
+- 	``refObjLoader`` - target=LoadAstrometryNetObjectsTask -   reference object loader
  
-- 	astrometry - target=AstrometryTask - Perform astrometric calibration to refine the WCS
+- 	``astrometry`` - target=AstrometryTask - Perform astrometric calibration to refine the WCS
   
-- 	photoCal - target=PhotoCalTask - Perform photometric calibration
+- 	``photoCal`` - target=PhotoCalTask - Perform photometric calibration
   
-- 	detection - target=SourceDetectionTask - Detect sources
+- 	``detection`` - target=SourceDetectionTask - Detect sources
  
  
-- 	deblend - target=SourceDeblendTask - Split blended sources into their components
+- 	``deblend`` - target=SourceDeblendTask - Split blended sources into their components
  
-- 	measurement - target=SingleFrameMeasurementTask - Measure sources
+- 	``measurement`` - target=SingleFrameMeasurementTask - Measure sources
  
  
-- 	applyApCorr - target=ApplyApCorrTask - Subtask to apply aperture corrections
+- 	``applyApCorr`` - target=ApplyApCorrTask - Subtask to apply aperture corrections
  
-- 	catalogCalculation - target=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
+- 	``catalogCalculation`` - target=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
 
 
 
@@ -104,7 +104,7 @@ Debugging
 - ``calibrate`` -  (an `int`, set to :math:`\le 0` to not display) frame in which to display the exposure, sources and matches. See ``lsst.meas.astrom.displayAstrometry`` for the meaning of the various symbols.
 
 
-Algorithm details
+Sequence
 ====================
 
   In more detail: given an exposure with a good PSF model and aperture
@@ -129,6 +129,8 @@ In sequence, the following operations are then performed on the exposure:
 
 If the outputs are to be persisted, ``lsst.pipe.tasks.calibrate.writeOutputs`` is called after all this in ``run`` to write output data to the output repository.
  
+Algorithm details
+==================
 
-
-- [	``lsst.pipe.tasks.calibrate.getSchemaCatalogs`` -- -- Also an entrypoint..? ]
+..
+  - [	``lsst.pipe.tasks.calibrate.getSchemaCatalogs`` -- -- Also an entrypoint..? ]

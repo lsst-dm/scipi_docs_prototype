@@ -84,27 +84,43 @@ Flags  and utility variables
 
 -``datasetType`` -- ( `str` ) --  defaults to `"raw"` - Dataset type for input data; users will typically leave this alone
 
--``fallbackFilterName`` -- ( `default` ) --  no default - Fallback default filter name for calibrations
+-``fallbackFilterName`` -- ( `str` ) --  no default - Fallback default filter name for calibrations
 
 
--	suspectMaskName
+-``suspectMaskName`` -- ( `str` ) -- defaults to "SUSPECT" -- Name of mask plane to use for suspect pixels
 	
--	flatScalingType
+-``flatScalingType`` -- ( `str` ) -- default to 'USER' -- The method for scaling the flat on the fly, allowed values:
+
+	- "USER": "Scale by flatUserScale"
+	-          "MEAN": "Scale by the inverse of the mean"
+        -          "MEDIAN": "Scale by the inverse of the median"
+     
  
--	overscanFitType
+-``overscanFitType`` -- ( `str` ) -- defaults to 'MEDIAN' -- The method for fitting the overscan bias level, allowed values:
+
+	- "POLY": "Fit ordinary polynomial to the longest axis of the overscan region",
+	-        "CHEB": "Fit Chebyshev polynomial to the longest axis of the overscan region",
+	-  "LEG": "Fit Legendre polynomial to the longest axis of the overscan region",
+        -   "NATURAL_SPLINE": "Fit natural spline to the longest axis of the overscan region",
+        -  "CUBIC_SPLINE": "Fit cubic spline to the longest axis of the overscan region",
+        -  "AKIMA_SPLINE": "Fit Akima spline to the longest axis of the overscan region",
+        -  "MEAN": "Correct using the mean of the overscan region",
+        -  "MEDIAN": "Correct using the median of the overscan region"
+     
  
--	keysToRemoveFromAssembledCcd
+-``keysToRemoveFromAssembledCcd`` -- ( `str` ) --  defaults to empty list -- Fields to remove from the metadata of the assembled ccd
+
  
--	doLinearize
+-``doLinearize`` -- ( `str` ) -- defaults to `True` -- Correct for nonlinearity of the detector's response?
  
--	fallbackFilterName
+-``fallbackFilterName`` -- ( `str` ) -- no default -- Fallback default filter name for calibrations
 
 Subtasks
 --------
 
--	assembleCcd -- target=AssembleCcdTask -  CCD assembly task
+-	``assembleCcd`` -- target=AssembleCcdTask -  CCD assembly task
 
--	fringe --  target=FringeTask - Fringe subtraction task
+-	``fringe`` --  target=FringeTask - Fringe subtraction task
  
 
 
@@ -380,46 +396,47 @@ Debugging
 
 
 
-List of IsrTask Functions
-=========================
+..
+  List of IsrTask Functions
+  =========================
 
-Functions the code is capable of handling, though not all are used,
-depending on an image (in alphabetical order).
+  Functions the code is capable of handling, though not all are used,
+  depending on an image (in alphabetical order).
 
 
-- `Bias`
+  - `Bias`
 
-- `Brighter fatter correction`
+    - `Brighter fatter correction`
 
-- `Dark`
+      - `Dark`
 
-- `Flat-fielding`
+	- `Flat-fielding`
 
-- `Fringing`
+	  - `Fringing`
 
-- `Gain`
+	    - `Gain`
 
-- `Linearization`
+	      - `Linearization`
 
-- `Mask defects, and interpolate over them`
+		- `Mask defects, and interpolate over them`
   
-- `Mask NaNs`
+		  - `Mask NaNs`
   
-- `Overscan`
+		    - `Overscan`
   
-- `Saturation detection`
+		      - `Saturation detection`
   
-- `Saturation interpln`
+			- `Saturation interpln`
   
-- `Suspect pixel detection`
+			  - `Suspect pixel detection`
   
-- `Update variance plane`
+			    - `Update variance plane`
 
 
-Algorithm details
-====================
-
-  IsrTask performs instrument signature removal on an exposure following
+Sequence
+========
+			      
+IsrTask performs instrument signature removal on an exposure following
 these overall steps:
 
 - ``lsst.pipe.tasks.isrTask.IsrTask.saturationDetection`` - Detects saturation: finding out which pixels have current which overfills their potential wells
@@ -439,6 +456,9 @@ these overall steps:
 
 - [Provides a preliminary WCS ----> don't see this show up anywhere.]
 
+
+Algorithm details
+====================
 
 -------------
   

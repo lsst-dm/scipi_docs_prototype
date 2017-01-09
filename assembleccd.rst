@@ -66,7 +66,7 @@ Debugging
 - ``display`` -  A dictionary containing debug point names as keys with frame number as value. The only valid key is:
 ``assembledExposure`` (to display assembled exposure)
 
-Algorithm details
+Sequence
 ====================
 
 In more detail: The sub-sections are most often amplifier sections and are to be
@@ -91,3 +91,6 @@ task can be configured to:
 
     - by default remove exposure metadata that has context in raw amps, but not in trimmed detectors.
 
+
+Algorithm details
+=================
