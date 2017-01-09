@@ -118,8 +118,10 @@ Contents:
    forcedmeas
    forcedsrcxform
    imagepsfmatch
+   doxygenVersions/
    ingest
    installgaussianpsf
+   doxygenVersions/installgaussianpsf
    isrtask
    doxygenVersions/isrtask.doxversion
    loadastrom
@@ -129,14 +131,17 @@ Contents:
    mergedets
    mergemeasts
    modelpsfmatch
+   doxygenVersions/modelpsfmatch
    objectsizestarsel
    processccd
    doxygenVersions/processccd.doxversion
    propvisitflags
    psfmatch
+   doxygenVersions/psfmatch
    readfitscat
    readtextcat
    safeclipassemble
+   doxygenVersions/safeclipassemble
    secondmomentstarsel
    singleframemeas
    srcdeblendimg
@@ -144,7 +149,9 @@ Contents:
    srcxform
    subtractbkgd
    snapcombine
+   doxygenVersions/snapcombine
    snappsfmatch
+   doxygenVersions/snappsfmatch
    xform
 
    

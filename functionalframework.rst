@@ -90,10 +90,10 @@ Multiple CCD Image processing
 
 .. _AssembleCcdTask: assembleccd.html
 
-- ~ SafeClipAssembleCoaddTask -- Assemble a coadded image from a set of coadded temporary exposures, being careful to clip & flag areas with potential artifacts.
+- ~ :doc:`SafeClipAssembleCoaddTask <safeclipassemble>` -- Assemble a coadded image from a set of coadded temporary exposures, being careful to clip & flag areas with potential artifacts.
 
 
-- \- SnapCombineTask -- Combine snaps
+- \- :doc:`SnapCombineTask <snapcombine>` -- Combine snaps
 
 
 ---------------------------------------------------
@@ -107,21 +107,21 @@ Image processing
 PSF matching and processing
 +++++++++++++++++++++
 
-- ++ InstallGaussianPsfTask -- Install a Gaussian PSF model in an exposure.
+- ++ :doc:`InstallGaussianPsfTask <installgaussianpsf>` -- Install a Gaussian PSF model in an exposure.
 
 
--  \+ ImagePsfMatchTask -- Psf-match two MaskedImages or Exposures using the sources in the images.
+-  \+ :doc:`ImagePsfMatchTask <imagepsfmatch>` -- Psf-match two MaskedImages or Exposures using the sources in the images.
 
 
 
 
-- \+ ModelPsfMatchTask -- Matching of two model Psfs, and application of the Psf-matching kernel to an input Exposure
+- \+ :doc:`ModelPsfMatchTask <modelpsfmatch>` -- Matching of two model Psfs, and application of the Psf-matching kernel to an input Exposure
 
 
-- ~ PsfMatchTask -- Base class for Psf Matching; should not be called directly.
+- ~ :doc:`PsfMatchTask <psfmatch>` -- Base class for Psf Matching; should not be called directly.
 
 
-- \+ SnapPsfMatchTask -- This Task differs from ImagePsfMatchTask in that it matches two Exposures assuming that the images have been acquired very closely in time. 
+- \+ :doc:`SnapPsfMatchTask <snappsfmatch>` -- This Task differs from ImagePsfMatchTask in that it matches two Exposures assuming that the images have been acquired very closely in time. 
 
 
 Extracting sources
