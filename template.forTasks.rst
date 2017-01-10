@@ -51,7 +51,7 @@ The Configuration can be split into two types:
 Flags  and utility variables
 ----------------------------
 
-- Simple `boolean`, `int`, or `float` config vars
+- Simple `boolean`, `int`, `float`, or `str` config vars
   
 Subtasks
 --------
