@@ -96,6 +96,7 @@ Contents:
    template
    template.forModules
    template.forFrameworks
+   template.forProcessing
    template.forReadmes
    template.forTasks	      
    install	      

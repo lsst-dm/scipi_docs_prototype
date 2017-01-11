@@ -1,42 +1,40 @@
 
+From: https://dmtn-030.lsst.io/#framework-topic-type
+
+#######################
 Template For Frameworks
-=======================
+#######################
 
-Measurement Framework Name
----------------------------------------
-
-  Context sentence/short paragraph
-
-Framework concepts
----------------------------------------
-
-Overview
----------------------------------------
-
-Measurement contexts
----------------------------------------
+The title of the framework’s topic is simply the name of the framework itself.
 
 
-Style guide (rules for creating measurement plugins)
----------------------------------------
+Context
+=======
+
+A context paragraph establishes what the framework is for, and what the framework’s primary features or capabilities are.
+
+
+In depth
+========
+
+This section provides a table of contents for additional topics that cover individual framework concepts. Concept topics can include guides for developing against the framework, and descriptions of the basic ideas implemented by the framework. ‘Concept‘ is purposefully ambiguous but we require that concept topic pages follow the design principles of topic-based documentation.
+
+Generally, the first topic should be an overview. The overview topic’s narrative introduces and links to other framework topics.
 
 Tutorials
----------------------------------------
+=========
 
-- Simple tutorial for creating a measurement plugin.
+The Tutorials section provides a table of contents linking to separate tutorial topic pages. 
 
+Modules
+=======
 
-- Another tutorial with a more complicated aspect tutorial.
-
-
-- C++ based tutorial
-
+This section lists and links to the module topic of all modules included in a framework.
 
 
-Measurement plugins
----------------------------------------
+Framework topic type extensibility
+==================================
 
-- A measurement plugin; linking to its class API
-
+The components described above are a minimum set used by each framework topic. Some frameworks may add additional components. 
 
 
