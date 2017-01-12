@@ -4,18 +4,19 @@
 ProcessCcdTask
 ##############
 
-ProcessCcd (which is a ``CL task``) executes the steps of how an image
-is processed from raw data to a science-grade image that can be used
-in analyses.
+ProcessCcd (which is a ``Cmd Line Task``, and thus can be run directly
+by typing processCcd.py at a shell prompt) executes the steps of how
+an image is processed from raw data to a science-grade images and catalogs that can
+be used in analyses.
 
 In more detail: ProcessCcd as a whole executes many of the functions
 that are in multiple packages in other astronomy analysis frameworks.
 
-- The initial step is to run :doc:`isrTask <isrtask>` to correct the images for all the issues involved in taking a raw image CCD through to a processed one (e.g. doing the bias and dark current corrections, flat-fielding, etc.) by first doing everything that astronomers have used a medley of customized codes typically for each telescope before (like IRAF, UNIX shellscripts, IDL scripts etc.).  These tasks are usually grouped together under the general term 'Instrumental Signature Removal.'
+- The initial step is to do ``Instrument Signature Removal`` through running :doc:`isrTask <isrtask>` to correct the images for all the issues involved in taking a raw image CCD through to a processed one (e.g. doing the bias and dark current corrections, flat-fielding, etc.).
 
-- The second step groups together several functions as 'Image Characterization' (run by calling :doc:`characterizeImageTask <charimg>`), which includes for our purposes: object detection (very commonly done by Source Extractor), repairing of cosmic ray defects, measuring and subtracting of sky background, and then finally measuring bright sources and using this to estimate background and PSF of an exposure (which is often done currently by astronomers using the PSFex code).
+- The second step is to do ``Image Characterization`` by running :doc:`characterizeImageTask <charimg>`), which includes for our purposes: object detection, repairing of cosmic ray defects, measuring and subtracting of sky background, and then finally measuring bright sources and using this to estimate background and PSF of an exposure.
   
-- The last primary grouping of tasks is what we will call 'Image Calibration' (run by calling :doc:`calibrateTask <calibimg>`), which measures faint sources, does the astrometry by fitting an improved WCS to the image (often done currently by astronomers using by using the SCAMP and SWARP codes, 'pinning' the image on the positions of known stars), and figures out the photometric zero-point for the image.
+- The last step is doing ``Image Calibration`` by running :doc:`calibrateTask <calibimg>`, which measures faint sources, does the astrometry by fitting an improved WCS to the image, and figures out the photometric zero-point for the image.
 
 ProcessCcdTask is implemented in the ``lsst.pipe.tasks`` module.
 
@@ -65,7 +66,6 @@ Entrypoint
 - ``lsst.pipe.tasks.processCcd.ProcessCcdTask.run`` 
   
 
-
 Butler Inputs
 =============
 
@@ -91,12 +91,10 @@ ProcessCcdTask has no debug output, but its several subtasks do.
 ArgParse
 ========
 
-The _makeArgumentParse method creates and returns an argument parser.
+The makeArgumentParse method creates and returns an argument parser.
 
-This override is used to delay making the data ref list until the daset type is known; this is done in parseAndRun.
+This override is used to delay making the data ref list until the dataset type is known; this is done in parseAndRun.
 
 ButlerInitializedTaskRunner
 ===========================
-
-
 
