@@ -39,11 +39,6 @@ Entrypoint
 
 - ``lsst.ip.isr.assembleCcdTask.assembleCcd``
 
-Butler Inputs
-=============
-
-Butler Outputs
-==============
 
 Examples
 ========
@@ -66,30 +61,6 @@ Debugging
 - ``display`` -  A dictionary containing debug point names as keys with frame number as value. The only valid key is:
 ``assembledExposure`` (to display assembled exposure)
 
-Sequence
-====================
-
-In more detail: The sub-sections are most often amplifier sections and are to be
-assembled into a detector size pixel grid.  This is done overall by
-calling the ``lsst.ip.isr.assembleCcdTask.assembleCcd`` method.
-
-As a part of the running of this primary method, other task methods may be called, such as ``lsst.ip.isr.assembleCcdTask.setGain`` which will renormalize the
-gain across the amps, if requested, and set gain metadata,
-``lsst.ip.isr.assembleCcdTask.setWcs``, which will set output WCS
-equal to input WCS (adjusted as required for the image coordinates
-(i.e. FITS header keyword datasecs) not starting at lower left corner,
-and ``lsst.ip.isr.assembleCcdTask.postprocessExposure``, which will
-set exposure non-image attributes, including WCS and metadata and
-display exposure (if requested).
-
-The assembly is driven by the entries in the raw amp information.  The
-task can be configured to:
-
-    - return a detector image with non-data (e.g. overscan) pixels included.
-
-    - renormalize the pixel values to a nominal gain of 1.
-
-    - by default remove exposure metadata that has context in raw amps, but not in trimmed detectors.
 
 
 Algorithm details

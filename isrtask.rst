@@ -3,8 +3,7 @@
 IsrTask 
 #######
 
-
-Instrumental Signature Removal (ISR) is a sequence of steps taken to
+Instrument Signature Removal (ISR) is a sequence of steps taken to
 'clean' images of various aspects of defects that any system of optics
 and detectors will imprint on an image by default, and is generally
 one of the very first procedures carried out on an exposure.
@@ -13,9 +12,9 @@ In more detail: though the process for correcting imaging data is very
 similar from camera to camera, depending on the image, various of the
 defects will be present and need to be removed, and thus the sequence
 of steps taken will vary from image to image.  Generally these
-corrections are done one CCD at a time, but with all the amplifiers at
-once for a CCD.  This is how the framework code ingests and processes
-the information.
+corrections are done one CCD at a time, but on all the amplifier
+sub-images at once for a CCD.  This is how the framework code ingests
+and processes the information.
 
 IsrTask provides a generic vanilla implementation of doing these
 corrections, including the ability to turn certain corrections off if
@@ -123,8 +122,6 @@ Subtasks
 -	``fringe`` --  target=FringeTask - Fringe subtraction task
  
 
-
-
 Entrypoint
 ==========
 
@@ -157,96 +154,15 @@ The `write` flag tells the code to write the post-ISR image file to disk.  In th
 
    postISRCCD.fits
 
-The `ds9` flag tells it to bring up ds9 (if installed) and show the post-ISR FITS image.
-
-
+The `ds9` flag tells it to bring up the ds9 image viewer (if installed) and show the post-ISR FITS image.
 
 	    
-Specific functions of IsrTask via example
-+++++++++++++++++++++++++++++++++++++++++
-
-To use a concrete example, we will follow the simple steps in
-``runIsrTask`` to trace how a specific code would do ISR processing -- it
-will be different for every camera and exposure.
-
-The first several lines of runIsrTask (after imports) define a
-function runIsr that has the following in it::
-
-    #Create the isr task with modified config
-    isrConfig = IsrTask.ConfigClass()
-    isrConfig.doBias = False #We didn't make a zero frame
-    isrConfig.doDark = True
-    isrConfig.doFlat = True
-    isrConfig.doFringe = False #There is no fringe frame for this example
-
-The first line indicates this is a section about setting up the
-configuration that the code will be run with.  The next several set up
-specific flags, indicating that we will not do bias or fringing
-corrections in this code, but will do the dark and flat corrections.
-
-It then defines parameters that it will use to make the raw, flat and
-dark exposures, using knowledge of our camera and exposures::
-  
-    DARKVAL = 2.      # Number of electrons per sec
-    OSCAN = 1000.     # DN = Data Number, same as the standard ADU
-    GRADIENT = .10
-    EXPTIME = 15      # Seconds for the science exposure
-    DARKEXPTIME = 40. # Seconds for the dark exposure
-
-Next, it makes the 3 exposures that we will be using in this example to create the final corrected output exposure::
-  
-    darkExposure = exampleUtils.makeDark(DARKVAL, DARKEXPTIME)
-    flatExposure = exampleUtils.makeFlat(GRADIENT)
-    rawExposure = exampleUtils.makeRaw(DARKVAL, OSCAN, GRADIENT, EXPTIME)
-
-(We are using functions defined in exampleUtils, also in the examples
-subdir inside $IP_ISR_DIR, these are modified versions of the standard
-functions which sit inside other pkgs normally.)
+To explain this example in more detail: after setting up the flag and utility variable configuration the code 
+makes several calibration exposures that will be used to create the final corrected output exposure.  Finally, the output is produced by using the ``run`` function, inputting the raw exposure and the calibration exposures.
 
 
-Finally, the output is produced with the line::
-
-       output = isrTask.run(rawExposure, dark=darkExposure, flat=flatExposure)
-
-And returned at the end of the function.
-
-(The ``main`` function of runIsrTask simply calls this runIsr function,
-and also brings up ds9 to view the final output exposure if that flag
-is set on, and writes the img to disk if that flag is set.)
-
-Next, let's look at the two specific functions that the example uses.
-
-Dark correction
----------------
-
-The dark current is the signal introduced by thermal electrons in the
-silicon of the detectors with the camera shutter closed. Dark
-correction is done by subtracting a reference Dark calibration
-frame that has been scaled to the exposure time of the visit image.
-
-Flat fielding
--------------
-
-The flat-field correction (often called "flat fielding") removes the
-variations in the pixel-to-pixel response of the detectors. The
-flat-field is derived for each filter in several ways, depending on
-the telescope: from images of the twilight sky ("twilight flats");
-from a screen within the dome ("dome flats"); or from a simulated
-continuum source. In all cases the flat-field corrects approximately
-for vignetting across the CCD (i.e. the variation in the amount of
-light that hits the detector due to angle of incidence into the
-aperture at the top of the telescope tube, and the resultant shadow
-from one side) . The flat-field correction is performed by dividing
-each science frame by a normalized, reference flat-field image for the
-corresponding filter.
-
-
-Other ISR steps
-+++++++++++++++
-
-Now we describe corrections that are not in the example, but
-that IsrTask can also correct for, leading to final corrected
-images.
+Details on some of the corrections available in IsrTask
+=======================================================
 
 Bias correction
 ----------------
@@ -307,6 +223,30 @@ sources that are very bright, at or near saturation.
 (Not clear if LSST CCDs will need this correction, so the pipeline has
 a placeholder for it, should it be necessary, but no cross-talk
 correction is implemented at this time.)
+
+Dark correction
+---------------
+
+The dark current is the signal introduced by thermal electrons in the
+silicon of the detectors with the camera shutter closed. Dark
+correction is done by subtracting a reference Dark calibration
+frame that has been scaled to the exposure time of the visit image.
+
+Flat fielding
+-------------
+
+The flat-field correction (often called "flat fielding") removes the
+variations in the pixel-to-pixel response of the detectors. The
+flat-field is derived for each filter in several ways, depending on
+the telescope: from images of the twilight sky ("twilight flats");
+from a screen within the dome ("dome flats"); or from a simulated
+continuum source. In all cases the flat-field corrects approximately
+for vignetting across the CCD (i.e. the variation in the amount of
+light that hits the detector due to angle of incidence into the
+aperture at the top of the telescope tube, and the resultant shadow
+from one side) . The flat-field correction is performed by dividing
+each science frame by a normalized, reference flat-field image for the
+corresponding filter.
 
 Fringe Pattern Correction
 -------------------------
@@ -393,75 +333,11 @@ Debugging
   ``postISRCCD`` (to display exposure after ISR has been applied)
 
 
-
-
-
-..
-  List of IsrTask Functions
-  =========================
-
-  Functions the code is capable of handling, though not all are used,
-  depending on an image (in alphabetical order).
-
-
-  - `Bias`
-
-    - `Brighter fatter correction`
-
-      - `Dark`
-
-	- `Flat-fielding`
-
-	  - `Fringing`
-
-	    - `Gain`
-
-	      - `Linearization`
-
-		- `Mask defects, and interpolate over them`
-  
-		  - `Mask NaNs`
-  
-		    - `Overscan`
-  
-		      - `Saturation detection`
-  
-			- `Saturation interpln`
-  
-			  - `Suspect pixel detection`
-  
-			    - `Update variance plane`
-
-
-Sequence
-========
-			      
-IsrTask performs instrument signature removal on an exposure following
-these overall steps:
-
-- ``lsst.pipe.tasks.isrTask.IsrTask.saturationDetection`` - Detects saturation: finding out which pixels have current which overfills their potential wells
-
-- ``lsst.ip.isr.isrTask.IsrTask.biasCorrection`` - Does bias subtraction: removing the pedestal introduced by the instrument for a zero-second exposure (may use the overscan correction function)
-
-- ``lsst.ip.isr.isrTask.IsrTask.darkCorrection`` - Does dark correction: i.e. removing the dark current, which is the residual current seen even when no light is falling on the sensors
-
-- ``lsst.ip.isr.isrTask.IsrTask.flatCorrection`` - Does flat-fielding: i.e. correcting for the different responsivity of the current coming from pixels to the same amount of light falling on them
-
-- ``lsst.ip.isr.isrTask.IsrTask.brighterFatterCorrection`` - Does the brighter fatter correction: i.e. accounting for the distortion of the electric field lines at the bottom of pixels when bright objects liberate many charges that get trapped at the bottom of the potential wells
-
-
-- [Performs CCD assembly  ----> is this a funct of isrTask..?]
-
-- ``lsst.ip.isr.isrTask.IsrTask.maskAndInterpDefect`` , and ``lsst.ip.isr.isrTask.IsrTask.maskAndInterpNan`` - Mask known bad pixels, defects, saturated pixels and all NaNs and interpolate over them
-
-- [Provides a preliminary WCS ----> don't see this show up anywhere.]
-
-
 Algorithm details
 ====================
 
 -------------
   
-  [Reference: Doxygen comments in code, and Section 4 of LSST DATA CHALLENGE HANDBOOK (2011), and http://hsca.ipmu.jp/public/index.html ]
+  [Reference: Section 4 of LSST DATA CHALLENGE HANDBOOK (2011), and http://hsca.ipmu.jp/public/index.html ]
 
   

@@ -4,8 +4,9 @@ CharacterizeImageTask
 #####################
 
 Given an exposure with defects repaired (masked and interpolated over,
-e.g. as output by IsrTask), this task does the kinds of things
-normally associated with e.g. SExtractor and PSFex.
+e.g. as output by :doc:`IsrTask <isrtask>`, this task does initial
+source extraction and PSF estimation.
+
 
 Some of its primary functions are to:
 
@@ -16,6 +17,26 @@ Some of its primary functions are to:
   - Measure and subtract background
 
   - Measure the PSF
+
+In more detail: the first thing the entrypoint function
+``lsst.pipe.tasks.characterizeImage.run`` does is unpack the exposure
+and then pass the result of this to the
+``lsst.pipe.tasks.characterizeImage.characterize`` function.
+
+Next an initial background is estimated (by calling the
+``lsst.meas.algorithms.estimateBackground`` function), since this will
+be needed to make basic photometric measurements.
+
+After this, a straight subtraction of this background from the image
+itself is done (which is a necessary prerequisite to extracting out
+the actual objects in the image).
+
+Finally, the PSF is determined iteratively (by calling the
+``lsst.pipe.tasks.characterizeImage.detectMeasureAndEstimatePsf``
+method).  It's done this way so that every time it passes through and
+detects cosmic rays or the number of sources better than before, a
+better PSF is then determined.
+
 
 This task is implemented in the ``lsst.pipe.tasks`` module.
 
@@ -74,8 +95,6 @@ Subtasks
  
 -	``repair`` -  target = RepairTask - Remove cosmic rays
  
-..
-  ------> [Where does the validate function go..?  And setDefaults?]
 
 
 Entrypoint
@@ -87,15 +106,16 @@ Entrypoint
 Butler Inputs
 =============
 
-- A butler object is passed to the `refObjLoader` constructor in case it is needed to load catalogs. May be `None` if a catalog-based star selector is not used, if the reference object loader constructor does not require a butler, or if a reference object loader is passed directly via the `refObjLoader` argument.
-
-Butler Outputs
-==============
+A butler object is passed to the `refObjLoader` constructor in case it
+is needed to load catalogs. May be `None` if a catalog-based star
+selector is not used, if the reference object loader constructor does
+not require a butler, or if a reference object loader is passed
+directly via the `refObjLoader` argument.
 
 Examples
 ========
 
-Thi code is in `calibrateTask.py` (which calls `CharacterizeImageTask` before calling `CalibrateTask`) in the `$PIPE_TASKS/examples` directory, and can be run as, e.g.::
+This code is in ``calibrateTask.py`` (which calls ``CharacterizeImageTask`` before calling ``CalibrateTask``) in the ``$PIPE_TASKS/examples`` directory, and can be run as, e.g.::
 
      python examples/calibrateTask.py --display
 
@@ -123,32 +143,3 @@ Debugging
 Algorithm details
 ====================
 
-  In more detail: the first thing the entrypoint function
-``lsst.pipe.tasks.characterizeImage.run`` does after checking if the
-``doUnpersist`` flag is set is to simply unpack the exposure (passed
-in as a `dataRef`) into `exposure`, `exposureIdInfo` and `background`
-and then pass it to the characterize method to do the work.
-
-Inside ``lsst.pipe.tasks.characterizeImage.characterize`` the code
-checks to see if the exposure has a PSF, and if the
-`config.doMeasurePsf` flag that tells the code whether to measure the
-PSF is set `True`.  If *both* of these are false (i.e. it doesn't
-currently have a PSF, and it is not supposed to measure a PSF either),
-a run-time error is raised, because in this case, there would be no
-PSF to analyze the image with subsequently, which would be a problem.
-
-Next an initial background is estimated (by calling the
-``lsst.meas.algorithms.estimateBackground`` function), since this will
-be needed to make basic photometric measurements.
-
-After this, the next step is to do a straight subtraction of this
-background from the image itself, pixel by pixel, which is a necessary
-prerequisite to extracting out the actual objects in the image.
-
-Now a loop is executed a set number of times predetermined by a
-configuration parameter (`psfIterations`), and inside of this the PSF
-is determined iteratively (by calling the
-``lsst.pipe.tasks.characterizeImage.detectMeasureAndEstimatePsf``
-method, detailed below).  It's done this way so that every time it
-passes through and detects cosmic rays or the number of sources better
-than before, a better PSF is then determined.
