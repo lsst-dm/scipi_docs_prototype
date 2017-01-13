@@ -61,16 +61,21 @@ Processing CCDs
 Functions that would be called to process single raw CCDs
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-- \++ ProcessCCD -- Does the  actual steps of how an image is processed from raw data to a science-grade image that can be used in analyses.  Calls the 3 main tasks below.
+- \++ ProcessCCD_ -- Does the  actual steps of how an image is processed from raw data to a science-grade image that can be used in analyses.  Calls the 3 main tasks below.
 
+.. _ProcessCCD: processccd.html
 
-- \+ IsrTask- Instrumental Signature Removal (ISR) is a sequence of steps taken to ‘clean’ images of various aspects of defects that any system of optics and detectors will imprint on an image by default. 
+- \+ IsrTask_ - Instrumental Signature Removal (ISR) is a sequence of steps taken to ‘clean’ images of various aspects of defects that any system of optics and detectors will imprint on an image by default. 
 
-- ~ CharImg -- Detect and measure bright sources on an exp, repair cosmic rays, measure and subtract background, measure the PSF
+.. _IsrTask: isrtask.html
+   
+- ~ CharImg_ -- Detect and measure bright sources on an exp, repair cosmic rays, measure and subtract background, measure the PSF
 
-- \+ CalibTask -- Run detectAndMeasure subtask on an exp to peform deep detection and measurement, run astrometry subtask to fit an improved WCS, and run photoCal subtask to fit the exposure’s photometric zero-point
+.. _CharImg: charimg.html
+  
+- \+ CalibTask_ -- Run detectAndMeasure subtask on an exp to peform deep detection and measurement, run astrometry subtask to fit an improved WCS, and run photoCal subtask to fit the exposure’s photometric zero-point
 
-
+.. _CalibTask: calibimg.html
 
 - ? SubtractBackgroundTask -- Fit a model of the background of an exposure and subtract it.
 
@@ -81,43 +86,42 @@ Functions that would be called to process single raw CCDs
 Multiple CCD Image processing
 ++++++++++++++++++++++++++++++
 
-- \+ AssembleCcdTask -- This task assembles sections of an image into a larger mosaic. The sub-sections are typically amplifier sections and are to be assembled into a detector size pixel grid. 
+- \+ AssembleCcdTask_ -- This task assembles sections of an image into a larger mosaic. The sub-sections are typically amplifier sections and are to be assembled into a detector size pixel grid. 
+
+.. _AssembleCcdTask: assembleccd.html
+
+- ~ :doc:`SafeClipAssembleCoaddTask <safeclipassemble>` -- Assemble a coadded image from a set of coadded temporary exposures, being careful to clip & flag areas with potential artifacts.
 
 
-- ~ SafeClipAssembleCoaddTask -- Assemble a coadded image from a set of coadded temporary exposures, being careful to clip & flag areas with potential artifacts.
-
-
-- \- SnapCombineTask -- Combine snaps
+- \- :doc:`SnapCombineTask <snapcombine>` -- Combine snaps
 
 
 ---------------------------------------------------
 
-<<<<<<< HEAD
+
 Image processing
-=======
-Img processing
->>>>>>> f04f8c683118aace31667b08a0df05fcb9f9bae3
---------
+----------------- 
+
 
 
 PSF matching and processing
 +++++++++++++++++++++
 
-- ++ InstallGaussianPsfTask -- Install a Gaussian PSF model in an exposure.
+- ++ :doc:`InstallGaussianPsfTask <installgaussianpsf>` -- Install a Gaussian PSF model in an exposure.
 
 
--  \+ ImagePsfMatchTask -- Psf-match two MaskedImages or Exposures using the sources in the images.
+-  \+ :doc:`ImagePsfMatchTask <imagepsfmatch>` -- Psf-match two MaskedImages or Exposures using the sources in the images.
 
 
 
 
-- \+ ModelPsfMatchTask -- Matching of two model Psfs, and application of the Psf-matching kernel to an input Exposure
+- \+ :doc:`ModelPsfMatchTask <modelpsfmatch>` -- Matching of two model Psfs, and application of the Psf-matching kernel to an input Exposure
 
 
-- ~ PsfMatchTask -- Base class for Psf Matching; should not be called directly.
+- ~ :doc:`PsfMatchTask <psfmatch>` -- Base class for Psf Matching; should not be called directly.
 
 
-- \+ SnapPsfMatchTask -- This Task differs from ImagePsfMatchTask in that it matches two Exposures assuming that the images have been acquired very closely in time. 
+- \+ :doc:`SnapPsfMatchTask <snappsfmatch>` -- This Task differs from ImagePsfMatchTask in that it matches two Exposures assuming that the images have been acquired very closely in time. 
 
 
 Extracting sources
