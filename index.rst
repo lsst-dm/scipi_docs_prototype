@@ -94,11 +94,11 @@ Contents:
    eppoNotesCore
    eppoNotes
    template
-   template.forModules
-   template.forFrameworks
-   template.forProcessing
-   template.forReadmes
-   template.forTasks	      
+   templates/template.forModules
+   templates/template.forFrameworks
+   templates/template.forProcessing
+   templates/template.forReadmes
+   templates/template.forTasks	      
    install	      
    astrometry   
    assembleccd
