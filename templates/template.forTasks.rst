@@ -7,16 +7,17 @@ Template for Tasks
 
 - Summary/context (1 sentence).
 
-- Summary of logic/algorithm in a paragaph and/or bullet list. Include a sentence about each step, which can be either a:
+- Summary of logic/algorithm in a paragaph and/or bullet list.  Be concise and link to other tasks wherever needed.
+
+- Include a sentence about each step, which can be either a:
   
   - a) retargetable sub-task
 
   - b) method within a task.
 
-Module membership
-=================
+- Module membership
 
-This component states what module implemented the task.
+Here we state what module implemented the task.
 
 See also
 =========
@@ -25,7 +26,7 @@ See also
 
    Will put in a seealso directive like this.
    
-Links to related content, such as:
+It will link to related content, such as:
 
 - Tasks that commonly use this task (this helps a reader landing on a “sub task’s” page find the appropriate driver task).
   
@@ -42,16 +43,20 @@ Configuration
 
 - Parameter name.
 
-- Parameter type. Ideally the parameter type links to a documentation topic for that type (such as a class’s API reference).
+- Parameter type. Ideally the parameter type links to a documentation topic for that type (such as a class’s API reference), if it's anything beyond simple python var types.
 
-- A description sentence or paragraph. The description should mention default values, caveats, and possibly an example.
+- Default value of parameter.
 
-The Configuration can be split into two types:
+- A description sentence or paragraph. The description should also mention caveats, and possibly give an example.
+
+- It would be good to call out the most frequently changed config vars in some way as well.
+
+The Configuration section will be split into two types:
 
 Flags  and utility variables
 ----------------------------
 
-- Simple `boolean`, `int`, or `float` config vars
+- Simple `boolean`, `int`, `float`, or `str` config vars
   
 Subtasks
 --------
@@ -83,12 +88,10 @@ Butler Outputs
 Examples
 ========
 
-
 - Self-contained example of using this task that can be tested
 
 Debugging
 =========
-
 
 - Debugging framework hooks
 
@@ -97,4 +100,3 @@ Algorithm details
 ====================
 
 - Extended description with mathematical details
-
