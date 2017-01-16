@@ -30,8 +30,8 @@ This task is implemented in the ``lsst.ip.isr`` module.
 Configuration
 =============
 
-Flags  and utility variables
-----------------------------
+Parameters
+----------
 
 -``doBias`` -- ( `bool` ) --  defaults to `True` - Apply bias frame correction?
 
@@ -117,9 +117,9 @@ Flags  and utility variables
 Subtasks
 --------
 
--	``assembleCcd`` -- target=AssembleCcdTask -  CCD assembly task
+-	``assembleCcd`` -- default target=AssembleCcdTask -  CCD assembly task
 
--	``fringe`` --  target=FringeTask - Fringe subtraction task
+-	``fringe`` --  default target=FringeTask - Fringe subtraction task
  
 
 Entrypoint
@@ -135,12 +135,14 @@ Butler Inputs
 detector data to be processed
 
 The inputs to the entrypoint method are the raw exposure to be
-corrected and the calibration data products. The raw input is a single
+corrected and the calibration data products (in ``raw`` format). The raw input is a single
 chip-sized mosaic of all amps including overscans and other
 non-science pixels.
 
 Butler Outputs
 ==============
+
+Exposure of type ``postISRCCD``.
 
 Examples
 ========
@@ -159,171 +161,6 @@ The `ds9` flag tells it to bring up the ds9 image viewer (if installed) and show
 	    
 To explain this example in more detail: after setting up the flag and utility variable configuration the code 
 makes several calibration exposures that will be used to create the final corrected output exposure.  Finally, the output is produced by using the ``run`` function, inputting the raw exposure and the calibration exposures.
-
-
-Details on some of the corrections available in IsrTask
-=======================================================
-
-Bias correction
-----------------
-
-The bias correction is applied to remove the additive electronic
-bias that is present in the signal chain. To first
-approximation, the bias is a constant pedestal, but it has low-amplitude structure
-that is related to its electronic stability during
-read-out of the detector segment. The processing pipeline removes the
-bias contribution in a two-step process. In the first step, the median
-value of non-flagged pixels in the overscan region is subtracted from
-the image. In the second step, the reference bias image is subtracted
-from the science image to remove the higher-order structure.
-
-Following the bias correction, the pixels are scaled by the gain
-factor for the appropriate CCD. The brightness units are electrons (or
-equivalently for unit gain, detected photons) for calibrated images.
-
-More specifically, the IsrTask biasCorrection method takes as
-arguments the science exposure and the bias exposure, and first checks
-if they have the same exact footprint (i.e. if the 4 corners are all
-at the same locations), and if not, it raises a RuntimeError saying
-that they’re not the same size.
-
-If they are the same size, it takes the masked science exposure and
-simply does a straight subtraction (pixel by pixel) of the bias
-exposure, and returns this.
-
-Brighter-Fatter Correction
---------------------------
-
-The Brighter-Fatter Correction is the standard name now given to the
-correction that has to be done in the era of 'precision astronomy'
-(though it has always been present in images at some level) because a
-pixel tower 'fills up' with electrons at the bottom of the silicon
-layer when many photons hit the top of the detector, altering the
-normal electric field lines set up to trap all the electrons liberated
-from normal photon hits in that tower, and forcing some of the
-resultant electrons into neighboring pixels.  This requires careful
-treatment to correct for that is the subject of ongoing research, but
-the currently implemented model is a fairly advanced one that takes a
-kernel that has been derived from flat field images to redistribute
-the charge.
-
-(This method in particular is described in substantial detail in the
-docstring currently in the code.)
-
-
-Cross-Talk Correction
-----------------------
-
-Cross-talk introduces a small fraction of the signal from one CCD into
-the signal chain of the CCD that shares the same electronics,
-resulting in “ghosts” of bright objects appearing in the
-paired CCD. This is an additive effect, and is most noticeable for
-sources that are very bright, at or near saturation.
-
-(Not clear if LSST CCDs will need this correction, so the pipeline has
-a placeholder for it, should it be necessary, but no cross-talk
-correction is implemented at this time.)
-
-Dark correction
----------------
-
-The dark current is the signal introduced by thermal electrons in the
-silicon of the detectors with the camera shutter closed. Dark
-correction is done by subtracting a reference Dark calibration
-frame that has been scaled to the exposure time of the visit image.
-
-Flat fielding
--------------
-
-The flat-field correction (often called "flat fielding") removes the
-variations in the pixel-to-pixel response of the detectors. The
-flat-field is derived for each filter in several ways, depending on
-the telescope: from images of the twilight sky ("twilight flats");
-from a screen within the dome ("dome flats"); or from a simulated
-continuum source. In all cases the flat-field corrects approximately
-for vignetting across the CCD (i.e. the variation in the amount of
-light that hits the detector due to angle of incidence into the
-aperture at the top of the telescope tube, and the resultant shadow
-from one side) . The flat-field correction is performed by dividing
-each science frame by a normalized, reference flat-field image for the
-corresponding filter.
-
-Fringe Pattern Correction
--------------------------
-
-A fringe pattern is present in many detectors in particularly the reddest
-filters: the i-, z-, and y-bands. The pattern occurs because of
-interference between the incident, nearly monochromatic light from
-night sky emission lines (both from air glow from particular
-components of the atmosphere, and from reflected city
-lights) and the layers of the CCD substrate. The details of the fringe
-pattern depend mostly upon the spatial variation in thickness of the
-top layer of the substrate, but also depend upon a number of other
-factors including the wavelength(s) of the incident emission lines,
-the composition of the substrate, the temperature of the CCD, and the
-focal ratio of the incident beam. The amplitude of the fringe pattern
-background varies with time and telescope pointing.
-
-
-Gain
-----
-
-This is accounting for how many electrons correspond to each ADU
-coming out of the sensors.
-
-
-Linearity Correction
---------------------
-
-The response of the CCD detectors to radiation is highly linear for
-pixels that are not near saturation, to typically better than 0.1% for
-most recent cameras.
-
-Currently, no linearity correction is applied in the DM pipelines.
-
-Were a correction necessary it would likely be implemented with a
-look-up table, and executed following the dark correction but prior to
-fringe correction.
-
-
-
-Overscan Correction
--------------------
-
-This is similar in structure to bias etc. -- except the function
-overscanCorrection in isr.py is quite long and extensive, and has
-several interpln choices etc.
-
-
-Saturation detection
----------------------
-
-This one is fairly straightforward -- it is finding the pixels that
-are saturated (have their potential wells full of charge).
-
-Most of the work is done in makeThresholdMask i
-
-
-Saturation Correction
----------------------
-
-At the start of pipeline processing the pixel values are examined to
-detect saturation (which will naturally also identify bleed trails
-near saturated targets, and the strongest cosmic rays). These values,
-along with pixels that are identified in the list of static bad
-pixels, are flagged in the data quality mask of the science image.
-All pixels in the science array identified as “bad” in this sense are
-interpolated over, in order to avoid problems with source detection
-and with code optimization for other downstream pipeline processing.
-
-Interpolation is performed with a linear predictive code, as was done
-for the Sloan Digital Sky Survey (SDSS). The PSF is taken to be a
-Gaussian with sigma width equal to one pixel when deriving the
-coefficients. For interpolating over most defects the interpolation is
-only done in the x-direction, extending 2 pixels on each side of the
-defect. This is done both for simplicity and to ameliorate the way
-that saturation trails interact with bad columns.
-
 
 Debugging
 =========

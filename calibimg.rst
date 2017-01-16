@@ -15,8 +15,8 @@ This task is implemented in the ``lsst.pipe.tasks`` module.
 Configuration
 =============
 
-Flags and utility variables
----------------------------
+Paramters
+---------
 
 -``doWrite``  (`bool`) - defaults to `True` - Save calibration results?
  
@@ -51,28 +51,28 @@ Flags and utility variables
 
 -``doDeblend`` (`bool`) - defaults to `True` - Run deblender input exposure?
 	
------------
+
 
 Subtasks
 --------
 
-- 	``refObjLoader`` - target=LoadAstrometryNetObjectsTask -   reference object loader
+- 	``refObjLoader`` - default target=LoadAstrometryNetObjectsTask -   reference object loader
  
-- 	``astrometry`` - target=AstrometryTask - Perform astrometric calibration to refine the WCS
+- 	``astrometry`` - default target=AstrometryTask - Perform astrometric calibration to refine the WCS
   
-- 	``photoCal`` - target=PhotoCalTask - Perform photometric calibration
+- 	``photoCal`` - default target=PhotoCalTask - Perform photometric calibration
   
-- 	``detection`` - target=SourceDetectionTask - Detect sources
+- 	``detection`` - default target=SourceDetectionTask - Detect sources
  
  
-- 	``deblend`` - target=SourceDeblendTask - Split blended sources into their components
+- 	``deblend`` - default target=SourceDeblendTask - Split blended sources into their components
  
-- 	``measurement`` - target=SingleFrameMeasurementTask - Measure sources
+- 	``measurement`` - default target=SingleFrameMeasurementTask - Measure sources
  
  
-- 	``applyApCorr`` - target=ApplyApCorrTask - Subtask to apply aperture corrections
+- 	``applyApCorr`` - default target=ApplyApCorrTask - Subtask to apply aperture corrections
  
-- 	``catalogCalculation`` - target=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
+- 	``catalogCalculation`` - default target=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
 
 
 
@@ -84,10 +84,12 @@ Entrypoint
 Butler Inputs
 =============
 
-The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly.
+The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly (type: ``icSrc_schema``).
 
 Butler Outputs
 ==============
+
+Source catalog of type ``src``.
 
 Examples
 ========

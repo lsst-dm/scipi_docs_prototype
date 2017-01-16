@@ -4,7 +4,7 @@ CharacterizeImageTask
 #####################
 
 Given an exposure with defects repaired (masked and interpolated over,
-e.g. as output by :doc:`IsrTask <isrtask>`, this task does initial
+e.g. as output by :doc:`IsrTask <isrtask>`), this task does initial
 source extraction and PSF estimation.
 
 
@@ -18,25 +18,6 @@ Some of its primary functions are to:
 
   - Measure the PSF
 
-In more detail: the first thing the entrypoint function
-``lsst.pipe.tasks.characterizeImage.run`` does is unpack the exposure
-and then pass the result of this to the
-``lsst.pipe.tasks.characterizeImage.characterize`` function.
-
-Next an initial background is estimated (by calling the
-``lsst.meas.algorithms.estimateBackground`` function), since this will
-be needed to make basic photometric measurements.
-
-After this, a straight subtraction of this background from the image
-itself is done (which is a necessary prerequisite to extracting out
-the actual objects in the image).
-
-Finally, the PSF is determined iteratively (by calling the
-``lsst.pipe.tasks.characterizeImage.detectMeasureAndEstimatePsf``
-method).  It's done this way so that every time it passes through and
-detects cosmic rays or the number of sources better than before, a
-better PSF is then determined.
-
 
 This task is implemented in the ``lsst.pipe.tasks`` module.
 
@@ -47,8 +28,8 @@ This task is implemented in the ``lsst.pipe.tasks`` module.
 Configuration
 =============
 
-Flags  and utility variables
-----------------------------
+Parameters
+----------
 
 -``doDeblend`` - (`bool`) - defaults to `True` - Run deblender on input exposure?
  
@@ -111,6 +92,11 @@ is needed to load catalogs. May be `None` if a catalog-based star
 selector is not used, if the reference object loader constructor does
 not require a butler, or if a reference object loader is passed
 directly via the `refObjLoader` argument.
+
+Butler Outputs
+=============
+
+Type ``icSrc``
 
 Examples
 ========
