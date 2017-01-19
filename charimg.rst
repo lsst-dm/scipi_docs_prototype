@@ -8,7 +8,7 @@ e.g. as output by :doc:`IsrTask <isrtask>`), this task does initial
 source extraction and PSF estimation.
 
 
-Some of its primary functions are to:
+Its primary functions are to:
 
   - Detect and measure bright sources
 
@@ -88,7 +88,7 @@ Butler Inputs
 =============
 
 A butler object is passed to the `refObjLoader` constructor in case it
-is needed to load catalogs. May be `None` if a catalog-based star
+is needed to load catalogs. It may be `None` if a catalog-based star
 selector is not used, if the reference object loader constructor does
 not require a butler, or if a reference object loader is passed
 directly via the `refObjLoader` argument.
@@ -96,7 +96,7 @@ directly via the `refObjLoader` argument.
 Butler Outputs
 =============
 
-Type ``icSrc``
+Output catalogs are of type ``icSrc``.
 
 Examples
 ========

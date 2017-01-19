@@ -3,7 +3,9 @@
 CalibrateTask
 #############
 
-Given a properly characterized exposure, detect sources, measure their
+Given a properly characterized exposure (which means one with a PSF
+determined, commonly done previous to funning this Task by
+:doc:`CharacterizeImage <charimg>`), detect sources, measure their
 positions, and do a photometric measurement on them.
 
 This task is implemented in the ``lsst.pipe.tasks`` module.
@@ -15,8 +17,8 @@ This task is implemented in the ``lsst.pipe.tasks`` module.
 Configuration
 =============
 
-Paramters
----------
+Parameters
+----------
 
 -``doWrite``  (`bool`) - defaults to `True` - Save calibration results?
  

@@ -8,13 +8,12 @@ Instrument Signature Removal (ISR) is a sequence of steps taken to
 and detectors will imprint on an image by default, and is generally
 one of the very first procedures carried out on an exposure.
 
-In more detail: though the process for correcting imaging data is very
+In more detail, though the process for correcting imaging data is very
 similar from camera to camera, depending on the image, various of the
 defects will be present and need to be removed, and thus the sequence
 of steps taken will vary from image to image.  Generally these
 corrections are done one CCD at a time, but on all the amplifier
-sub-images at once for a CCD.  This is how the framework code ingests
-and processes the information.
+sub-images at once for a CCD.  
 
 IsrTask provides a generic vanilla implementation of doing these
 corrections, including the ability to turn certain corrections off if
@@ -134,10 +133,10 @@ Butler Inputs
 `dataRef` – a ``daf.persistence.butlerSubset.ButlerDataRef`` of the
 detector data to be processed
 
-The inputs to the entrypoint method are the raw exposure to be
-corrected and the calibration data products (in ``raw`` format). The raw input is a single
-chip-sized mosaic of all amps including overscans and other
-non-science pixels.
+The inputs to the entrypoint method are the exposure to be corrected
+(in ``raw`` format) and the calibration data products. The raw input
+is a single chip-sized mosaic of all amps including overscans and
+other non-science pixels.
 
 Butler Outputs
 ==============
@@ -159,8 +158,12 @@ The `write` flag tells the code to write the post-ISR image file to disk.  In th
 The `ds9` flag tells it to bring up the ds9 image viewer (if installed) and show the post-ISR FITS image.
 
 	    
-To explain this example in more detail: after setting up the flag and utility variable configuration the code 
-makes several calibration exposures that will be used to create the final corrected output exposure.  Finally, the output is produced by using the ``run`` function, inputting the raw exposure and the calibration exposures.
+In slightly more detail, what this example does is after setting up
+the flag and utility variable configuration, the code makes several
+calibration exposures that will be used to create the final corrected
+output exposure.  Finally, the output is produced by using the ``run``
+function, after ingesting the raw exposure and the calibration
+exposures and processing them.
 
 Debugging
 =========
@@ -175,6 +178,6 @@ Algorithm details
 
 -------------
   
-  [Reference: Section 4 of LSST DATA CHALLENGE HANDBOOK (2011), and http://hsca.ipmu.jp/public/index.html ]
+  [Extra reference: Section 4 of LSST DATA CHALLENGE HANDBOOK (2011), and http://hsca.ipmu.jp/public/index.html ]
 
   

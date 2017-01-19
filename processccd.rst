@@ -5,12 +5,15 @@ ProcessCcdTask
 ##############
 
 ProcessCcdTask (available as the ``processCcd.py`` ``command line
-task``) executes the steps of how an image is processed from raw data
-(taking as input to its ``run`` method a single butler data reference
-for ``raw`` data), finally to science-grade images (a
+task``) executes the steps of how an image is processed from raw
+uncorrected CCD-level data finally to science-grade images and
+catalogs.
+
+It takes as input to its ``run`` method a single butler data reference
+for ``raw`` data and then outputs cleaned images (as a
 ``lsst.afw.image.ExposureF`` field of a ``lsst.pipe.base.Struct``) and
 catalogs (``background`` and ``sourceCat`` fields of a
-``lsst.pipe.base.Struct``) that can be used in further analyses.
+``lsst.pipe.base.Struct``) to be used by later steps.
 
 In more detail, ProcessCcdTask executes the following steps:
 
@@ -71,8 +74,13 @@ Butler Inputs
 
 The main method, ``run``, takes a single butler data reference for the ``raw`` input data.
 
+Butler Outputs
+==============
+
 Examples
 ========
+
+The ``obs_test`` package  models a simple camera with one CCD and includes a data repository containing a few raw images (simulating three visits, two with with the `g`-band filter, and one with the `r`-band one), and some associated calibration data. Its camera consists of a single CCD whose geometry matches a subregion of a single LSST CCD.
 
 The following commands will process all raw data in obs_test's data repository. Note: be sure to specify an ``--output`` that does not already exist::
 
@@ -80,7 +88,11 @@ The following commands will process all raw data in obs_test's data repository. 
   setup pipe_tasks
   processCcd.py $OBS_TEST_DIR/data/input --output processCcdOut --id
 
-The data is read from the small repository in the ``obs_test`` package and written to: ``./processCcdOut`` (or whatever output you specified). Specifying ``--id`` with no values processes all data. Add the option ``--help`` to see more options.
+The data is read from the small repository in the ``obs_test`` package and output images and catalogs are written to subdirectories in: ``./processCcdOut`` (or whatever output name you specified).
+
+Specifying ``--id`` with no values processes all data.
+
+Add the option ``--help`` to see more options.
 
 
 Debugging
@@ -91,5 +103,5 @@ ProcessCcdTask has no debug output, but its several subtasks do.
 Command Line Arguments 
 ======================
 
-ProcessCcdTask has all Command Line Arguments available to a general
-``command line task``, but nothing specific to it otherwise.
+ProcessCcdTask has all command line arguments available to a general
+``command line task``.
