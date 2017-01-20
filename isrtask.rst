@@ -160,9 +160,9 @@ The `ds9` flag tells it to bring up the ds9 image viewer (if installed) and show
 
 	    
 In slightly more detail, what this example does is after setting up
-the flag and utility variable configuration, the code makes several
-calibration exposures that will be used to create the final corrected
-output exposure.  Finally, the output is produced by using the ``run``
+the parameter configuration, the code makes several calibration
+exposures that will be used to create the final corrected output
+exposure.  Finally, the output is produced by using the ``run``
 function, after ingesting the raw exposure and the calibration
 exposures and processing them.
 

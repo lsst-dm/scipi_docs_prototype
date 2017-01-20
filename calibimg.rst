@@ -4,9 +4,10 @@ CalibrateTask
 #############
 
 Given a properly characterized exposure (which means one with a PSF
-determined, commonly done previous to funning this Task by
-:doc:`CharacterizeImage <charimg>`), detect sources, measure their
-positions, and do a photometric measurement on them.
+determined and shipped along with the image, commonly done previous to
+running this Task by :doc:`CharacterizeImage <charimg>`), detect
+sources, measure their positions, and do a photometric measurement on
+them.
 
 This task is implemented in the ``lsst.pipe.tasks`` module.
 
@@ -17,14 +18,35 @@ This task is implemented in the ``lsst.pipe.tasks`` module.
 Configuration
 =============
 
+Subtask Targets
+----------------
+
+- 	``refObjLoader`` - default=LoadAstrometryNetObjectsTask -   reference object loader
+ 
+- 	``astrometry`` - default=AstrometryTask - Perform astrometric calibration to refine the WCS
+  
+- 	``photoCal`` - default=PhotoCalTask - Perform photometric calibration
+  
+- 	``detection`` - default=SourceDetectionTask - Detect sources
+ 
+ 
+- 	``deblend`` - default=SourceDeblendTask - Split blended sources into their components
+ 
+- 	``measurement`` - default=SingleFrameMeasurementTask - Measure sources
+ 
+ 
+- 	``applyApCorr`` - default=ApplyApCorrTask - Subtask to apply aperture corrections
+ 
+- 	``catalogCalculation`` - default=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
+
+
+
 Parameters
 ----------
 
 -``doWrite``  (`bool`) - defaults to `True` - Save calibration results?
  
--``doWriteHeavyFootprintsInSources`` (`bool`) - defaults to `True` -
-    Include HeavyFootprint data in source table? If false then heavy
-    footprints are saved as normal footprints, which saves some space
+-``doWriteHeavyFootprintsInSources`` (`bool`) - defaults to `True` - Include HeavyFootprint data in source table? If false then heavy footprints are saved as normal footprints, which saves some space
  
 -``doWriteMatches``  (`bool`) - defaults to `True` - Write reference matches? (ignored if doWrite `false`)
  
@@ -53,29 +75,6 @@ Parameters
 
 -``doDeblend`` (`bool`) - defaults to `True` - Run deblender input exposure?
 	
-
-
-Subtask Targets
-----------------
-
-- 	``refObjLoader`` - default=LoadAstrometryNetObjectsTask -   reference object loader
- 
-- 	``astrometry`` - default=AstrometryTask - Perform astrometric calibration to refine the WCS
-  
-- 	``photoCal`` - default=PhotoCalTask - Perform photometric calibration
-  
-- 	``detection`` - default=SourceDetectionTask - Detect sources
- 
- 
-- 	``deblend`` - default=SourceDeblendTask - Split blended sources into their components
- 
-- 	``measurement`` - default=SingleFrameMeasurementTask - Measure sources
- 
- 
-- 	``applyApCorr`` - default=ApplyApCorrTask - Subtask to apply aperture corrections
- 
-- 	``catalogCalculation`` - default=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
-
 
 
 Entrypoint
