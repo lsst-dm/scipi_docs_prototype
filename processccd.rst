@@ -18,11 +18,11 @@ catalogs (``background`` and ``sourceCat`` fields of a
 In more detail, ProcessCcdTask executes the following steps:
 
 
-- 1.  ``Instrument Signature Removal`` -- Implemented by the :doc:`IsrTask <isrtask>` sub-task (isr configuration), this step removes CCD signatures (such as bias, dark current, flat-fielding, and cross-talk) and masks bad pixels.
+1.  ``Instrument Signature Removal`` -- Implemented by the :doc:`IsrTask <isrtask>` sub-task (isr configuration), this step removes CCD signatures (such as bias, dark current, flat-fielding, and cross-talk) and masks bad pixels.
 
-- 2. ``Image Characterization`` -- Implemented by the :doc:`CharacterizeImageTask <charimg>` sub-task (charImage configuration), this step repairs cosmic ray defects, estimates and subtracts a background, does object detection, and estimates a PSF.
+2. ``Image Characterization`` -- Implemented by the :doc:`CharacterizeImageTask <charimg>` sub-task (charImage configuration), this step repairs cosmic ray defects, estimates and subtracts a background, does object detection, and estimates a PSF.
   
-- 3. ``Image Calibration``  -- Implemented by the :doc:`CalibrateTask <calibimg>` sub-task (calibrate configuration), this step measures faint sources, fits an astrometric WCS and extracts a photometric zero-point for the image.
+3. ``Image Calibration``  -- Implemented by the :doc:`CalibrateTask <calibimg>` sub-task (calibrate configuration), this step measures faint sources, fits an astrometric WCS and extracts a photometric zero-point for the image.
 
 
 ProcessCcdTask is implemented in the ``lsst.pipe.tasks`` module.
@@ -32,23 +32,17 @@ ProcessCcdTask is implemented in the ``lsst.pipe.tasks`` module.
 Configuration
 =============
 
-Parameters
-----------
+Subtask Targets
+---------------
 
--	``doCalibrate`` - (`bool`) - defaults to `True` - Perform calibration?
- 
-
-Subtasks
---------
-
--	``isr`` -  default target=IsrTask - Task to perform instrumental signature removal or load a post-ISR image; the steps in ISR are to:
+-	``isr`` -  default=IsrTask - Task to perform instrumental signature removal or load a post-ISR image; the steps in ISR are to:
 
 	- assemble raw amplifier images into an exposure with image, variance and mask planes
 	- perform bias subtraction, flat fielding, etc.
 	- mask known bad pixels
 	- provide a preliminary WCS
 		
--	``charImage`` - default target=CharacterizeImageTask - Task to characterize a science exposure, the steps of image characterization are to:
+-	``charImage`` - default=CharacterizeImageTask - Task to characterize a science exposure, the steps of image characterization are to:
 
 	- detect sources, usually at high S/N
 	- estimate the background, which is subtracted from the image and returned as field "background"
@@ -56,12 +50,19 @@ Subtasks
 	- interpolate over defects and cosmic rays, updating the image, variance and mask planes
     
  
--	``calibrate`` - default target=CalibrateTask - Task to perform astrometric and photometric calibration, the steps are to:
+-	``calibrate`` - default=CalibrateTask - Task to perform astrometric and photometric calibration, the steps are to:
 
 	- refine the WCS in the exposure
 	- refine the Calib photometric calibration object in the exposure
 	- detect sources, usually at low S/N
+
+Parameters
+----------
+
+-	``doCalibrate`` - (`bool`) - defaults to `True` - Perform calibration?
  
+
+
 
 Entrypoint
 ==========
@@ -104,4 +105,4 @@ Command Line Arguments
 ======================
 
 ProcessCcdTask has all command line arguments available to a general
-``command line task``.
+``command line task``, which can be found on :doc:`this page <CLTargs>`.

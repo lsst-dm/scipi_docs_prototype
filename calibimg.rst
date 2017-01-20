@@ -55,26 +55,26 @@ Parameters
 	
 
 
-Subtasks
---------
+Subtask Targets
+----------------
 
-- 	``refObjLoader`` - default target=LoadAstrometryNetObjectsTask -   reference object loader
+- 	``refObjLoader`` - default=LoadAstrometryNetObjectsTask -   reference object loader
  
-- 	``astrometry`` - default target=AstrometryTask - Perform astrometric calibration to refine the WCS
+- 	``astrometry`` - default=AstrometryTask - Perform astrometric calibration to refine the WCS
   
-- 	``photoCal`` - default target=PhotoCalTask - Perform photometric calibration
+- 	``photoCal`` - default=PhotoCalTask - Perform photometric calibration
   
-- 	``detection`` - default target=SourceDetectionTask - Detect sources
+- 	``detection`` - default=SourceDetectionTask - Detect sources
  
  
-- 	``deblend`` - default target=SourceDeblendTask - Split blended sources into their components
+- 	``deblend`` - default=SourceDeblendTask - Split blended sources into their components
  
-- 	``measurement`` - default target=SingleFrameMeasurementTask - Measure sources
+- 	``measurement`` - default=SingleFrameMeasurementTask - Measure sources
  
  
-- 	``applyApCorr`` - default target=ApplyApCorrTask - Subtask to apply aperture corrections
+- 	``applyApCorr`` - default=ApplyApCorrTask - Subtask to apply aperture corrections
  
-- 	``catalogCalculation`` - default target=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
+- 	``catalogCalculation`` - default=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
 
 
 
@@ -100,6 +100,7 @@ The example code is ``calibrateTask.py`` in the ``$PIPE_TASKS/examples`` directo
 
      python examples/calibrateTask.py --display
      
+Running this example currently requires that over and above the DM Stack installation, ``afwdata`` is installed and set up (via the EUPS ``setup`` command).
 
 Debugging
 =========

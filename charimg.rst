@@ -28,6 +28,37 @@ This task is implemented in the ``lsst.pipe.tasks`` module.
 Configuration
 =============
 
+
+Subtask Targets
+---------------
+
+-	``background`` - default = SubtractBackgroundTask -    Configuration for initial background estimation
+ 
+-	``detection`` - default = SourceDetectionTask - Detect sources
+ 
+-	``deblend`` - default = SourceDeblendTask - Split blended source into their components
+ 
+-	``measurement`` - default = SingleFrameMeasurementTask - Measure sources
+ 
+-	``measureApCorr`` -  default = MeasureApCorrTask - Subtask to measure aperture corrections
+ 
+-	``applyApCorr`` - default = ApplyApCorrTask - Subtask to apply aperture corrections
+ 
+-	``catalogCalculation`` - default = CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
+ 
+-	``installSimplePsf`` -  default = InstallGaussianPsfTask - Install a simple PSF model
+ 
+-	``refObjLoader`` -  default = LoadAstrometryNetObjectsTask - Reference object loader
+ 
+-	``astrometry`` - default = AstrometryTask - Task to load and match reference objects. Only used if `measurePsf` can use matches. Warning: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
+
+-	``measurePsf`` - default = MeasurePsfTask - Measure PSF
+
+ 
+-	``repair`` -  default = RepairTask - Remove cosmic rays
+ 
+
+
 Parameters
 ----------
 
@@ -47,36 +78,6 @@ Parameters
 -``psfIterations`` - (`int`) - defaults to 2, min=1 -    Number of iterations of detect sources, measure sources, estimate PSF. If `useSimplePsf`='all_iter' then 2 should be plenty; otherwise more may be wanted.  ******** This seems to be an error, as `useSimplePsf` is described as a `bool` in the dox pages.
 
 -``checkUnitsParseStrict`` (`str`) - Strictness of Astropy unit compatibility check, can be 'raise', 'warn' or 'silent'
-
-Subtasks
---------
-
--	``background`` - target = SubtractBackgroundTask -    Configuration for initial background estimation
- 
--	``detection`` - target = SourceDetectionTask - Detect sources
- 
--	``deblend`` - target = SourceDeblendTask - Split blended source into their components
- 
--	``measurement`` - target = SingleFrameMeasurementTask - Measure sources
- 
--	``measureApCorr`` -  target = MeasureApCorrTask - Subtask to measure aperture corrections
- 
--	``applyApCorr`` - target = ApplyApCorrTask - Subtask to apply aperture corrections
- 
--	``catalogCalculation`` - target = CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
- 
--	``installSimplePsf`` -  target = InstallGaussianPsfTask - Install a simple PSF model
- 
--	``refObjLoader`` -  target = LoadAstrometryNetObjectsTask - Reference object loader
- 
--	``astrometry`` - target = AstrometryTask - Task to load and match reference objects. Only used if `measurePsf` can use matches. Warning: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
-
--	``measurePsf`` - target = MeasurePsfTask - Measure PSF
-
- 
--	``repair`` -  target = RepairTask - Remove cosmic rays
- 
-
 
 Entrypoint
 ==========
@@ -105,7 +106,7 @@ This code is in ``calibrateTask.py`` (which calls ``CharacterizeImageTask`` befo
 
      python examples/calibrateTask.py --display
 
-
+Running this example currently requires that over and above the DM Stack installation, ``afwdata`` is installed and set up (via the EUPS ``setup`` command).
 
 Debugging
 =========

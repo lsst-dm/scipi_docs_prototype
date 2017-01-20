@@ -29,6 +29,14 @@ This task is implemented in the ``lsst.ip.isr`` module.
 Configuration
 =============
 
+
+Subtask Targets
+---------------
+
+-	``assembleCcd`` -- default=AssembleCcdTask -  CCD assembly task
+
+-	``fringe`` --  default=FringeTask - Fringe subtraction task
+ 
 Parameters
 ----------
 
@@ -113,13 +121,6 @@ Parameters
  
 -``fallbackFilterName`` -- ( `str` ) -- no default -- Fallback default filter name for calibrations
 
-Subtasks
---------
-
--	``assembleCcd`` -- default target=AssembleCcdTask -  CCD assembly task
-
--	``fringe`` --  default target=FringeTask - Fringe subtraction task
- 
 
 Entrypoint
 ==========
@@ -134,14 +135,14 @@ Butler Inputs
 detector data to be processed
 
 The inputs to the entrypoint method are the exposure to be corrected
-(in ``raw`` format) and the calibration data products. The raw input
+(which will be of ``datasetType`` ``raw``) and the calibration data products. The raw input
 is a single chip-sized mosaic of all amps including overscans and
 other non-science pixels.
 
 Butler Outputs
 ==============
 
-Exposure of type ``postISRCCD``.
+Exposure of ``datasetType`` ``postISRCCD``.
 
 Examples
 ========
@@ -155,7 +156,7 @@ The `write` flag tells the code to write the post-ISR image file to disk.  In th
 
    postISRCCD.fits
 
-The `ds9` flag tells it to bring up the ds9 image viewer (if installed) and show the post-ISR FITS image.
+The `ds9` flag tells it to bring up the ds9 image viewer (if installed) and show the post-ISR image.
 
 	    
 In slightly more detail, what this example does is after setting up
@@ -178,6 +179,6 @@ Algorithm details
 
 -------------
   
-  [Extra reference: Section 4 of LSST DATA CHALLENGE HANDBOOK (2011), and http://hsca.ipmu.jp/public/index.html ]
+  [Extra reference: Section 4 of LSST DATA CHALLENGE HANDBOOK (2011) [https://project.lsst.org/sciencewiki/images/DC_Handbook_v1.1.pdf] , and http://hsca.ipmu.jp/public/index.html ]
 
   
