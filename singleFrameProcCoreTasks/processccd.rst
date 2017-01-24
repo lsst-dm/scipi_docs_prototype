@@ -32,8 +32,8 @@ ProcessCcdTask is implemented in the ``lsst.pipe.tasks`` module.
 Configuration
 =============
 
-Subtask Targets
----------------
+Retargetable Subtasks
+---------------------
 
 -	``isr`` -  default=IsrTask - Task to perform instrumental signature removal or load a post-ISR image; the steps in ISR are to:
 

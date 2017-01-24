@@ -18,8 +18,8 @@ This task is implemented in the ``lsst.pipe.tasks`` module.
 Configuration
 =============
 
-Subtask Targets
-----------------
+Retargetable Subtasks
+---------------------
 
 - 	``refObjLoader`` - default=LoadAstrometryNetObjectsTask -   reference object loader
  

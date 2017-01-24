@@ -29,8 +29,8 @@ Configuration
 =============
 
 
-Subtask Targets
----------------
+Retargetable Subtasks
+---------------------
 
 -	``background`` - default = SubtractBackgroundTask -    Configuration for initial background estimation
  
@@ -95,7 +95,7 @@ not require a butler, or if a reference object loader is passed
 directly via the `refObjLoader` argument.
 
 Butler Outputs
-=============
+==============
 
 Output catalogs are of type ``icSrc``.
 

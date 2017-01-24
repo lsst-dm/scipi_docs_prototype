@@ -30,8 +30,8 @@ Configuration
 =============
 
 
-Subtask Targets
----------------
+Retargetable Subtasks
+---------------------
 
 -	``assembleCcd`` -- default=AssembleCcdTask -  CCD assembly task
 
@@ -177,8 +177,6 @@ Debugging
 Algorithm details
 ====================
 
--------------
-  
-  [Extra reference: Section 4 of LSST DATA CHALLENGE HANDBOOK (2011) [https://project.lsst.org/sciencewiki/images/DC_Handbook_v1.1.pdf] , and http://hsca.ipmu.jp/public/index.html ]
+[Extra reference: Section 4 of LSST DATA CHALLENGE HANDBOOK (2011) [https://project.lsst.org/sciencewiki/images/DC_Handbook_v1.1.pdf] , and http://hsca.ipmu.jp/public/index.html ]
 
   
