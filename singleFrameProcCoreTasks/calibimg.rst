@@ -21,59 +21,57 @@ Configuration
 Retargetable Subtasks
 ---------------------
 
-- 	``refObjLoader`` - default=LoadAstrometryNetObjectsTask -   reference object loader
- 
-- 	``astrometry`` - default=AstrometryTask - Perform astrometric calibration to refine the WCS
-  
-- 	``photoCal`` - default=PhotoCalTask - Perform photometric calibration
-  
-- 	``detection`` - default=SourceDetectionTask - Detect sources
- 
- 
-- 	``deblend`` - default=SourceDeblendTask - Split blended sources into their components
- 
-- 	``measurement`` - default=SingleFrameMeasurementTask - Measure sources
- 
- 
-- 	``applyApCorr`` - default=ApplyApCorrTask - Subtask to apply aperture corrections
- 
-- 	``catalogCalculation`` - default=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
+.. csv-table:: 
+   :header: Task, Default, Description
+   :widths: 15, 25, 50
 
-
-
-Parameters
-----------
-
--``doWrite``  (`bool`) - defaults to `True` - Save calibration results?
- 
--``doWriteHeavyFootprintsInSources`` (`bool`) - defaults to `True` - Include HeavyFootprint data in source table? If false then heavy footprints are saved as normal footprints, which saves some space
- 
--``doWriteMatches``  (`bool`) - defaults to `True` - Write reference matches? (ignored if doWrite `false`)
- 
--``doAstrometry`` (`bool`) - defaults to `True` - Run subtask to apply aperture correction?
- 
--``requireAstrometry`` (`bool`) - defaults to `True` - Raise an exception if astrometry fails? (ignored if doAstrometry `false`)
- 
--``doPhotoCal`` (`bool`) - defaults to `True` - Perform photometric calibration?
+   ``refObjLoader``, LoadAstrometryNetObjectsTask, Reference object loader
+   ``astrometry``,   AstrometryTask, Perform astrometric calibration to refine the WCS
+   ``photoCal``, PhotoCalTask, Perform photometric calibration  
+   ``detection``,  SourceDetectionTask, Detect sources
+ 	``deblend``, SourceDeblendTask, Split blended sources into their components
+	``measurement``, SingleFrameMeasurementTask, Measure sources
+	``photoCal``, PhotoCalTask, Perform photometric calibration
+	``detection``, SourceDetectionTask, Detect sources
+	``deblend``, SourceDeblendTask, Split blended sources into their components
+	``measurement``, SingleFrameMeasurementTask, Measure sources
+	``applyApCorr``, ApplyApCorrTask, Subtask to apply aperture corrections
+	``catalogCalculation``, CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
+	``refObjLoader``, LoadAstrometryNetObjectsTask,   reference object loader
+	``astrometry``, AstrometryTask, Perform astrometric calibration to refine the WCS
 
 	
--``requirePhotoCal``  (`bool`) - defaults to `True`- Raise an exception if photoCal fails? (ignored if doPhotoCal false)
+Parameters
+----------
+	
+.. csv-table:: 
+   :header: Parameter, Type, Default, Description
+   :widths: 10, 5, 5, 50
 
--``icSourceFieldsToCopy`` (`str`) - defaults to ("calib_psfCandidate",
-    "calib_psfUsed", "calib_psfReserved"), - Fields to copy from the
-    icSource catalog to the output catalog for matching sources Any
-    missing fields will trigger a RuntimeError exception.  Ignored if
-    icSourceCat is not provided.
+   ``doWrite``,  `bool`,  `True`, Save calibration results?
+   ``doWriteMatches``,   `bool`,  `True`, Write reference matches? (ignored if ``doWrite`` = `false`)
+   ``doWriteHeavyFootprintsInSources``,  `bool` ,  `True`, Include HeavyFootprint data in source table? If false then heavy footprints are saved as normal footprints which saves some space
+   ``doAstrometry``,  `bool` ,  `True` , Run subtask to apply aperture correction?
+   ``requireAstrometry``,  `bool` ,  `True` , Raise an exception if astrometry fails? (ignored if ``doAstrometry`` = `false`)
+   ``doPhotoCal``,  `bool` ,  `True` , Perform photometric calibration?
+   ``requirePhotoCal``,`bool` ,  `True`, Raise an exception if photoCal fails? (ignored if ``doPhotoCal`` = `false`)
+   ``doApCorr``, `bool` ,  `True`, Run subtask to apply aperture correction?
+   ``matchRadiusPix``, `float` ,  3.0 , Match radius for matching icSourceCat objects to sourceCat objects (pixels)
+   ``doDeblend``, `bool` ,  `True` , Run deblender input exposure?
+   ``checkUnitsParseStrict``, `str` , `raise`, Strictness of Astropy unit compatibility check; can be: 'raise' ; 'warn' ; 'silent'
 
--``checkUnitsParseStrict`` (`str`) - Strictness of Astropy unit compatibility check, can be 'raise', 'warn' or 'silent'
 
 
--``doApCorr`` (`bool`) - defaults to `True`- Run subtask to apply aperture correction?
+
+   
+Leaving this one out for now, not sure what to do with it, because the default is so long, it messes up the length of all the other entries in the table if included:
+
+   ``icSourceFieldsToCopy``, `str` ,  ("calib_psfCandidate" ;    "calib_psfUsed"; "calib_psfReserved"),  Fields to copy from the    icSource catalog to the output catalog for matching sources. Any missing fields will trigger a RuntimeError exception.  Ignored if    icSourceCat is not provided.
 
 
--``matchRadiusPix`` (`float`) - defaults to 3 - Match radius for matching icSourceCat objects to sourceCat objects (pixels)
 
--``doDeblend`` (`bool`) - defaults to `True` - Run deblender input exposure?
+
+
 	
 
 

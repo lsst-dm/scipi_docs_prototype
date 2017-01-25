@@ -8,7 +8,7 @@ from documenteer.sphinxconfig.stackconf import build_package_configs
 
 _g = globals()
 _g.update(build_package_configs(
-    project_name='validate_base',
+    project_name='Sci-Pipelines-Prototype',
     copyright='2017 Association of Universities for '
               'Research in Astronomy, Inc.',
     version=0.1,
