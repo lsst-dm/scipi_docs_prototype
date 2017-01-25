@@ -3,15 +3,15 @@
 
 from documenteer.sphinxconfig.stackconf import build_package_configs
 
-import lsst.validate.base
+#import lsst.validate.base
 
 
 _g = globals()
 _g.update(build_package_configs(
     project_name='validate_base',
-    copyright='2016 Association of Universities for '
+    copyright='2017 Association of Universities for '
               'Research in Astronomy, Inc.',
-    version=lsst.validate.base.version.__version__,
+    version=0.1,
     doxygen_xml_dirname=None))
 
 intersphinx_mapping['astropy'] = ('http://docs.astropy.org/en/stable', None)
