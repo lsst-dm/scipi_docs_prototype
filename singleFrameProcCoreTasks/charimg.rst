@@ -72,6 +72,11 @@ Entrypoint
 
 - ``lsst.pipe.tasks.characterizeImage.CharacterizeImageTask.run`` 
 
+If you want this task to unpersist inputs or persist outputs, then call the ``run`` method (which is a thin wrapper around the ``characterize`` method).
+
+If you already have the inputs unpersisted and do not want to persist the output then it is more direct to call the ``characterize`` method directly.
+
+
 
 Butler Inputs
 =============

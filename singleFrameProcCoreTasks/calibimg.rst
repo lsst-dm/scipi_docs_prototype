@@ -80,6 +80,10 @@ Entrypoint
 
 - ``lsst.pipe.tasks.calibrate.CalibrateTask.run`` 
 
+If you want this task to unpersist inputs or persist outputs, then call the ``run`` method (a wrapper around the ``calibrate`` method).
+
+If you already have the inputs unpersisted and do not want to persist the output then it is more direct to call the ``calibrate`` method.
+
 Butler Inputs
 =============
 
