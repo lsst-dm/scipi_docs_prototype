@@ -12,8 +12,7 @@ catalogs.
 It takes as input to its ``run`` method a single butler data reference
 for ``raw`` data and then outputs cleaned images (as a
 ``lsst.afw.image.ExposureF`` field of a ``lsst.pipe.base.Struct``) and
-catalogs (``background`` and ``sourceCat`` fields of a
-``lsst.pipe.base.Struct``) to be used by later steps.
+catalogs (a ``background`` model and a ``sourceCat``) to be used by later steps.
 
 In more detail, ProcessCcdTask executes the following steps:
 
