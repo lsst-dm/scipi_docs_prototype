@@ -29,16 +29,16 @@ Retargetable Subtasks
    ``astrometry``,   AstrometryTask, Perform astrometric calibration to refine the WCS
    ``photoCal``, PhotoCalTask, Perform photometric calibration  
    ``detection``,  SourceDetectionTask, Detect sources
- 	``deblend``, SourceDeblendTask, Split blended sources into their components
-	``measurement``, SingleFrameMeasurementTask, Measure sources
-	``photoCal``, PhotoCalTask, Perform photometric calibration
-	``detection``, SourceDetectionTask, Detect sources
-	``deblend``, SourceDeblendTask, Split blended sources into their components
-	``measurement``, SingleFrameMeasurementTask, Measure sources
-	``applyApCorr``, ApplyApCorrTask, Subtask to apply aperture corrections
-	``catalogCalculation``, CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
-	``refObjLoader``, LoadAstrometryNetObjectsTask,   reference object loader
-	``astrometry``, AstrometryTask, Perform astrometric calibration to refine the WCS
+   ``deblend``, SourceDeblendTask, Split blended sources into their components
+   ``measurement``, SingleFrameMeasurementTask, Measure sources
+   ``photoCal``, PhotoCalTask, Perform photometric calibration
+   ``detection``, SourceDetectionTask, Detect sources
+   ``deblend``, SourceDeblendTask, Split blended sources into their components
+   ``measurement``, SingleFrameMeasurementTask, Measure sources
+   ``applyApCorr``, ApplyApCorrTask, Subtask to apply aperture corrections
+   ``catalogCalculation``, CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
+   ``refObjLoader``, LoadAstrometryNetObjectsTask,   reference object loader
+   ``astrometry``, AstrometryTask, Perform astrometric calibration to refine the WCS
 
 	
 Parameters

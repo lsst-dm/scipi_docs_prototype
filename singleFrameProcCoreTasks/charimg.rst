@@ -32,52 +32,40 @@ Configuration
 Retargetable Subtasks
 ---------------------
 
--	``background`` - default = SubtractBackgroundTask -    Configuration for initial background estimation
- 
--	``detection`` - default = SourceDetectionTask - Detect sources
- 
--	``deblend`` - default = SourceDeblendTask - Split blended source into their components
- 
--	``measurement`` - default = SingleFrameMeasurementTask - Measure sources
- 
--	``measureApCorr`` -  default = MeasureApCorrTask - Subtask to measure aperture corrections
- 
--	``applyApCorr`` - default = ApplyApCorrTask - Subtask to apply aperture corrections
- 
--	``catalogCalculation`` - default = CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
- 
--	``installSimplePsf`` -  default = InstallGaussianPsfTask - Install a simple PSF model
- 
--	``refObjLoader`` -  default = LoadAstrometryNetObjectsTask - Reference object loader
- 
--	``astrometry`` - default = AstrometryTask - Task to load and match reference objects. Only used if `measurePsf` can use matches. Warning: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
+.. csv-table:: 
+   :header: Task, Default, Description
+   :widths: 15, 25, 50
 
--	``measurePsf`` - default = MeasurePsfTask - Measure PSF
-
- 
--	``repair`` -  default = RepairTask - Remove cosmic rays
+	``background``,  SubtractBackgroundTask,    Configuration for initial background estimation
+	``detection``,  SourceDetectionTask, Detect sources
+	``deblend``,  SourceDeblendTask, Split blended source into their components
+	``measurement``,  SingleFrameMeasurementTask, Measure sources
+	``measureApCorr``,   MeasureApCorrTask, Subtask to measure aperture corrections
+	``applyApCorr``,  ApplyApCorrTask, Subtask to apply aperture corrections
+	``catalogCalculation``,  CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
+	``installSimplePsf``,   InstallGaussianPsfTask, Install a simple PSF model
+	``refObjLoader``,   LoadAstrometryNetObjectsTask, Reference object loader
+	``astrometry``,  AstrometryTask, Task to load and match reference objects. Only used if `measurePsf` can use matches. Warning: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
+	``measurePsf``,  MeasurePsfTask, Measure PSF
+	``repair``,   RepairTask, Remove cosmic rays
  
 
 
 Parameters
 ----------
 
--``doDeblend`` - (`bool`) - defaults to `True` - Run deblender on input exposure?
- 
--``doApCorr`` - (`bool`) - defaults to `True` -  Run subtasks to measure and apply aperture corrections
+.. csv-table:: 
+   :header: Parameter, Type, Default, Description
+   :widths: 10, 5, 5, 50
 
--``doMeasurePsf`` - (`bool`) - defaults to `True` - Measure the PSF? If `False` then keep the existing PSF model (which must exist) and use that model for all operations."
- 
--``doWrite`` - (`bool`) - defaults to `True` - Persist results?
- 
--``doWriteExposure`` - (`bool`) - defaults to `True` - Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite False.
-
--``useSimplePsf`` - (`bool`) - defaults to `True` - Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
-
-	
--``psfIterations`` - (`int`) - defaults to 2, min=1 -    Number of iterations of detect sources, measure sources, estimate PSF. If `useSimplePsf`='all_iter' then 2 should be plenty; otherwise more may be wanted.  ******** This seems to be an error, as `useSimplePsf` is described as a `bool` in the dox pages.
-
--``checkUnitsParseStrict`` (`str`) - Strictness of Astropy unit compatibility check, can be 'raise', 'warn' or 'silent'
+   ``doDeblend``, (`bool`),  `True`, Run deblender on input exposure?
+   ``doApCorr``, (`bool`),  `True`,  Run subtasks to measure and apply aperture corrections
+   ``doMeasurePsf``, (`bool`),  `True`, Measure the PSF? If `False` then keep the existing PSF model (which must exist) and use that model for all operations."
+   ``doWrite``, (`bool`),  `True`, Persist results?
+   ``doWriteExposure``, (`bool`),  `True`, Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite False.
+   ``useSimplePsf``, (`bool`),  `True`, Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
+   ``psfIterations``, (`int`),  2; min=1,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If `useSimplePsf`=`True` then 2 should be plenty; otherwise more may be wanted.
+   ``checkUnitsParseStrict``,  (`str`), `raise`, Strictness of Astropy unit compatibility check.  Can be 'raise'; 'warn'; 'silent'
 
 Entrypoint
 ==========
@@ -104,7 +92,7 @@ Examples
 
 This code is in ``calibrateTask.py`` (which calls ``CharacterizeImageTask`` before calling ``CalibrateTask``) in the ``$PIPE_TASKS/examples`` directory, and can be run as, e.g.::
 
-     python examples/calibrateTask.py --display
+     python examples/calibrateTask.py,-display
 
 Running this example currently requires that over and above the DM Stack installation, ``afwdata`` is installed and set up (via the EUPS ``setup`` command).
 

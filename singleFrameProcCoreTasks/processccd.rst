@@ -28,38 +28,29 @@ In more detail, ProcessCcdTask executes the following steps:
 ProcessCcdTask is implemented in the ``lsst.pipe.tasks`` module.
 
 
-
 Configuration
 =============
 
 Retargetable Subtasks
 ---------------------
 
--	``isr`` -  default= :doc:`IsrTask <isrtask>` - Task to perform instrumental signature removal or load a post-ISR image; the steps in ISR are to:
+.. csv-table:: 
+   :header: Task, Default, Description
+   :widths: 15, 25, 50
 
-	- assemble raw amplifier images into an exposure with image, variance and mask planes
-	- perform bias subtraction, flat fielding, etc.
-	- mask known bad pixels
-	- provide a preliminary WCS
-		
--	``charImage`` - default=:doc:`CharacterizeImageTask <charimg>` - Task to characterize a science exposure, the steps of image characterization are to:
+	``isr``,   :doc:`IsrTask <isrtask>`, Task to perform instrumental signature removal or load a post-ISR image; the steps in ISR are to:	- assemble raw amplifier images into an exposure with image; variance and mask planes	- perform bias subtraction; flat fielding; etc.	- mask known bad pixels	- provide a preliminary WCS		
+	``charImage``, :doc:`CharacterizeImageTask <charimg>`, Task to characterize a science exposure; the steps of image characterization are to:	- detect sources; usually at high S/N	- estimate the background; which is subtracted from the image and returned as field "background"	- estimate a PSF model; which is added to the exposure	- interpolate over defects and cosmic rays; updating the image; variance and mask planes
+	``calibrate``,  :doc:`CalibrateTask <calibimg>`, Task to perform astrometric and photometric calibration; the steps are to:	- refine the WCS in the exposure	- refine the Calib photometric calibration object in the exposure	- detect sources; usually at low S/N
 
-	- detect sources, usually at high S/N
-	- estimate the background, which is subtracted from the image and returned as field "background"
-	- estimate a PSF model, which is added to the exposure
-	- interpolate over defects and cosmic rays, updating the image, variance and mask planes
-    
- 
--	``calibrate`` - default= :doc:`CalibrateTask <calibimg>` - Task to perform astrometric and photometric calibration, the steps are to:
-
-	- refine the WCS in the exposure
-	- refine the Calib photometric calibration object in the exposure
-	- detect sources, usually at low S/N
-
+	
 Parameters
 ----------
 
--	``doCalibrate`` - (`bool`) - defaults to `True` - Perform calibration?
+.. csv-table:: 
+   :header: Parameter, Type, Default, Description
+   :widths: 10, 5, 5, 50
+
+     ``doCalibrate`` ,`bool`, `True`, Perform calibration?
  
 
 
