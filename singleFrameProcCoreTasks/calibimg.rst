@@ -49,12 +49,12 @@ Parameters
    :widths: 10, 5, 5, 50
 
    ``doWrite``,  `bool`,  `True`, Save calibration results?
-   ``doWriteMatches``,   `bool`,  `True`, Write reference matches? (ignored if ``doWrite`` = `false`)
+   ``doWriteMatches``,   `bool`,  `True`, Write reference matches? (ignored if `doWrite = false`)
    ``doWriteHeavyFootprintsInSources``,  `bool` ,  `True`, Include HeavyFootprint data in source table? If false then heavy footprints are saved as normal footprints which saves some space
    ``doAstrometry``,  `bool` ,  `True` , Run subtask to apply aperture correction?
-   ``requireAstrometry``,  `bool` ,  `True` , Raise an exception if astrometry fails? (ignored if ``doAstrometry`` = `false`)
+   ``requireAstrometry``,  `bool` ,  `True` , Raise an exception if astrometry fails? (ignored if `doAstrometry = false`)
    ``doPhotoCal``,  `bool` ,  `True` , Perform photometric calibration?
-   ``requirePhotoCal``,`bool` ,  `True`, Raise an exception if photoCal fails? (ignored if ``doPhotoCal`` = `false`)
+   ``requirePhotoCal``,`bool` ,  `True`, Raise an exception if photoCal fails? (ignored if `doPhotoCal = false`)
    ``doApCorr``, `bool` ,  `True`, Run subtask to apply aperture correction?
    ``matchRadiusPix``, `float` ,  3.0 , Match radius for matching icSourceCat objects to sourceCat objects (pixels)
    ``doDeblend``, `bool` ,  `True` , Run deblender input exposure?

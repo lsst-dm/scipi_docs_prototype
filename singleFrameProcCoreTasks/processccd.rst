@@ -1,32 +1,42 @@
 
+- `Doxygen link`_
+.. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1process_ccd_1_1_process_ccd_task.html#ProcessCcdTask_
+
+
 
 ##############
 ProcessCcdTask
 ##############
 
-ProcessCcdTask (available as the ``processCcd.py`` ``command line
-task``) executes the steps of how an image is processed from raw
+ProcessCcdTask (available as the `processCcd.py`_ `command line task <#>`_ ) executes the steps of how an image is processed from raw
 uncorrected CCD-level data finally to science-grade images and
 catalogs.
 
-It takes as input to its ``run`` method a single butler data reference
-for ``raw`` data and then outputs cleaned images (as a
-``lsst.afw.image.ExposureF`` field of a ``lsst.pipe.base.Struct``) and
-catalogs (a ``background`` model and a ``sourceCat``) made by the
+.. _processCcd.py: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/process_ccd_8py_source.html
+
+It takes as input to its `run`_ method a single butler data reference
+for `raw`_ data and then outputs cleaned images (as a
+:class:`lsst.afw.image.ExposureF` field of a :class:`lsst.pipe.base.Struct`) and
+catalogs (a `background <#>`_ model and a `sourceCat <#>`_) made by the
 subtasks to be used by later steps.
+
+.. _raw: https://dev.lsstcorp.org/trac/wiki/glossary
+
+.. _run: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1process_ccd_1_1_process_ccd_task.html#a82488db6374fb538db2ec4418419bdd4
 
 In more detail, ProcessCcdTask executes the following steps:
 
 
-1.  ``Instrument Signature Removal`` -- Implemented by the :doc:`IsrTask <isrtask>` subtask, this step removes CCD signatures (such as bias, dark current, flat-fielding, and cross-talk) and masks bad pixels.
+1.  `Instrument Signature Removal` -- Implemented by the :doc:`IsrTask <isrtask>` subtask, this step removes CCD signatures (such as bias, dark current, flat-fielding, and cross-talk) and masks bad pixels.
 
-2. ``Image Characterization`` -- Implemented by the :doc:`CharacterizeImageTask <charimg>` subtask, this step repairs cosmic ray defects, estimates and subtracts a background, does object detection, and estimates a PSF.
+2. `Image Characterization` -- Implemented by the :doc:`CharacterizeImageTask <charimg>` subtask, this step repairs cosmic ray defects, estimates and subtracts a background, does object detection, and estimates a PSF.
   
-3. ``Image Calibration``  -- Implemented by the :doc:`CalibrateTask <calibimg>` subtask, this step measures faint sources, fits an astrometric WCS and extracts a photometric zero-point for the image.
+3. `Image Calibration`  -- Implemented by the :doc:`CalibrateTask <calibimg>` subtask, this step measures faint sources, fits an astrometric WCS and extracts a photometric zero-point for the image.
 
 
-ProcessCcdTask is implemented in the ``lsst.pipe.tasks`` module.
+ProcessCcdTask is implemented in the `lsst.pipe.tasks`_ module.
 
+.. _lsst.pipe.tasks: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_tasks.html
 
 Configuration
 =============
@@ -58,17 +68,19 @@ Parameters
 Entrypoint
 ==========
 
-- ``lsst.pipe.tasks.processCcd.ProcessCcdTask.run`` 
+- `lsst.pipe.tasks.processCcd.ProcessCcdTask.run`_
+
+.. _`lsst.pipe.tasks.processCcd.ProcessCcdTask.run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1process_ccd_1_1_process_ccd_task.html#a82488db6374fb538db2ec4418419bdd4
   
 This task is primarily designed to be run from the command line.
 
-The main method is ``run``, which takes a single butler data reference for the raw input data.
+The main method is `run`_, which takes a single butler data reference for the raw input data.
 
 
 Butler Inputs
 =============
 
-The main method, ``run``, takes a single butler data reference for the ``raw`` input data.
+The main method, `run`_, takes a single butler data reference for the ``raw`` input data.
 
 Butler Outputs
 ==============

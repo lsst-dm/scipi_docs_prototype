@@ -19,7 +19,9 @@ Its primary functions are to:
   - Measure the PSF
 
 
-This task is implemented in the ``lsst.pipe.tasks`` module.
+This task is implemented in the `lsst.pipe.tasks`_ module.
+
+.. _`lsst.pipe.tasks`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_tasks.html
 
 .. seealso::
    
@@ -64,17 +66,23 @@ Parameters
    ``doWrite``, (`bool`),  `True`, Persist results?
    ``doWriteExposure``, (`bool`),  `True`, Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite False.
    ``useSimplePsf``, (`bool`),  `True`, Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
-   ``psfIterations``, (`int`),  2; min=1,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If `useSimplePsf`=`True` then 2 should be plenty; otherwise more may be wanted.
+   ``psfIterations``, (`int`),  2; min=1,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If `useSimplePsf = True` then 2 should be plenty; otherwise more may be wanted.
    ``checkUnitsParseStrict``,  (`str`), `raise`, Strictness of Astropy unit compatibility check.  Can be 'raise'; 'warn'; 'silent'
 
 Entrypoint
 ==========
 
-- ``lsst.pipe.tasks.characterizeImage.CharacterizeImageTask.run`` 
+- `lsst.pipe.tasks.characterizeImage.CharacterizeImageTask.run`_
 
-If you want this task to unpersist inputs or persist outputs, then call the ``run`` method (which is a thin wrapper around the ``characterize`` method).
+.. _`lsst.pipe.tasks.characterizeImage.CharacterizeImageTask.run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
+  
+If you want this task to unpersist inputs or persist outputs, then call the `run`_ method (which is a thin wrapper around the `characterize`_ method).
 
-If you already have the inputs unpersisted and do not want to persist the output then it is more direct to call the ``characterize`` method directly.
+.. _`characterize`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a4623ec66f58fc90b0ed09a019410ac46
+
+.. _`run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
+
+If you already have the inputs unpersisted and do not want to persist the output then it is more direct to call the `characterize`_ method directly.
 
 
 

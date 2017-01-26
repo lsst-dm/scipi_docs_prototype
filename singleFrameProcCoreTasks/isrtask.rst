@@ -19,7 +19,9 @@ IsrTask provides a generic vanilla implementation of doing these
 corrections, including the ability to turn certain corrections off if
 they are not needed.
 
-This task is implemented in the ``lsst.ip.isr`` module.
+This task is implemented in the `lsst.ip.isr`_ module.
+
+.. _`lsst.ip.isr`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1ip_1_1isr.html
 
 .. seealso::
    
@@ -85,7 +87,9 @@ Parameters
 Entrypoint
 ==========
 
-- ``lsst.ip.isr.isrTask.IsrTask.run``
+- `lsst.ip.isr.isrTask.IsrTask.run`_
+
+.. _`lsst.ip.isr.isrTask.IsrTask.run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#aab476cefa23d730451f39119e04875d5  
 
 
 Butler Inputs
@@ -122,9 +126,11 @@ The `ds9` flag tells it to bring up the ds9 image viewer (if installed) and show
 In slightly more detail, what this example does is after setting up
 the parameter configuration, the code makes several calibration
 exposures that will be used to create the final corrected output
-exposure.  Finally, the output is produced by using the ``run``
+exposure.  Finally, the output is produced by using the `run`_
 function, after ingesting the raw exposure and the calibration
 exposures and processing them.
+
+.. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#aab476cefa23d730451f39119e04875d5
 
 Debugging
 =========

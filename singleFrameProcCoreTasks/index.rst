@@ -11,9 +11,11 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
-   calibimg
-   charimg
-   isrtask
    processccd
+   isrtask
+   charimg
+   calibimg
+
+
 
    
