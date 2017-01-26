@@ -11,7 +11,7 @@ _g.update(build_package_configs(
     project_name='Sci-Pipelines-Prototype',
     copyright='2017 Association of Universities for '
               'Research in Astronomy, Inc.',
-    version=0.1,
+    version="0.1",
     doxygen_xml_dirname=None))
 
 intersphinx_mapping['astropy'] = ('http://docs.astropy.org/en/stable', None)
