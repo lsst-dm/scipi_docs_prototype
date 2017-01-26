@@ -129,5 +129,17 @@ Debugging
 
 
 Algorithm details
-====================
+=================
+
+The way characterizeImage works is to estimate initial background
+since this will be needed to make basic photometric measurements.
+
+It then does a straight subtraction of this background from the image
+itself, pixel by pixel, which is a necessary prerequisite to
+extracting out the actual objects in the image.
+
+Further, a PSF is determined iteratively, detecting and removing
+defects like cosmic rays, and then using the increased number of
+actual sources detected to better determine the PSF.
+
 

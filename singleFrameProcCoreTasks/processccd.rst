@@ -1,9 +1,4 @@
 
-- `Doxygen link`_
-.. _Doxygen link: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1process_ccd_1_1_process_ccd_task.html#ProcessCcdTask_
-
-
-
 ##############
 ProcessCcdTask
 ##############
@@ -113,3 +108,8 @@ Command Line Arguments
 
 ProcessCcdTask has all command line arguments available to a general
 ``command line task``, which can be found on the CLTargs page.
+
+Algorithm details
+=================
+
+ProcessCcdTask is essentially a wrapper around the three subtasks, see those for actual contentful algorithmic details.

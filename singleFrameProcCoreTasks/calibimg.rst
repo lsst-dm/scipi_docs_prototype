@@ -112,5 +112,6 @@ Debugging
 Algorithm details
 ==================
 
-..
-  - [	``lsst.pipe.tasks.calibrate.getSchemaCatalogs`` -- -- Also an entrypoint..? ]
+CalibTask runs functions to perform deep detection and measurement,
+fits an improved WCS, then fits the exposure's photometric zero-point.
+

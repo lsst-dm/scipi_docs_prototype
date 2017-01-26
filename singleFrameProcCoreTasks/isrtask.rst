@@ -143,6 +143,20 @@ Debugging
 Algorithm details
 ====================
 
+IsrTask performs instrument signature removal on an exposure in varying ways depending on which corrections need to be applied to the raw image, but generally some combination of the following is done:
+
+- Finding out which pixels have charge which overfills their potential wells
+
+- Bias subtraction: removing the pedestal introduced by the instrument for a zero-second exposure (may use the overscan correction function)
+
+-   Dark correction: i.e. removing the dark current, which is the residual current seen even when no light is falling on the sensors
+
+-   Flat-fielding: i.e. correcting for the different responsivity of the current coming from pixels to the same amount of light falling on them
+
+- Apply brighter fatter correction: i.e. accounting for the distortion of the electric field lines at the bottom of pixels when bright objects liberate many charges that get trapped at the bottom of the potential wells
+
+- Mask known bad pixels, defects, saturated pixels and all NaNs and interpolate over them
+
 [Extra reference: Section 4 of LSST DATA CHALLENGE HANDBOOK (2011) [https://project.lsst.org/sciencewiki/images/DC_Handbook_v1.1.pdf] , and http://hsca.ipmu.jp/public/index.html ]
 
   
