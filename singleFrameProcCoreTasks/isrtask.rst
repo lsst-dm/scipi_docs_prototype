@@ -27,6 +27,11 @@ This task is implemented in the `lsst.ip.isr`_ module.
    
     This task is most commonly called by :doc:`ProcessCcd <processccd>`.
 
+API Usage
+=========
+
+:doc:`API for IsrTask <apiUsage_isrtask>`
+
 
 Configuration
 =============
