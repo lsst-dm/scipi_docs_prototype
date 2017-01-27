@@ -9,16 +9,6 @@ catalogs.
 
 .. _processCcd.py: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/process_ccd_8py_source.html
 
-It takes as input to its `run`_ method a single butler data reference
-for `raw`_ data and then outputs cleaned images (as a
-:class:`lsst.afw.image.ExposureF` field of a :class:`lsst.pipe.base.Struct`) and
-catalogs (a `background <#>`_ model and a `sourceCat <#>`_) made by the
-subtasks to be used by later steps.
-
-.. _raw: https://dev.lsstcorp.org/trac/wiki/glossary
-
-.. _run: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1process_ccd_1_1_process_ccd_task.html#a82488db6374fb538db2ec4418419bdd4
-
 In more detail, ProcessCcdTask executes the following steps:
 
 
@@ -33,18 +23,65 @@ ProcessCcdTask is implemented in the `lsst.pipe.tasks`_ module.
 
 .. _lsst.pipe.tasks: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_tasks.html
 
-Running from the Command Line
-=============================
 
-ProcessCcdTask has all command line arguments available to a general
-``command line task``, which can be found on the CLTargs page.
+Python usage
+============
+ 
+Class initialization
+--------------------
+ 
+.. code-block:: python
+ 
+   lsst.pipe.tasks.processCcd.ProcessCcdTask(
+       butler = None,
+    	 psfRefObjLoader = None,
+    	 astromRefObjLoader = None,
+    	 photoRefObjLoader = None,
+    	 **kwargs)
+ 
+Parameters
+^^^^^^^^^^
+ 
+``butler``
+   The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly.
+ 
+``psfRefObjLoader``
+   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for image characterization. An example of when this would be used is when a CatalogStarSelector is used. May be None if the desired loader can be constructed from the butler argument or all steps requiring a catalog are disabled.
+ 
+``astromRefObjLoader``
+   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for astrometric calibration. May be None if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
+ 
+``photoRefObjLoader``
+   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for photometric calibration. May be None if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
+ 
+``**kwargs``
+   Other keyword arguments for lsst.pipe.base.CmdLineTask.
+ 
+Run method
+----------
+ 
+.. code-block:: python
+ 
+   run(sensorRef)
 
-*[Will include info on the `--id` argument here.]*
-
-API Usage
-=========
-
-:doc:`API for ProcessCcdTask <apiUsage_processccd>`
+   
+Parameters
+^^^^^^^^^^
+ 
+``sensorRef``
+   butler data reference for raw data.
+ 
+Returns
+^^^^^^^
+ 
+``struct`` (lsst.pipe.base.Struct)
+   lsst.pipe.base.Struct containing these fields:
+ 
+   - ``charRes``: object returned by image characterization task; an lsst.pipe.base.Struct that will include "background" and "sourceCat" fields.
+   - ``calibRes``: object returned by calibration task: an lsst.pipe.base.Struct that will include "background" and "sourceCat" fields
+   - ``exposure``: final exposure (an lsst.afw.image.ExposureF)
+   - ``background``: final background model (an lsst.afw.math.BackgroundList)
+     
 
 
 Configuration
@@ -72,22 +109,23 @@ Parameters
      ``doCalibrate`` ,`bool`, `True`, Perform calibration?
  
 
-Entrypoint
-==========
+Running from the Command Line
+=============================
 
-- `lsst.pipe.tasks.processCcd.ProcessCcdTask.run`_
+ProcessCcdTask has all command line arguments available to a general
+``command line task``, which can be found on the CLTargs page.
 
-.. _`lsst.pipe.tasks.processCcd.ProcessCcdTask.run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1process_ccd_1_1_process_ccd_task.html#a82488db6374fb538db2ec4418419bdd4
-  
-This task is primarily designed to be run from the command line.
+*[Will include info on the `--id` argument here.]*
 
-The main method is `run`_, which takes a single butler data reference for the raw input data.
+
 
 
 Butler Inputs
 =============
 
 The main method, `run`_, takes a single butler data reference for the ``raw`` input data.
+
+.. _run: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1process_ccd_1_1_process_ccd_task.html#a82488db6374fb538db2ec4418419bdd4
 
 Butler Outputs
 ==============
