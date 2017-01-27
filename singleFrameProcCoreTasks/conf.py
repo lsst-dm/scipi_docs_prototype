@@ -16,5 +16,7 @@ _g.update(build_package_configs(
 
 intersphinx_mapping['astropy'] = ('http://docs.astropy.org/en/stable', None)
 
+html_static_path = []
+
 # DEBUG only
 automodsumm_writereprocessed = False
