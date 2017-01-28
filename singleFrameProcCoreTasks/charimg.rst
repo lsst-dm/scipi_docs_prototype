@@ -103,11 +103,60 @@ Output catalogs are of type ``icSrc``.
 Examples
 ========
 
-This code is in ``calibrateTask.py`` (which calls ``CharacterizeImageTask`` before calling ``CalibrateTask``) in the ``$PIPE_TASKS/examples`` directory, and can be run as, e.g.::
+This example script is ``calibrateTask.py`` (which calls ``CharacterizeImageTask`` before calling :doc:`CalibrateTask <calibimg>`) in the ``$PIPE_TASKS/examples`` directory, and can be run from the command line as, e.g.:
 
-     python examples/calibrateTask.py,-display
+.. code-block:: python
+  
+     python examples/calibrateTask.py -display
 
-Running this example currently requires that over and above the DM Stack installation, ``afwdata`` is installed and set up (via the EUPS ``setup`` command).
+Where the `-display` flag tells the script to bring up the display tool to show the image files after each step.
+     
+The first thing the example does is import the task (there are some other standard imports as well that are not extracted out here):
+
+.. code-block:: python
+		
+    from lsst.pipe.tasks.characterizeImage import CharacterizeImageTask
+
+The script next processes the data. This occurs in two steps:
+
+- Characterize the image: measure bright sources, fit a background and PSF, and repairs cosmic rays
+
+.. code-block:: python
+		
+     exposure = loadData()
+     exposureIdInfo = ExposureIdInfo(expId=1, expBits=5)
+ 
+     # characterize the exposure to repair cosmic rays and fit a PSF model
+     # display now because CalibrateTask modifies the exposure in place
+     charRes = charImageTask.characterize(exposure=exposure, exposureIdInfo=exposureIdInfo)
+     if display:
+         displayFunc(charRes.exposure, charRes.sourceCat, frame=1)
+
+- Calibrate the exposure: measure faint sources, fit an improved WCS and photometric zero-point
+		
+.. code-block:: python
+
+   
+    # calibrate the exposure
+    calRes = calibrateTask.calibrate(exposure=charRes.exposure, exposureIdInfo=exposureIdInfo)
+    if display:
+        displayFunc(calRes.exposure, calRes.sourceCat, frame=2)
+
+To round out this minimal description, the `displayFunc` that is called above in the blocks is defined as so:
+
+.. code-block:: python
+		
+ def displayFunc(exposure, sourceCat, frame):
+    display = afwDisplay.getDisplay(frame)
+    display.mtv(exposure)
+
+    with display.Buffering():
+        for s in sourceCat:
+            xy = s.getCentroid()
+            display.dot('+', *xy, ctype=afwDisplay.CYAN if s.get("flags_negative") else afwDisplay.GREEN)
+	
+     
+Running this example currently requires that over and above the DM Stack installation, `afwdata <#>`_ is installed and set up (via the EUPS `setup <https://dev.lsstcorp.org/trac/wiki/EupsTutorial>`_ command).
 
 Debugging
 =========
