@@ -86,7 +86,66 @@ Parameters
    ``doLinearize``, `str`,  `True`, Correct for nonlinearity of the detector's response?
    ``fallbackFilterName``, `str`, no default, Fallback default filter name for calibrations
    ``overscanFitType``, `str`,  'MEDIAN', The method for fitting the overscan bias level; allowed values:	- "POLY": "Fit ordinary polynomial to the longest axis of the overscan region"	-        "CHEB": "Fit Chebyshev polynomial to the longest axis of the overscan region"	-  "LEG": "Fit Legendre polynomial to the longest axis of the overscan region"        -    "NATURAL_SPLINE": "Fit natural spline to the longest axis of the overscan region"        -   "CUBIC_SPLINE": "Fit cubic spline to the longest axis of the overscan region"        -  "AKIMA_SPLINE": "Fit Akima spline to the longest axis of the overscan region"        -  "MEAN": "Correct using the mean of the overscan region"        -  "MEDIAN": "Correct using the median of the overscan region"
-     
+
+Python usage
+============
+ 
+Class initialization
+--------------------
+
+.. code-block:: python
+		
+  lsst.ip.isr.isrTask.IsrTask(
+ 	*args,
+ 	**kwargs)
+   
+Parameters
+^^^^^^^^^^
+
+``*args``
+  A list of positional arguments passed on to the Task constructor
+``**kwargs``
+  A dictionary of keyword arguments passed on to the Task constructor. Call the lsst.pipe.base.task.Task.__init__ method, then setup the assembly and fringe correction subtasks.
+
+Run method
+----------
+ 
+.. code-block:: python
+  
+	run(self,
+ 	ccdExposure,
+ 	bias = None,
+ 	linearizer = None,
+ 	dark = None,
+ 	flat = None,
+ 	defects = None,
+ 	fringes = None,
+ 	bfKernel = None)
+
+Parameters
+^^^^^^^^^^
+
+``ccdExposure`` -  ``lsst.afw.image.exposure`` of detector data
+
+``bias`` -  Exposure of bias frame
+  
+``linearizer`` -  Linearizing functor; a subclass of ``lsst.ip.isr.LinearizeBase``
+  
+``dark`` -  Exposure of dark frame
+
+``flat`` -  Exposure of flatfield
+  
+``defects`` -  List of detects
+  
+``fringes`` -  A pipeBase.Struct with field fringes containing exposure of fringe frame or list of fringe exposure
+  
+``bfKernel``	- Kernel for brighter-fatter correction
+
+
+Returns
+^^^^^^^
+
+``struct`` -   ``lsst.pipe.base.Struct`` with field: ``exposure`` (of type ``lsst.afw.image.exposure``)
 
 
 Entrypoint
