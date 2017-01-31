@@ -161,20 +161,22 @@ Running this example currently requires that over and above the DM Stack install
 Debugging
 =========
 
-- frame = (`int`) - if specified, the frame of first debug image displayed (defaults to 1)
+.. csv-table:: 
+   :header: Parameter, Type, Description
+   :widths: 10, 5, 50
 
-- repair_iter - (`bool`) -  if `True` display image after each repair in the measure PSF loop
 
-- background_iter - (`bool`) -  if `True` display image after each background subtraction in the measure PSF loop
+        ``frame``, (`int`), if specified: the frame of first debug image displayed (defaults to 1)	    
+        ``repair_iter``, (`bool`),  if `True` display image after each repair in the measure PSF loop
+	``background_iter``, (`bool`),  if `True` display image after each background subtraction in the measure PSF loop
+	``measure_iter``, (`bool`),  if `True` display image and sources at the end of each iteration of the measure PSF loop.  `lsst.meas.astrom.display.displayAstrometry`_  for the meaning of the various symbols.
+	``psf``, (`bool`),  if `True` display image and sources after PSF is measured; this will be identical to the final image displayed by measure_iter if measure_iter is true
+	``repair``, (`bool`),  if `True` display image and sources after final repair
+	``measure``, (`bool`),  if `True` display image and sources after final measurement
 
-- measure_iter - (`bool`) -  if `True` display image and sources at the end of each iteration of the measure PSF loop See lsst.meas.astrom.displayAstrometry for the meaning of the various symbols.
+.. _`lsst.meas.astrom.display.displayAstrometry`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1meas_1_1astrom_1_1display.html#aba98ee54d502f211b69ff35db4d36f94
 
-- psf - (`bool`) -  if `True` display image and sources after PSF is measured; this will be identical to the final image displayed by measure_iter if measure_iter is true
-
-- repair - (`bool`) -  if `True` display image and sources after final repair
-
-- measure - (`bool`) -  if `True` display image and sources after final measurement
-
+ 
 
 
 Algorithm details
