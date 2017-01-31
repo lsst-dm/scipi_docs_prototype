@@ -122,6 +122,6 @@ Debugging
 Algorithm details
 ==================
 
-CalibTask runs functions to perform deep detection and measurement,
+CalibrateTask runs functions to perform deep detection and measurement,
 fits an improved WCS, then fits the exposure's photometric zero-point.
 
