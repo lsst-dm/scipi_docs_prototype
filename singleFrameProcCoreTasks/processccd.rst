@@ -79,8 +79,11 @@ Parameters
    An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for photometric calibration. May be None if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
  
 ``**kwargs``
-   Other keyword arguments for lsst.pipe.base.CmdLineTask.
- 
+   Other keyword arguments for `lsst.pipe.base.CmdLineTask`_.
+
+.. _`lsst.pipe.base.CmdLineTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1cmd_line_task_1_1_cmd_line_task.html
+
+
 Run method
 ----------
  
@@ -98,12 +101,12 @@ Parameters
 Returns
 ^^^^^^^
  
-``struct`` (lsst.pipe.base.Struct)
-   lsst.pipe.base.Struct containing these fields:
+``struct`` (``lsst.pipe.base.Struct``)
+   ``lsst.pipe.base.Struct`` containing these fields:
  
-   - ``charRes``: object returned by image characterization task; an lsst.pipe.base.Struct that will include "background" and "sourceCat" fields.
-   - ``calibRes``: object returned by calibration task: an lsst.pipe.base.Struct that will include "background" and "sourceCat" fields
-   - ``exposure``: final exposure (an lsst.afw.image.ExposureF)
+   - ``charRes``: object returned by image characterization task; an ``lsst.pipe.base.Struct`` that will include "background" and "sourceCat" fields.
+   - ``calibRes``: object returned by calibration task: an ``lsst.pipe.base.Struct`` that will include "background" and "sourceCat" fields
+   - ``exposure``: final exposure (an ``lsst.afw.image.ExposureF``)
    - ``background``: final background model (an lsst.afw.math.BackgroundList)
  
 Running from the Command Line
