@@ -116,26 +116,84 @@ Exposure of ``datasetType`` ``postISRCCD``.
 Examples
 ========
 
-If you want to see an example of the ISR algorithm in action, run the
-example while in the ``$IP_ISR_DIR/examples`` as follows::
+To see an example of the ISR algorithm in action, run the
+example in the ``$IP_ISR_DIR/examples`` as follows:
 
-  python  examples/runIsrTask.py ,write --ds9
+.. code-block:: python
+		
+  python  runIsrTask.py --write --ds9
 
-The `write` flag tells the code to write the post-ISR image file to disk.  In this example code, this output file is called:: 
+The optional `--write` flag tells the code to write the post-ISR image
+file to disk.  In this example code, this output file is called::
 
    postISRCCD.fits
 
-The `ds9` flag tells it to bring up the ds9 image viewer (if installed) and show the post-ISR image.
+The optional `--ds9` flag tells it to bring up the ds9 image viewer (if installed) and show the post-ISR image.
 
-	    
-In slightly more detail, what this example does is after setting up
-the parameter configuration, the code makes several calibration
-exposures that will be used to create the final corrected output
-exposure.  Finally, the output is produced by using the `run`_
-function, after ingesting the raw exposure and the calibration
-exposures and processing them.
+As an overview: what this example does after setting up the
+parameter configuration, is to make several calibration exposures
+that will be used to create the final corrected output exposure.
+Finally, the output is produced by using the `run`_ function of ``IsrTask``, after
+ingesting the raw exposure and the calibration exposures and
+processing them.
 
 .. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#aab476cefa23d730451f39119e04875d5
+
+Stepping through the example:
+
+First the task is imported along with ``exampleUtils.py``, a local
+modification of ``utils.py`` which will provide some needed utility
+functions:
+
+.. code-block:: python
+		
+  from lsst.ip.isr import IsrTask
+  import exampleUtils
+
+Next, a function ``runIsr`` is defined which sets several config parameters as so:
+
+.. code-block:: python
+		
+    #Create the isr task with modified config
+    isrConfig = IsrTask.ConfigClass()
+    isrConfig.doBias = False #We didn't make a zero frame
+    isrConfig.doDark = True
+    isrConfig.doFlat = True
+    isrConfig.doFringe = False #There is no fringe frame for this example
+
+The first line indicates this is a section about setting up the
+configuration that the code will be run with.  The next several set up
+specific flags, indicating that we will not do bias or fringing
+corrections in this code, but will do the dark and flat corrections.
+
+Next, several parameters that will be used to make the raw, flat and
+dark exposures are defined, using knowledge of our camera and exposures::
+
+    DARKVAL = 2.0      # Number of electrons per sec
+    OSCAN = 1000.      # DN = Data Number, same as the standard ADU
+    GRADIENT = 0.10
+    EXPTIME = 15       # Seconds for the science exposure
+    DARKEXPTIME = 40.0 # Seconds for the dark exposure
+
+Next, the 3 calibration exposures that we will be using in this
+example to create the final corrected output exposure are created
+using the functions in the extra included utility file::
+
+    darkExposure = exampleUtils.makeDark(DARKVAL, DARKEXPTIME)
+    flatExposure = exampleUtils.makeFlat(GRADIENT)
+    rawExposure = exampleUtils.makeRaw(DARKVAL, OSCAN, GRADIENT, EXPTIME)
+
+Finally, the output is produced with the line::
+
+       output = isrTask.run(rawExposure, dark=darkExposure, flat=flatExposure)
+
+And returned at the end of the function.
+
+(The ``main`` function of runIsrTask simply calls this runIsr
+function, and as noted earlier, also brings up ds9 to view the final
+output exposure if that flag is set on, and writes the image to disk
+if that flag is set.)
+	    
 
 Debugging
 =========
