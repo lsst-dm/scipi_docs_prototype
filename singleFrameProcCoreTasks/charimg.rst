@@ -103,6 +103,10 @@ Output catalogs are of type ``icSrc``.
 Examples
 ========
 
+Note: running this example currently requires that over and above the DM Stack installation, `afwdata`_ is installed and set up (via the EUPS `setup <https://dev.lsstcorp.org/trac/wiki/EupsTutorial>`_ command).
+
+.. _`afwdata`: https://github.com/lsst/afwdata
+
 This example script is ``calibrateTask.py`` (which calls this function (``CharacterizeImageTask``) before calling :doc:`CalibrateTask <calibimg>`) in the ``$PIPE_TASKS/examples`` directory, and can be run from the command line as, e.g.:
 
 .. code-block:: python
@@ -156,7 +160,6 @@ To round out this minimal description, the `displayFunc` that is called above in
             display.dot('+', *xy, ctype=afwDisplay.CYAN if s.get("flags_negative") else afwDisplay.GREEN)
 	
      
-Running this example currently requires that over and above the DM Stack installation, `afwdata <#>`_ is installed and set up (via the EUPS `setup <https://dev.lsstcorp.org/trac/wiki/EupsTutorial>`_ command).
 
 Debugging
 =========
