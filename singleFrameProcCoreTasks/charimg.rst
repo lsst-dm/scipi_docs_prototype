@@ -103,7 +103,7 @@ Output catalogs are of type ``icSrc``.
 Examples
 ========
 
-This example script is ``calibrateTask.py`` (which calls ``CharacterizeImageTask`` before calling :doc:`CalibrateTask <calibimg>`) in the ``$PIPE_TASKS/examples`` directory, and can be run from the command line as, e.g.:
+This example script is ``calibrateTask.py`` (which calls this function (``CharacterizeImageTask``) before calling :doc:`CalibrateTask <calibimg>`) in the ``$PIPE_TASKS/examples`` directory, and can be run from the command line as, e.g.:
 
 .. code-block:: python
   

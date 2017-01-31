@@ -9,7 +9,10 @@ running this Task by :doc:`CharacterizeImage <charimg>`), detect
 sources, measure their positions, and do a photometric measurement on
 them.
 
-This task is implemented in the ``lsst.pipe.tasks`` module.
+
+This task is implemented in the `lsst.pipe.tasks`_ module.
+
+.. _`lsst.pipe.tasks`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_tasks.html
 
 .. seealso::
    
@@ -78,11 +81,17 @@ Leaving this one out for now, not sure what to do with it, because the default i
 Entrypoint
 ==========
 
-- ``lsst.pipe.tasks.calibrate.CalibrateTask.run`` 
+- `lsst.pipe.tasks.calibrate.CalibrateTask.run`_ 
 
-If you want this task to unpersist inputs or persist outputs, then call the ``run`` method (a wrapper around the ``calibrate`` method).
+.. _`lsst.pipe.tasks.calibrate.CalibrateTask.run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
 
-If you already have the inputs unpersisted and do not want to persist the output then it is more direct to call the ``calibrate`` method.
+If you want this task to unpersist inputs or persist outputs, then call the `run`_ method (a wrapper around the `calibrate` method).
+
+If you already have the inputs unpersisted and do not want to persist the output then it is more direct to call the `calibrate` method.
+
+.. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
+
+.. _`calibrate`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a12bb075ab0bdf60d95ae30900688d9a4
 
 Butler Inputs
 =============
@@ -97,17 +106,18 @@ Source catalog of type ``src``.
 Examples
 ========
 
-The example code is ``calibrateTask.py`` in the ``$PIPE_TASKS/examples`` directory, and can be run as, e.g.::
+This example script is ``calibrateTask.py`` (which calls :doc:`CharacterizeImageTask <charimg>` before calling this function (``CalibrateTask``) ) in the ``$PIPE_TASKS/examples`` directory, and much of the example is described already under `Examples` on :doc:`CharacterizeImageTask <charimg>`.
 
-     python examples/calibrateTask.py --display
-     
-Running this example currently requires that over and above the DM Stack installation, ``afwdata`` is installed and set up (via the EUPS ``setup`` command).
+
+The parts that exercise CalibrateTask in particular are
+
 
 Debugging
 =========
 
-- ``calibrate`` -  (an `int`, set to :math:`\le 0` to not display) frame in which to display the exposure, sources and matches. See ``lsst.meas.astrom.displayAstrometry`` for the meaning of the various symbols.
+- ``calibrate`` -  (an `int`, set to :math:`\le 0` to not display) frame in which to display the exposure, sources and matches. See `lsst.meas.astrom.display.displayAstrometry`_  for the meaning of the various symbols.
 
+.. _`lsst.meas.astrom.display.displayAstrometry`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1meas_1_1astrom_1_1display.html#aba98ee54d502f211b69ff35db4d36f94
  
 Algorithm details
 ==================
