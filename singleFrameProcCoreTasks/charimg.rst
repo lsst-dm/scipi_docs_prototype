@@ -69,6 +69,88 @@ Parameters
    ``psfIterations``, (`int`),  2; min=1,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If `useSimplePsf = True` then 2 should be plenty; otherwise more may be wanted.
    ``checkUnitsParseStrict``,  (`str`), `raise`, Strictness of Astropy unit compatibility check.  Can be 'raise'; 'warn'; 'silent'
 
+
+Python usage
+============
+ 
+Class initialization
+--------------------
+
+.. code-block:: python
+
+   lsst.pipe.tasks.characterizeImage.CharacterizeImageTask(
+ 	butler = None,
+ 	refObjLoader = None,
+ 	schema = None,
+ 	**kwargs 
+)
+
+Parameters
+^^^^^^^^^^
+
+``butler``
+  A butler object is passed to the refObjLoader constructor in case it is needed to load catalogs. May be None if a catalog-based star selector is not used, if the reference object loader constructor does not require a butler, or if a reference object loader is passed directly via the refObjLoader argument.
+``refObjLoader``
+  An instance of LoadReferenceObjectsTasks that supplies an external reference catalog to a catalog-based star selector. May be None if a catalog star selector is not used or the loader can be constructed from the butler argument.
+``schema``
+  Initial schema (an ``lsst.afw.table.SourceTable``), or None
+``kwargs``
+  Other keyword arguments for `lsst.pipe.base.CmdLineTask`_
+
+.. _`lsst.pipe.base.CmdLineTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1cmd_line_task_1_1_cmd_line_task.html
+
+Run method
+----------
+ 
+.. code-block:: python
+
+  run(dataRef,
+ 	exposure = None,
+ 	background = None,
+ 	doUnpersist = True )		
+
+
+Parameters
+^^^^^^^^^^
+
+
+``dataRef``
+  Butler data reference for science exposure
+
+``exposure``
+  Exposure to characterize (an ``lsst.afw.image.ExposureF`` or similar). If None then unpersist from "postISRCCD". The following changes are made, depending on the config:
+  
+  - set psf to the measured PSF
+
+  - set `apCorrMap` to the measured aperture correction
+    
+  - subtract background
+
+  - interpolate over cosmic rays
+
+  - update detection and cosmic ray mask planes
+
+``background``
+  Initial model of background already subtracted from exposure (an ``lsst.afw.math.BackgroundList``). May be `None` if no background has been subtracted, which is typical for image characterization. A refined background model is output.
+
+``doUnpersist``
+  If `True` the exposure is read from the repository and the exposure and background arguments must be None; if `False` the exposure must be provided. `True` is intended for running as a command-line task, `False` for running as a subtask
+
+Returns
+^^^^^^^
+
+A pipe_base Struct containing these fields, all from the final iteration of ``detectMeasureAndEstimatePsf``:
+
+``exposure``: characterized exposure; image is repaired by interpolating over cosmic rays, mask is updated accordingly, and the PSF model is set
+
+``sourceCat``: detected sources (an ``lsst.afw.table.SourceCatalog``)
+
+``background``: model of background subtracted from exposure (an ``lsst.afw.math.BackgroundList``)
+
+``psfCellSet``: spatial cells of PSF candidates (an ``lsst.afw.math.SpatialCellSet``)
+
+
+
 Entrypoint
 ==========
 
