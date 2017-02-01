@@ -38,18 +38,18 @@ Retargetable Subtasks
    :header: Task, Default, Description
    :widths: 15, 25, 50
 
-	``background``,  SubtractBackgroundTask,    Configuration for initial background estimation
-	``detection``,  SourceDetectionTask, Detect sources
-	``deblend``,  SourceDeblendTask, Split blended source into their components
-	``measurement``,  SingleFrameMeasurementTask, Measure sources
-	``measureApCorr``,   MeasureApCorrTask, Subtask to measure aperture corrections
-	``applyApCorr``,  ApplyApCorrTask, Subtask to apply aperture corrections
-	``catalogCalculation``,  CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
-	``installSimplePsf``,   InstallGaussianPsfTask, Install a simple PSF model
-	``refObjLoader``,   LoadAstrometryNetObjectsTask, Reference object loader
-	``astrometry``,  AstrometryTask, Task to load and match reference objects. Only used if `measurePsf` can use matches. Warning: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
-	``measurePsf``,  MeasurePsfTask, Measure PSF
-	``repair``,   RepairTask, Remove cosmic rays
+	`background`,  SubtractBackgroundTask,    Configuration for initial background estimation
+	`detection`,  SourceDetectionTask, Detect sources
+	`deblend`,  SourceDeblendTask, Split blended source into their components
+	`measurement`,  SingleFrameMeasurementTask, Measure sources
+	`measureApCorr`,   MeasureApCorrTask, Subtask to measure aperture corrections
+	`applyApCorr`,  ApplyApCorrTask, Subtask to apply aperture corrections
+	`catalogCalculation`,  CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
+	`installSimplePsf`,   InstallGaussianPsfTask, Install a simple PSF model
+	`refObjLoader`,   LoadAstrometryNetObjectsTask, Reference object loader
+	`astrometry`,  AstrometryTask, Task to load and match reference objects. Only used if `measurePsf` can use matches. Warning: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
+	`measurePsf`,  MeasurePsfTask, Measure PSF
+	`repair`,   RepairTask, Remove cosmic rays
  
 
 
@@ -60,14 +60,14 @@ Parameters
    :header: Parameter, Type, Default, Description
    :widths: 10, 5, 5, 50
 
-   ``doDeblend``, (`bool`),  `True`, Run deblender on input exposure?
-   ``doApCorr``, (`bool`),  `True`,  Run subtasks to measure and apply aperture corrections
-   ``doMeasurePsf``, (`bool`),  `True`, Measure the PSF? If `False` then keep the existing PSF model (which must exist) and use that model for all operations."
-   ``doWrite``, (`bool`),  `True`, Persist results?
-   ``doWriteExposure``, (`bool`),  `True`, Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite False.
-   ``useSimplePsf``, (`bool`),  `True`, Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
-   ``psfIterations``, (`int`),  2; min=1,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If `useSimplePsf = True` then 2 should be plenty; otherwise more may be wanted.
-   ``checkUnitsParseStrict``,  (`str`), `raise`, Strictness of Astropy unit compatibility check.  Can be 'raise'; 'warn'; 'silent'
+   `doDeblend`, (`bool`),  `True`, Run deblender on input exposure?
+   `doApCorr`, (`bool`),  `True`,  Run subtasks to measure and apply aperture corrections
+   `doMeasurePsf`, (`bool`),  `True`, Measure the PSF? If `False` then keep the existing PSF model (which must exist) and use that model for all operations."
+   `doWrite`, (`bool`),  `True`, Persist results?
+   `doWriteExposure`, (`bool`),  `True`, Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite False.
+   `useSimplePsf`, (`bool`),  `True`, Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
+   `psfIterations`, (`int`),  2; min=1,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If `useSimplePsf = True` then 2 should be plenty; otherwise more may be wanted.
+   `checkUnitsParseStrict`,  (`str`), `raise`, Strictness of Astropy unit compatibility check.  Can be 'raise'; 'warn'; 'silent'
 
 
 Python usage
@@ -87,13 +87,13 @@ Class initialization
 Parameters
 ^^^^^^^^^^
 
-``butler``
+`butler`
   A butler object is passed to the refObjLoader constructor in case it is needed to load catalogs. May be None if a catalog-based star selector is not used, if the reference object loader constructor does not require a butler, or if a reference object loader is passed directly via the refObjLoader argument.
-``refObjLoader``
+`refObjLoader`
   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog to a catalog-based star selector. May be None if a catalog star selector is not used or the loader can be constructed from the butler argument.
-``schema``
-  Initial schema (an ``lsst.afw.table.SourceTable``), or None
-``kwargs``
+`schema`
+  Initial schema (an `lsst.afw.table.SourceTable <#>`_), or None
+`kwargs`
   Other keyword arguments for `lsst.pipe.base.CmdLineTask`_
 
 .. _`lsst.pipe.base.CmdLineTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1cmd_line_task_1_1_cmd_line_task.html
@@ -113,12 +113,14 @@ Parameters
 ^^^^^^^^^^
 
 
-``dataRef``
+`dataRef`
   Butler data reference for science exposure
 
-``exposure``
-  Exposure to characterize (an ``lsst.afw.image.ExposureF`` or similar). If None then unpersist from "postISRCCD". The following changes are made, depending on the config:
-  
+`exposure`
+  Exposure to characterize (an `lsst.afw.image.ExposureF`_ or similar). If None then unpersist from "postISRCCD". The following changes are made, depending on the config:
+
+.. _`lsst.afw.image.ExposureF`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1image.html
+
   - set psf to the measured PSF
 
   - set `apCorrMap` to the measured aperture correction
@@ -129,24 +131,26 @@ Parameters
 
   - update detection and cosmic ray mask planes
 
-``background``
-  Initial model of background already subtracted from exposure (an ``lsst.afw.math.BackgroundList``). May be `None` if no background has been subtracted, which is typical for image characterization. A refined background model is output.
+`background`
+  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`_). May be `None` if no background has been subtracted, which is typical for image characterization. A refined background model is output.
 
-``doUnpersist``
+.. _`lsst.afw.math.BackgroundList`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1math.html
+
+`doUnpersist`
   If `True` the exposure is read from the repository and the exposure and background arguments must be None; if `False` the exposure must be provided. `True` is intended for running as a command-line task, `False` for running as a subtask
 
 Returns
 ^^^^^^^
 
-A pipe_base Struct containing these fields, all from the final iteration of ``detectMeasureAndEstimatePsf``:
+A pipe_base Struct containing these fields, all from the final iteration of :doc:`detectMeasureAndEstimatePsf <apiUsage_charimg>`:
 
-``exposure``: characterized exposure; image is repaired by interpolating over cosmic rays, mask is updated accordingly, and the PSF model is set
+`exposure`: characterized exposure; image is repaired by interpolating over cosmic rays, mask is updated accordingly, and the PSF model is set
 
-``sourceCat``: detected sources (an ``lsst.afw.table.SourceCatalog``)
+`sourceCat`: detected sources (an `lsst.afw.table.SourceCatalog <#>`_)
 
-``background``: model of background subtracted from exposure (an ``lsst.afw.math.BackgroundList``)
+`background`: model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`_)
 
-``psfCellSet``: spatial cells of PSF candidates (an ``lsst.afw.math.SpatialCellSet``)
+`psfCellSet`: spatial cells of PSF candidates (an `lsst.afw.math.SpatialCellSet <#>`_)
 
 
 
@@ -157,13 +161,12 @@ Entrypoint
 
 .. _`lsst.pipe.tasks.characterizeImage.CharacterizeImageTask.run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
   
-If you want this task to unpersist inputs or persist outputs, then call the `run`_ method (which is a thin wrapper around the `characterize`_ method).
+If you want this task to unpersist inputs or persist outputs, then call the `run`_ method (which is a thin wrapper around the :doc:`characterize <apiUsage_charimg>` method).
 
-.. _`characterize`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a4623ec66f58fc90b0ed09a019410ac46
 
 .. _`run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
 
-If you already have the inputs unpersisted and do not want to persist the output then it is more direct to call the `characterize`_ method directly.
+If you already have the inputs unpersisted and do not want to persist the output then it is more direct to call the :doc:`characterize <apiUsage_charimg>` method directly.
 
 
 
@@ -179,7 +182,7 @@ directly via the `refObjLoader` argument.
 Butler Outputs
 ==============
 
-Output catalogs are of type ``icSrc``.
+Output catalogs are of type `icSrc <#>`_.
 
 Examples
 ========
@@ -188,7 +191,7 @@ Note: running this example currently requires that over and above the DM Stack i
 
 .. _`afwdata`: https://github.com/lsst/afwdata
 
-This example script is ``calibrateTask.py`` (which calls this function (``CharacterizeImageTask``) before calling :doc:`CalibrateTask <calibimg>`) in the ``$PIPE_TASKS/examples`` directory, and can be run from the command line as, e.g.:
+This example script is `calibrateTask.py` (which calls this function (`CharacterizeImageTask`) before calling :doc:`CalibrateTask <calibimg>`) in the `$PIPE_TASKS/examples` directory, and can be run from the command line as, e.g.:
 
 .. code-block:: python
   
@@ -250,13 +253,13 @@ Debugging
    :widths: 10, 5, 50
 
 
-        ``frame``, (`int`), if specified: the frame of first debug image displayed (defaults to 1)	    
-        ``repair_iter``, (`bool`),  if `True` display image after each repair in the measure PSF loop
-	``background_iter``, (`bool`),  if `True` display image after each background subtraction in the measure PSF loop
-	``measure_iter``, (`bool`),  if `True` display image and sources at the end of each iteration of the measure PSF loop.  `lsst.meas.astrom.display.displayAstrometry`_  for the meaning of the various symbols.
-	``psf``, (`bool`),  if `True` display image and sources after PSF is measured; this will be identical to the final image displayed by measure_iter if measure_iter is true
-	``repair``, (`bool`),  if `True` display image and sources after final repair
-	``measure``, (`bool`),  if `True` display image and sources after final measurement
+        `frame`, (`int`), if specified: the frame of first debug image displayed (defaults to 1)	    
+        `repair_iter`, (`bool`),  if `True` display image after each repair in the measure PSF loop
+	`background_iter`, (`bool`),  if `True` display image after each background subtraction in the measure PSF loop
+	`measure_iter`, (`bool`),  if `True` display image and sources at the end of each iteration of the measure PSF loop.  `lsst.meas.astrom.display.displayAstrometry`_  for the meaning of the various symbols.
+	`psf`, (`bool`),  if `True` display image and sources after PSF is measured; this will be identical to the final image displayed by measure_iter if measure_iter is true
+	`repair`, (`bool`),  if `True` display image and sources after final repair
+	`measure`, (`bool`),  if `True` display image and sources after final measurement
 
 .. _`lsst.meas.astrom.display.displayAstrometry`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1meas_1_1astrom_1_1display.html#aba98ee54d502f211b69ff35db4d36f94
 
