@@ -12,10 +12,9 @@ Contents:
    :maxdepth: 1
 
    processccd
-   apiUsage_processccd
    isrtask
-   apiUsage_isrtask
    charimg
+   apiUsage_charimg
    calibimg
 
 
