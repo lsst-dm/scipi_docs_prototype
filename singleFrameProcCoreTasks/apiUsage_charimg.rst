@@ -123,7 +123,13 @@ pipe_base Struct containing these fields, all from the final iteration of detect
 		
  getSchemaCatalogs()
 
-Return a dict of empty catalogs for each catalog dataset produced by this task.
+No parameters.
+
+Returns
+-------
+
+Return a dictionary of empty catalogs for each catalog dataset
+produced by this task.
 
 
 .. _displaylink:
