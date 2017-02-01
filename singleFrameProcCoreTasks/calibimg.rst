@@ -28,20 +28,20 @@ Retargetable Subtasks
    :header: Task, Default, Description
    :widths: 15, 25, 50
 
-   ``refObjLoader``, LoadAstrometryNetObjectsTask, Reference object loader
-   ``astrometry``,   AstrometryTask, Perform astrometric calibration to refine the WCS
-   ``photoCal``, PhotoCalTask, Perform photometric calibration  
-   ``detection``,  SourceDetectionTask, Detect sources
-   ``deblend``, SourceDeblendTask, Split blended sources into their components
-   ``measurement``, SingleFrameMeasurementTask, Measure sources
-   ``photoCal``, PhotoCalTask, Perform photometric calibration
-   ``detection``, SourceDetectionTask, Detect sources
-   ``deblend``, SourceDeblendTask, Split blended sources into their components
-   ``measurement``, SingleFrameMeasurementTask, Measure sources
-   ``applyApCorr``, ApplyApCorrTask, Subtask to apply aperture corrections
-   ``catalogCalculation``, CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
-   ``refObjLoader``, LoadAstrometryNetObjectsTask,   reference object loader
-   ``astrometry``, AstrometryTask, Perform astrometric calibration to refine the WCS
+   `refObjLoader`, LoadAstrometryNetObjectsTask, Reference object loader
+   `astrometry`,   AstrometryTask, Perform astrometric calibration to refine the WCS
+   `photoCal`, PhotoCalTask, Perform photometric calibration  
+   `detection`,  SourceDetectionTask, Detect sources
+   `deblend`, SourceDeblendTask, Split blended sources into their components
+   `measurement`, SingleFrameMeasurementTask, Measure sources
+   `photoCal`, PhotoCalTask, Perform photometric calibration
+   `detection`, SourceDetectionTask, Detect sources
+   `deblend`, SourceDeblendTask, Split blended sources into their components
+   `measurement`, SingleFrameMeasurementTask, Measure sources
+   `applyApCorr`, ApplyApCorrTask, Subtask to apply aperture corrections
+   `catalogCalculation`, CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
+   `refObjLoader`, LoadAstrometryNetObjectsTask,   reference object loader
+   `astrometry`, AstrometryTask, Perform astrometric calibration to refine the WCS
 
 	
 Parameters
@@ -51,25 +51,25 @@ Parameters
    :header: Parameter, Type, Default, Description
    :widths: 10, 5, 5, 50
 
-   ``doWrite``,  `bool`,  `True`, Save calibration results?
-   ``doWriteMatches``,   `bool`,  `True`, Write reference matches? (ignored if `doWrite = false`)
-   ``doWriteHeavyFootprintsInSources``,  `bool` ,  `True`, Include HeavyFootprint data in source table? If false then heavy footprints are saved as normal footprints which saves some space
-   ``doAstrometry``,  `bool` ,  `True` , Run subtask to apply aperture correction?
-   ``requireAstrometry``,  `bool` ,  `True` , Raise an exception if astrometry fails? (ignored if `doAstrometry = false`)
-   ``doPhotoCal``,  `bool` ,  `True` , Perform photometric calibration?
-   ``requirePhotoCal``,`bool` ,  `True`, Raise an exception if photoCal fails? (ignored if `doPhotoCal = false`)
-   ``doApCorr``, `bool` ,  `True`, Run subtask to apply aperture correction?
-   ``matchRadiusPix``, `float` ,  3.0 , Match radius for matching icSourceCat objects to sourceCat objects (pixels)
-   ``doDeblend``, `bool` ,  `True` , Run deblender input exposure?
-   ``checkUnitsParseStrict``, `str` , `raise`, Strictness of Astropy unit compatibility check; can be: 'raise' ; 'warn' ; 'silent'
+   `doWrite`,  `bool`,  `True`, Save calibration results?
+   `doWriteMatches`,   `bool`,  `True`, Write reference matches? (ignored if `doWrite = false`)
+   `doWriteHeavyFootprintsInSources`,  `bool` ,  `True`, Include HeavyFootprint data in source table? If false then heavy footprints are saved as normal footprints which saves some space
+   `doAstrometry`,  `bool` ,  `True` , Run subtask to apply aperture correction?
+   `requireAstrometry`,  `bool` ,  `True` , Raise an exception if astrometry fails? (ignored if `doAstrometry = false`)
+   `doPhotoCal`,  `bool` ,  `True` , Perform photometric calibration?
+   `requirePhotoCal`,`bool` ,  `True`, Raise an exception if photoCal fails? (ignored if `doPhotoCal = false`)
+   `doApCorr`, `bool` ,  `True`, Run subtask to apply aperture correction?
+   `matchRadiusPix`, `float` ,  3.0 , Match radius for matching icSourceCat objects to sourceCat objects (pixels)
+   `doDeblend`, `bool` ,  `True` , Run deblender input exposure?
+   `checkUnitsParseStrict`, `str` , `raise`, Strictness of Astropy unit compatibility check; can be: 'raise' ; 'warn' ; 'silent'
 
 
 
 
    
-Leaving this one out for now, not sure what to do with it, because the default is so long, it messes up the length of all the other entries in the table if included:
+*Leaving this one out for now, not sure what to do with it, because the default is so long, it messes up the length of all the other entries in the table if included:*
 
-   ``icSourceFieldsToCopy``, `str` ,  ("calib_psfCandidate" ;    "calib_psfUsed"; "calib_psfReserved"),  Fields to copy from the    icSource catalog to the output catalog for matching sources. Any missing fields will trigger a RuntimeError exception.  Ignored if    icSourceCat is not provided.
+   `icSourceFieldsToCopy`, `str` ,  ("calib_psfCandidate" ;    "calib_psfUsed"; "calib_psfReserved"),  Fields to copy from the    icSource catalog to the output catalog for matching sources. Any missing fields will trigger a RuntimeError exception.  Ignored if    icSourceCat is not provided.
 
 
 Python usage
@@ -92,18 +92,19 @@ Parameters
 ^^^^^^^^^^
 
 
-``butler``
+`butler`
   The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly.
-``astromRefObjLoader``
+`astromRefObjLoader`
   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for astrometric calibration. May be None if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
-``photoRefObjLoader``
+`photoRefObjLoader`
   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for photometric calibration. May be None if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
-``icSourceSchema``
+`icSourceSchema`
   Schema for icSource catalog, or None. Schema values specified in config.icSourceFieldsToCopy will be taken from this schema. If set to None, no values will be propagated from the icSourceCatalog
-``kwargs``
-  Other keyword arguments for lsst.pipe.base.CmdLineTask		
-		
+`kwargs`
+  Other keyword arguments for `lsst.pipe.base.CmdLineTask`_		
 
+  
+.. _`lsst.pipe.base.CmdLineTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1cmd_line_task_1_1_cmd_line_task.html
 
 Run method
 ----------
@@ -119,25 +120,25 @@ Run method
 Parameters
 ^^^^^^^^^^
 
-``dataRef``
+`dataRef`
   Butler data reference corresponding to a science image
-``exposure``
-  Characterized exposure (an ``lsst.afw.image.ExposureF`` or similar), or `None` to unpersist existing ``icExp`` and ``icBackground``. See ``calibrate`` method for details of what is read and written.
-``background``
-  Initial model of background already subtracted from exposure (an ``lsst.afw.math.BackgroundList``). May be `None` if no background has been subtracted, though that is unusual for calibration. A refined background model is output. Ignored if exposure is `None`.
-``icSourceCat``
-  Catalog from which to copy the fields specified by ``icSourceKeys``, or `None`;
-``doUnpersist``
+`exposure`
+  Characterized exposure (an `lsst.afw.image.ExposureF <#>`_ or similar), or `None` to unpersist existing `icExp <#>`_ and `icBackground <#>`_. See `calibrate <#>`_ method for details of what is read and written.
+`background`
+  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList <#>`_). May be `None` if no background has been subtracted, though that is unusual for calibration. A refined background model is output. Ignored if exposure is `None`.
+`icSourceCat`
+  Catalog from which to copy the fields specified by `icSourceKeys <#>`_, or `None`;
+`doUnpersist`
   Unpersist data:
-     - if `True`, exposure, ``background`` and ``icSourceCat`` are read from ``dataRef`` and those three arguments must all be `None`;
-     - if `False` the exposure must be provided; ``background`` and ``icSourceCat`` are optional. `True` is intended for running as a command-line task, `False` for running as a subtask
+     - if `True`, exposure, `background` and `icSourceCat` are read from `dataRef` and those three arguments must all be `None`;
+     - if `False` the exposure must be provided; `background` and `icSourceCat` are optional. `True` is intended for running as a command-line task, `False` for running as a subtask
 
 Returns
 ^^^^^^^
 
 Returns pipe_base Struct containing these fields:
  - exposure - calibrated science exposure with refined WCS and Calib
- - background - model of background subtracted from exposure (an lsst.afw.math.BackgroundList)
+ - background - model of background subtracted from exposure (an `lsst.afw.math.BackgroundList <#>`_)
  - sourceCat - catalog of measured sources
  - astromMatches - list of source/refObj matches from the astrometry solver
 
@@ -149,9 +150,9 @@ Entrypoint
 
 .. _`lsst.pipe.tasks.calibrate.CalibrateTask.run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
 
-If you want this task to unpersist inputs or persist outputs, then call the `run`_ method (a wrapper around the `calibrate` method).
+If you want this task to unpersist inputs or persist outputs, then call the `run`_ method (a wrapper around the `calibrate <#>`_ method).
 
-If you already have the inputs unpersisted and do not want to persist the output then it is more direct to call the `calibrate` method.
+If you already have the inputs unpersisted and do not want to persist the output then it is more direct to call the `calibrate <#>`_ method.
 
 .. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
 
@@ -160,32 +161,30 @@ If you already have the inputs unpersisted and do not want to persist the output
 Butler Inputs
 =============
 
-The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly (type: ``icSrc_schema``).
+The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly (type: `icSrc_schema <#>`_).
 
 Butler Outputs
 ==============
 
-Source catalog of type ``src``.
+Source catalog of type `src <#>`_.
 
 Examples
 ========
 
-This example script is ``calibrateTask.py`` (which calls :doc:`CharacterizeImageTask <charimg>` before calling this function (``CalibrateTask``) ) in the ``$PIPE_TASKS/examples`` directory, and much of the example is described already under `Examples` on :doc:`CharacterizeImageTask <charimg>`.
-
-
-The parts that exercise CalibrateTask in particular are
+This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTask <charimg>` before calling this function (`CalibrateTask`) ) in the `$PIPE_TASKS/examples` directory, and the example is described already under `Examples` on :doc:`CharacterizeImageTask <charimg>`.
 
 
 Debugging
 =========
 
-- ``calibrate`` -  (an `int`, set to :math:`\le 0` to not display) frame in which to display the exposure, sources and matches. See `lsst.meas.astrom.display.displayAstrometry`_  for the meaning of the various symbols.
+- `calibrate` -  (an `int`, set to :math:`\le 0` to not display) frame in which to display the exposure, sources and matches. See `lsst.meas.astrom.display.displayAstrometry`_  for the meaning of the various symbols.
 
 .. _`lsst.meas.astrom.display.displayAstrometry`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1meas_1_1astrom_1_1display.html#aba98ee54d502f211b69ff35db4d36f94
  
 Algorithm details
 ==================
 
-CalibrateTask runs functions to perform deep detection and measurement,
+`CalibrateTask` runs functions to perform deep detection and measurement,
 fits an improved WCS, then fits the exposure's photometric zero-point.
 
+*[Need specific input from developers on what to insert for algorithmic details here.]*

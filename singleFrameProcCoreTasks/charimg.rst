@@ -281,3 +281,4 @@ defects like cosmic rays, and then using the increased number of
 actual sources detected to better determine the PSF.
 
 
+*[Need specific input from developers on what to insert for algorithmic details here.]*
