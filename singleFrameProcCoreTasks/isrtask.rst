@@ -30,7 +30,7 @@ This task is implemented in the `lsst.ip.isr`_ module.
 API Usage
 =========
 
-:doc:`API for IsrTask <apiUsage_isrtask>`
+*[To be filled in]*
 
 
 Configuration
@@ -44,8 +44,8 @@ Retargetable Subtasks
    :header: Task, Default, Description
    :widths: 15, 25, 50
 
-	``assembleCcd`` , AssembleCcdTask ,  CCD assembly task
-	``fringe`` ,  FringeTask , Fringe subtraction task
+	`assembleCcd` , AssembleCcdTask ,  CCD assembly task
+	`fringe` ,  FringeTask , Fringe subtraction task
  
 Parameters
 ----------
@@ -54,38 +54,38 @@ Parameters
    :header: Parameter, Type, Default, Description
    :widths: 10, 5, 5, 50
 
-   ``doBias``, `bool`,   `True`,  Apply bias frame correction?
-   ``doDark``, `bool`,   `True`,  Apply dark frame correction?
-   ``doFlat``, `bool`,   `True`,  Apply flat field correction?
-   ``doFringe``, `bool`,   `True`,  Apply fringe correction?
-   ``doWrite``, `bool`,   `True`,  Persist postISRCCD?
-   ``gain``, `float`,   `float("NaN")`,  The gain to use if no Detector is present in the Exposure (ignored if NaN)
-   ``readNoise``, `float`,   `0.0`,  The read noise to use if no Detector is present in the Exposure
-   ``saturation``, `float`,   `float("NaN")`,  The saturation level to use if no Detector is present in the Exposure (ignored if NaN)
-   ``fringeAfterFlat``, `bool`,   `True`,  Do fringe subtraction after flat   fielding?
-   ``fwhm``, `float`,   `1.0`,  FWHM of PSF (arcsec)
-   ``saturatedMaskName``, `str`,   `"SAT"`,  Name of mask plane to use in saturation detection and interpolation
-   ``flatUserScale``, `float`,   `1.0`,  If flatScalingType is 'USER' then scale flat by this amount; ignored otherwise
-   ``overscanOrder``, `int`,   `1`,  Order of polynomial or to fit if overscan fit type is a polynomial
-   ``overscanRej``, `float`,   `3.0`,  Rejection threshold (sigma) for collapsing overscan before fit
-   ``growSaturationFootprintSize``, `int`,   `1`,  Number of pixels by which to grow the saturation footprints
-   ``fluxMag0T1``, `float`,   `1e10`,  The approximate flux of a zero   magnitude object in a one-second exposure
-   ``setGainAssembledCcd``, `bool`,   `True`,  update exposure metadata in the assembled ccd to reflect the effective gain of the assembled chip
-   ``doAssembleIsrExposures``, `bool`,   `False`,  Assemble amp-level calibration exposures into ccd-level exposure?
-   ``doAssembleCcd``, `bool`,   `True`,  Assemble amp-level exposures into a ccd-level exposure?
-   ``doBrighterFatter``, `bool`,   `False`,  Apply the brighter fatter correction
-   ``brighterFatterKernelFile``, `str`,   `empty string`,  Kernel file used for the brighter fatter correction
-   ``brighterFatterMaxIter``, `int`,   `18`,  Maximum number of iterations for the brighter fatter correction
-   ``brighterFatterThreshold``, `float`,   `1000`,  Threshold used to stop iterating the brighter fatter correction.  It is the absolute value of the difference between the current corrected image and the one from the previous iteration summed over all the pixels.
-   ``brighterFatterApplyGain``, `bool`,   `True`,  Should the gain be applied when applying the brighter fatter correction?
-   ``datasetType``, `str`,   `"raw"`,  Dataset type for input data; users will typically leave this alone
-   ``fallbackFilterName``, `str`,  no default,  Fallback default filter name for calibrations
-   ``suspectMaskName``, `str`,  "SUSPECT", Name of mask plane to use for suspect pixels
-   ``flatScalingType``, `str`, default to 'USER', The method for scaling the flat on the fly; allowed values:	- "USER": "Scale by flatUserScale"	-          "MEAN": "Scale by the inverse of the mean"        -           "MEDIAN": "Scale by the inverse of the median" 
-   ``keysToRemoveFromAssembledCcd``, `str`,   empty list, Fields to remove from the metadata of the assembled ccd
-   ``doLinearize``, `str`,  `True`, Correct for nonlinearity of the detector's response?
-   ``fallbackFilterName``, `str`, no default, Fallback default filter name for calibrations
-   ``overscanFitType``, `str`,  'MEDIAN', The method for fitting the overscan bias level; allowed values:	- "POLY": "Fit ordinary polynomial to the longest axis of the overscan region"	-        "CHEB": "Fit Chebyshev polynomial to the longest axis of the overscan region"	-  "LEG": "Fit Legendre polynomial to the longest axis of the overscan region"        -    "NATURAL_SPLINE": "Fit natural spline to the longest axis of the overscan region"        -   "CUBIC_SPLINE": "Fit cubic spline to the longest axis of the overscan region"        -  "AKIMA_SPLINE": "Fit Akima spline to the longest axis of the overscan region"        -  "MEAN": "Correct using the mean of the overscan region"        -  "MEDIAN": "Correct using the median of the overscan region"
+   `doBias`, `bool`,   `True`,  Apply bias frame correction?
+   `doDark`, `bool`,   `True`,  Apply dark frame correction?
+   `doFlat`, `bool`,   `True`,  Apply flat field correction?
+   `doFringe`, `bool`,   `True`,  Apply fringe correction?
+   `doWrite`, `bool`,   `True`,  Persist postISRCCD?
+   `gain`, `float`,   `float("NaN")`,  The gain to use if no Detector is present in the Exposure (ignored if NaN)
+   `readNoise`, `float`,   `0.0`,  The read noise to use if no Detector is present in the Exposure
+   `saturation`, `float`,   `float("NaN")`,  The saturation level to use if no Detector is present in the Exposure (ignored if NaN)
+   `fringeAfterFlat`, `bool`,   `True`,  Do fringe subtraction after flat   fielding?
+   `fwhm`, `float`,   `1.0`,  FWHM of PSF (arcsec)
+   `saturatedMaskName`, `str`,   `"SAT"`,  Name of mask plane to use in saturation detection and interpolation
+   `flatUserScale`, `float`,   `1.0`,  If flatScalingType is 'USER' then scale flat by this amount; ignored otherwise
+   `overscanOrder`, `int`,   `1`,  Order of polynomial or to fit if overscan fit type is a polynomial
+   `overscanRej`, `float`,   `3.0`,  Rejection threshold (sigma) for collapsing overscan before fit
+   `growSaturationFootprintSize`, `int`,   `1`,  Number of pixels by which to grow the saturation footprints
+   `fluxMag0T1`, `float`,   `1e10`,  The approximate flux of a zero   magnitude object in a one-second exposure
+   `setGainAssembledCcd`, `bool`,   `True`,  update exposure metadata in the assembled ccd to reflect the effective gain of the assembled chip
+   `doAssembleIsrExposures`, `bool`,   `False`,  Assemble amp-level calibration exposures into ccd-level exposure?
+   `doAssembleCcd`, `bool`,   `True`,  Assemble amp-level exposures into a ccd-level exposure?
+   `doBrighterFatter`, `bool`,   `False`,  Apply the brighter fatter correction
+   `brighterFatterKernelFile`, `str`,   `empty string`,  Kernel file used for the brighter fatter correction
+   `brighterFatterMaxIter`, `int`,   `18`,  Maximum number of iterations for the brighter fatter correction
+   `brighterFatterThreshold`, `float`,   `1000`,  Threshold used to stop iterating the brighter fatter correction.  It is the absolute value of the difference between the current corrected image and the one from the previous iteration summed over all the pixels.
+   `brighterFatterApplyGain`, `bool`,   `True`,  Should the gain be applied when applying the brighter fatter correction?
+   `datasetType`, `str`,   `"raw"`,  Dataset type for input data; users will typically leave this alone
+   `fallbackFilterName`, `str`,  no default,  Fallback default filter name for calibrations
+   `suspectMaskName`, `str`,  "SUSPECT", Name of mask plane to use for suspect pixels
+   `flatScalingType`, `str`, default to 'USER', The method for scaling the flat on the fly; allowed values:	- "USER": "Scale by flatUserScale"	-          "MEAN": "Scale by the inverse of the mean"        -           "MEDIAN": "Scale by the inverse of the median" 
+   `keysToRemoveFromAssembledCcd`, `str`,   empty list, Fields to remove from the metadata of the assembled ccd
+   `doLinearize`, `str`,  `True`, Correct for nonlinearity of the detector's response?
+   `fallbackFilterName`, `str`, no default, Fallback default filter name for calibrations
+   `overscanFitType`, `str`,  'MEDIAN', The method for fitting the overscan bias level; allowed values:	- "POLY": "Fit ordinary polynomial to the longest axis of the overscan region"	-        "CHEB": "Fit Chebyshev polynomial to the longest axis of the overscan region"	-  "LEG": "Fit Legendre polynomial to the longest axis of the overscan region"        -    "NATURAL_SPLINE": "Fit natural spline to the longest axis of the overscan region"        -   "CUBIC_SPLINE": "Fit cubic spline to the longest axis of the overscan region"        -  "AKIMA_SPLINE": "Fit Akima spline to the longest axis of the overscan region"        -  "MEAN": "Correct using the mean of the overscan region"        -  "MEDIAN": "Correct using the median of the overscan region"
 
 Python usage
 ============
@@ -102,10 +102,12 @@ Class initialization
 Parameters
 ^^^^^^^^^^
 
-``*args``
+`*args`
   A list of positional arguments passed on to the Task constructor
-``**kwargs``
-  A dictionary of keyword arguments passed on to the Task constructor. Call the lsst.pipe.base.task.Task.__init__ method, then setup the assembly and fringe correction subtasks.
+`**kwargs`
+  A dictionary of keyword arguments passed on to the Task constructor. Call the `lsst.pipe.base.task.Task.__init__`_ method, then setup the assembly and fringe correction subtasks.
+
+.. _`lsst.pipe.base.task.Task.__init__`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1task_1_1_task.html#a1773a024121ed2ce7294509b3e8b40e8
 
 Run method
 ----------
@@ -125,28 +127,31 @@ Run method
 Parameters
 ^^^^^^^^^^
 
-``ccdExposure`` -  ``lsst.afw.image.exposure`` of detector data
+`ccdExposure` -  `lsst.afw.image.exposure <#>`_ of detector data
 
-``bias`` -  Exposure of bias frame
+`bias` -  Exposure of bias frame
   
-``linearizer`` -  Linearizing functor; a subclass of ``lsst.ip.isr.LinearizeBase``
-  
-``dark`` -  Exposure of dark frame
+`linearizer` -  Linearizing functor; a subclass of `lsst.ip.isr.LinearizeBase`_
 
-``flat`` -  Exposure of flatfield
+.. _`lsst.ip.isr.LinearizeBase`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1linearize_1_1_linearize_base.html
+
+`dark` -  Exposure of dark frame
+
+`flat` -  Exposure of flatfield
   
-``defects`` -  List of detects
+`defects` -  List of detects
   
-``fringes`` -  A pipeBase.Struct with field fringes containing exposure of fringe frame or list of fringe exposure
+`fringes` -  A pipeBase.Struct with field fringes containing exposure of fringe frame or list of fringe exposure
   
-``bfKernel``	- Kernel for brighter-fatter correction
+`bfKernel`	- Kernel for brighter-fatter correction
 
 
 Returns
 ^^^^^^^
 
-``struct`` -   ``lsst.pipe.base.Struct`` with field: ``exposure`` (of type ``lsst.afw.image.exposure``)
+`struct` -   `lsst.pipe.base.Struct`_ with field: `exposure` (of type `lsst.afw.image.exposure <#>`_)
 
+.. _`lsst.pipe.base.Struct`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1struct_1_1_struct.html
 
 Entrypoint
 ==========
@@ -159,24 +164,24 @@ Entrypoint
 Butler Inputs
 =============
 
-`dataRef` – a ``daf.persistence.butlerSubset.ButlerDataRef`` of the
+`dataRef` – a `daf.persistence.butlerSubset.ButlerDataRef <#>`_ of the
 detector data to be processed
 
 The inputs to the entrypoint method are the exposure to be corrected
-(which will be of ``datasetType`` ``raw``) and the calibration data products. The raw input
+(which will be of `datasetType` `raw`) and the calibration data products. The raw input
 is a single chip-sized mosaic of all amps including overscans and
 other non-science pixels.
 
 Butler Outputs
 ==============
 
-Exposure of ``datasetType`` ``postISRCCD``.
+Exposure of `datasetType <#>`_ `postISRCCD`.
 
 Examples
 ========
 
 To see an example of the ISR algorithm in action, run the
-example in the ``$IP_ISR_DIR/examples`` as follows:
+example in the `$IP_ISR_DIR/examples` as follows:
 
 .. code-block:: python
 		
@@ -192,7 +197,7 @@ The optional `--ds9` flag tells it to bring up the ds9 image viewer (if installe
 As an overview: what this example does after setting up the
 parameter configuration, is to make several calibration exposures
 that will be used to create the final corrected output exposure.
-Finally, the output is produced by using the `run`_ function of ``IsrTask``, after
+Finally, the output is produced by using the `run`_ function of `IsrTask`, after
 ingesting the raw exposure and the calibration exposures and
 processing them.
 
@@ -200,8 +205,8 @@ processing them.
 
 Stepping through the example:
 
-First the task is imported along with ``exampleUtils.py``, a local
-modification of ``utils.py`` which will provide some needed utility
+First the task is imported along with `exampleUtils.py`, a local
+modification of `utils.py` which will provide some needed utility
 functions:
 
 .. code-block:: python
@@ -209,7 +214,7 @@ functions:
   from lsst.ip.isr import IsrTask
   import exampleUtils
 
-Next, a function ``runIsr`` is defined which sets several config parameters as so:
+Next, a function `runIsr` is defined which sets several config parameters as so:
 
 .. code-block:: python
 		
@@ -248,7 +253,7 @@ Finally, the output is produced with the line::
 
 And returned at the end of the function.
 
-(The ``main`` function of runIsrTask simply calls this runIsr
+(The `main` function of runIsrTask simply calls this runIsr
 function, and as noted earlier, also brings up ds9 to view the final
 output exposure if that flag is set on, and writes the image to disk
 if that flag is set.)
@@ -257,9 +262,9 @@ if that flag is set.)
 Debugging
 =========
 
-- ``display`` - A dictionary containing debug point names as keys with frame number as value.  The only valid key is:
+- `display` - A dictionary containing debug point names as keys with frame number as value.  The only valid key is:
 
-  ``postISRCCD`` (to display exposure after ISR has been applied)
+  `postISRCCD` (to display exposure after ISR has been applied)
 
 
 Algorithm details
@@ -278,6 +283,8 @@ IsrTask performs instrument signature removal on an exposure in varying ways dep
 - Apply brighter fatter correction: i.e. accounting for the distortion of the electric field lines at the bottom of pixels when bright objects liberate many charges that get trapped at the bottom of the potential wells
 
 - Mask known bad pixels, defects, saturated pixels and all NaNs and interpolate over them
+
+*[Need specific input from developers on what to insert for algorithmic details here.]*
 
 [Extra reference: Section 4 of LSST DATA CHALLENGE HANDBOOK (2011) [https://project.lsst.org/sciencewiki/images/DC_Handbook_v1.1.pdf] , and http://hsca.ipmu.jp/public/index.html ]
 
