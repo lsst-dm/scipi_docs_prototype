@@ -82,8 +82,7 @@ Class initialization
  	butler = None,
  	refObjLoader = None,
  	schema = None,
- 	**kwargs 
-)
+ 	**kwargs)
 
 Parameters
 ^^^^^^^^^^
@@ -105,9 +104,9 @@ Run method
 .. code-block:: python
 
   run(dataRef,
- 	exposure = None,
- 	background = None,
- 	doUnpersist = True )		
+      exposure = None,
+      background = None,
+      doUnpersist = True )		
 
 
 Parameters
