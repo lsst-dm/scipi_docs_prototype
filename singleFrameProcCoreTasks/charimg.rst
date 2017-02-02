@@ -26,7 +26,12 @@ This task is implemented in the `lsst.pipe.tasks`_ module.
 .. seealso::
    
     This task is most commonly called by :doc:`ProcessCcd <processccd>`.
-    
+
+API Usage
+=========
+
+See :doc:`CharacterizeImageTask API <apiUsage_charimg>`
+
 Configuration
 =============
 
@@ -161,12 +166,12 @@ Entrypoint
 
 .. _`lsst.pipe.tasks.characterizeImage.CharacterizeImageTask.run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
   
-If you want this task to unpersist inputs or persist outputs, then call the `run`_ method (which is a thin wrapper around the :doc:`characterize <apiUsage_charimg>` method).
+If you want this task to `unpersist <#>`_ inputs or `persist <#>`_ outputs, then call the `run`_ method (which is a thin wrapper around the :doc:`characterize <apiUsage_charimg>` method).
 
 
 .. _`run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
 
-If you already have the inputs unpersisted and do not want to persist the output then it is more direct to call the :doc:`characterize <apiUsage_charimg>` method directly.
+If you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the :doc:`characterize <apiUsage_charimg>` method directly.
 
 
 
@@ -263,7 +268,9 @@ Debugging
 
 .. _`lsst.meas.astrom.display.displayAstrometry`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1meas_1_1astrom_1_1display.html#aba98ee54d502f211b69ff35db4d36f94
 
- 
+See `lsstDebug.info`_ for more on the debugging framework.
+
+.. _`lsstDebug.info`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_debug_1_1_info.html 
 
 
 Algorithm details

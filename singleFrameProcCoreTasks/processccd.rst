@@ -19,7 +19,7 @@ In more detail, ProcessCcdTask executes the following steps:
 3. `Image Calibration`  -- Implemented by the :doc:`CalibrateTask <calibimg>` subtask, this step measures faint sources, fits an astrometric WCS and extracts a photometric zero-point for the image.
 
 
-ProcessCcdTask is implemented in the `lsst.pipe.tasks`_ module.
+This task is implemented in the `lsst.pipe.tasks`_ module.
 
 .. _lsst.pipe.tasks: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_tasks.html
     

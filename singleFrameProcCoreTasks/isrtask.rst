@@ -30,7 +30,7 @@ This task is implemented in the `lsst.ip.isr`_ module.
 API Usage
 =========
 
-*[To be filled in]*
+*[To be filled in, like in charimg case]*
 
 
 Configuration
@@ -168,9 +168,9 @@ Butler Inputs
 detector data to be processed
 
 The inputs to the entrypoint method are the exposure to be corrected
-(which will be of `datasetType` `raw`) and the calibration data products. The raw input
-is a single chip-sized mosaic of all amps including overscans and
-other non-science pixels.
+(which will be of `datasetType <#>`_ `raw <#>`_) and the calibration
+data products. The raw input is a single chip-sized mosaic of all amps
+including overscans and other non-science pixels.
 
 Butler Outputs
 ==============
@@ -266,6 +266,9 @@ Debugging
 
   `postISRCCD` (to display exposure after ISR has been applied)
 
+See `lsstDebug.info`_ for more on the debugging framework.
+
+.. _`lsstDebug.info`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_debug_1_1_info.html
 
 Algorithm details
 ====================
