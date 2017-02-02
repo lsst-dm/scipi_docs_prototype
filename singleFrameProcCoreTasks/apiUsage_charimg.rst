@@ -43,28 +43,29 @@ Performs the following operations:
 Parameters
 ----------
 
--	`exposure`	- exposure to characterize (an ``lsst.afw.image.ExposureF`` or similar). The following changes are made:
+-	`exposure`	- exposure to characterize (an `lsst.afw.image.ExposureF` or similar). The following changes are made:
 
 	- update or set psf
 	- set apCorrMap
 	- update detection and cosmic ray mask planes
 	- subtract background and interpolate over cosmic rays
 
--	`exposureIdInfo` -	ID info for exposure (an ``lsst.obs.base.ExposureIdInfo``). If not provided, returned `SourceCatalog` IDs will not be globally unique.
+-	`exposureIdInfo` -	ID info for exposure (an `lsst.obs.base.ExposureIdInfo`). If not provided, returned `SourceCatalog` IDs will not be globally unique.
 
--	`background` -	initial model of background already subtracted from exposure (an ``lsst.afw.math.BackgroundList``). May be `None` if no background has been subtracted, which is typical for image characterization.
+-	`background` -	initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`). May be `None` if no background has been subtracted, which is typical for image characterization.
 
 Returns
 -------
 
 pipe_base Struct containing these fields, all from the final iteration of :ref:`detectMeasureAndEstimatePsf <detlink>`:
 
-  - ``exposure``: characterized exposure; image is repaired by interpolating over cosmic rays, mask is updated accordingly, and the PSF model is set
+  - `exposure`: characterized exposure; image is repaired by interpolating over cosmic rays, mask is updated accordingly, and the PSF model is set
 
-  - ``sourceCat``: detected sources (an ``lsst.afw.table.SourceCatalog``)
-background: model of background subtracted from exposure (an ``lsst.afw.math.BackgroundList``)
+  - `sourceCat`: detected sources (an `lsst.afw.table.SourceCatalog`)
 
-  - ``psfCellSet``: spatial cells of PSF candidates (an ``lsst.afw.math.SpatialCellSet``)
+  - `background`: model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`)
+
+  - `psfCellSet`: spatial cells of PSF candidates (an `lsst.afw.math.SpatialCellSet`)
 
 
 
@@ -94,15 +95,15 @@ If `config.doMeasurePsf` or `not exposure.hasPsf()`:
 Parameters
 ----------
 
--	``exposure`` -	exposure to characterize (an lsst.afw.image.ExposureF or similar) The following changes are made:
+-	`exposure` -	exposure to characterize (an lsst.afw.image.ExposureF or similar) The following changes are made:
 
 	- Update or set psf
 	- Update detection and cosmic ray mask planes
 	- Subtract background
 
--	``exposureIdInfo`` -	ID info for exposure (an lsst.obs_base.ExposureIdInfo)
+-	`exposureIdInfo` -	ID info for exposure (an lsst.obs_base.ExposureIdInfo)
 
--	``background`` -	initial model of background already subtracted from exposure (an ``lsst.afw.math.BackgroundList).
+-	`background` -	initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`).
 
 
 Returns
@@ -110,10 +111,10 @@ Returns
 
 pipe_base Struct containing these fields, all from the final iteration of detect sources, measure sources and estimate PSF:
 
-  - ``exposure`` -  characterized exposure; image is repaired by interpolating over cosmic rays, mask is updated accordingly, and the PSF model is set
-  - ``sourceCat`` - detected sources (an lsst.afw.table.SourceCatalog)
-  - ``background`` - model of background subtracted from exposure (an lsst.afw.math.BackgroundList)
-  - ``psfCellSet`` - spatial cells of PSF candidates (an lsst.afw.math.SpatialCellSet)
+  - `exposure` -  characterized exposure; image is repaired by interpolating over cosmic rays, mask is updated accordingly, and the PSF model is set
+  - `sourceCat` - detected sources (an lsst.afw.table.SourceCatalog)
+  - `background` - model of background subtracted from exposure (an lsst.afw.math.BackgroundList)
+  - `psfCellSet` - spatial cells of PSF candidates (an lsst.afw.math.SpatialCellSet)
 
 
 
@@ -140,13 +141,13 @@ produced by this task.
  	 exposure,
  	 sourceCat = None)
 
-Display exposure and sources on next frame, if display of ``itemName`` has been requested
+Display exposure and sources on next frame, if display of `itemName` has been requested
 
 Parameters
 ----------
 
-- ``itemName``-  name of item in ``debugInfo``
-- ``exposure``-  exposure to display
-- ``sourceCat``-  source catalog to display
+- `itemName`-  name of item in `debugInfo`
+- `exposure`-  exposure to display
+- `sourceCat`-  source catalog to display
 
 [ :ref:`Top of page <top>`]  
