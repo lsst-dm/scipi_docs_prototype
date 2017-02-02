@@ -27,11 +27,9 @@ This task is implemented in the `lsst.ip.isr`_ module.
    
     This task is most commonly called by :doc:`ProcessCcd <processccd>`.
 
-API Usage
-=========
+    `API Usage <#>`_: *[To be filled in, like in charimg case]*
 
-*[To be filled in, like in charimg case]*
-
+.. We will have a link to a separate page here called apiUsage_isrtask.rst
 
 Configuration
 =============

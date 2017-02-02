@@ -27,10 +27,7 @@ This task is implemented in the `lsst.pipe.tasks`_ module.
    
     This task is most commonly called by :doc:`ProcessCcd <processccd>`.
 
-API Usage
-=========
-
-See :doc:`CharacterizeImageTask API <apiUsage_charimg>`
+    API Usage: See :doc:`CharacterizeImageTask API <apiUsage_charimg>`
 
 Configuration
 =============
