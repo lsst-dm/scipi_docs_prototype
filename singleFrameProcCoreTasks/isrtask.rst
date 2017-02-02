@@ -174,6 +174,18 @@ Butler Outputs
 
 Exposure of `datasetType <#>`_ `postISRCCD`.
 
+
+Debugging
+=========
+
+- `display` - A dictionary containing debug point names as keys with frame number as value.  The only valid key is:
+
+  `postISRCCD` (to display exposure after ISR has been applied)
+
+See `lsstDebug.info`_ for more on the debugging framework.
+
+.. _`lsstDebug.info`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_debug_1_1_info.html
+
 Examples
 ========
 
@@ -254,17 +266,6 @@ function, and as noted earlier, also brings up ds9 to view the final
 output exposure if that flag is set on, and writes the image to disk
 if that flag is set.)
 	    
-
-Debugging
-=========
-
-- `display` - A dictionary containing debug point names as keys with frame number as value.  The only valid key is:
-
-  `postISRCCD` (to display exposure after ISR has been applied)
-
-See `lsstDebug.info`_ for more on the debugging framework.
-
-.. _`lsstDebug.info`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_debug_1_1_info.html
 
 Algorithm details
 ====================

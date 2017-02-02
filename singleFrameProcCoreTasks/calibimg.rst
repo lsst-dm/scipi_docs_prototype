@@ -176,11 +176,6 @@ Butler Outputs
 
 Source catalog of type `src <#>`_.
 
-Examples
-========
-
-This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTask <charimg>` before calling this function (`CalibrateTask`) ) in the `$PIPE_TASKS/examples` directory, and the example is described already under `Examples` on :doc:`CharacterizeImageTask <charimg>`.
-
 
 Debugging
 =========
@@ -190,6 +185,12 @@ Debugging
 .. _`lsstDebug.info`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_debug_1_1_info.html
   
 .. _`lsst.meas.astrom.display.displayAstrometry`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1meas_1_1astrom_1_1display.html#aba98ee54d502f211b69ff35db4d36f94
+
+
+Examples
+========
+
+This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTask <charimg>` before calling this function (`CalibrateTask`) ) in the `$PIPE_TASKS/examples` directory, and the example is described already under `Examples` on :doc:`CharacterizeImageTask <charimg>`.
 
 
    
