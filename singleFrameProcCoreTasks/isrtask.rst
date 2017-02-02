@@ -124,6 +124,10 @@ Run method
  	fringes = None,
  	bfKernel = None)
 
+(More information can be found at `run`_)
+
+.. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#aab476cefa23d730451f39119e04875d5  
+	
 Parameters
 ^^^^^^^^^^
 
@@ -153,12 +157,7 @@ Returns
 
 .. _`lsst.pipe.base.Struct`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1struct_1_1_struct.html
 
-Entrypoint
-==========
 
-- `lsst.ip.isr.isrTask.IsrTask.run`_
-
-.. _`lsst.ip.isr.isrTask.IsrTask.run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#aab476cefa23d730451f39119e04875d5  
 
 
 Butler Inputs
@@ -201,7 +200,6 @@ Finally, the output is produced by using the `run`_ function of `IsrTask`, after
 ingesting the raw exposure and the calibration exposures and
 processing them.
 
-.. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#aab476cefa23d730451f39119e04875d5
 
 Stepping through the example:
 
