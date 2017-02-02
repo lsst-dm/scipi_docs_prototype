@@ -51,7 +51,7 @@ Parameters
 Command Line Usage
 ==================
 
-ProcessCcdTask is available as the `processCcd.py`_ `command_line_task`_ and is executable directly from the command line as so::
+ProcessCcdTask is available as the `processCcd.py`_  `command line task`_ and is executable directly from the command line as so::
 
   processCcd.py path/to/input_data [options]
 
@@ -143,7 +143,7 @@ Run method
  
    run(sensorRef)
 
-(More info can be found at `run`_)
+(More information can be found at `run`_)
 
 .. _run: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1process_ccd_1_1_process_ccd_task.html#a82488db6374fb538db2ec4418419bdd4
    
