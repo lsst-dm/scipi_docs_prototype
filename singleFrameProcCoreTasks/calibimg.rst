@@ -128,7 +128,7 @@ Parameters
 `dataRef`
   Butler data reference corresponding to a science image
 `exposure`
-  Characterized exposure (an `lsst.afw.image.ExposureF <#>`_ or similar), or `None` to unpersist existing `icExp <#>`_ and `icBackground <#>`_. See `calibrate`_ method for details of what is read and written.
+  Characterized exposure (an `lsst.afw.image.ExposureF <#>`_ or similar), or `None` to unpersist existing `icExp <#>`_ and `icBackground <#>`_. See the `calibrate`_ method for details of what is read and written.
 `background`
   Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList <#>`_). May be `None` if no background has been subtracted, though that is unusual for calibration. A refined background model is output. Ignored if exposure is `None`.
 `icSourceCat`
@@ -155,10 +155,12 @@ Entrypoint
 
 .. _`lsst.pipe.tasks.calibrate.CalibrateTask.run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
 
-If you want this task to `unpersist <#>`_ inputs or `persist <#>`_ outputs, then call the `run`_ method (which is a thin wrapper around the :doc:`calibrate`_ method).
+If you want this task to `unpersist <#>`_ inputs or `persist <#>`_
+outputs, then call the `run`_ method (which is a thin wrapper around
+the `calibrate`_ method).
 
 
-If you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the :doc:`calibrate`_ method directly.
+If you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the `calibrate`_ method directly.
 
 .. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
 
