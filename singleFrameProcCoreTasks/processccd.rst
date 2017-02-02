@@ -24,6 +24,19 @@ This task is implemented in the `lsst.pipe.tasks`_ module.
 .. _lsst.pipe.tasks: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_tasks.html
     
 
+Command Line Usage
+==================
+
+ProcessCcdTask is available as the `processCcd.py`_  `command line task`_ and is executable directly from the command line as so::
+
+  processCcd.py path/to/input_data [options]
+
+.. _processCcd.py: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/process_ccd_8py_source.html
+
+Where the path to the input data is required, but all other arguments are optional.
+
+All the flag options available to a normal `command line task`_, which are listed in the :doc:`table of CLT options <tableOfCLToptions>`, are also usable for ProcessCcdTask.
+
 Configuration
 =============
 
@@ -48,18 +61,6 @@ Parameters
 
      `doCalibrate` ,`bool`, `True`, Perform calibration?
 
-Command Line Usage
-==================
-
-ProcessCcdTask is available as the `processCcd.py`_  `command line task`_ and is executable directly from the command line as so::
-
-  processCcd.py path/to/input_data [options]
-
-.. _processCcd.py: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/process_ccd_8py_source.html
-
-Where the path to the input data is required, but all other arguments are optional.
-
-All the flag options available to a normal `command line task`_, which are listed in the :doc:`table of CLT options <tableOfCLToptions>`, are also usable for ProcessCcdTask.
      
 Python usage
 ============
