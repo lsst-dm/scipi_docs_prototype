@@ -1,5 +1,7 @@
 .. _top:
 
+:orphan: true
+	 
 #############################
 API for CharacterizeImageTask
 #############################
