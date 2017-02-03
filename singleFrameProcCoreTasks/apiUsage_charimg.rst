@@ -7,7 +7,7 @@ API for CharacterizeImageTask
 #############################
 
 
-Member Function Names
+Member Method Names
 =====================
 
 :ref:`characterize <charlink>`
@@ -18,7 +18,7 @@ Member Function Names
 
 :ref:`display <displaylink>`
 
-Member Function Descriptions
+Member Method Descriptions
 ============================
 
 .. _charlink:
