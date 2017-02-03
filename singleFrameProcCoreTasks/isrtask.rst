@@ -122,6 +122,13 @@ Run method
  	fringes = None,
  	bfKernel = None)
 
+The required inputs to the `run` method are the exposure to be corrected
+(which will be of `datasetType <#>`_  `raw <#>`_) and the calibration
+data products. The raw input is a single chip-sized mosaic of all amps
+including overscans and other non-science pixels.
+
+.. We want to eventually link these to pages explaining the different kinds datatypes available
+   	
 (More information can be found at `run`_)
 
 .. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#aab476cefa23d730451f39119e04875d5  
@@ -153,31 +160,12 @@ Parameters
 Returns
 ^^^^^^^
 
-`struct` -   `lsst.pipe.base.Struct`_ with field: `exposure` (of type `lsst.afw.image.exposure <#>`_)
+`struct` -   `lsst.pipe.base.Struct`_ with field: `exposure` (i.e. `lsst.afw.image.exposure <#>`_  specifically of type `postISRCCD <#>`_.)
 
-.. We want to eventually link this to a page explaining the different kinds of exposures accessible in the afw.image pkg
+.. We want to eventually link this to a page explaining the different kinds of exposures accessible in the afw.image pkg, and the different kinds datatypes available   
 
 .. _`lsst.pipe.base.Struct`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1struct_1_1_struct.html
 
-
-
-
-Butler Inputs
-=============
-
-The inputs to the entrypoint method are the exposure to be corrected
-(which will be of `datasetType <#>`_  `raw <#>`_) and the calibration
-data products. The raw input is a single chip-sized mosaic of all amps
-including overscans and other non-science pixels.
-
-.. We want to eventually link these to pages explaining the different kinds datatypes available
-   
-Butler Outputs
-==============
-
-Exposure of `datasetType <#>`_  `postISRCCD <#>`_.
-
-.. We want to eventually link these to pages explaining the different kinds datatypes available
 
 Debugging
 =========

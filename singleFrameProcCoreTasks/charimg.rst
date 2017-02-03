@@ -112,6 +112,8 @@ Run method
       background = None,
       doUnpersist = True )		
 
+The required input to the `run` method is the exposure to be characterized, and an optional input is an initial model of background which has already subtracted from exposure.
+
 
 Parameters
 ^^^^^^^^^^
@@ -153,7 +155,11 @@ A pipe_base Struct containing these fields, all from the final iteration of :doc
 `exposure`: characterized exposure; image is repaired by interpolating over cosmic rays, mask is updated accordingly, and the PSF model is set
 
 `sourceCat`: detected sources (an `lsst.afw.table.SourceCatalog <#>`_)
+
 .. We want to eventually link this to a descrip of the available types of catalogs in afw.table
+.. Does it matter at this point to user that output catalogs are of type `icSrc <#>` ?
+.. We want to eventually link this to a page with a descrip of the available types of catalogs
+   
 `background`: model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`_)
 
 `psfCellSet`: spatial cells of PSF candidates (an `lsst.afw.math.SpatialCellSet`_)
@@ -175,20 +181,8 @@ If you already have the inputs `unpersisted <#>`_ and do not want to `persist <#
 
 
 
-Butler Inputs
-=============
 
-A butler object is passed to the `refObjLoader` constructor in case it
-is needed to load catalogs. It may be `None` if a catalog-based star
-selector is not used, if the reference object loader constructor does
-not require a butler, or if a reference object loader is passed
-directly via the `refObjLoader` argument.
 
-Butler Outputs
-==============
-
-Output catalogs are of type `icSrc <#>`_.
-.. We want to eventually link this to a page with a descrip of the available types of catalogs
 
 Debugging
 =========

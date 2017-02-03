@@ -121,6 +121,14 @@ Run method
       icSourceCat = None,
       doUnpersist = True)		
 
+The required input to the `run` method is an already-characterized
+exposure (by e.g. :doc:`CharacterizeImage <charimg>`, and a two
+optional inputs (though normally included at this point) are an
+initial model of background which has already subtracted from
+exposure, and a source catalog provided by
+e.g. :doc:`CharacterizeImage <charimg>`.
+      
+      
 Parameters
 ^^^^^^^^^^
 
@@ -172,17 +180,6 @@ If you already have the inputs `unpersisted <#>`_ and do not want to `persist <#
 
 .. _`calibrate`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a12bb075ab0bdf60d95ae30900688d9a4
 
-Butler Inputs
-=============
-
-The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly (type: `icSrc_schema <#>`_).
-
-Butler Outputs
-==============
-
-Source catalog of type `src <#>`_.
-
-.. Need a link explaining this catalog type in more detail
 
 Debugging
 =========
