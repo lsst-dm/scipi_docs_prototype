@@ -1,4 +1,3 @@
-
 #############
 CalibrateTask
 #############
@@ -138,6 +137,11 @@ Parameters
      - if `True`, exposure, `background` and `icSourceCat` are read from `dataRef` and those three arguments must all be `None`;
      - if `False` the exposure must be provided; `background` and `icSourceCat` are optional. `True` is intended for running as a command-line task, `False` for running as a subtask
 
+.. icexp and icbkgd: We want to eventually link the 2 types of exposures to a page with a descrip of the available types of them  
+.. Should we use same link for lsst.afw.math.BackgroundList as in charimg?
+.. Need a linked page to explain this icSourceKeys file 
+.. icSourceCat etc.: Really, we want to link to pages where all these exposures and catalogs are explained more
+
 Returns
 ^^^^^^^
 
@@ -162,6 +166,8 @@ the `calibrate`_ method).
 
 If you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the `calibrate`_ method directly.
 
+.. As in charimg, we will link to pages that explain these terms more technically
+   
 .. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
 
 .. _`calibrate`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a12bb075ab0bdf60d95ae30900688d9a4
@@ -176,6 +182,7 @@ Butler Outputs
 
 Source catalog of type `src <#>`_.
 
+.. Need a link explaining this catalog type in more detail
 
 Debugging
 =========

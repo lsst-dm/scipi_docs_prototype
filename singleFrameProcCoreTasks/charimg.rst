@@ -100,6 +100,8 @@ Parameters
 
 .. _`lsst.pipe.base.CmdLineTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1cmd_line_task_1_1_cmd_line_task.html
 
+.. sourcetable above: We want to eventually link this to a descrip of what the afw.table.SourceTable obj is
+
 Run method
 ----------
  
@@ -138,6 +140,8 @@ Parameters
 
 .. _`lsst.afw.math.BackgroundList`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1math.html
 
+.. There is not an exact BackgroundList obj in lsst.afw.math, but several similar type objs (?)
+
 `doUnpersist`
   If `True` the exposure is read from the repository and the exposure and background arguments must be None; if `False` the exposure must be provided. `True` is intended for running as a command-line task, `False` for running as a subtask
 
@@ -149,12 +153,12 @@ A pipe_base Struct containing these fields, all from the final iteration of :doc
 `exposure`: characterized exposure; image is repaired by interpolating over cosmic rays, mask is updated accordingly, and the PSF model is set
 
 `sourceCat`: detected sources (an `lsst.afw.table.SourceCatalog <#>`_)
-
+.. We want to eventually link this to a descrip of the available types of catalogs in afw.table
 `background`: model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`_)
 
-`psfCellSet`: spatial cells of PSF candidates (an `lsst.afw.math.SpatialCellSet <#>`_)
+`psfCellSet`: spatial cells of PSF candidates (an `lsst.afw.math.SpatialCellSet`_)
 
-
+.. _`lsst.afw.math.SpatialCellSet`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1math_1_1_spatial_cell_set.html
 
 Entrypoint
 ==========
@@ -164,8 +168,7 @@ Entrypoint
 .. _`lsst.pipe.tasks.characterizeImage.CharacterizeImageTask.run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
   
 If you want this task to `unpersist <#>`_ inputs or `persist <#>`_ outputs, then call the `run`_ method (which is a thin wrapper around the :doc:`characterize <apiUsage_charimg>` method).
-
-
+.. We will link to pages that explain these terms more technically
 .. _`run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
 
 If you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the :doc:`characterize <apiUsage_charimg>` method directly.
@@ -185,7 +188,7 @@ Butler Outputs
 ==============
 
 Output catalogs are of type `icSrc <#>`_.
-
+.. We want to eventually link this to a page with a descrip of the available types of catalogs
 
 Debugging
 =========
@@ -215,7 +218,7 @@ Examples
 ========
 
 Note: running this example currently requires that over and above the DM Stack installation, `afwdata`_ is installed and set up (via the EUPS `setup <https://dev.lsstcorp.org/trac/wiki/EupsTutorial>`_ command).
-
+.. This is a general link to the EUPS tutorial, but setup is explained in there
 .. _`afwdata`: https://github.com/lsst/afwdata
 
 This example script is `calibrateTask.py` (which calls this function `CharacterizeImageTask`) before calling :doc:`CalibrateTask <calibimg>` in the `$PIPE_TASKS/examples` directory, and can be run from the command line as, e.g.:

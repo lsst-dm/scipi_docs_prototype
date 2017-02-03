@@ -122,12 +122,15 @@ Returns
 
 .. _`lsst.pipe.base.Struct`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1struct_1_1_struct.html
 
-   - `charRes`: object returned by image characterization task; an `lsst.pipe.base.Struct`_ that will include "background" and "sourceCat" fields.
-   - `calibRes`: object returned by calibration task: an `lsst.pipe.base.Struct`_ that will include "background" and "sourceCat" fields
+   - `charRes`: object returned by image characterization task; an `lsst.pipe.base.Struct`_ that will include `background` and `sourceCat` fields.
+   - `calibRes`: object returned by calibration task: an `lsst.pipe.base.Struct`_ that will include `background` and `sourceCat` fields
    - `exposure`: final exposure (an `lsst.afw.image.ExposureF <#>`_)
-   - `background`: final background model (an lsst.afw.math.BackgroundList)
+   - `background`: final background model (an `lsst.afw.math.BackgroundList`_)
  
+.. We want to eventually link this to a page explaining the different
+   kinds of exposures accessible in the afw.image pkg
 
+.. _`lsst.afw.math.BackgroundList`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1math.html
 
 Examples
 ========

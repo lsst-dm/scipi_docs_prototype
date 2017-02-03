@@ -131,6 +131,8 @@ Parameters
 
 `ccdExposure` -  `lsst.afw.image.exposure <#>`_ of detector data
 
+.. We want to eventually link this to a page explaining the different kinds of exposures accessible in the afw.image pkg
+   
 `bias` -  Exposure of bias frame
   
 `linearizer` -  Linearizing functor; a subclass of `lsst.ip.isr.LinearizeBase`_
@@ -153,6 +155,8 @@ Returns
 
 `struct` -   `lsst.pipe.base.Struct`_ with field: `exposure` (of type `lsst.afw.image.exposure <#>`_)
 
+.. We want to eventually link this to a page explaining the different kinds of exposures accessible in the afw.image pkg
+
 .. _`lsst.pipe.base.Struct`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1struct_1_1_struct.html
 
 
@@ -161,19 +165,19 @@ Returns
 Butler Inputs
 =============
 
-`dataRef` – a `daf.persistence.butlerSubset.ButlerDataRef <#>`_ of the
-detector data to be processed
-
 The inputs to the entrypoint method are the exposure to be corrected
-(which will be of `datasetType <#>`_ `raw <#>`_) and the calibration
+(which will be of `datasetType <#>`_  `raw <#>`_) and the calibration
 data products. The raw input is a single chip-sized mosaic of all amps
 including overscans and other non-science pixels.
 
+.. We want to eventually link these to pages explaining the different kinds datatypes available
+   
 Butler Outputs
 ==============
 
-Exposure of `datasetType <#>`_ `postISRCCD`.
+Exposure of `datasetType <#>`_  `postISRCCD <#>`_.
 
+.. We want to eventually link these to pages explaining the different kinds datatypes available
 
 Debugging
 =========
