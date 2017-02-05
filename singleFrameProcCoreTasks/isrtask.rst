@@ -129,10 +129,12 @@ including overscans and other non-science pixels.
 
 .. We want to eventually link these to pages explaining the different kinds datatypes available
    	
-(More information can be found at `run`_)
+(More information can be found at `run`_, and at `this Confluence page`_)
 
 .. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#aab476cefa23d730451f39119e04875d5  
-	
+
+.. _`this Confluence page`: https://confluence.lsstcorp.org/pages/viewpage.action?spaceKey=~hchiang2&title=Notes+on+existing+pipeline+components
+
 Parameters
 ^^^^^^^^^^
 
