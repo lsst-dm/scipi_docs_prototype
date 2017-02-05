@@ -1,4 +1,3 @@
-
 #####################
 CharacterizeImageTask
 #####################
@@ -272,16 +271,26 @@ To round out this minimal description, the `displayFunc` that is called above in
 Algorithm details
 =================
 
-The way characterizeImage works is to estimate initial background
-since this will be needed to make basic photometric measurements.
+The way `characterizeImage` works is to estimate initial background
+from an image where defects have been masked out, since a good
+background model will be needed to make basic photometric
+measurements.
 
 It then does a straight subtraction of this background from the image
 itself, pixel by pixel, which is a necessary prerequisite to
-extracting out the actual objects in the image.
+extracting out the actual objects in the image (the sources are
+extracted using a separate subtask, which defaults to
+`SourceDetectionTask`_ ).
 
-Further, a PSF is determined iteratively, detecting and removing
-defects like cosmic rays, and then using the increased number of
-actual sources detected to better determine the PSF.
+.. _`SourceDetectionTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1detection_1_1_source_detection_task.html
 
+Further, a PSF is determined iteratively (using a subtask which
+defaults to `MeasurePsfTask`_), in a loop in which more defects like
+cosmic rays are detected and removed each time, thereby increasing the
+number of actual sources detected and used to better determine the PSF
+in each iteration.
 
-*[Need specific input from developers on what to insert for algorithmic details here.]*
+.. _`MeasurePsfTask`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1measure_psf_1_1_measure_psf_task.html
+
+   
+*[Need more specific input from developers on what to insert for algorithmic details here.]*

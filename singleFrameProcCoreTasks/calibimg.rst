@@ -201,7 +201,11 @@ This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTa
 Algorithm details
 ==================
 
-`CalibrateTask` runs functions to perform deep detection and measurement,
-fits an improved WCS, then fits the exposure's photometric zero-point.
+`CalibrateTask` initially runs functions analogously to :doc:`CharacterizeImageTask <charimg>` to this time perform deep detection and measurement,
+then goes on to do astrometric calibration on the exposure (using a subtask which defaults to `AstrometryTask`_), as well as photometric calibration on it (using a subtask which defaults to `PhotoCalTask`_).
+
+.. _`AstrometryTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1astrom_1_1astrometry_1_1_astrometry_task.html
+
+.. _`PhotoCalTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1photo_cal_1_1_photo_cal_task.html
 
 *[Need specific input from developers on what to insert for algorithmic details here.]*

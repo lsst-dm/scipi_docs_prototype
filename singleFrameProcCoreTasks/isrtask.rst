@@ -264,18 +264,83 @@ Algorithm details
 
 IsrTask performs instrument signature removal on an exposure in varying ways depending on which corrections need to be applied to the raw image, but generally some combination of the following is done:
 
-- Finding out which pixels have charge which overfills their potential wells
+`Bias subtraction`: removing the pedestal introduced by the instrument
+for a zero-second exposure.  The bias correction is applied to remove
+the additive electronic bias that is present in the signal chain. To
+first approximation, the bias is a constant pedestal, but it has
+low-amplitude structure that is related to its electronic stability
+during read-out of the detector segment. The processing pipeline
+removes the bias contribution in a two-step process. In the first
+step, the median value of non-flagged pixels in the overscan region is
+subtracted from the image. In the second step, the reference bias
+image is subtracted from the science image to remove the higher-order
+structure.  Following the bias correction, the pixels are scaled by
+the gain factor for the appropriate CCD. The brightness units are
+electrons (or equivalently for unit gain, detected photons) for
+calibrated images.
 
-- Bias subtraction: removing the pedestal introduced by the instrument for a zero-second exposure (may use the overscan correction function)
+`Overscan Correction`: This is similar in structure to bias
+subtraction, except the function `overscanCorrection`_ in `IsrTask` is
+extensive and has some options to be chosen such as interpolation
+choices.
 
--   Dark correction: i.e. removing the dark current, which is the residual current seen even when no light is falling on the sensors
+.. _`overscanCorrection`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#a5e5c48656c428d20fb981a6858ee98cb
 
--   Flat-fielding: i.e. correcting for the different responsivity of the current coming from pixels to the same amount of light falling on them
+`Dark correction`: this is done by subtracting a reference
+dark calibration frame that has been scaled to the exposure time of
+the visit image.
 
-- Apply brighter fatter correction: i.e. accounting for the distortion of the electric field lines at the bottom of pixels when bright objects liberate many charges that get trapped at the bottom of the potential wells
 
-- Mask known bad pixels, defects, saturated pixels and all NaNs and interpolate over them
+`Linearity Correction`: The response of the CCD detectors to radiation
+is highly linear for pixels that are not near saturation, to typically
+better than 0.1% for most recent cameras.  Thus, currently, no
+linearity correction is applied in the DM pipelines. Were a correction
+necessary it would likely be implemented with a look-up table, and
+executed following the dark correction but prior to fringe correction.
 
+`Flat-fielding`: Flat-fielding corrects approximately for vignetting
+across the CCD (i.e. the variation in the amount of light that hits
+the detector due to angle of incidence into the aperture at the top of
+the telescope tube, and the resultant shadow from one side). The
+flat-field correction is performed by dividing each science frame by a
+normalized, reference flat-field image for the corresponding filter.
+
+`Brighter fatter correction`: i.e. accounting for the distortion of
+the electric field lines at the bottom of pixels when bright objects
+liberate many charges that get trapped at the bottom of the potential
+wells.  The Brighter-Fatter Correction is the standard name given to
+the correction because a pixel tower 'fills up' with electrons at the
+bottom of the silicon layer when many photons hit the top of the
+detector, altering the normal electric field lines set up to trap all
+the electrons liberated from normal photon hits in that tower, and
+forcing some of the resultant electrons into neighboring pixels.  This
+requires careful treatment to correct for, and the currently
+implemented model is a fairly advanced one that takes a kernel that
+has been derived from flat field images to redistribute the charge.
+(The default DMS method in particular is described in substantial
+detail `here`_.)
+
+.. _`here`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#abcef49896d412c901f42e960dce9e280
+
+
+`Saturation Correction`: At the start of pipeline processing the pixel values are examined to
+detect saturation (which will naturally also identify bleed trails
+near saturated targets, and the strongest cosmic rays). These values,
+along with pixels that are identified in the list of static bad
+pixels, are flagged in the data quality mask of the science image.
+All pixels in the science array identified as “bad” in this sense are
+interpolated over, in order to avoid problems with source detection
+and with code optimization for other downstream pipeline processing.
+Interpolation is performed with a linear predictive code, as was done
+for the Sloan Digital Sky Survey (SDSS). The PSF is taken to be a
+Gaussian with sigma width equal to one pixel when deriving the
+coefficients. For interpolating over most defects the interpolation is
+only done in the x-direction, extending 2 pixels on each side of the
+defect. This is done both for simplicity and to ameliorate the way
+that saturation trails interact with bad columns.
+
+  
+  
 *[Need specific input from developers on what to insert for algorithmic details here.]*
 
 [Extra reference: Section 4 of LSST DATA CHALLENGE HANDBOOK (2011) [https://project.lsst.org/sciencewiki/images/DC_Handbook_v1.1.pdf] , and http://hsca.ipmu.jp/public/index.html ]
