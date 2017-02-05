@@ -16,7 +16,7 @@ Contents:
    isrtask
    charimg
    calibimg
-   char
+
    
    
 
