@@ -1,6 +1,11 @@
+:orphan: true
+
 .. _top:
 
-:orphan: true
+.. py:module:: charimg
+
+
+
 	 
 #############################
 API for CharacterizeImageTask
@@ -13,7 +18,7 @@ Member Method Names
 :ref:`characterize <charlink>`
 
 :ref:`detectMeasureAndEstimatePsf <detlink>`
-
+     
 :ref:`getSchemaCatalogs <getlink>`
 
 :ref:`display <displaylink>`
@@ -22,7 +27,7 @@ Member Method Descriptions
 ============================
 
 .. _charlink:
-     
+
 .. code-block:: python
 		
   characterize(exposure,
@@ -72,7 +77,9 @@ pipe_base Struct containing these fields, all from the final iteration of :ref:`
 
 
 
-    
+
+
+
 .. _detlink:
 
 .. code-block:: python
