@@ -257,14 +257,16 @@ And returned at the end of the function.
 
 (The `main` function of runIsrTask simply calls this runIsr
 function, and as noted earlier, also brings up ds9 to view the final
-output exposure if that flag is set on, and writes the image to disk
-if that flag is set.)
+output exposure if that flag is set on, and writes the image to diskif that flag is set.)
 	    
 
 Algorithm details
 ====================
 
-IsrTask performs instrument signature removal on an exposure in varying ways depending on which corrections need to be applied to the raw image, but generally some combination of the following is done:
+IsrTask performs instrument signature removal on an exposure in
+varying ways depending on which corrections need to be applied to the
+raw image, but generally some combination of at least the following is
+done:
 
 `Bias subtraction`: removing the pedestal introduced by the instrument
 for a zero-second exposure.  The bias correction is applied to remove
@@ -281,12 +283,6 @@ the gain factor for the appropriate CCD. The brightness units are
 electrons (or equivalently for unit gain, detected photons) for
 calibrated images.
 
-`Overscan Correction`: This is similar in structure to bias
-subtraction, except the function `overscanCorrection`_ in `IsrTask` is
-extensive and has some options to be chosen such as interpolation
-choices.
-
-.. _`overscanCorrection`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#a5e5c48656c428d20fb981a6858ee98cb
 
 `Dark correction`: this is done by subtracting a reference
 dark calibration frame that has been scaled to the exposure time of
@@ -320,26 +316,31 @@ requires careful treatment to correct for, and the currently
 implemented model is a fairly advanced one that takes a kernel that
 has been derived from flat field images to redistribute the charge.
 (The default DMS method in particular is described in substantial
-detail `here`_.)
+detail `here`_, and also even further in a currently internal report
+by Coulton, Lupton, Smith and Spergel from 4-14-2015 and in references
+listed therein.)
 
+.. Need to be able to at least give the internal link for theier report, and ultimately want to somehow make this report public so anyone can get to it.
+   
 .. _`here`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#abcef49896d412c901f42e960dce9e280
 
 
-`Saturation Correction`: At the start of pipeline processing the pixel values are examined to
-detect saturation (which will naturally also identify bleed trails
-near saturated targets, and the strongest cosmic rays). These values,
-along with pixels that are identified in the list of static bad
-pixels, are flagged in the data quality mask of the science image.
-All pixels in the science array identified as “bad” in this sense are
-interpolated over, in order to avoid problems with source detection
-and with code optimization for other downstream pipeline processing.
-Interpolation is performed with a linear predictive code, as was done
-for the Sloan Digital Sky Survey (SDSS). The PSF is taken to be a
-Gaussian with sigma width equal to one pixel when deriving the
-coefficients. For interpolating over most defects the interpolation is
-only done in the x-direction, extending 2 pixels on each side of the
-defect. This is done both for simplicity and to ameliorate the way
-that saturation trails interact with bad columns.
+`Saturation Correction`: At the start of pipeline processing the pixel
+values are examined to detect saturation (which will naturally also
+identify bleed trails near saturated targets, and the strongest cosmic
+rays). These values, along with pixels that are identified in the list
+of static bad pixels, are flagged in the data quality mask of the
+science image.  All pixels in the science array identified as “bad” in
+this sense are interpolated over, in order to avoid problems with
+source detection and with code optimization for other downstream
+pipeline processing.  Interpolation is performed with a linear
+predictive code, as was done for the Sloan Digital Sky Survey
+(SDSS). The PSF is taken to be a Gaussian with sigma width equal to
+one pixel when deriving the coefficients. For interpolating over most
+defects the interpolation is only done in the x-direction, extending 2
+pixels on each side of the defect. This is done both for simplicity
+and to ameliorate the way that saturation trails interact with bad
+columns.
 
   
   
