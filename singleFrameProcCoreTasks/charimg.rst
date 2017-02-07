@@ -271,26 +271,30 @@ To round out this minimal description, the `displayFunc` that is called above in
 Algorithm details
 =================
 
-The way `characterizeImage` works is to estimate initial background
+The way `characterizeImage` works is to estimate an initial background
 from an image where defects have been masked out, since a good
-background model will be needed to make basic photometric
-measurements.
+background model will be needed to extract objects properly and make
+basic photometric measurements (it does this using a subtask which
+defaults to `SubtractBackgroundTask`_).
+
+.. _`SubtractBackgroundTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1subtract_background_1_1_subtract_background_task.html
 
 It then does a straight subtraction of this background from the image
 itself, pixel by pixel, which is a necessary prerequisite to
-extracting out the actual objects in the image (the sources are
-extracted using a separate subtask, which defaults to
-`SourceDetectionTask`_ ).
+extracting out the actual objects in the image (which is done by a
+separate subtask, which defaults to `SourceDetectionTask`_ ).
 
 .. _`SourceDetectionTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1detection_1_1_source_detection_task.html
 
-Further, a PSF is determined iteratively (using a subtask which
-defaults to `MeasurePsfTask`_), in a loop in which more defects like
-cosmic rays are detected and removed each time, thereby increasing the
-number of actual sources detected and used to better determine the PSF
-in each iteration.
+Also, a PSF is determined iteratively (using a subtask which defaults
+to `MeasurePsfTask`_), in a loop in which more defects like cosmic
+rays are detected and removed each time (using a subtask which
+defaults to `RepairTask`_), thereby increasing the number of actual
+sources detected and used to better determine the PSF in each
+iteration.
 
 .. _`MeasurePsfTask`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1measure_psf_1_1_measure_psf_task.html
 
+.. _`RepairTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1repair_1_1_repair_task.html
    
 *[Need more specific input from developers on what to insert for algorithmic details here.]*
