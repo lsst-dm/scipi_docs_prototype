@@ -201,8 +201,19 @@ This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTa
 Algorithm details
 ==================
 
-`CalibrateTask` initially runs functions analogously to :doc:`CharacterizeImageTask <charimg>` to this time perform deep detection and measurement,
-then goes on to do astrometric calibration on the exposure (using a subtask which defaults to `AstrometryTask`_), as well as photometric calibration on it (using a subtask which defaults to `PhotoCalTask`_).
+`CalibrateTask` initially runs functions analogously to :doc:`CharacterizeImageTask <charimg>`  (which is usually run before `CalibrateTask`)  to this time perform deep detection and measurement (using subtasks which default to `SourceDetectionTask`_  and `SingleFrameMeasurementTask`_).
+
+.. _`SourceDetectionTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1detection_1_1_source_detection_task.html
+
+.. _`SingleFrameMeasurementTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1base_1_1sfm_1_1_single_frame_measurement_task.html
+
+If a flags are set for it to do so, it also optionally runs a deblender subtask (which defaults to `SourceDeblendTask`_), and an aperture correction subtask (which defaults to `ApplyApCorrTask`_)
+
+.. _`SourceDeblendTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1deblender_1_1deblend_1_1_source_deblend_task.html
+
+.. _`ApplyApCorrTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1base_1_1apply_ap_corr_1_1_apply_ap_corr_task.html
+
+Some of its other primary functions are to do astrometric calibration on the exposure (using a subtask which defaults to `AstrometryTask`_), as well as photometric calibration on it (using a subtask which defaults to `PhotoCalTask`_).
 
 .. _`AstrometryTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1astrom_1_1astrometry_1_1_astrometry_task.html
 
