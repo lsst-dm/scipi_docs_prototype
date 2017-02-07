@@ -173,10 +173,12 @@ Entrypoint
 .. _`lsst.pipe.tasks.characterizeImage.CharacterizeImageTask.run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
   
 If you want this task to `unpersist <#>`_ inputs or `persist <#>`_ outputs, then call the `run`_ method (which is a thin wrapper around the :doc:`characterize <apiUsage_charimg>` method).
-.. We will link to pages that explain these terms more technically
-.. _`run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
 
-If you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the :doc:`characterize <apiUsage_charimg>` method directly.
+.. We will link to pages that explain these terms more technically
+
+   .. _`run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
+
+If you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the :doc:`characterize <apiUsage_charimg>` method straight off.
 
 
 
