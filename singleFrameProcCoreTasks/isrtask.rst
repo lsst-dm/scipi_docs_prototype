@@ -249,15 +249,31 @@ using the functions in the extra included utility file::
     flatExposure = exampleUtils.makeFlat(GRADIENT)
     rawExposure = exampleUtils.makeRaw(DARKVAL, OSCAN, GRADIENT, EXPTIME)
 
+In order to perform overscanCorrection `IsrTask.run()` requires
+`Exposures` which have a `lsst.afw.cameraGeom.Detector`. Detector objects
+describe details such as data dimensions, number of amps, orientation
+and overscan dimensions. If requesting images from the Butler,
+Exposures will automatically have detector information. If running
+`IsrTask` on arbitrary images from a camera without an `obs_` package, a
+`lsst.afw.cameraGeom.Detector` can be generated using
+`lsst.afw.cameraGeom.fitsUtils.DetectorBuilder` and set by calling::
+  
+     rawExposure.setDetector(myDetectorObject)
+
+See `lsst.afw.cameraGeom.fitsUtils.DetectorBuilder`_ for more details.
+
+.. _`lsst.afw.cameraGeom.fitsUtils.DetectorBuilder`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1camera_geom_1_1fits_utils_1_1_detector_builder.html
+
 Finally, the output is produced with the line::
 
        output = isrTask.run(rawExposure, dark=darkExposure, flat=flatExposure)
 
 And returned at the end of the function.
 
-(The `main` function of runIsrTask simply calls this runIsr
-function, and as noted earlier, also brings up ds9 to view the final
-output exposure if that flag is set on, and writes the image to diskif that flag is set.)
+(The `main` function of runIsrTask simply calls this `run` function,
+and as noted earlier, also brings up ds9 to view the final output
+exposure if that flag is set on, and writes the image to diskif that
+flag is set.)
 	    
 
 Algorithm details
