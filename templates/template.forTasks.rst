@@ -5,45 +5,68 @@ Based on: https://dmtn-030.lsst.io/v/DM-7096/index.html#task-topic-type
 Template for Tasks
 ##################
 
-- Summary/context (1 sentence).
+- Summary/context (1-2 sentences).
 
-- Summary of logic/algorithm in a paragaph and/or bullet list.  Be concise and link to other tasks wherever needed.
+- Concise summary of logic/algorithm in a paragaph and/or bullet list.  Be concise and link to other tasks wherever needed.
 
 - Include a sentence about each step, which can be either a:
   
-  - a) retargetable sub-task
+  a) retargetable sub-task
 
-  - b) method within a task.
+  b) method within a task.
 
-- Module membership
 
-Here we state what module implemented the task.
+     
+- Module membership:
+
+  Here we simply state in which module the task is implemented.
 
 See also
 =========
 
 .. seealso::
 
-   Will put in a seealso directive like this.
+   Will put in a seealso directive like this one. 
    
-It will link to related content, such as:
+  It will link to related content, such as:
 
-- Tasks that commonly use this task (this helps a reader landing on a “sub task’s” page find the appropriate driver task).
+  - Tasks that commonly use this task (this helps a reader landing on a “sub task’s” page find the appropriate driver task).
   
-- Tasks that can be used instead of this task (to link families of sub tasks).
+  - Tasks that can be used instead of this task (to link families of sub tasks).
 
-- Pages in the Processing and Frameworks sections of the Science Pipelines documentation.
+  - Pages in the Processing and Frameworks sections of the Science Pipelines documentation.
+
+  - The API Usage page for this Task
+
 
     
 Configuration
 =============
 
-- This section describes the task’s configurations defined in the task class’s associated configuration class. Configuration parameters are displayed with the following fields per configuration:
+- This section describes the task’s configurations defined in the task class’s associated configuration class.  We split it into 2 natural subsections.
 
+Retargetable Subtasks
+---------------------
+
+- For these subtasks, we give a table with:
+
+  - Subtask name
+  - Default target
+  - Description of what it does
+
+- We would also like to provide list of everything to which this could
+  be retargeted.
+
+- Ideally the parameter type links to a documentation topic for that type (such as a class’s API reference)
+
+Parameters
+----------
+
+Here, configuration parameters are displayed in a table with the following fields:
 
 - Parameter name.
 
-- Parameter type. Ideally the parameter type links to a documentation topic for that type (such as a class’s API reference), if it's anything beyond simple python var types.
+- Parameter type.  These are generally simple python var types (i.e. `bool`, `int`, `float`, or `str` )
 
 - Default value of parameter.
 
@@ -51,50 +74,42 @@ Configuration
 
 - It would be good to call out the most frequently changed config vars in some way as well.
 
-The Configuration section will be split into two types:
 
-Flags  and utility variables
-----------------------------
+Python usage
+============
 
-- Simple `boolean`, `int`, `float`, or `str` config vars
+Class initialization
+--------------------
+
+- Interface for declaring an instance of the class
+
+- Description of the parameters in the interface signature
+
+Run method
+----------
+
+- A description of the interface for calling the primary entrypoint function for the class
+
+- Description of the parameters in the run signature
   
-Subtasks
---------
-
-- For subtasks, provide list of everything to which this could be retargeted.
-
-
 Entrypoint
 ==========
 
-- Link to API page for the "run" method.
+- Link to API page for the `run` method.
 
+- Any details on calling the `run` method
+  
 (Note that task run methods are not necessarily named ‘run,’ nor do they necessarily share a uniform interface.)
-
-Butler Inputs
-=============
-
-- Dataset type + description of Butler gets()
-
-- Best effort for now; hopefully auto-doc'd in SuperTask framework
-
-Butler Outputs
-==============
-
-- Dataset type + description of Butler puts()
-
-- Best effort for now; hopefully auto-doc'd in SuperTask framework
-
-Examples
-========
-
-- Self-contained example of using this task that can be tested
 
 Debugging
 =========
 
 - Debugging framework hooks
 
+Examples
+========
+
+- Self-contained example of using this task that can be tested
 
 Algorithm details
 ====================
