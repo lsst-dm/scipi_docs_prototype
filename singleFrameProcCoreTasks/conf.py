@@ -20,3 +20,5 @@ html_static_path = []
 
 # DEBUG only
 automodsumm_writereprocessed = False
+
+exclude_patterns += ['src']
