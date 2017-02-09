@@ -7,7 +7,7 @@ ProcessCcdTask is a `command line task`_ which executes through its
 subtasks the steps of how an image is processed from raw uncorrected
 CCD-level data finally to science-grade images and catalogs.
 
-.. _`command line task`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1cmd_line_task_1_1_cmd_line_task.html
+.. _`command line task`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_base.html#pipeBase_argumentParser
 
 In more detail, ProcessCcdTask executes the following steps:
 
@@ -31,7 +31,8 @@ ProcessCcdTask is available as the `processCcd.py`_  `command line task`_ and is
 
   processCcd.py path/to/input_data [options]
 
-.. _processCcd.py: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/process_ccd_8py_source.html
+.. _processCcd.py: https://github.com/lsst/pipe_tasks/blob/master/python/lsst/pipe/tasks/processCcd.py
+
 
 Where the path to the input data is required, but all other arguments are optional.
 
@@ -118,7 +119,9 @@ Parameters
 Returns
 ^^^^^^^
  
-`struct` - a `lsst.pipe.base.Struct`_ containing these fields:
+`struct`_ - a `lsst.pipe.base.Struct`_ containing these fields:
+
+.. _`struct`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1struct_1_1_struct.html
 
 .. _`lsst.pipe.base.Struct`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1struct_1_1_struct.html
 
