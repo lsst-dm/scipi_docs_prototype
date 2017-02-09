@@ -111,7 +111,14 @@ Run method
       background = None,
       doUnpersist = True )		
 
-The required input to the `run` method is the exposure to be characterized, and an optional input is an initial model of background which has already subtracted from exposure.
+The required input to the `run`_ method  (which is a thin wrapper around the :doc:`characterize <apiUsage_charimg>` method) is the exposure to be characterized, and an optional input is an initial model of background which has already subtracted from exposure.
+
+.. _`run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
+
+If you want this task to `unpersist <#>`_ inputs or `persist <#>`_ outputs, then call the `run`_ method, however, if you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the :doc:`characterize <apiUsage_charimg>` method straight off.
+
+.. We will link to pages that explain the persistence terms more technically
+
 
 
 Parameters
@@ -119,7 +126,10 @@ Parameters
 
 
 `dataRef`
-  Butler data reference for science exposure
+  `Butler <#>`_ data reference for science exposure
+
+.. Butler: we'll link to this in a glossary, minimally
+   
 
 `exposure`
   Exposure to characterize (an `lsst.afw.image.ExposureF`_ or similar). If None then unpersist from "postISRCCD". The following changes are made, depending on the config:
@@ -165,20 +175,8 @@ A pipe_base Struct containing these fields, all from the final iteration of :doc
 
 .. _`lsst.afw.math.SpatialCellSet`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1math_1_1_spatial_cell_set.html
 
-Entrypoint
-==========
 
-- `lsst.pipe.tasks.characterizeImage.CharacterizeImageTask.run`_
-
-.. _`lsst.pipe.tasks.characterizeImage.CharacterizeImageTask.run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
   
-If you want this task to `unpersist <#>`_ inputs or `persist <#>`_ outputs, then call the `run`_ method (which is a thin wrapper around the :doc:`characterize <apiUsage_charimg>` method).
-
-.. We will link to pages that explain these terms more technically
-
-   .. _`run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
-
-If you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the :doc:`characterize <apiUsage_charimg>` method straight off.
 
 
 

@@ -121,19 +121,28 @@ Run method
       icSourceCat = None,
       doUnpersist = True)		
 
-The required input to the `run` method is an already-characterized
-exposure (by e.g. :doc:`CharacterizeImage <charimg>`, and a two
-optional inputs (though normally included at this point) are an
-initial model of background which has already subtracted from
-exposure, and a source catalog provided by
+The required input to the `run`_ method (which is a thin wrapper
+around the `calibrate`_ method) is an already-characterized exposure
+(produced by e.g. :doc:`CharacterizeImage <charimg>`), and there are
+two optional inputs as well (which though are normally included at
+this point): an initial model of the background which has already
+subtracted from the exposure, and a source catalog, both provided by
 e.g. :doc:`CharacterizeImage <charimg>`.
       
-      
+.. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
+
+If you want this task to `unpersist <#>`_ inputs or `persist <#>`_ outputs, then call the `run`_ method, however, if you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the `calibrate`_ method straight off.
+
+.. As in charimg, we will link to pages that explain the persistence terms more technically
+   
+.. _`calibrate`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a12bb075ab0bdf60d95ae30900688d9a4
+
+
 Parameters
 ^^^^^^^^^^
 
 `dataRef`
-  Butler data reference corresponding to a science image
+  `Butler <#>`_ data reference corresponding to a science image
 `exposure`
   Characterized exposure (an `lsst.afw.image.ExposureF <#>`_ or similar), or `None` to unpersist existing `icExp <#>`_ and `icBackground <#>`_. See the `calibrate`_ method for details of what is read and written.
 `background`
@@ -145,6 +154,7 @@ Parameters
      - if `True`, exposure, `background` and `icSourceCat` are read from `dataRef` and those three arguments must all be `None`;
      - if `False` the exposure must be provided; `background` and `icSourceCat` are optional. `True` is intended for running as a command-line task, `False` for running as a subtask
 
+.. Butler: we'll link to this in a glossary, minimally       
 .. icexp and icbkgd: We want to eventually link the 2 types of exposures to a page with a descrip of the available types of them  
 .. Should we use same link for lsst.afw.math.BackgroundList as in charimg?
 .. Need a linked page to explain this icSourceKeys file 
@@ -158,27 +168,6 @@ Returns pipe_base Struct containing these fields:
  - background - model of background subtracted from exposure (an `lsst.afw.math.BackgroundList <#>`_)
  - sourceCat - catalog of measured sources
  - astromMatches - list of source/refObj matches from the astrometry solver
-
-
-Entrypoint
-==========
-
-- `lsst.pipe.tasks.calibrate.CalibrateTask.run`_ 
-
-.. _`lsst.pipe.tasks.calibrate.CalibrateTask.run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
-
-If you want this task to `unpersist <#>`_ inputs or `persist <#>`_
-outputs, then call the `run`_ method (which is a thin wrapper around
-the `calibrate`_ method).
-
-
-If you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the `calibrate`_ method directly.
-
-.. As in charimg, we will link to pages that explain these terms more technically
-   
-.. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
-
-.. _`calibrate`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a12bb075ab0bdf60d95ae30900688d9a4
 
 
 Debugging
