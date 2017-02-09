@@ -122,7 +122,7 @@ Run method
  	fringes = None,
  	bfKernel = None)
 
-The required inputs to the `run` method are the exposure to be corrected
+The required inputs to the `run`_ method are the exposure to be corrected
 (which will be of `datasetType <#>`_  `raw <#>`_) and the calibration
 data products. The raw input is a single chip-sized mosaic of all amps
 including overscans and other non-science pixels.
@@ -252,14 +252,16 @@ using the functions in the extra included utility file::
 In order to perform overscanCorrection `IsrTask.run()` requires
 `Exposures` which have a `lsst.afw.cameraGeom.Detector`. Detector objects
 describe details such as data dimensions, number of amps, orientation
-and overscan dimensions. If requesting images from the Butler,
+and overscan dimensions. If requesting images from the `Butler <#>`_,
 Exposures will automatically have detector information. If running
 `IsrTask` on arbitrary images from a camera without an `obs_` package, a
 `lsst.afw.cameraGeom.Detector` can be generated using
 `lsst.afw.cameraGeom.fitsUtils.DetectorBuilder` and set by calling::
-  
+
      rawExposure.setDetector(myDetectorObject)
 
+.. Butler: we'll link to this in a glossary, minimally
+     
 See `lsst.afw.cameraGeom.fitsUtils.DetectorBuilder`_ for more details.
 
 .. _`lsst.afw.cameraGeom.fitsUtils.DetectorBuilder`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1camera_geom_1_1fits_utils_1_1_detector_builder.html

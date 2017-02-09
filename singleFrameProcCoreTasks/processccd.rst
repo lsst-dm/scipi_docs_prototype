@@ -114,8 +114,11 @@ Parameters
 ^^^^^^^^^^
  
 `sensorRef`
-   Butler data reference for raw data.
- 
+   `Butler <#>`_ data reference for raw data.
+
+.. Butler: we'll link to this in a glossary, minimally
+   
+   
 Returns
 ^^^^^^^
  
