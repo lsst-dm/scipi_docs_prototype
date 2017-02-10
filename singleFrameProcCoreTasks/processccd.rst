@@ -23,17 +23,29 @@ This task is implemented in the `lsst.pipe.tasks`_ module.
 
 .. _lsst.pipe.tasks: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_tasks.html
     
+.. seealso::
+   
+    This task is most commonly called directly on the command line as
+    the initial controller task to analyze exposures.
+    
+
+    `API Usage <#>`_: *[To be filled in, like in charimg case]*
+
+.. We will have a link to a separate page here called apiUsage_processccd.rst
 
 Command Line Usage
 ==================
 
-ProcessCcdTask is available as the `processCcd.py`_  `command line task`_ and is executable directly from the command line as so::
+ProcessCcdTask is available as the processCcd.py  `command line task`_ and is executable directly from the command line as so::
 
   processCcd.py path/to/input_data [options]
 
+.. Later, when we have the proper technology for it, we will insert the link to the CLT options page at "[options]"  
+  
 .. _processCcd.py: https://github.com/lsst/pipe_tasks/blob/master/python/lsst/pipe/tasks/processCcd.py
 
 
+   
 Where the path to the input data is required, but all other arguments are optional.
 
 All the flag options available to a normal `command line task`_, which are listed in the :doc:`table of CLT options <tableOfCLToptions>`, are also usable for ProcessCcdTask.
