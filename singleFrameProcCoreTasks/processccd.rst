@@ -134,7 +134,7 @@ Parameters
 Returns
 ^^^^^^^
  
-`struct`_ - a `lsst.pipe.base.Struct`_ containing these fields:
+``struct`` - a `lsst.pipe.base.Struct`_ containing these fields:
 
 .. _`struct`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1struct_1_1_struct.html
 
