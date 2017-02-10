@@ -67,8 +67,8 @@ Parameters
    `doWrite`, `bool`,  `True`, Persist results?
    `doWriteExposure`, `bool`,  `True`, Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite False.
    `useSimplePsf`, `bool`,  `True`, Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
-   `psfIterations`, `int`,  2 ,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If `useSimplePsf = True` then 2 should be plenty; otherwise more may be wanted. `Min=1`.
-   `checkUnitsParseStrict`,  `str`, `raise`, Strictness of Astropy unit compatibility check.  Can be 'raise'; 'warn'; 'silent'
+   `psfIterations`, `int`,  ``2`` ,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If `useSimplePsf = True` then 2 should be plenty; otherwise more may be wanted. `Min=1`.
+   `checkUnitsParseStrict`,  `str`, ``"raise"``, Strictness of Astropy unit compatibility check.  Can be 'raise'; 'warn'; 'silent'
 
 
 Python usage

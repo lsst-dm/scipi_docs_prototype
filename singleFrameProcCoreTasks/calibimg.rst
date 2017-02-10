@@ -61,11 +61,11 @@ Parameters
    `doAstrometry`,  `bool` ,  `True` , Run subtask to apply aperture correction?
    `requireAstrometry`,  `bool` ,  `True` , Raise an exception if astrometry fails? (ignored if `doAstrometry = false`)
    `doPhotoCal`,  `bool` ,  `True` , Perform photometric calibration?
-   `requirePhotoCal`,`bool` ,  `True`, Raise an exception if photoCal fails? (ignored if `doPhotoCal = false`)
+   `requirePhotoCal`, `bool` ,  `True`, Raise an exception if photoCal fails? (ignored if `doPhotoCal = false`)
    `doApCorr`, `bool` ,  `True`, Run subtask to apply aperture correction?
-   `matchRadiusPix`, `float` ,  3.0 , Match radius for matching icSourceCat objects to sourceCat objects (pixels)
+   `matchRadiusPix`, `float` ,  ``3.0`` , Match radius for matching icSourceCat objects to sourceCat objects (pixels)
    `doDeblend`, `bool` ,  `True` , Run deblender input exposure?
-   `checkUnitsParseStrict`, `str` , `raise`, Strictness of Astropy unit compatibility check; can be: 'raise' ; 'warn' ; 'silent'
+   `checkUnitsParseStrict`, `str` , ``"raise"``, Strictness of Astropy unit compatibility check; can be: 'raise' ; 'warn' ; 'silent'
 
 
 
