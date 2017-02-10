@@ -3,11 +3,16 @@
 ProcessCcdTask
 ##############
 
-ProcessCcdTask is a `command line task`_ which executes through its
+
+`ProcessCcdTask <#>`_ is a `command line task`_ which executes through its
 subtasks the steps of how an image is processed from raw uncorrected
 CCD-level data finally to science-grade images and catalogs.
 
 .. _`command line task`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_base.html#pipeBase_argumentParser
+
+.. We also will insert links higher level pages in the Framework docs about CLT's at this location
+
+.. `ProcessCcdTask <#>`_ will link to the API page when it's made
 
 In more detail, ProcessCcdTask executes the following steps:
 
@@ -36,7 +41,7 @@ This task is implemented in the `lsst.pipe.tasks`_ module.
 Command Line Usage
 ==================
 
-ProcessCcdTask is available as the processCcd.py  `command line task`_ and is executable directly from the command line as so::
+`ProcessCcdTask <#>`_ is available as the processCcd.py  `command line task`_ and is executable directly from the command line as so::
 
   processCcd.py path/to/input_data [options]
 
@@ -48,7 +53,7 @@ ProcessCcdTask is available as the processCcd.py  `command line task`_ and is ex
    
 Where the path to the input data is required, but all other arguments are optional.
 
-All the flag options available to a normal `command line task`_, which are listed in the :doc:`table of CLT options <tableOfCLToptions>`, are also usable for ProcessCcdTask.
+All the flag options available to a normal `command line task`_, which are listed in the :doc:`table of CLT options <tableOfCLToptions>`, are also usable for `ProcessCcdTask <#>`_.
 
 Configuration
 =============
@@ -175,10 +180,10 @@ Add the option `--help` to see more options.
 Debugging
 =========
 
-ProcessCcdTask has no debug output, but its several subtasks do.
+`ProcessCcdTask <#>`_ has no debug output, but its several subtasks do.
 
 
 Algorithm details
 =================
 
-ProcessCcdTask is essentially a wrapper around the three subtasks, see those for actual contentful algorithmic details.
+`ProcessCcdTask <#>`_ is essentially a wrapper around the three subtasks, see those for actual contentful algorithmic details.
