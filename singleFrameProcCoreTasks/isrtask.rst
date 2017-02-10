@@ -15,9 +15,11 @@ of steps taken will vary from image to image.  Generally these
 corrections are done one CCD at a time, but on all the amplifier
 sub-images at once for a CCD.  
 
-IsrTask provides a generic vanilla implementation of doing these
+`IsrTask <#>`_ provides a generic vanilla implementation of doing these
 corrections, including the ability to turn certain corrections off if
 they are not needed.
+
+.. `IsrTask <#>`_ will link to the API page when it's made
 
 This task is implemented in the `lsst.ip.isr`_ module.
 
@@ -183,6 +185,9 @@ See `lsstDebug.info`_ for more on the debugging framework.
 Examples
 ========
 
+.. This example is not working in the current stack (see https://jira.lsstcorp.org/browse/DM-9197)  --- 2/9/2017
+   
+
 To see an example of the ISR algorithm in action, run the
 example in the `$IP_ISR_DIR/examples` as follows:
 
@@ -197,11 +202,11 @@ file to disk.  In this example code, this output file is called::
 
 The optional `--ds9` flag tells it to bring up the ds9 image viewer (if installed) and show the post-ISR image.
 
-As an overview: what this example does after setting up the
-parameter configuration, is to make several calibration exposures
-that will be used to create the final corrected output exposure.
-Finally, the output is produced by using the `run`_ function of `IsrTask`, after
-ingesting the raw exposure and the calibration exposures and
+As an overview: what this example does after setting up the parameter
+configuration, is to make several calibration exposures that will be
+used to create the final corrected output exposure.  Finally, the
+output is produced by using the `run`_ function of `IsrTask <#>`_ ,
+after ingesting the raw exposure and the calibration exposures and
 processing them.
 
 
@@ -254,7 +259,7 @@ In order to perform overscanCorrection `IsrTask.run()` requires
 describe details such as data dimensions, number of amps, orientation
 and overscan dimensions. If requesting images from the `Butler <#>`_,
 Exposures will automatically have detector information. If running
-`IsrTask` on arbitrary images from a camera without an `obs_` package, a
+`IsrTask <#>`_ on arbitrary images from a camera without an `obs_` package, a
 `lsst.afw.cameraGeom.Detector` can be generated using
 `lsst.afw.cameraGeom.fitsUtils.DetectorBuilder` and set by calling::
 
@@ -281,7 +286,7 @@ flag is set.)
 Algorithm details
 ====================
 
-IsrTask performs instrument signature removal on an exposure in
+`IsrTask <#>`_ performs instrument signature removal on an exposure in
 varying ways depending on which corrections need to be applied to the
 raw image, but generally some combination of at least the following is
 done:

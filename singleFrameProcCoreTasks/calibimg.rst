@@ -183,14 +183,18 @@ Debugging
 Examples
 ========
 
-This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTask <charimg>` before calling this function (`CalibrateTask`) ) in the `$PIPE_TASKS/examples` directory, and the example is described already under `Examples` on :doc:`CharacterizeImageTask <charimg>`.
+This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTask <charimg>` before calling this function (`CalibrateTask <#>`_) ) in the `$PIPE_TASKS/examples` directory, and the example is described already under `Examples` on :doc:`CharacterizeImageTask <charimg>`.
 
+.. `CalibTask <#>`_ will link to the API page when it's made
 
+.. This example is not working in the current stack (see https://jira.lsstcorp.org/browse/DM-9142)  --- 2/9/2017
+
+   
    
 Algorithm details
 ==================
 
-`CalibrateTask` initially runs functions analogously to :doc:`CharacterizeImageTask <charimg>`  (which is usually run before `CalibrateTask`)  to this time perform deep detection and measurement (using subtasks which default to `SourceDetectionTask`_  and `SingleFrameMeasurementTask`_).
+`CalibrateTask <#>`_ initially runs functions analogously to :doc:`CharacterizeImageTask <charimg>`  (which is usually run before `CalibrateTask <#>`_)  to this time perform deep detection and measurement (using subtasks which default to `SourceDetectionTask`_  and `SingleFrameMeasurementTask`_).
 
 .. _`SourceDetectionTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1detection_1_1_source_detection_task.html
 

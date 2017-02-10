@@ -210,11 +210,15 @@ See `lsstDebug.info`_ for more on the debugging framework.
 Examples
 ========
 
+.. This example is not working in the current stack (see https://jira.lsstcorp.org/browse/DM-9142)  --- 2/9/2017
+   
+
 Note: running this example currently requires that over and above the DM Stack installation, `afwdata`_ is installed and set up (via the EUPS `setup <https://dev.lsstcorp.org/trac/wiki/EupsTutorial>`_ command).
 .. This is a general link to the EUPS tutorial, but setup is explained in there
 .. _`afwdata`: https://github.com/lsst/afwdata
 
-This example script is `calibrateTask.py` (which calls this function `CharacterizeImageTask`) before calling :doc:`CalibrateTask <calibimg>` in the `$PIPE_TASKS/examples` directory, and can be run from the command line as, e.g.:
+This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTask <apiUsage_charimg>`) before calling :doc:`CalibrateTask <calibimg>` in the `$PIPE_TASKS/examples` directory, and can be run from the command line as, e.g.:
+
 
 .. code-block:: python
   
@@ -271,7 +275,7 @@ To round out this minimal description, the `displayFunc` that is called above in
 Algorithm details
 =================
 
-The way `characterizeImage` works is to estimate an initial background
+The way :doc:`CharacterizeImageTask <apiUsage_charimg>` works is to estimate an initial background
 from an image where defects have been masked out, since a good
 background model will be needed to extract objects properly and make
 basic photometric measurements (it does this using a subtask which
