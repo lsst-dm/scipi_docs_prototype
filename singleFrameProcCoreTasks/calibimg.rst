@@ -44,7 +44,7 @@ Retargetable Subtasks
    `measurement`, SingleFrameMeasurementTask, Measure sources
    `applyApCorr`, ApplyApCorrTask, Subtask to apply aperture corrections
    `catalogCalculation`, CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
-   `refObjLoader`, LoadAstrometryNetObjectsTask,   reference object loader
+   `refObjLoader`, LoadAstrometryNetObjectsTask,   Reference object loader
    `astrometry`, AstrometryTask, Perform astrometric calibration to refine the WCS
 
 	
@@ -57,7 +57,7 @@ Parameters
 
    `doWrite`,  `bool`,  `True`, Save calibration results?
    `doWriteMatches`,   `bool`,  `True`, Write reference matches? (ignored if `doWrite = false`)
-   `doWriteHeavyFootprintsInSources`,  `bool` ,  `True`, Include HeavyFootprint data in source table? If false then heavy footprints are saved as normal footprints which saves some space
+   `doWriteHeavyFootprintsInSources`,  `bool` ,  `True`, Include HeavyFootprint data in source table? If `false` then heavy footprints are saved as normal footprints which saves some space
    `doAstrometry`,  `bool` ,  `True` , Run subtask to apply aperture correction?
    `requireAstrometry`,  `bool` ,  `True` , Raise an exception if astrometry fails? (ignored if `doAstrometry = false`)
    `doPhotoCal`,  `bool` ,  `True` , Perform photometric calibration?
@@ -65,10 +65,11 @@ Parameters
    `doApCorr`, `bool` ,  `True`, Run subtask to apply aperture correction?
    `matchRadiusPix`, `float` ,  ``3.0`` , Match radius for matching icSourceCat objects to sourceCat objects (pixels)
    `doDeblend`, `bool` ,  `True` , Run deblender input exposure?
-   `checkUnitsParseStrict`, `str` , ``"raise"``, Strictness of Astropy unit compatibility check; can be: 'raise' ; 'warn' ; 'silent'
+   `checkUnitsParseStrict`, `str` , ``"raise"``, Strictness of `Astropy`_ unit compatibility check; can be: 'raise' ; 'warn' ; 'silent'
 
+.. .. _`Astropy`: http://www.astropy.org/
 
-
+.. Above link is curious: it won't properly work without the second two ".." (or any other comment-like content), unlike other usual links.  Hm.  (2/12/2017)
 
    
 *Leaving this one out for now, not sure what to do with it, because the default is so long, it messes up the length of all the other entries in the table if included:*

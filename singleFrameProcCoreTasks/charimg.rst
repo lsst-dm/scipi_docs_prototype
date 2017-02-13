@@ -48,7 +48,7 @@ Retargetable Subtasks
 	`catalogCalculation`,  CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
 	`installSimplePsf`,   InstallGaussianPsfTask, Install a simple PSF model
 	`refObjLoader`,   LoadAstrometryNetObjectsTask, Reference object loader
-	`astrometry`,  AstrometryTask, Task to load and match reference objects. Only used if `measurePsf` can use matches. Warning: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
+	`astrometry`,  AstrometryTask, Task to load and match reference objects. Only used if `measurePsf` can use matches. *Warning*: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
 	`measurePsf`,  MeasurePsfTask, Measure PSF
 	`repair`,   RepairTask, Remove cosmic rays
  
@@ -63,7 +63,7 @@ Parameters
 
    `doDeblend`, `bool`,  `True`, Run deblender on input exposure?
    `doApCorr`, `bool`,  `True`,  Run subtasks to measure and apply aperture corrections
-   `doMeasurePsf`, `bool`,  `True`, Measure the PSF? If `False` then keep the existing PSF model (which must exist) and use that model for all operations."
+   `doMeasurePsf`, `bool`,  `True`, Measure the PSF? If `False` then keep the existing PSF model (which must exist) and use that model for all operations.
    `doWrite`, `bool`,  `True`, Persist results?
    `doWriteExposure`, `bool`,  `True`, Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite False.
    `useSimplePsf`, `bool`,  `True`, Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
