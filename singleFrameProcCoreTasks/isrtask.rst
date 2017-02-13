@@ -104,15 +104,15 @@ Parameters
              str
          </td>
          <td>
-        	 <code> USER </code>
+        	 <code> "USER" </code>
 	 </td>
         <td>
 	<p> The method for scaling the flat on the fly; allowed values:
 	</p> 
           <ul>
-            <li> <code>  "USER"  </code> : "Scale by flatUserScale"
-	    <li> <code>  "MEAN" </code>: "Scale by the inverse of the mean"
-	    <li> <code>  "MEDIAN" </code>: "Scale by the inverse of the median"
+            <li> <code>  "USER"  </code> : Scale by flatUserScale
+	    <li> <code>  "MEAN" </code>: Scale by the inverse of the mean
+	    <li> <code>  "MEDIAN" </code>: Scale by the inverse of the median
 	  </ul>
          </td>
        </tr>
@@ -124,7 +124,7 @@ Parameters
              str
          </td>
          <td>
-        	 <code> MEDIAN </code>
+        	 <code> "MEDIAN" </code>
 	 </td>
          <td>
 	 <p>
