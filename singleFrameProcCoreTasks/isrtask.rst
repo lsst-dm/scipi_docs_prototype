@@ -101,7 +101,7 @@ Parameters
            <code class="xref py py-obj docutils literal">flatScalingType</code>
          </td>
          <td>
-             str
+           <b>  <a href="https://docs.python.org/2/library/functions.html#str">str</a></b>
          </td>
          <td>
         	 <code> "USER" </code>
@@ -121,7 +121,7 @@ Parameters
            <code class="xref py py-obj docutils literal">overscanFitType</code>
          </td>
          <td>
-             str
+          <b>  <a href="https://docs.python.org/2/library/functions.html#str">str</a> </b>
          </td>
          <td>
         	 <code> "MEDIAN" </code>
