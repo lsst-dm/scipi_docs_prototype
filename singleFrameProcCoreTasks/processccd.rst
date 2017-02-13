@@ -61,13 +61,80 @@ Configuration
 Retargetable Subtasks
 ---------------------
 
-.. csv-table:: 
-   :header: Task, Default, Description
-   :widths: 15, 25, 50
+.. raw:: html
 
-	`isr`,   :doc:`IsrTask <isrtask>`, Task to perform instrumental signature removal or load a post-ISR image; the steps in ISR are to:	- assemble raw amplifier images into an exposure with image; variance and mask planes	- perform bias subtraction; flat fielding; etc.	- mask known bad pixels	- provide a preliminary WCS		
-	`charImage`, :doc:`CharacterizeImageTask <charimg>`, Task to characterize a science exposure; the steps of image characterization are to:	- detect sources; usually at high S/N	- estimate the background; which is subtracted from the image and returned as field "background"	- estimate a PSF model; which is added to the exposure	- interpolate over defects and cosmic rays; updating the image; variance and mask planes
-	`calibrate`,  :doc:`CalibrateTask <calibimg>`, Task to perform astrometric and photometric calibration; the steps are to:	- refine the WCS in the exposure	- refine the Calib photometric calibration object in the exposure	- detect sources; usually at low S/N
+   <table border="1" class="colwidth-given docutils">
+     <colgroup>
+       <col width="17%">
+       <col width="28%">
+       <col width="56%">
+     </colgroup>
+     <thead valign="bottom">
+       <tr class="row-odd">
+         <th>Task</th>
+         <th>Default</th>
+         <th>Description</th>
+       </tr>
+     </thead>
+     <tbody valign="top">
+       <tr class="row-even">
+         <td>
+           <code class="xref py py-obj docutils literal">isr</code>
+         </td>
+         <td>
+           <a class="reference internal" href="isrtask.html">
+             <span class="doc">IsrTask</span>
+           </a>
+         </td>
+         <td>
+           <p>Task to perform instrumental signature removal or load a post-ISR image:</p>
+           <ul>
+             <li>Assemble raw amplifier images into an exposure with image; variance and mask planes.</li>
+             <li>Perform bias subtraction and flat fielding.</li>
+             <li>Mask known bad pixels.</li>
+             <li>Provide a preliminary WCS.</li>
+           </ul>
+         </td>
+       </tr>
+       <tr class="row-odd">
+         <td>
+           <code class="xref py py-obj docutils literal">charImage</code>
+         </td>
+         <td>
+           <a class="reference internal" href="charimg.html">
+             <span class="doc">CharacterizeImageTask</span>
+           </a>
+         </td>
+         <td>
+           <p>Task to characterize a science exposure, including:</p>
+           <ul>
+             <li>Detect sources, usually at high S/N.</li>
+             <li>Estimate and subtract the background. Persisted as field <code>background</code>.</li>
+             <li>Estimate a PSF model, which is added to the exposure.</li>
+             <li>Interpolate over defects and cosmic rays, updating the image, variance, and mask planes.</li>
+           </ul>
+         </td>
+       </tr>
+       <tr class="row-even">
+         <td>
+           <code class="xref py py-obj docutils literal">calibrate</code>
+         </td>
+         <td>
+           <a class="reference internal" href="calibimg.html">
+             <span class="doc">CalibrateTask</span>
+           </a>
+         </td>
+         <td>
+           <p>Task to perform astrometric and photometric calibration</p>
+           <ul>
+             <li>Refine the WCS in the exposure.</li>
+             <li>Refine the Calib photometric calibration object in the exposure.</li>
+             <li>Detect sources, usually at low S/N.</li>
+           </ul>
+         </td>
+       </tr>
+     </tbody>
+   </table>
 
 	
 Parameters
