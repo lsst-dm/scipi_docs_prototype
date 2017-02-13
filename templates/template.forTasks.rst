@@ -21,9 +21,6 @@ Template for Tasks
 
   Here we simply state in which module the task is implemented.
 
-See also
-=========
-
 .. seealso::
 
    Will put in a seealso directive like this one. 
