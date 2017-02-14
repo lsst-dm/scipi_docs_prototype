@@ -81,11 +81,69 @@ Parameters
    `datasetType`, `str`,   ``"raw"``,  Dataset type for input data; users will typically leave this alone
    `fallbackFilterName`, `str`,  no default,  Fallback default filter name for calibrations
    `suspectMaskName`, `str`,  ``"SUSPECT"``, Name of mask plane to use for suspect pixels
-   `flatScalingType`, `str`,  ``"USER"``, The method for scaling the flat on the fly; allowed values:	- "USER": "Scale by flatUserScale"	-          "MEAN": "Scale by the inverse of the mean"        -           "MEDIAN": "Scale by the inverse of the median" 
    `keysToRemoveFromAssembledCcd`, `str`,   ``empty list``, Fields to remove from the metadata of the assembled ccd
    `doLinearize`, `str`,  `True`, Correct for nonlinearity of the detector's response?
    `fallbackFilterName`, `str`, no default, Fallback default filter name for calibrations
-   `overscanFitType`, `str`,  ``"MEDIAN"``, The method for fitting the overscan bias level; allowed values:	- ``"POLY"``: Fit ordinary polynomial to the longest axis of the overscan region	-        ``"CHEB"``: Fit Chebyshev polynomial to the longest axis of the overscan region	-  ``"LEG"``: Fit Legendre polynomial to the longest axis of the overscan region        -    ``"NATURAL_SPLINE"``: Fit natural spline to the longest axis of the overscan region        -   ``"CUBIC_SPLINE"``: Fit cubic spline to the longest axis of the overscan region        -  ``"AKIMA_SPLINE"``: Fit Akima spline to the longest axis of the overscan region        -  ``"MEAN"``: Correct using the mean of the overscan region        -  ``"MEDIAN"``: Correct using the median of the overscan region
+
+
+.. raw:: html
+	 
+  <table border="1" class="colwidth-given docutils">
+     <colgroup>
+       <col width="31%">
+       <col width="9%">
+       <col width="15%">
+       <col width="46%">
+     </colgroup>
+     <tbody valign="top">
+       <tr class="row-even">
+         <td>
+           <code class="xref py py-obj docutils literal">flatScalingType</code>
+         </td>
+         <td>
+           <b>  <a href="https://docs.python.org/2/library/functions.html#str">str</a></b>
+         </td>
+         <td>
+        	 <code> "USER" </code>
+	 </td>
+        <td>
+	<p> The method for scaling the flat on the fly; allowed values:
+	</p> 
+          <ul>
+            <li> <code>  "USER"  </code> : Scale by flatUserScale
+	    <li> <code>  "MEAN" </code>: Scale by the inverse of the mean
+	    <li> <code>  "MEDIAN" </code>: Scale by the inverse of the median
+	  </ul>
+         </td>
+       </tr>
+       <tr class="row-odd">
+         <td>
+           <code class="xref py py-obj docutils literal">overscanFitType</code>
+         </td>
+         <td>
+          <b>  <a href="https://docs.python.org/2/library/functions.html#str">str</a> </b>
+         </td>
+         <td>
+        	 <code> "MEDIAN" </code>
+	 </td>
+         <td>
+	 <p>
+	  The method for fitting the overscan bias level; allowed values:
+	 </p>
+	 <ul>
+	   <li>  <code>"POLY"</code>: Fit ordinary polynomial to the longest axis of the overscan region
+	   <li>  <code>"CHEB"</code>: Fit Chebyshev polynomial to the longest axis of the overscan region
+	   <li>  <code>"LEG"</code>: Fit Legendre polynomial to the longest axis of the overscan region
+	   <li>  <code>"NATURAL_SPLINE"</code>: Fit natural spline to the longest axis of the overscan region
+	   <li>  <code>"CUBIC_SPLINE"</code>: Fit cubic spline to the longest axis of the overscan region
+	   <li>  <code>"AKIMA_SPLINE"</code>: Fit Akima spline to the longest axis of the overscan region
+	   <li>  <code>"MEAN"</code>: Correct using the mean of the overscan region
+	   <li>  <code>"MEDIAN"</code>: Correct using the median of the overscan region
+	  </ul>
+     </tbody>
+   </table>
+
+
 
 Python usage
 ============
