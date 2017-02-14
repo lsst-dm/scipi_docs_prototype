@@ -1,9 +1,9 @@
 
 Based on: https://dmtn-030.lsst.io/v/DM-7096/index.html#task-topic-type
 
-##################
-Template for Tasks
-##################
+###########
+ExampleTask
+###########
 
 - Summary/context (1-2 sentences).
 
