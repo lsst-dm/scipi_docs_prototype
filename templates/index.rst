@@ -12,8 +12,7 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
-   template.forTasks
-
+ ExampleTask <template.forTasks>
 	      
 .. template.forCLT
 .. template.forFrameworks.rst
