@@ -89,14 +89,6 @@ Run method
 
 - Description of the parameters in the run signature
   
-Entrypoint
-==========
-
-- Link to API page for the `run` method.
-
-- Any details on calling the `run` method
-  
-(Note that task run methods are not necessarily named ‘run,’ nor do they necessarily share a uniform interface.)
 
 Debugging
 =========
