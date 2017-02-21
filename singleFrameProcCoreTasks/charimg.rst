@@ -60,14 +60,14 @@ Parameters
    :header: Parameter, Type, Default, Description
    :widths: 10, 5, 5, 50
 
-   `doDeblend`, `bool`,  `True`, Run deblender on input exposure?
-   `doApCorr`, `bool`,  `True`,  Run subtasks to measure and apply aperture corrections
-   `doMeasurePsf`, `bool`,  `True`, Measure the PSF? If `False` then keep the existing PSF model (which must exist) and use that model for all operations.
-   `doWrite`, `bool`,  `True`, Persist results?
-   `doWriteExposure`, `bool`,  `True`, Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite False.
-   `useSimplePsf`, `bool`,  `True`, Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
-   `psfIterations`, `int`,  ``2`` ,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If `useSimplePsf = True` then 2 should be plenty; otherwise more may be wanted. `Min=1`.
-   `checkUnitsParseStrict`,  `str`, ``"raise"``, Strictness of Astropy unit compatibility check.  Can be 'raise'; 'warn'; 'silent'
+   `doDeblend`, `bool`,  ``True``, Run deblender on input exposure?
+   `doApCorr`, `bool`,  ``True``,  Run subtasks to measure and apply aperture corrections
+   `doMeasurePsf`, `bool`,  ``True``, Measure the PSF? If ``False`` then keep the existing PSF model (which must exist) and use that model for all operations.
+   `doWrite`, `bool`,  ``True``, Persist results?
+   `doWriteExposure`, `bool`,  ``True``, Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite is ``False``.
+   `useSimplePsf`, `bool`,  ``True``, Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
+   `psfIterations`, `int`,  ``2`` ,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If ``useSimplePsf = True`` then 2 should be plenty; otherwise more may be wanted. ``Min=1``.
+   `checkUnitsParseStrict`,  `str`, ``"raise"``, Strictness of Astropy unit compatibility check.  Can be ``"raise"`` ``"warn"`` or ``"silent"``
 
 
 Python usage
@@ -153,7 +153,7 @@ Parameters
 .. There is not an exact BackgroundList obj in lsst.afw.math, but several similar type objs (?)
 
 `doUnpersist`
-  If `True` the exposure is read from the repository and the exposure and background arguments must be None; if `False` the exposure must be provided. `True` is intended for running as a command-line task, `False` for running as a subtask
+  If ``True`` the exposure is read from the repository and the exposure and background arguments must be None; if `False` the exposure must be provided. ``True`` is intended for running as a command-line task, `False` for running as a subtask
 
 Returns
 ^^^^^^^
@@ -191,12 +191,12 @@ Debugging
 
 
         `frame`, `int`, if specified: the frame of first debug image displayed (defaults to 1)	    
-        `repair_iter`, `bool`,  if `True` display image after each repair in the measure PSF loop
-	`background_iter`, `bool`,  if `True` display image after each background subtraction in the measure PSF loop
-	`measure_iter`, `bool`,  if `True` display image and sources at the end of each iteration of the measure PSF loop.  See `lsst.meas.astrom.display.displayAstrometry`_  for the meaning of the various symbols.
-	`psf`, `bool`,  if `True` display image and sources after PSF is measured; this will be identical to the final image displayed by measure_iter if measure_iter is true
-	`repair`, `bool`,  if `True` display image and sources after final repair
-	`measure`, `bool`,  if `True` display image and sources after final measurement
+        `repair_iter`, `bool`,  if ``True`` display image after each repair in the measure PSF loop
+	`background_iter`, `bool`,  if ``True`` display image after each background subtraction in the measure PSF loop
+	`measure_iter`, `bool`,  if ``True`` display image and sources at the end of each iteration of the measure PSF loop.  See `lsst.meas.astrom.display.displayAstrometry`_  for the meaning of the various symbols.
+	`psf`, `bool`,  if ``True`` display image and sources after PSF is measured; this will be identical to the final image displayed by measure_iter if measure_iter is true
+	`repair`, `bool`,  if ``True`` display image and sources after final repair
+	`measure`, `bool`,  if ``True`` display image and sources after final measurement
 
 .. _`lsst.meas.astrom.display.displayAstrometry`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1meas_1_1astrom_1_1display.html#aba98ee54d502f211b69ff35db4d36f94
 

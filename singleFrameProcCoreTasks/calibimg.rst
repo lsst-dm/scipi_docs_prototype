@@ -54,17 +54,17 @@ Parameters
    :header: Parameter, Type, Default, Description
    :widths: 10, 5, 5, 50
 
-   `doWrite`,  `bool`,  `True`, Save calibration results?
-   `doWriteMatches`,   `bool`,  `True`, Write reference matches? (ignored if `doWrite = false`)
-   `doWriteHeavyFootprintsInSources`,  `bool` ,  `True`, Include HeavyFootprint data in source table? If `false` then heavy footprints are saved as normal footprints which saves some space
-   `doAstrometry`,  `bool` ,  `True` , Run subtask to apply aperture correction?
-   `requireAstrometry`,  `bool` ,  `True` , Raise an exception if astrometry fails? (ignored if `doAstrometry = false`)
-   `doPhotoCal`,  `bool` ,  `True` , Perform photometric calibration?
-   `requirePhotoCal`, `bool` ,  `True`, Raise an exception if photoCal fails? (ignored if `doPhotoCal = false`)
-   `doApCorr`, `bool` ,  `True`, Run subtask to apply aperture correction?
+   `doWrite`,  `bool`,  ``True``, Save calibration results?
+   `doWriteMatches`,   `bool`,  ``True``, Write reference matches? (ignored if ``doWrite = False``)
+   `doWriteHeavyFootprintsInSources`,  `bool` ,  ``True``, Include HeavyFootprint data in source table? If ``False`` then heavy footprints are saved as normal footprints which saves some space
+   `doAstrometry`,  `bool` ,  ``True`` , Run subtask to apply aperture correction?
+   `requireAstrometry`,  `bool` ,  ``True`` , Raise an exception if astrometry fails? (ignored if ``doAstrometry = False``)
+   `doPhotoCal`,  `bool` ,  ``True`` , Perform photometric calibration?
+   `requirePhotoCal`, `bool` ,  ``True``, Raise an exception if photoCal fails? (ignored if ``doPhotoCal = False``)
+   `doApCorr`, `bool` ,  ``True``, Run subtask to apply aperture correction?
    `matchRadiusPix`, `float` ,  ``3.0`` , Match radius for matching icSourceCat objects to sourceCat objects (pixels)
-   `doDeblend`, `bool` ,  `True` , Run deblender input exposure?
-   `checkUnitsParseStrict`, `str` , ``"raise"``, Strictness of `Astropy`_ unit compatibility check; can be: 'raise' ; 'warn' ; 'silent'
+   `doDeblend`, `bool` ,  ``True`` , Run deblender input exposure?
+   `checkUnitsParseStrict`, `str` , ``"raise"``, Strictness of `Astropy`_ unit compatibility check; can be: ``"raise"`` ``"warn"`` or ``"silent"`` 
 
 .. .. _`Astropy`: http://www.astropy.org/
 
@@ -151,8 +151,8 @@ Parameters
   Catalog from which to copy the fields specified by `icSourceKeys <#>`_, or `None`;
 `doUnpersist`
   Unpersist data:
-     - if `True`, exposure, `background` and `icSourceCat` are read from `dataRef` and those three arguments must all be `None`;
-     - if `False` the exposure must be provided; `background` and `icSourceCat` are optional. `True` is intended for running as a command-line task, `False` for running as a subtask
+     - if ``True``, exposure, `background` and `icSourceCat` are read from `dataRef` and those three arguments must all be `None`;
+     - if ``False`` the exposure must be provided; `background` and `icSourceCat` are optional. ``True`` is intended for running as a command-line task, ``False`` for running as a subtask
 
 .. Butler: we'll link to this in a glossary, minimally       
 .. icexp and icbkgd: We want to eventually link the 2 types of exposures to a page with a descrip of the available types of them  

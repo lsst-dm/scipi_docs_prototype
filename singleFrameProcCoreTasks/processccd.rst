@@ -142,7 +142,7 @@ Parameters
    :header: Parameter, Type, Default, Description
    :widths: 10, 5, 5, 50
 
-     `doCalibrate` ,`bool`, `True`, Perform calibration?
+     `doCalibrate` ,`bool`, ``True``, Perform calibration?
 
      
 Python usage

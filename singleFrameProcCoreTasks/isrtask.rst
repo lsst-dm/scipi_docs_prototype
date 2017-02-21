@@ -52,15 +52,15 @@ Parameters
    :header: Parameter, Type, Default, Description
    :widths: 10, 5, 5, 50
 
-   `doBias`, `bool`,   `True`,  Apply bias frame correction?
-   `doDark`, `bool`,   `True`,  Apply dark frame correction?
-   `doFlat`, `bool`,   `True`,  Apply flat field correction?
-   `doFringe`, `bool`,   `True`,  Apply fringe correction?
-   `doWrite`, `bool`,   `True`,  Persist postISRCCD?
+   `doBias`, `bool`,   ``True``,  Apply bias frame correction?
+   `doDark`, `bool`,   ``True``,  Apply dark frame correction?
+   `doFlat`, `bool`,   ``True``,  Apply flat field correction?
+   `doFringe`, `bool`,   ``True``,  Apply fringe correction?
+   `doWrite`, `bool`,   ``True``,  Persist postISRCCD?
    `gain`, `float`,   ``float("NaN")``,  The gain to use if no Detector is present in the Exposure (ignored if NaN)
    `readNoise`, `float`,   ``0.0``,  The read noise to use if no Detector is present in the Exposure
    `saturation`, `float`,   ``float("NaN")``,  The saturation level to use if no Detector is present in the Exposure (ignored if NaN)
-   `fringeAfterFlat`, `bool`,   `True`,  Do fringe subtraction after flat   fielding?
+   `fringeAfterFlat`, `bool`,   ``True``,  Do fringe subtraction after flat   fielding?
    `fwhm`, `float`,   ``1.0``,  FWHM of PSF (arcsec)
    `saturatedMaskName`, `str`,   ``"SAT"``,  Name of mask plane to use in saturation detection and interpolation
    `flatUserScale`, `float`,   ``1.0``,  If flatScalingType is 'USER' then scale flat by this amount; ignored otherwise
@@ -68,19 +68,19 @@ Parameters
    `overscanRej`, `float`,   ``3.0``,  Rejection threshold (sigma) for collapsing overscan before fit
    `growSaturationFootprintSize`, `int`,   ``1``,  Number of pixels by which to grow the saturation footprints
    `fluxMag0T1`, `float`,   ``1.0e10``,  The approximate flux of a zero   magnitude object in a one-second exposure
-   `setGainAssembledCcd`, `bool`,   `True`,  update exposure metadata in the assembled ccd to reflect the effective gain of the assembled chip
-   `doAssembleIsrExposures`, `bool`,   `False`,  Assemble amp-level calibration exposures into ccd-level exposure?
-   `doAssembleCcd`, `bool`,   `True`,  Assemble amp-level exposures into a ccd-level exposure?
-   `doBrighterFatter`, `bool`,   `False`,  Apply the brighter fatter correction
+   `setGainAssembledCcd`, `bool`,   ``True``,  update exposure metadata in the assembled ccd to reflect the effective gain of the assembled chip
+   `doAssembleIsrExposures`, `bool`,   ``False``,  Assemble amp-level calibration exposures into ccd-level exposure?
+   `doAssembleCcd`, `bool`,   ``True``,  Assemble amp-level exposures into a ccd-level exposure?
+   `doBrighterFatter`, `bool`,   ``False``,  Apply the brighter fatter correction
    `brighterFatterKernelFile`, `str`,   ``empty string``,  Kernel file used for the brighter fatter correction
    `brighterFatterMaxIter`, `int`,   ``18``,  Maximum number of iterations for the brighter fatter correction
    `brighterFatterThreshold`, `float`,   ``1000.0``,  Threshold used to stop iterating the brighter fatter correction.  It is the absolute value of the difference between the current corrected image and the one from the previous iteration summed over all the pixels.
-   `brighterFatterApplyGain`, `bool`,   `True`,  Should the gain be applied when applying the brighter fatter correction?
+   `brighterFatterApplyGain`, `bool`,   ``True``,  Should the gain be applied when applying the brighter fatter correction?
    `datasetType`, `str`,   ``"raw"``,  Dataset type for input data; users will typically leave this alone
    `fallbackFilterName`, `str`,  no default,  Fallback default filter name for calibrations
    `suspectMaskName`, `str`,  ``"SUSPECT"``, Name of mask plane to use for suspect pixels
    `keysToRemoveFromAssembledCcd`, `str`,   ``empty list``, Fields to remove from the metadata of the assembled ccd
-   `doLinearize`, `str`,  `True`, Correct for nonlinearity of the detector's response?
+   `doLinearize`, `str`,  ``True``, Correct for nonlinearity of the detector's response?
    `fallbackFilterName`, `str`, no default, Fallback default filter name for calibrations
 
 
