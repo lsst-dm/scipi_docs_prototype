@@ -4,9 +4,7 @@ ProcessCcdTask
 ##############
 
 
-`ProcessCcdTask <#>`_ is a `command line task`_ which executes through its
-subtasks the steps of how an image is processed from raw uncorrected
-CCD-level data finally to science-grade images and catalogs.
+`ProcessCcdTask <#>`_ is a `command line task`_ which executes the processing steps to turn raw pixel data into characterized images and calibrated catalogs.
 
 .. _`command line task`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_base.html#pipeBase_argumentParser
 
@@ -17,11 +15,11 @@ CCD-level data finally to science-grade images and catalogs.
 In more detail, ProcessCcdTask executes the following steps:
 
 
-1.  `Instrument Signature Removal` -- Implemented by the :doc:`IsrTask <isrtask>` subtask, this step removes CCD signatures (such as bias, dark current, flat-fielding, and cross-talk) and masks bad pixels.
-
-2. `Image Characterization` -- Implemented by the :doc:`CharacterizeImageTask <charimg>` subtask, this step repairs cosmic ray defects, estimates and subtracts a background, does object detection, and estimates a PSF.
+1.  `Instrument Signature Removal` -- Implemented by the :doc:`IsrTask <isrtask>` subtask, this step applies  pixel-level corrections in preparation for image characterization. Corrections include: bias, dark current, cross-talk, flat-fielding and bad pixel masking."
+    
+2. `Image Characterization` -- Implemented by the :doc:`CharacterizeImageTask <charimg>` subtask, this step interpolates over cosmic rays, estimates and subtracts a background, and estimates the PSF using a set of high signal-to-noise detections. This process is iterative.
   
-3. `Image Calibration`  -- Implemented by the :doc:`CalibrateTask <calibimg>` subtask, this step measures faint sources, fits an astrometric WCS and extracts a photometric zero-point for the image.
+3. `Image Calibration`  -- Implemented by the :doc:`CalibrateTask <calibimg>` subtask, this step measures all sources down to a configurable signal-to-noise threshold, fits an astrometric WCS and extracts a photometric zero-point for the image.
 
 
 This task is implemented in the `lsst.pipe.tasks`_ module.

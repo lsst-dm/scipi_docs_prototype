@@ -2,8 +2,7 @@
 CharacterizeImageTask
 #####################
 
-Given an exposure with defects repaired (masked and interpolated over,
-e.g. as output by :doc:`IsrTask <isrtask>`), this task does initial
+Given an exposure that has been fully corrected for instrumental effects (e.g. as output by :doc:`IsrTask <isrtask>`), this task does initial
 source extraction and PSF estimation.
 
 
@@ -275,11 +274,11 @@ To round out this minimal description, the `displayFunc` that is called above in
 Algorithm details
 =================
 
-The way :doc:`CharacterizeImageTask <apiUsage_charimg>` works is to estimate an initial background
-from an image where defects have been masked out, since a good
-background model will be needed to extract objects properly and make
-basic photometric measurements (it does this using a subtask which
-defaults to `SubtractBackgroundTask`_).
+The way :doc:`CharacterizeImageTask <apiUsage_charimg>` works is to
+estimate an initial background from an image where defects have been
+masked out, since a good background model will be needed to extract
+objects properly and make basic photometric measurements (it does this
+using a subtask which defaults to `SubtractBackgroundTask`_).
 
 .. _`SubtractBackgroundTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1subtract_background_1_1_subtract_background_task.html
 

@@ -4,20 +4,18 @@ IsrTask
 #######
 
 Instrument Signature Removal (ISR) is a sequence of steps taken to
-'clean' images of various aspects of defects that any system of optics
-and detectors will imprint on an image by default, and is generally
-one of the very first procedures carried out on an exposure.
+correct the effects imprinted on the counts coming out of the readout
+by the physical characteristics of the detector and the electronics of
+the readout chain.  It is generally the very first procedure carried
+out on an exposure.
 
 In more detail, though the process for correcting imaging data is very
-similar from camera to camera, depending on the image, various of the
-defects will be present and need to be removed, and thus the sequence
-of steps taken will vary from image to image.  Generally these
-corrections are done one CCD at a time, but on all the amplifier
-sub-images at once for a CCD.  
-
-`IsrTask <#>`_ provides a generic vanilla implementation of doing these
-corrections, including the ability to turn certain corrections off if
-they are not needed.
+similar from camera to camera, they will vary to some degree and thus
+various of the effects will be present and need to be corrected for
+depending on the camera.  Generally these corrections are done one CCD
+at a time, but on all the amplifier sub-images at once for a CCD.
+`IsrTask <#>`_ provides a generic implementation of doing these
+corrections, including the ability to turn certain corrections off.
 
 .. `IsrTask <#>`_ will link to the API page when it's made
 
@@ -344,86 +342,6 @@ flag is set.)
 Algorithm details
 ====================
 
-`IsrTask <#>`_ performs instrument signature removal on an exposure in
-varying ways depending on which corrections need to be applied to the
-raw image, but generally some combination of at least the following is
-done:
-
-`Bias subtraction`: removing the pedestal introduced by the instrument
-for a zero-second exposure.  The bias correction is applied to remove
-the additive electronic bias that is present in the signal chain. To
-first approximation, the bias is a constant pedestal, but it has
-low-amplitude structure that is related to its electronic stability
-during read-out of the detector segment. The processing pipeline
-removes the bias contribution in a two-step process. In the first
-step, the median value of non-flagged pixels in the overscan region is
-subtracted from the image. In the second step, the reference bias
-image is subtracted from the science image to remove the higher-order
-structure.  Following the bias correction, the pixels are scaled by
-the gain factor for the appropriate CCD. The brightness units are
-electrons (or equivalently for unit gain, detected photons) for
-calibrated images.
-
-
-`Dark correction`: this is done by subtracting a reference
-dark calibration frame that has been scaled to the exposure time of
-the visit image.
-
-
-`Linearity Correction`: The response of the CCD detectors to radiation
-is highly linear for pixels that are not near saturation, to typically
-better than 0.1% for most recent cameras.  Thus, currently, no
-linearity correction is applied in the DM pipelines. Were a correction
-necessary it would likely be implemented with a look-up table, and
-executed following the dark correction but prior to fringe correction.
-
-`Flat-fielding`: Flat-fielding corrects approximately for vignetting
-across the CCD (i.e. the variation in the amount of light that hits
-the detector due to angle of incidence into the aperture at the top of
-the telescope tube, and the resultant shadow from one side). The
-flat-field correction is performed by dividing each science frame by a
-normalized, reference flat-field image for the corresponding filter.
-
-`Brighter fatter correction`: i.e. accounting for the distortion of
-the electric field lines at the bottom of pixels when bright objects
-liberate many charges that get trapped at the bottom of the potential
-wells.  The Brighter-Fatter Correction is the standard name given to
-the correction because a pixel tower 'fills up' with electrons at the
-bottom of the silicon layer when many photons hit the top of the
-detector, altering the normal electric field lines set up to trap all
-the electrons liberated from normal photon hits in that tower, and
-forcing some of the resultant electrons into neighboring pixels.  This
-requires careful treatment to correct for, and the currently
-implemented model is a fairly advanced one that takes a kernel that
-has been derived from flat field images to redistribute the charge.
-(The default DMS method in particular is described in substantial
-detail `here`_, and also even further in a currently internal report
-by Coulton, Lupton, Smith and Spergel from 4-14-2015 and in references
-listed therein.)
-
-.. Need to be able to at least give the internal link for theier report, and ultimately want to somehow make this report public so anyone can get to it.
-   
-.. _`here`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#abcef49896d412c901f42e960dce9e280
-
-
-`Saturation Correction`: At the start of pipeline processing the pixel
-values are examined to detect saturation (which will naturally also
-identify bleed trails near saturated targets, and the strongest cosmic
-rays). These values, along with pixels that are identified in the list
-of static bad pixels, are flagged in the data quality mask of the
-science image.  All pixels in the science array identified as “bad” in
-this sense are interpolated over, in order to avoid problems with
-source detection and with code optimization for other downstream
-pipeline processing.  Interpolation is performed with a linear
-predictive code, as was done for the Sloan Digital Sky Survey
-(SDSS). The PSF is taken to be a Gaussian with sigma width equal to
-one pixel when deriving the coefficients. For interpolating over most
-defects the interpolation is only done in the x-direction, extending 2
-pixels on each side of the defect. This is done both for simplicity
-and to ameliorate the way that saturation trails interact with bad
-columns.
-
-  
   
 *[Need specific input from developers on what to insert for algorithmic details here.]*
 

@@ -2,11 +2,10 @@
 CalibrateTask
 #############
 
-Given a properly characterized exposure (which means one with a PSF
-determined and shipped along with the image, commonly done previous to
-running this Task by :doc:`CharacterizeImage <charimg>`), detect
-sources, measure their positions, and do a photometric measurement on
-them.
+Given a background subtracted image, a PSF, and initial astrometric
+solution (all commonly provided to this task by
+:doc:`CharacterizeImage <charimg>`), this task will detect sources,
+measure their positions, and do a photometric calibration on them.
 
 
 This task is implemented in the `lsst.pipe.tasks`_ module.
