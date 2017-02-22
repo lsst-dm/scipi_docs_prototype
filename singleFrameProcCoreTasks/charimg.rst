@@ -64,10 +64,14 @@ Parameters
    `doApCorr`, `bool`,  ``True``,  Run subtasks to measure and apply aperture corrections
    `doMeasurePsf`, `bool`,  ``True``, Measure the PSF? If ``False`` then keep the existing PSF model (which must exist) and use that model for all operations.
    `doWrite`, `bool`,  ``True``, Persist results?
-   `doWriteExposure`, `bool`,  ``True``, Write icExp and icExpBackground in addition to icSrc? Ignored if doWrite is ``False``.
+   `doWriteExposure`, `bool`,  ``True``, Write icExp and icExpBackground in addition to `icSrc`_? Ignored if doWrite is ``False``.
    `useSimplePsf`, `bool`,  ``True``, Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
    `psfIterations`, `int`,  ``2`` ,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If ``useSimplePsf = True`` then 2 should be plenty; otherwise more may be wanted. ``Min=1``.
    `checkUnitsParseStrict`,  `str`, ``"raise"``, Strictness of Astropy unit compatibility check.  Can be ``"raise"`` ``"warn"`` or ``"silent"``
+
+.. _icSrc: https://dev.lsstcorp.org/trac/wiki/DataButler
+
+   
 
 
 Python usage
@@ -92,13 +96,15 @@ Parameters
 `refObjLoader`
   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog to a catalog-based star selector. May be None if a catalog star selector is not used or the loader can be constructed from the butler argument.
 `schema`
-  Initial schema (an `lsst.afw.table.SourceTable`), or None
+  Initial schema (an `lsst.afw.table.SourceTable`_), or None
 `kwargs`
   Other keyword arguments for `lsst.pipe.base.CmdLineTask`_
 
 .. _`lsst.pipe.base.CmdLineTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1cmd_line_task_1_1_cmd_line_task.html
 
-.. sourcetable above: We want to eventually link this to a descrip of what the afw.table.SourceTable obj is
+.. _lsst.afw.table.SourceTable: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1table_1_1_source_table.html
+
+
 
 Run method
 ----------
@@ -127,8 +133,7 @@ Parameters
 `dataRef`
   `Butler`_ data reference for science exposure
 
-.. _Butler: https://dev.lsstcorp.org/trac/wiki/glossary
-
+.. _Butler: https://dev.lsstcorp.org/trac/wiki/DataButler
    
 
 `exposure`
@@ -169,17 +174,11 @@ A pipe_base Struct containing these fields, all from the final iteration of :doc
 .. Does it matter at this point to user that output catalogs are of type `icSrc` ?
 .. We want to eventually link this to a page with a descrip of the available types of catalogs
    
-`background`: model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`)
+`background`: model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`_)
 
 `psfCellSet`: spatial cells of PSF candidates (an `lsst.afw.math.SpatialCellSet`_)
 
 .. _`lsst.afw.math.SpatialCellSet`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1math_1_1_spatial_cell_set.html
-
-
-  
-
-
-
 
 
 

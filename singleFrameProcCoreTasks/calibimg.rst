@@ -73,7 +73,7 @@ Parameters
    
 *Leaving this one out for now, not sure what to do with it, because the default is so long, it messes up the length of all the other entries in the table if included:*
 
-   `icSourceFieldsToCopy`, `str` ,  ("calib_psfCandidate" ;    "calib_psfUsed"; "calib_psfReserved"),  Fields to copy from the    icSource catalog to the output catalog for matching sources. Any missing fields will trigger a RuntimeError exception.  Ignored if    icSourceCat is not provided.
+   `icSourceFieldsToCopy`, `str` ,  ("calib_psfCandidate" ;    "calib_psfUsed"; "calib_psfReserved"),  Fields to copy from the    icSource catalog to the output catalog for matching sources. Any missing fields will trigger a RuntimeError exception.  Ignored if icSourceCat is not provided.
 
 
 Python usage
@@ -146,7 +146,7 @@ Parameters
 `exposure`
   Characterized exposure (an `lsst.afw.image.ExposureF` or similar), or `None` to unpersist existing `icExp` and `icBackground`. See the `calibrate`_ method for details of what is read and written.
 `background`
-  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`). May be `None` if no background has been subtracted, though that is unusual for calibration. A refined background model is output. Ignored if exposure is `None`.
+  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`_). May be `None` if no background has been subtracted, though that is unusual for calibration. A refined background model is output. Ignored if exposure is `None`.
 `icSourceCat`
   Catalog from which to copy the fields specified by `icSourceKeys`, or `None`;
 `doUnpersist`
@@ -166,10 +166,11 @@ Returns
 
 Returns pipe_base Struct containing these fields:
  - exposure - calibrated science exposure with refined WCS and Calib
- - background - model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`)
+ - background - model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`_)
  - sourceCat - catalog of measured sources
  - astromMatches - list of source/refObj matches from the astrometry solver
 
+.. _`lsst.afw.math.BackgroundList`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1math.html   
 
 Debugging
 =========

@@ -53,7 +53,7 @@ Parameters
    `doDark`, `bool`,   ``True``,  Apply dark frame correction?
    `doFlat`, `bool`,   ``True``,  Apply flat field correction?
    `doFringe`, `bool`,   ``True``,  Apply fringe correction?
-   `doWrite`, `bool`,   ``True``,  Persist postISRCCD?
+   `doWrite`, `bool`,   ``True``,  Persist `postISRCCD`_?
    `gain`, `float`,   ``float("NaN")``,  The gain to use if no Detector is present in the Exposure (ignored if NaN)
    `readNoise`, `float`,   ``0.0``,  The read noise to use if no Detector is present in the Exposure
    `saturation`, `float`,   ``float("NaN")``,  The saturation level to use if no Detector is present in the Exposure (ignored if NaN)
@@ -80,6 +80,7 @@ Parameters
    `doLinearize`, `str`,  ``True``, Correct for nonlinearity of the detector's response?
    `fallbackFilterName`, `str`, no default, Fallback default filter name for calibrations
 
+.. _postISRCCD: https://dev.lsstcorp.org/trac/wiki/DataButler
 
 .. raw:: html
 	 
@@ -185,7 +186,6 @@ including overscans and other non-science pixels.
 .. _raw: https://dev.lsstcorp.org/trac/wiki/glossary
 
 
-
 .. We want to eventually link these to pages explaining the different kinds datatypes available
    	
 (More information can be found at `run`_, and at `this Confluence page`_)
@@ -222,7 +222,7 @@ Parameters
 Returns
 ^^^^^^^
 
-``struct`` -   `lsst.pipe.base.Struct`_ with field: `exposure` (i.e. `lsst.afw.image.exposure`_  specifically of type `postISRCCD`.)
+``struct`` -   `lsst.pipe.base.Struct`_ with field: `exposure` (i.e. `lsst.afw.image.exposure`_  specifically of type `postISRCCD`_.)
 
 .. We want to eventually link this to a page explaining the different kinds of exposures accessible in the afw.image pkg, and the different kinds datatypes available   
 
@@ -234,7 +234,7 @@ Debugging
 
 - `display` - A dictionary containing debug point names as keys with frame number as value.  The only valid key is:
 
-  `postISRCCD` (to display exposure after ISR has been applied)
+  `postISRCCD`_ (to display exposure after ISR has been applied)
 
 See `lsstDebug.info`_ for more on the debugging framework.
 

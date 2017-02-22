@@ -196,10 +196,8 @@ Parameters
 `sensorRef`
    `Butler`_ data reference for raw data.
 
-.. _Butler: https://dev.lsstcorp.org/trac/wiki/glossary
+.. _Butler: https://dev.lsstcorp.org/trac/wiki/DataButler
 
-.. Butler: we linked to a glossary, minimally
-   
    
 Returns
 ^^^^^^^
