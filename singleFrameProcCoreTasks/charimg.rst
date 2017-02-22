@@ -274,30 +274,30 @@ To round out this minimal description, the `displayFunc` that is called above in
 Algorithm details
 =================
 
-The way :doc:`CharacterizeImageTask <apiUsage_charimg>` works is to
-estimate an initial background from an image where defects have been
-masked out, since a good background model will be needed to extract
-objects properly and make basic photometric measurements (it does this
-using a subtask which defaults to `SubtractBackgroundTask`_).
+The PSF is iteratively arrived at by repeatedly interpolating over
+cosmic rays (using a subtask which defaults to `RepairTask`_),
+estimating and subtracting the background (using a subtask which
+defaults to `SubtractBackgroundTask`_), detecting sources (using a
+subtask which defaults to `SourceDetectionTask`_ ), optionally
+deblending them (using a task which defaults to `SourceDeblendTask`_),
+and then measuring them (using a subtask which defaults to
+`SingleFrameMeasurementTask`_), and using those sources to estimate
+the PSF (using a subtask which defaults to `MeasurePsfTask`_). This is
+repeated ``psfIterations`` times, gradually refining the PSF
+model. After the ultimate PSF has been so derived, it is used in final
+repair and measurement steps which produce the source catalog returned
+to the caller.
 
 .. _`SubtractBackgroundTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1subtract_background_1_1_subtract_background_task.html
 
-It then does a straight subtraction of this background from the image
-itself, pixel by pixel, which is a necessary prerequisite to
-extracting out the actual objects in the image (which is done by a
-separate subtask, which defaults to `SourceDetectionTask`_ ).
-
 .. _`SourceDetectionTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1detection_1_1_source_detection_task.html
 
-Also, a PSF is determined iteratively (using a subtask which defaults
-to `MeasurePsfTask`_), in a loop in which more defects like cosmic
-rays are detected and removed each time (using a subtask which
-defaults to `RepairTask`_), thereby increasing the number of actual
-sources detected and used to better determine the PSF in each
-iteration.
+.. _`SourceDeblendTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1deblender_1_1deblend_1_1_source_deblend_task.html
 
 .. _`MeasurePsfTask`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1measure_psf_1_1_measure_psf_task.html
 
 .. _`RepairTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1repair_1_1_repair_task.html
-   
+
+.. _`SingleFrameMeasurementTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1base_1_1sfm_1_1_single_frame_measurement_task.html#SingleFrameMeasurementTask_
+
 *[Need more specific input from developers on what to insert for algorithmic details here.]*
