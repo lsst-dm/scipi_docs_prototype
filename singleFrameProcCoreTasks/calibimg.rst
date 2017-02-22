@@ -209,8 +209,6 @@ which defaults to `AstrometryTask`_), as well as photometric
 calibration on it (using a subtask which defaults to `PhotoCalTask`_).
 
 
-. Even that is a little imprecise because the , so 
-
 .. _`SingleFrameMeasurementTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1base_1_1sfm_1_1_single_frame_measurement_task.html
 
 .. _`ApplyApCorrTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1base_1_1apply_ap_corr_1_1_apply_ap_corr_task.html
