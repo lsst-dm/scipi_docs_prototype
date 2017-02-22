@@ -92,7 +92,7 @@ Parameters
 `refObjLoader`
   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog to a catalog-based star selector. May be None if a catalog star selector is not used or the loader can be constructed from the butler argument.
 `schema`
-  Initial schema (an `lsst.afw.table.SourceTable <#>`_), or None
+  Initial schema (an `lsst.afw.table.SourceTable`), or None
 `kwargs`
   Other keyword arguments for `lsst.pipe.base.CmdLineTask`_
 
@@ -114,7 +114,7 @@ The required input to the `run`_ method  (which is a thin wrapper around the :do
 
 .. _`run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
 
-If you want this task to `unpersist <#>`_ inputs or `persist <#>`_ outputs, then call the `run`_ method, however, if you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the :doc:`characterize <apiUsage_charimg>` method straight off.
+If you want this task to `unpersist` inputs or `persist` outputs, then call the `run` method, however, if you already have the inputs `unpersisted` and do not want to `persist` the output then it is more direct to call the :doc:`characterize <apiUsage_charimg>` method straight off.
 
 .. We will link to pages that explain the persistence terms more technically
 
@@ -125,9 +125,10 @@ Parameters
 
 
 `dataRef`
-  `Butler <#>`_ data reference for science exposure
+  `Butler`_ data reference for science exposure
 
-.. Butler: we'll link to this in a glossary, minimally
+.. _Butler: https://dev.lsstcorp.org/trac/wiki/glossary
+
    
 
 `exposure`
@@ -162,13 +163,13 @@ A pipe_base Struct containing these fields, all from the final iteration of :doc
 
 `exposure`: characterized exposure; image is repaired by interpolating over cosmic rays, mask is updated accordingly, and the PSF model is set
 
-`sourceCat`: detected sources (an `lsst.afw.table.SourceCatalog <#>`_)
+`sourceCat`: detected sources (an `lsst.afw.table.SourceCatalog`)
 
 .. We want to eventually link this to a descrip of the available types of catalogs in afw.table
-.. Does it matter at this point to user that output catalogs are of type `icSrc <#>` ?
+.. Does it matter at this point to user that output catalogs are of type `icSrc` ?
 .. We want to eventually link this to a page with a descrip of the available types of catalogs
    
-`background`: model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`_)
+`background`: model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`)
 
 `psfCellSet`: spatial cells of PSF candidates (an `lsst.afw.math.SpatialCellSet`_)
 

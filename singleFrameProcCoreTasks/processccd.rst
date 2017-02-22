@@ -4,7 +4,7 @@ ProcessCcdTask
 ##############
 
 
-`ProcessCcdTask <#>`_ is a `command line task`_ which executes the processing steps to turn raw pixel data into characterized images and calibrated catalogs.
+`ProcessCcdTask` is a `command line task`_ which executes the processing steps to turn raw pixel data into characterized images and calibrated catalogs.
 
 .. _`command line task`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_base.html#pipeBase_argumentParser
 
@@ -32,14 +32,12 @@ This task is implemented in the `lsst.pipe.tasks`_ module.
     the initial controller task to analyze exposures.
     
 
-    `API Usage <#>`_: *[To be filled in, like in charimg case]*
-
-.. We will have a link to a separate page here called apiUsage_processccd.rst
+    `API Usage`: *[To be filled in, like in charimg case. We will have a link to a separate page here called apiUsage_processccd.rst]*
 
 Command Line Usage
 ==================
 
-`ProcessCcdTask <#>`_ is available as the processCcd.py  `command line task`_ and is executable directly from the command line as so::
+`ProcessCcdTask` is available as the processCcd.py  `command line task`_ and is executable directly from the command line as so::
 
   processCcd.py path/to/input_data [options]
 
@@ -51,7 +49,7 @@ Command Line Usage
    
 Where the path to the input data is required, but all other arguments are optional.
 
-All the flag options available to a normal `command line task`_, which are listed in the :doc:`table of CLT options <tableOfCLToptions>`, are also usable for `ProcessCcdTask <#>`_.
+All the flag options available to a normal `command line task`_, which are listed in the :doc:`table of CLT options <tableOfCLToptions>`, are also usable for `ProcessCcdTask`.
 
 Configuration
 =============
@@ -196,9 +194,11 @@ Parameters
 ^^^^^^^^^^
  
 `sensorRef`
-   `Butler <#>`_ data reference for raw data.
+   `Butler`_ data reference for raw data.
 
-.. Butler: we'll link to this in a glossary, minimally
+.. _Butler: https://dev.lsstcorp.org/trac/wiki/glossary
+
+.. Butler: we linked to a glossary, minimally
    
    
 Returns
@@ -212,11 +212,12 @@ Returns
 
    - `charRes`: object returned by image characterization task; an `lsst.pipe.base.Struct`_ that will include `background` and `sourceCat` fields.
    - `calibRes`: object returned by calibration task: an `lsst.pipe.base.Struct`_ that will include `background` and `sourceCat` fields
-   - `exposure`: final exposure (an `lsst.afw.image.ExposureF <#>`_)
+   - `exposure`: final exposure (an `lsst.afw.image.ExposureF`_)
    - `background`: final background model (an `lsst.afw.math.BackgroundList`_)
  
-.. We want to eventually link this to a page explaining the different
-   kinds of exposures accessible in the afw.image pkg
+.. _lsst.afw.image.ExposureF: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1image_1_1_exposure.html
+
+.. We want to eventually link this to a page explaining the different kinds of exposures accessible in the afw.image pkg
 
 .. _`lsst.afw.math.BackgroundList`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1math.html
 
@@ -245,10 +246,10 @@ Add the option `--help` to see more options.
 Debugging
 =========
 
-`ProcessCcdTask <#>`_ has no debug output, but its several subtasks do.
+`ProcessCcdTask` has no debug output, but its several subtasks do.
 
 
 Algorithm details
 =================
 
-`ProcessCcdTask <#>`_ is essentially a wrapper around the three subtasks, see those for actual contentful algorithmic details.
+`ProcessCcdTask` is essentially a wrapper around the three subtasks, see those for actual contentful algorithmic details.

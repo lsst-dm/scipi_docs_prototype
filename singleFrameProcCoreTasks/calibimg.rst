@@ -16,7 +16,7 @@ This task is implemented in the `lsst.pipe.tasks`_ module.
    
     This task is most commonly called by :doc:`ProcessCcd <processccd>`.
 
-    `API Usage <#>`_: *[To be filled in, like in charimg case]*
+    `API Usage`: *[To be filled in, like in charimg case]*
 
 .. We will have a link to a separate page here called apiUsage_calibimg.rst
    
@@ -131,7 +131,7 @@ e.g. :doc:`CharacterizeImage <charimg>`.
       
 .. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
 
-If you want this task to `unpersist <#>`_ inputs or `persist <#>`_ outputs, then call the `run`_ method, however, if you already have the inputs `unpersisted <#>`_ and do not want to `persist <#>`_ the output then it is more direct to call the `calibrate`_ method straight off.
+If you want this task to `unpersist` inputs or `persist` outputs, then call the `run` method, however, if you already have the inputs `unpersisted` and do not want to `persist` the output then it is more direct to call the `calibrate` method straight off.
 
 .. As in charimg, we will link to pages that explain the persistence terms more technically
    
@@ -142,19 +142,20 @@ Parameters
 ^^^^^^^^^^
 
 `dataRef`
-  `Butler <#>`_ data reference corresponding to a science image
+  `Butler`_ data reference corresponding to a science image
 `exposure`
-  Characterized exposure (an `lsst.afw.image.ExposureF <#>`_ or similar), or `None` to unpersist existing `icExp <#>`_ and `icBackground <#>`_. See the `calibrate`_ method for details of what is read and written.
+  Characterized exposure (an `lsst.afw.image.ExposureF` or similar), or `None` to unpersist existing `icExp` and `icBackground`. See the `calibrate`_ method for details of what is read and written.
 `background`
-  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList <#>`_). May be `None` if no background has been subtracted, though that is unusual for calibration. A refined background model is output. Ignored if exposure is `None`.
+  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`). May be `None` if no background has been subtracted, though that is unusual for calibration. A refined background model is output. Ignored if exposure is `None`.
 `icSourceCat`
-  Catalog from which to copy the fields specified by `icSourceKeys <#>`_, or `None`;
+  Catalog from which to copy the fields specified by `icSourceKeys`, or `None`;
 `doUnpersist`
   Unpersist data:
      - if ``True``, exposure, `background` and `icSourceCat` are read from `dataRef` and those three arguments must all be `None`;
      - if ``False`` the exposure must be provided; `background` and `icSourceCat` are optional. ``True`` is intended for running as a command-line task, ``False`` for running as a subtask
 
-.. Butler: we'll link to this in a glossary, minimally       
+.. _Butler: https://dev.lsstcorp.org/trac/wiki/glossary
+
 .. icexp and icbkgd: We want to eventually link the 2 types of exposures to a page with a descrip of the available types of them  
 .. Should we use same link for lsst.afw.math.BackgroundList as in charimg?
 .. Need a linked page to explain this icSourceKeys file 
@@ -165,7 +166,7 @@ Returns
 
 Returns pipe_base Struct containing these fields:
  - exposure - calibrated science exposure with refined WCS and Calib
- - background - model of background subtracted from exposure (an `lsst.afw.math.BackgroundList <#>`_)
+ - background - model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`)
  - sourceCat - catalog of measured sources
  - astromMatches - list of source/refObj matches from the astrometry solver
 
@@ -183,9 +184,7 @@ Debugging
 Examples
 ========
 
-This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTask <charimg>` before calling this function (`CalibrateTask <#>`_) ) in the `$PIPE_TASKS/examples` directory, and the example is described already under `Examples` on :doc:`CharacterizeImageTask <charimg>`.
-
-.. `CalibTask <#>`_ will link to the API page when it's made
+This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTask <charimg>` before calling this function (`CalibrateTask`) ) in the `$PIPE_TASKS/examples` directory, and the example is described already under `Examples` on :doc:`CharacterizeImageTask <charimg>`.
 
 .. This example is not working in the current stack (see https://jira.lsstcorp.org/browse/DM-9142)  --- 2/9/2017
 
@@ -194,9 +193,9 @@ This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTa
 Algorithm details
 ==================
 
-`CalibrateTask <#>`_ initially runs functions analogously to
+`CalibrateTask` initially runs functions analogously to
 :doc:`CharacterizeImageTask <charimg>` (which is usually run before
-`CalibrateTask <#>`_) to this time perform deep detection and
+`CalibrateTask`) to this time perform deep detection and
 measurement (using subtasks which default to `SourceDetectionTask`_
 and `SingleFrameMeasurementTask`_) down to a configurable
 signal-to-noise threshold (the point sources are the ones optimally

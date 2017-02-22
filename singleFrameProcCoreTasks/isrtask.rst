@@ -1,4 +1,3 @@
-
 #######
 IsrTask 
 #######
@@ -14,10 +13,8 @@ similar from camera to camera, they will vary to some degree and thus
 various of the effects will be present and need to be corrected for
 depending on the camera.  Generally these corrections are done one CCD
 at a time, but on all the amplifier sub-images at once for a CCD.
-`IsrTask <#>`_ provides a generic implementation of doing these
+`IsrTask` provides a generic implementation of doing these
 corrections, including the ability to turn certain corrections off.
-
-.. `IsrTask <#>`_ will link to the API page when it's made
 
 This task is implemented in the `lsst.ip.isr`_ module.
 
@@ -27,7 +24,7 @@ This task is implemented in the `lsst.ip.isr`_ module.
    
     This task is most commonly called by :doc:`ProcessCcd <processccd>`.
 
-    `API Usage <#>`_: *[To be filled in, like in charimg case]*
+    `API Usage`: *[To be filled in, like in charimg case]*
 
 .. We will have a link to a separate page here called apiUsage_isrtask.rst
 
@@ -181,9 +178,13 @@ Run method
  	bfKernel = None)
 
 The required inputs to the `run`_ method are the exposure to be corrected
-(which will be of `datasetType <#>`_  `raw <#>`_) and the calibration
+(which will be of `datasetType`  `raw`_) and the calibration
 data products. The raw input is a single chip-sized mosaic of all amps
 including overscans and other non-science pixels.
+
+.. _raw: https://dev.lsstcorp.org/trac/wiki/glossary
+
+
 
 .. We want to eventually link these to pages explaining the different kinds datatypes available
    	
@@ -196,9 +197,10 @@ including overscans and other non-science pixels.
 Parameters
 ^^^^^^^^^^
 
-`ccdExposure` -  `lsst.afw.image.exposure <#>`_ of detector data
+`ccdExposure` -  `lsst.afw.image.exposure`_ of detector data
 
-.. We want to eventually link this to a page explaining the different kinds of exposures accessible in the afw.image pkg
+.. _lsst.afw.image.Exposure: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1image_1_1_exposure.html
+
    
 `bias` -  Exposure of bias frame
   
@@ -220,7 +222,7 @@ Parameters
 Returns
 ^^^^^^^
 
-``struct`` -   `lsst.pipe.base.Struct`_ with field: `exposure` (i.e. `lsst.afw.image.exposure <#>`_  specifically of type `postISRCCD <#>`_.)
+``struct`` -   `lsst.pipe.base.Struct`_ with field: `exposure` (i.e. `lsst.afw.image.exposure`_  specifically of type `postISRCCD`.)
 
 .. We want to eventually link this to a page explaining the different kinds of exposures accessible in the afw.image pkg, and the different kinds datatypes available   
 
@@ -261,7 +263,7 @@ The optional `--ds9` flag tells it to bring up the ds9 image viewer (if installe
 As an overview: what this example does after setting up the parameter
 configuration, is to make several calibration exposures that will be
 used to create the final corrected output exposure.  Finally, the
-output is produced by using the `run`_ function of `IsrTask <#>`_ ,
+output is produced by using the `run`_ function of `IsrTask` ,
 after ingesting the raw exposure and the calibration exposures and
 processing them.
 
@@ -313,16 +315,16 @@ using the functions in the extra included utility file::
 In order to perform overscanCorrection `IsrTask.run()` requires
 `Exposures` which have a `lsst.afw.cameraGeom.Detector`. Detector objects
 describe details such as data dimensions, number of amps, orientation
-and overscan dimensions. If requesting images from the `Butler <#>`_,
+and overscan dimensions. If requesting images from the `Butler`_,
 Exposures will automatically have detector information. If running
-`IsrTask <#>`_ on arbitrary images from a camera without an `obs_` package, a
+`IsrTask` on arbitrary images from a camera without an `obs_` package, a
 `lsst.afw.cameraGeom.Detector` can be generated using
 `lsst.afw.cameraGeom.fitsUtils.DetectorBuilder` and set by calling::
 
      rawExposure.setDetector(myDetectorObject)
 
-.. Butler: we'll link to this in a glossary, minimally
-     
+.. _Butler: https://dev.lsstcorp.org/trac/wiki/glossary
+
 See `lsst.afw.cameraGeom.fitsUtils.DetectorBuilder`_ for more details.
 
 .. _`lsst.afw.cameraGeom.fitsUtils.DetectorBuilder`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1camera_geom_1_1fits_utils_1_1_detector_builder.html
