@@ -3,10 +3,9 @@ CharacterizeImageTask
 #####################
 
 Given an exposure that has been fully corrected for instrumental effects (e.g. as output by :doc:`IsrTask <isrtask>`), this task does initial
-source extraction and PSF estimation.
+source extraction and an iterative algorithm to converge to the best possible PSF estimate across the image.
 
-
-Its primary functions are to:
+Its primary sub-function steps in the iterative effort to achieve the above are to:
 
   - Detect and measure bright sources
 
@@ -92,11 +91,11 @@ Parameters
 ^^^^^^^^^^
 
 `butler`
-  A butler object is passed to the refObjLoader constructor in case it is needed to load catalogs. May be None if a catalog-based star selector is not used, if the reference object loader constructor does not require a butler, or if a reference object loader is passed directly via the refObjLoader argument.
+  A butler object is passed to the refObjLoader constructor in case it is needed to load catalogs. May be ``None`` if a catalog-based star selector is not used, if the reference object loader constructor does not require a butler, or if a reference object loader is passed directly via the refObjLoader argument.
 `refObjLoader`
-  An instance of LoadReferenceObjectsTasks that supplies an external reference catalog to a catalog-based star selector. May be None if a catalog star selector is not used or the loader can be constructed from the butler argument.
+  An instance of LoadReferenceObjectsTasks that supplies an external reference catalog to a catalog-based star selector. May be ``None`` if a catalog star selector is not used or the loader can be constructed from the butler argument.
 `schema`
-  Initial schema (an `lsst.afw.table.SourceTable`_), or None
+  Initial schema (an `lsst.afw.table.SourceTable`_), or ``None``
 `kwargs`
   Other keyword arguments for `lsst.pipe.base.CmdLineTask`_
 
@@ -137,7 +136,7 @@ Parameters
    
 
 `exposure`
-  Exposure to characterize (an `lsst.afw.image.ExposureF`_ or similar). If None then unpersist from "postISRCCD". The following changes are made, depending on the config:
+  Exposure to characterize (an `lsst.afw.image.ExposureF`_ or similar). If ``None`` then unpersist from "postISRCCD". The following changes are made, depending on the config:
 
 .. _`lsst.afw.image.ExposureF`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1image.html
 
@@ -152,14 +151,14 @@ Parameters
   - update detection and cosmic ray mask planes
 
 `background`
-  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`_). May be `None` if no background has been subtracted, which is typical for image characterization. A refined background model is output.
+  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`_). May be ``None`` if no background has been subtracted, which is typical for image characterization. A refined background model is output.
 
 .. _`lsst.afw.math.BackgroundList`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1math.html
 
 .. There is not an exact BackgroundList obj in lsst.afw.math, but several similar type objs (?)
 
 `doUnpersist`
-  If ``True`` the exposure is read from the repository and the exposure and background arguments must be None; if `False` the exposure must be provided. ``True`` is intended for running as a command-line task, `False` for running as a subtask
+  If ``True`` the exposure is read from the repository and the exposure and background arguments must be ``None``; if ``False`` the exposure must be provided. ``True`` is intended for running as a command-line task, ``False`` for running as a subtask
 
 Returns
 ^^^^^^^
@@ -213,9 +212,10 @@ Examples
    
 
 Note: running this example currently requires that over and above the DM Stack installation, `afwdata`_ is installed and set up (via the EUPS `setup <https://dev.lsstcorp.org/trac/wiki/EupsTutorial>`_ command).
-.. This is a general link to the EUPS tutorial, but setup is explained in there
-.. _`afwdata`: https://github.com/lsst/afwdata
 
+.. _`afwdata`: https://github.com/lsst/afwdata
+.. This is a general link to the EUPS tutorial, but setup is explained in there
+   
 This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTask <apiUsage_charimg>`) before calling :doc:`CalibrateTask <calibimg>` in the `$PIPE_TASKS/examples` directory, and can be run from the command line as, e.g.:
 
 

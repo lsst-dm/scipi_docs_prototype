@@ -2,8 +2,8 @@
 CalibrateTask
 #############
 
-Given a background subtracted image, a PSF, and initial astrometric
-solution (all commonly provided to this task by
+Given a background subtracted image, a PSF for it, and an initial
+astrometric solution (all commonly provided to this task by
 :doc:`CharacterizeImage <charimg>`), this task will detect sources,
 measure their positions, and do a photometric calibration on them.
 
@@ -99,11 +99,11 @@ Parameters
 `butler`
   The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly.
 `astromRefObjLoader`
-  An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for astrometric calibration. May be None if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
+  An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for astrometric calibration. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
 `photoRefObjLoader`
-  An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for photometric calibration. May be None if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
+  An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for photometric calibration. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
 `icSourceSchema`
-  Schema for icSource catalog, or None. Schema values specified in config.icSourceFieldsToCopy will be taken from this schema. If set to None, no values will be propagated from the icSourceCatalog
+  Schema for icSource catalog, or ``None``. Schema values specified in config.icSourceFieldsToCopy will be taken from this schema. If set to ``None``, no values will be propagated from the icSourceCatalog
 `kwargs`
   Other keyword arguments for `lsst.pipe.base.CmdLineTask`_		
 
@@ -144,14 +144,14 @@ Parameters
 `dataRef`
   `Butler`_ data reference corresponding to a science image
 `exposure`
-  Characterized exposure (an `lsst.afw.image.ExposureF` or similar), or `None` to unpersist existing `icExp` and `icBackground`. See the `calibrate`_ method for details of what is read and written.
+  Characterized exposure (an `lsst.afw.image.ExposureF` or similar), or ``None`` to unpersist existing `icExp` and `icBackground`. See the `calibrate`_ method for details of what is read and written.
 `background`
-  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`_). May be `None` if no background has been subtracted, though that is unusual for calibration. A refined background model is output. Ignored if exposure is `None`.
+  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`_). May be ``None`` if no background has been subtracted, though that is unusual for calibration. A refined background model is output. Ignored if exposure is ``None``.
 `icSourceCat`
-  Catalog from which to copy the fields specified by `icSourceKeys`, or `None`;
+  Catalog from which to copy the fields specified by `icSourceKeys`, or ``None``;
 `doUnpersist`
   Unpersist data:
-     - if ``True``, exposure, `background` and `icSourceCat` are read from `dataRef` and those three arguments must all be `None`;
+     - if ``True``, exposure, `background` and `icSourceCat` are read from `dataRef` and those three arguments must all be ``None``;
      - if ``False`` the exposure must be provided; `background` and `icSourceCat` are optional. ``True`` is intended for running as a command-line task, ``False`` for running as a subtask
 
 .. _Butler: https://dev.lsstcorp.org/trac/wiki/glossary

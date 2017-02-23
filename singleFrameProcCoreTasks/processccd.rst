@@ -4,7 +4,9 @@ ProcessCcdTask
 ##############
 
 
-`ProcessCcdTask` is a `command line task`_ which executes the processing steps to turn raw pixel data into characterized images and calibrated catalogs.
+`ProcessCcdTask` is a `command line task`_ which executes the
+processing steps to turn raw pixel-level data into characterized
+images and calibrated catalogs.
 
 .. _`command line task`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_base.html#pipeBase_argumentParser
 
@@ -15,9 +17,9 @@ ProcessCcdTask
 In more detail, ProcessCcdTask executes the following steps:
 
 
-1.  `Instrument Signature Removal` -- Implemented by the :doc:`IsrTask <isrtask>` subtask, this step applies  pixel-level corrections in preparation for image characterization. Corrections include: bias, dark current, cross-talk, flat-fielding and bad pixel masking."
+1.  `Instrument Signature Removal` -- Implemented by the :doc:`IsrTask <isrtask>` subtask, this step applies  pixel-level corrections in preparation for image characterization. Corrections include: bias, dark current, cross-talk, flat-fielding and bad pixel masking.
     
-2. `Image Characterization` -- Implemented by the :doc:`CharacterizeImageTask <charimg>` subtask, this step interpolates over cosmic rays, estimates and subtracts a background, and estimates the PSF using a set of high signal-to-noise detections. This process is iterative.
+2. `Image Characterization` -- Implemented by the :doc:`CharacterizeImageTask <charimg>` subtask, this step repairs cosmic ray tracks by interpolating over them, estimates and subtracts a background, and estimates the PSF using a set of high signal-to-noise detections. This entire process is done iteratively, converging to the best PSF possible for the image.
   
 3. `Image Calibration`  -- Implemented by the :doc:`CalibrateTask <calibimg>` subtask, this step measures all sources down to a configurable signal-to-noise threshold, fits an astrometric WCS and extracts a photometric zero-point for the image.
 
@@ -165,13 +167,13 @@ Parameters
    The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly.
  
 `psfRefObjLoader`
-   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for image characterization. An example of when this would be used is when a CatalogStarSelector is used. May be None if the desired loader can be constructed from the butler argument or all steps requiring a catalog are disabled.
+   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for image characterization. An example of when this would be used is when a CatalogStarSelector is used. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a catalog are disabled.
  
 `astromRefObjLoader`
-   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for astrometric calibration. May be None if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
+   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for astrometric calibration. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
  
 `photoRefObjLoader`
-   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for photometric calibration. May be None if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
+   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for photometric calibration. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
  
 `**kwargs`
    Other keyword arguments for `lsst.pipe.base.CmdLineTask`_.
@@ -222,7 +224,7 @@ Returns
 Examples
 ========
 
-The `obs_test`_ package  models a simple camera with one CCD and includes a data repository containing a few raw images (simulating three visits, two with with the `g`-band filter, and one with the `r`-band one), and some associated calibration data. Its camera consists of a single CCD whose geometry matches a subregion of a single LSST CCD.
+The `obs_test`_ package  models a simple camera with one CCD and includes a data repository containing a few raw images (simulating three visits, two with with the g-band filter, and one with the r-band one), and some associated calibration data. Its camera consists of a single CCD whose geometry matches a subregion of a single LSST CCD.
 
 .. _`obs_test`: https://github.com/LSST/obs_test
 
@@ -250,4 +252,6 @@ Debugging
 Algorithm details
 =================
 
-`ProcessCcdTask` is essentially a wrapper around the three subtasks, see those for actual contentful algorithmic details.
+`ProcessCcdTask` is essentially a wrapper around the three subtasks
+that carry out the work, see those for actual contentful algorithmic
+details.

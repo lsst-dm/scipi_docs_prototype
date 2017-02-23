@@ -6,15 +6,19 @@ Instrument Signature Removal (ISR) is a sequence of steps taken to
 correct the effects imprinted on the counts coming out of the readout
 by the physical characteristics of the detector and the electronics of
 the readout chain.  It is generally the very first procedure carried
-out on an exposure.
+out on the pixel-level data of an exposure.
 
 In more detail, though the process for correcting imaging data is very
-similar from camera to camera, they will vary to some degree and thus
-various of the effects will be present and need to be corrected for
-depending on the camera.  Generally these corrections are done one CCD
-at a time, but on all the amplifier sub-images at once for a CCD.
-`IsrTask` provides a generic implementation of doing these
-corrections, including the ability to turn certain corrections off.
+similar from camera to camera, it will vary to some degree depending
+on which of the various effects are present and need to be corrected
+for.  Generally these corrections are done one CCD at a time, but on
+all the amplifier sub-images at once for a CCD.  `IsrTask` provides a
+generic implementation of doing these corrections, including the
+ability to turn certain corrections off.
+
+Further, `IsrTask` calls a subtask to trim and assemble the amplifier
+subimages into a single full CCD image ready for the next steps of
+image characterization and calibration.
 
 This task is implemented in the `lsst.ip.isr`_ module.
 
@@ -358,11 +362,11 @@ field due to the accumulated charge.
 Given the original image I(x) and the kernel K(x) we can compute the corrected image  Ic(x)
 using the following equation:
 
-:math:`Ic(x) = I(x) + 0.5 {d \over dx} \left[ I(x) {d \over dx} \int_0^\infty K(x-y) I(y) dy  \right]`
+:math:`Ic(x) = I(x) + {1 \over 2} {d \over dx} \left[ I(x) {d \over dx} \int_0^\infty K(x-y) I(y) dy  \right]`
 
 To evaluate the derivative term we just use the product rule to expand it as follows:
 
-:math:`0.5  \left[ {d \over dx} (I(x)) {d \over dx} \int_0^\infty (K(x-y) I(y) dy) + I(x) {d^2 \over dx^2} \int_0^\infty  K(x-y) I(y) dy \right]`
+:math:`{d \over dx} \left[ I(x) {d \over dx} \int_0^\infty K(x-y) I(y) dy  \right] = {1 \over 2} \left[ \left( {d \over dx} I(x) \right) {d \over dx} \int_0^\infty (K(x-y) I(y) dy) + I(x) {d^2 \over dx^2} \int_0^\infty  K(x-y) I(y) dy \right]`
 
 Because we use the measured counts instead of the incident counts we
 apply the correction iteratively to reconstruct the original counts
