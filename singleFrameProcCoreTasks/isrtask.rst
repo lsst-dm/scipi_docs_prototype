@@ -344,6 +344,42 @@ flag is set.)
 Algorithm details
 ====================
 
+We'll describe one effect as an example of the algorithms in the IsrTask corrections.
+
+Brighter-Fatter Correction
+--------------------------
+
+Apply brighter fatter correction in place for the image
+
+This correction takes a kernel that has been derived from flat field images to
+redistribute the charge.  The gradient of the kernel is the deflection
+field due to the accumulated charge.
+
+Given the original image I(x) and the kernel K(x) we can compute the corrected image  Ic(x)
+using the following equation:
+
+:math:`Ic(x) = I(x) + 0.5 {d \over dx} \left[ I(x) {d \over dx} \int_0^\infty K(x-y) I(y) dy  \right]`
+
+To evaluate the derivative term we just use the product rule to expand it as follows:
+
+:math:`0.5  \left[ {d \over dx} (I(x)) {d \over dx} \int_0^\infty (K(x-y) I(y) dy) + I(x) {d^2 \over dx^2} \int_0^\infty  K(x-y) I(y) dy \right]`
+
+Because we use the measured counts instead of the incident counts we
+apply the correction iteratively to reconstruct the original counts
+and the correction.  We stop iterating when the summed difference
+between the current corrected image and the one from the previous
+iteration is below the threshold.  We do not require convergence
+because the number of iterations is too large a computational cost.
+How we define the threshold still needs to be evaluated, the current
+default was shown to work reasonably well on a small set of images.
+
+The edges as defined by the kernel are not corrected because they have spurious values
+due to the convolution.
+
+For more information on the method see a currently internal report by
+Coulton, Lupton, Smith and Spergel from 4-14-2015 (DocuShare
+Document-19407) and references listed therein.
+
   
 *[Need specific input from developers on what to insert for algorithmic details here.]*
 
