@@ -20,17 +20,15 @@ Further, `IsrTask` calls a subtask to trim and assemble the amplifier
 subimages into a single full CCD image ready for the next steps of
 image characterization and calibration.
 
-This task is implemented in the `lsst.ip.isr`_ module.
+This task is implemented in the `lsst.ip.isr <taskModules.html#ipisr>`_ module.
 
-.. _`lsst.ip.isr`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1ip_1_1isr.html
 
 .. seealso::
    
     This task is most commonly called by :doc:`ProcessCcd <processccd>`.
 
-    `API Usage`: *[To be filled in, like in charimg case]*
+    API Usage: See :doc:`IsrTask API <apiUsage_isrtask>`
 
-.. We will have a link to a separate page here called apiUsage_isrtask.rst
 
 Configuration
 =============
@@ -163,9 +161,8 @@ Parameters
 `*args`
   A list of positional arguments passed on to the Task constructor
 `**kwargs`
-  A dictionary of keyword arguments passed on to the Task constructor. Call the `lsst.pipe.base.task.Task.__init__`_ method, then setup the assembly and fringe correction subtasks.
+  A dictionary of keyword arguments passed on to the Task constructor. Call the `lsst.pipe.base.task.Task.__init__ <taskModules.html#pipebaseinit>`_ method, then setup the assembly and fringe correction subtasks.
 
-.. _`lsst.pipe.base.task.Task.__init__`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1task_1_1_task.html#a1773a024121ed2ce7294509b3e8b40e8
 
 Run method
 ----------
@@ -183,34 +180,25 @@ Run method
  	bfKernel = None)
 
 The required inputs to the `run`_ method are the exposure to be corrected
-(which will be of `datasetType`  `raw`_) and the calibration
+(which will be of `datasetType`  `raw <LSSTglossary.html#raw`_) and the calibration
 data products. The raw input is a single chip-sized mosaic of all amps
 including overscans and other non-science pixels.
 
-.. _raw: https://dev.lsstcorp.org/trac/wiki/glossary
-
-
 .. We want to eventually link these to pages explaining the different kinds datatypes available
    	
-(More information can be found at `run`_, and at `this Confluence page`_)
+(More information can be found at `run <apiUsage_isrtask.html#run>`_)
 
-.. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1isr_task_1_1_isr_task.html#aab476cefa23d730451f39119e04875d5  
 
-.. _`this Confluence page`: https://confluence.lsstcorp.org/pages/viewpage.action?spaceKey=~hchiang2&title=Notes+on+existing+pipeline+components
+
 
 Parameters
 ^^^^^^^^^^
 
-`ccdExposure` -  `lsst.afw.image.exposure`_ of detector data
+`ccdExposure` -  `lsst.afw.image.exposure <LSSTglossary.html#exposure>`_ of detector data
 
-.. _lsst.afw.image.Exposure: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1image_1_1_exposure.html
-
-   
 `bias` -  Exposure of bias frame
   
-`linearizer` -  Linearizing functor; a subclass of `lsst.ip.isr.LinearizeBase`_
-
-.. _`lsst.ip.isr.LinearizeBase`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1ip_1_1isr_1_1linearize_1_1_linearize_base.html
+`linearizer` -  Linearizing functor; a subclass of `lsst.ip.isr.LinearizeBase <taskModules.html#linbase>`_
 
 `dark` -  Exposure of dark frame
 
@@ -226,11 +214,10 @@ Parameters
 Returns
 ^^^^^^^
 
-``struct`` -   `lsst.pipe.base.Struct`_ with field: `exposure` (i.e. `lsst.afw.image.exposure`_  specifically of type `postISRCCD`_.)
+``struct`` -   `lsst.pipe.base.Struct <objectClasses.html#structlink>`_ with field: `exposure` (i.e. `lsst.afw.image.exposure`_  specifically of type `postISRCCD <LSSTglossary.html#postisrccd>`_.)
 
-.. We want to eventually link this to a page explaining the different kinds of exposures accessible in the afw.image pkg, and the different kinds datatypes available   
 
-.. _`lsst.pipe.base.Struct`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1struct_1_1_struct.html
+
 
 
 Debugging
@@ -240,9 +227,8 @@ Debugging
 
   `postISRCCD`_ (to display exposure after ISR has been applied)
 
-See `lsstDebug.info`_ for more on the debugging framework.
+See `lsstDebug.info <taskModules.html#info>`_ for more on the debugging framework.
 
-.. _`lsstDebug.info`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_debug_1_1_info.html
 
 Examples
 ========
@@ -319,7 +305,7 @@ using the functions in the extra included utility file::
 In order to perform overscanCorrection `IsrTask.run()` requires
 `Exposures` which have a `lsst.afw.cameraGeom.Detector`. Detector objects
 describe details such as data dimensions, number of amps, orientation
-and overscan dimensions. If requesting images from the `Butler`_,
+and overscan dimensions. If requesting images from the `Butler <LSSTglossary.html#butlerlink>`_,
 Exposures will automatically have detector information. If running
 `IsrTask` on arbitrary images from a camera without an `obs_` package, a
 `lsst.afw.cameraGeom.Detector` can be generated using
@@ -327,11 +313,9 @@ Exposures will automatically have detector information. If running
 
      rawExposure.setDetector(myDetectorObject)
 
-.. _Butler: https://dev.lsstcorp.org/trac/wiki/glossary
+See `lsst.afw.cameraGeom.fitsUtils.DetectorBuilder <taskModules.html#detbuild>`_ for more details.
 
-See `lsst.afw.cameraGeom.fitsUtils.DetectorBuilder`_ for more details.
 
-.. _`lsst.afw.cameraGeom.fitsUtils.DetectorBuilder`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1camera_geom_1_1fits_utils_1_1_detector_builder.html
 
 Finally, the output is produced with the line::
 

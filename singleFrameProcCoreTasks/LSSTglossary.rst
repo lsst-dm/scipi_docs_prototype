@@ -5,15 +5,55 @@ LSST terminology
 ################
 
 .. _butlerlink:
+Butler
+======
 
-Description of the Butler analogous to https://dev.lsstcorp.org/trac/wiki/DataButler (but updated) will go here.
+Description of the Butler will go here, analogous to that in here:
 
+https://dev.lsstcorp.org/trac/wiki/DataButler 
 
+ (but updated relative to it).
+
+.. _exposure:
 .. _exposureF:
+Exposures 
+=========
 
-Description of the different types of exposures analogous to https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1image_1_1_exposure.html will go here.  We want to eventually explain the different kinds of exposures accessible in the afw.image pkg.
+Description of the different types of exposures will go here, analogous to:
+
+https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1image_1_1_exposure.html
+
+We want to eventually explain the different kinds of exposures accessible in the afw.image pkg.
 
 
 .. _bkgdlist:
+Background List
+===============
 
-Description of the what a background list is, analogous to https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1math.html will go here.
+Description of the what a background list is will go here, analogous to:
+
+https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1math.html 
+
+
+
+
+.. _postisrccd:
+postISRCCD Exposure
+===================
+
+Description of what a postISRCCD exposure is will go here, analogous to that in here:
+
+https://dev.lsstcorp.org/trac/wiki/DataButler 
+
+ (but updated relative to it).
+
+.. _raw:
+Raw DataSetType
+===============
+
+Description of what a raw datasetType is will go here, analogous to that in here:
+
+https://dev.lsstcorp.org/trac/wiki/DataButler 
+
+(but updated relative to it).
+
