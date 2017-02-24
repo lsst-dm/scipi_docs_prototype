@@ -1,12 +1,33 @@
 :orphan: true
 
-#########################
-Command Line Task options
-#########################
+##################
+Command Line Tasks
+##################
+
+Running a Command Line Task
+===========================
+
+We will fill information here similar to that currently at: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_base.html#pipeBase_argumentParser
+
+
+.. _CLTbaseclass:
+Command Line Task Base Class
+============================
+
+We will fill information here similar to that currently at: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1cmd_line_task_1_1_cmd_line_task.html
+
+
+
+
+.. _optionslink:
+
+Command Line Task Options
+=========================
 
 In addition to the table below, many more details on some of the flag arguments are available on the page describing the `pipebase task package`_ , particularly on the `--id`, `--show`, and `--config` flags.  
 
 .. _`pipebase task package`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_base.html#pipeBase_argumentParser
+
 
 
 

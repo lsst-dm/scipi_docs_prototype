@@ -1,18 +1,13 @@
-
 ##############
 ProcessCcdTask
 ##############
 
 
-`ProcessCcdTask` is a `command line task`_ which executes the
+`ProcessCcdTask` is a `command line task <CLTs.html>`_ which executes the
 processing steps to turn raw pixel-level data into characterized
 images and calibrated catalogs.
 
-.. _`command line task`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_base.html#pipeBase_argumentParser
-
 .. We also will insert links higher level pages in the Framework docs about CLT's at this location
-
-.. `ProcessCcdTask <#>`_ will link to the API page when it's made
 
 In more detail, ProcessCcdTask executes the following steps:
 
@@ -24,18 +19,16 @@ In more detail, ProcessCcdTask executes the following steps:
 3. `Image Calibration`  -- Implemented by the :doc:`CalibrateTask <calibimg>` subtask, this step measures all sources down to a configurable signal-to-noise threshold, fits an astrometric WCS and extracts a photometric zero-point for the image.
 
 
-This task is implemented in the `lsst.pipe.tasks`_ module.
+This task is implemented in the `lsst.pipe.tasks <taskModules.html#pipetasks>`_ module.
 
-.. _lsst.pipe.tasks: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_tasks.html
-    
 .. seealso::
    
     This task is most commonly called directly on the command line as
     the initial controller task to analyze exposures.
     
 
-    `API Usage`: *[To be filled in, like in charimg case. We will have a link to a separate page here called apiUsage_processccd.rst]*
-
+    API Usage: See :doc:`ProcessCcdTask API <apiUsage_processccd>`
+   
 Command Line Usage
 ==================
 
@@ -51,7 +44,7 @@ Command Line Usage
    
 Where the path to the input data is required, but all other arguments are optional.
 
-All the flag options available to a normal `command line task`_, which are listed in the :doc:`table of CLT options <tableOfCLToptions>`, are also usable for `ProcessCcdTask`.
+All the flag options available to a normal `command line task`_, which are listed in the `table of CLT options <CLTs.html#optionslink>`_, are also usable for `ProcessCcdTask`.
 
 Configuration
 =============
@@ -176,9 +169,9 @@ Parameters
    An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for photometric calibration. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
  
 `**kwargs`
-   Other keyword arguments for `lsst.pipe.base.CmdLineTask`_.
+   Other keyword arguments for `lsst.pipe.base.CmdLineTask <CLTs.html#CLTbaseclass>`_.
 
-.. _`lsst.pipe.base.CmdLineTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1cmd_line_task_1_1_cmd_line_task.html
+
 
 
 Run method
@@ -188,38 +181,30 @@ Run method
  
    run(sensorRef)
 
-(More information can be found at `run`_)
+(More information can be found at `run <apiUsage_processccd.html#run>`_)
 
-.. _run: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1process_ccd_1_1_process_ccd_task.html#a82488db6374fb538db2ec4418419bdd4
+
    
 Parameters
 ^^^^^^^^^^
  
 `sensorRef`
-   `Butler`_ data reference for raw data.
+   `Butler <LSSTglossary.html#butlerlink>`_ data reference for raw data.
 
-.. _Butler: https://dev.lsstcorp.org/trac/wiki/DataButler
-
-   
 Returns
 ^^^^^^^
  
-``struct`` - a `lsst.pipe.base.Struct`_ containing these fields:
-
-.. _`struct`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1struct_1_1_struct.html
-
-.. _`lsst.pipe.base.Struct`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1struct_1_1_struct.html
+``struct`` - a `lsst.pipe.base.Struct <objectClasses.html#structlink>`_ containing these fields:
 
    - `charRes`: object returned by image characterization task; an `lsst.pipe.base.Struct`_ that will include `background` and `sourceCat` fields.
    - `calibRes`: object returned by calibration task: an `lsst.pipe.base.Struct`_ that will include `background` and `sourceCat` fields
-   - `exposure`: final exposure (an `lsst.afw.image.ExposureF`_)
-   - `background`: final background model (an `lsst.afw.math.BackgroundList`_)
+   - `exposure`: final exposure (an `lsst.afw.image.ExposureF <LSSTglossary.html#exposureF>`_)
+   - `background`: final background model (an `lsst.afw.math.BackgroundList <LSSTglossary.html#bkgdlist>`_)
  
-.. _lsst.afw.image.ExposureF: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1image_1_1_exposure.html
 
-.. We want to eventually link this to a page explaining the different kinds of exposures accessible in the afw.image pkg
 
-.. _`lsst.afw.math.BackgroundList`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1math.html
+
+
 
 Examples
 ========
