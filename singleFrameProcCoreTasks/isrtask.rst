@@ -362,11 +362,11 @@ field due to the accumulated charge.
 Given the original image I(x) and the kernel K(x) we can compute the corrected image  Ic(x)
 using the following equation:
 
-:math:`Ic(x) = I(x) + {1 \over 2} {d \over dx} \left[ I(x) {d \over dx} \int_0^\infty K(x-y) I(y) dy  \right]`
+:math:`Ic(x) = I(x) + {1 \over 2} {d \over dx} \left[ I(x) {d \over dx} \int K(x-y) I(y) dy  \right]`
 
 To evaluate the derivative term we just use the product rule to expand it as follows:
 
-:math:`{d \over dx} \left[ I(x) {d \over dx} \int_0^\infty K(x-y) I(y) dy  \right] = {1 \over 2} \left[ \left( {d \over dx} I(x) \right) {d \over dx} \int_0^\infty (K(x-y) I(y) dy) + I(x) {d^2 \over dx^2} \int_0^\infty  K(x-y) I(y) dy \right]`
+:math:`{d \over dx} \left[ I(x) {d \over dx} \int K(x-y) I(y) dy  \right] = {1 \over 2} \left[ \left( {d \over dx} I(x) \right) {d \over dx} \int (K(x-y) I(y) dy) + I(x) {d^2 \over dx^2} \int  K(x-y) I(y) dy \right]`
 
 Because we use the measured counts instead of the incident counts we
 apply the correction iteratively to reconstruct the original counts
