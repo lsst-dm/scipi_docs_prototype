@@ -16,9 +16,9 @@ Its primary sub-function steps in the iterative effort to achieve the above are 
   - Measure the PSF
 
 
-This task is implemented in the `lsst.pipe.tasks`_ module.
+This task is implemented in the `lsst.pipe.tasks <taskModules.html#pipetasks>`_ module.
 
-.. _`lsst.pipe.tasks`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_tasks.html
+
 
 .. seealso::
    
@@ -63,12 +63,12 @@ Parameters
    `doApCorr`, `bool`,  ``True``,  Run subtasks to measure and apply aperture corrections
    `doMeasurePsf`, `bool`,  ``True``, Measure the PSF? If ``False`` then keep the existing PSF model (which must exist) and use that model for all operations.
    `doWrite`, `bool`,  ``True``, Persist results?
-   `doWriteExposure`, `bool`,  ``True``, Write icExp and icExpBackground in addition to `icSrc`_? Ignored if doWrite is ``False``.
+   `doWriteExposure`, `bool`,  ``True``, Write icExp and icExpBackground in addition to `icSrc <LSSTglossary.html#catalogs>`_? Ignored if doWrite is ``False``.
    `useSimplePsf`, `bool`,  ``True``, Replace the existing PSF model with a simplified version that has the same sigma at the start of each PSF determination iteration? Doing so makes PSF determination converge more robustly and quickly.
    `psfIterations`, `int`,  ``2`` ,    Number of iterations of doing: detect sources; measure sources; estimate PSF. If ``useSimplePsf = True`` then 2 should be plenty; otherwise more may be wanted. ``Min=1``.
    `checkUnitsParseStrict`,  `str`, ``"raise"``, Strictness of Astropy unit compatibility check.  Can be ``"raise"`` ``"warn"`` or ``"silent"``
 
-.. _icSrc: https://dev.lsstcorp.org/trac/wiki/DataButler
+
 
    
 
@@ -95,13 +95,9 @@ Parameters
 `refObjLoader`
   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog to a catalog-based star selector. May be ``None`` if a catalog star selector is not used or the loader can be constructed from the butler argument.
 `schema`
-  Initial schema (an `lsst.afw.table.SourceTable`_), or ``None``
+  Initial schema (an `lsst.afw.table.SourceTable <objectClasses.html#srctable>`_), or ``None``
 `kwargs`
-  Other keyword arguments for `lsst.pipe.base.CmdLineTask`_
-
-.. _`lsst.pipe.base.CmdLineTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1cmd_line_task_1_1_cmd_line_task.html
-
-.. _lsst.afw.table.SourceTable: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1table_1_1_source_table.html
+  Other keyword arguments for `lsst.pipe.base.CmdLineTask <CLTs.html#CLTbaseclass>`_
 
 
 
@@ -115,9 +111,7 @@ Run method
       background = None,
       doUnpersist = True )		
 
-The required input to the `run`_ method  (which is a thin wrapper around the :doc:`characterize <apiUsage_charimg>` method) is the exposure to be characterized, and an optional input is an initial model of background which has already subtracted from exposure.
-
-.. _`run`:   https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1characterize_image_1_1_characterize_image_task.html#a2db834efb17f00355c46daf26de7ceb5
+The required input to the `run` method  (which is a thin wrapper around the :doc:`characterize <apiUsage_charimg>` method) is the exposure to be characterized, and an optional input is an initial model of background which has already subtracted from exposure.
 
 If you want this task to `unpersist` inputs or `persist` outputs, then call the `run` method, however, if you already have the inputs `unpersisted` and do not want to `persist` the output then it is more direct to call the :doc:`characterize <apiUsage_charimg>` method straight off.
 
@@ -130,15 +124,11 @@ Parameters
 
 
 `dataRef`
-  `Butler`_ data reference for science exposure
+  `Butler <LSSTglossary.html#butlerlink>`_ data reference for science exposure
 
-.. _Butler: https://dev.lsstcorp.org/trac/wiki/DataButler
-   
 
 `exposure`
-  Exposure to characterize (an `lsst.afw.image.ExposureF`_ or similar). If ``None`` then unpersist from "postISRCCD". The following changes are made, depending on the config:
-
-.. _`lsst.afw.image.ExposureF`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1image.html
+  Exposure to characterize (an `lsst.afw.image.ExposureF <LSSTglossary.html#exposureF>`_ or similar). If ``None`` then unpersist from `postISRCCD<LSSTglossary.html#postisrccd>`_. The following changes are made, depending on the config:
 
   - set psf to the measured PSF
 
@@ -151,11 +141,7 @@ Parameters
   - update detection and cosmic ray mask planes
 
 `background`
-  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`_). May be ``None`` if no background has been subtracted, which is typical for image characterization. A refined background model is output.
-
-.. _`lsst.afw.math.BackgroundList`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1math.html
-
-.. There is not an exact BackgroundList obj in lsst.afw.math, but several similar type objs (?)
+  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList <LSSTglossary.html#bkgdlist>`_). May be ``None`` if no background has been subtracted, which is typical for image characterization. A refined background model is output.
 
 `doUnpersist`
   If ``True`` the exposure is read from the repository and the exposure and background arguments must be ``None``; if ``False`` the exposure must be provided. ``True`` is intended for running as a command-line task, ``False`` for running as a subtask
@@ -163,7 +149,7 @@ Parameters
 Returns
 ^^^^^^^
 
-A pipe_base Struct containing these fields, all from the final iteration of :doc:`detectMeasureAndEstimatePsf <apiUsage_charimg>`:
+A pipe_base Struct containing these fields, all from the final iteration of `detectMeasureAndEstimatePsf <apiUsage_charimg.html#detlink>`:
 
 `exposure`: characterized exposure; image is repaired by interpolating over cosmic rays, mask is updated accordingly, and the PSF model is set
 
@@ -171,13 +157,11 @@ A pipe_base Struct containing these fields, all from the final iteration of :doc
 
 .. We want to eventually link this to a descrip of the available types of catalogs in afw.table
 .. Does it matter at this point to user that output catalogs are of type `icSrc` ?
-.. We want to eventually link this to a page with a descrip of the available types of catalogs
+
    
 `background`: model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`_)
 
 `psfCellSet`: spatial cells of PSF candidates (an `lsst.afw.math.SpatialCellSet`_)
-
-.. _`lsst.afw.math.SpatialCellSet`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1math_1_1_spatial_cell_set.html
 
 
 
@@ -192,26 +176,22 @@ Debugging
         `frame`, `int`, if specified: the frame of first debug image displayed (defaults to 1)	    
         `repair_iter`, `bool`,  if ``True`` display image after each repair in the measure PSF loop
 	`background_iter`, `bool`,  if ``True`` display image after each background subtraction in the measure PSF loop
-	`measure_iter`, `bool`,  if ``True`` display image and sources at the end of each iteration of the measure PSF loop.  See `lsst.meas.astrom.display.displayAstrometry`_  for the meaning of the various symbols.
+	`measure_iter`, `bool`,  if ``True`` display image and sources at the end of each iteration of the measure PSF loop.  See `lsst.meas.astrom.display.displayAstrometry <taskModules.html#dispastrom>`_  for the meaning of the various symbols.
 	`psf`, `bool`,  if ``True`` display image and sources after PSF is measured; this will be identical to the final image displayed by measure_iter if measure_iter is true
 	`repair`, `bool`,  if ``True`` display image and sources after final repair
 	`measure`, `bool`,  if ``True`` display image and sources after final measurement
 
-.. _`lsst.meas.astrom.display.displayAstrometry`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1meas_1_1astrom_1_1display.html#aba98ee54d502f211b69ff35db4d36f94
-
-See `lsstDebug.info`_ for more on the debugging framework.
-
-.. _`lsstDebug.info`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_debug_1_1_info.html 
+See `lsstDebug.info <taskModules.html#info>`_ for more on the debugging framework.
 
 
 
 Examples
 ========
 
-.. This example is not working in the current stack (see https://jira.lsstcorp.org/browse/DM-9142)  --- 2/9/2017
+.. This example is not working in the current stack (see https://jira.lsstcorp.org/browse/DM-9142), and has been removed from it for now  --- 2/9/2017
    
 
-Note: running this example currently requires that over and above the DM Stack installation, `afwdata`_ is installed and set up (via the EUPS `setup <https://dev.lsstcorp.org/trac/wiki/EupsTutorial>`_ command).
+Note: running this example currently requires that over and above the DM Stack installation, `afwdata`_ is installed and set up (via the EUPS `setup <taskModules.html#eups>`_ command).
 
 .. _`afwdata`: https://github.com/lsst/afwdata
 .. This is a general link to the EUPS tutorial, but setup is explained in there
@@ -275,29 +255,18 @@ Algorithm details
 =================
 
 The PSF is iteratively arrived at by repeatedly interpolating over
-cosmic rays (using a subtask which defaults to `RepairTask`_),
+cosmic rays (using a subtask which defaults to `RepairTask <taskModules.html#repair>`_),
 estimating and subtracting the background (using a subtask which
-defaults to `SubtractBackgroundTask`_), detecting sources (using a
-subtask which defaults to `SourceDetectionTask`_ ), optionally
-deblending them (using a task which defaults to `SourceDeblendTask`_),
+defaults to `SubtractBackgroundTask <taskModules.html#subbkgd>`_), detecting sources (using a
+subtask which defaults to `SourceDetectionTask <taskModules.html#srcdet>`_ ), optionally
+deblending them (using a task which defaults to `SourceDeblendTask <taskModules.html#srcdeblend>`_),
 and then measuring them (using a subtask which defaults to
-`SingleFrameMeasurementTask`_), and using those sources to estimate
-the PSF (using a subtask which defaults to `MeasurePsfTask`_). This is
+`SingleFrameMeasurementTask <taskModules.html#sfmtask>`_), and using those sources to estimate
+the PSF (using a subtask which defaults to `MeasurePsfTask <taskModules.html#measpsf>`_). This is
 repeated ``psfIterations`` times, gradually refining the PSF
 model. After the ultimate PSF has been so derived, it is used in final
 repair and measurement steps which produce the source catalog returned
 to the caller.
 
-.. _`SubtractBackgroundTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1subtract_background_1_1_subtract_background_task.html
-
-.. _`SourceDetectionTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1detection_1_1_source_detection_task.html
-
-.. _`SourceDeblendTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1deblender_1_1deblend_1_1_source_deblend_task.html
-
-.. _`MeasurePsfTask`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1measure_psf_1_1_measure_psf_task.html
-
-.. _`RepairTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1repair_1_1_repair_task.html
-
-.. _`SingleFrameMeasurementTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1base_1_1sfm_1_1_single_frame_measurement_task.html#SingleFrameMeasurementTask_
 
 *[Need more specific input from developers on what to insert for algorithmic details here.]*

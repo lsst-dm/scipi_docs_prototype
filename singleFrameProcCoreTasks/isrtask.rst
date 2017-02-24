@@ -82,7 +82,7 @@ Parameters
    `doLinearize`, `str`,  ``True``, Correct for nonlinearity of the detector's response?
    `fallbackFilterName`, `str`, no default, Fallback default filter name for calibrations
 
-.. _postISRCCD: https://dev.lsstcorp.org/trac/wiki/DataButler
+
 
 .. raw:: html
 	 

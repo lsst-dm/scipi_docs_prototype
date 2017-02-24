@@ -8,17 +8,15 @@ astrometric solution (all commonly provided to this task by
 measure their positions, and do a photometric calibration on them.
 
 
-This task is implemented in the `lsst.pipe.tasks`_ module.
+This task is implemented in the `lsst.pipe.tasks <taskModules.html#pipetasks>`_ module.
 
-.. _`lsst.pipe.tasks`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/pipe_tasks.html
 
 .. seealso::
    
     This task is most commonly called by :doc:`ProcessCcd <processccd>`.
 
-    `API Usage`: *[To be filled in, like in charimg case]*
+    `API Usage`: See :doc:`CharacterizeImageTask API <apiUsage_calib>`
 
-.. We will have a link to a separate page here called apiUsage_calibimg.rst
    
     
 Configuration
@@ -105,11 +103,9 @@ Parameters
 `icSourceSchema`
   Schema for icSource catalog, or ``None``. Schema values specified in config.icSourceFieldsToCopy will be taken from this schema. If set to ``None``, no values will be propagated from the icSourceCatalog
 `kwargs`
-  Other keyword arguments for `lsst.pipe.base.CmdLineTask`_		
+  Other keyword arguments for `lsst.pipe.base.CmdLineTask <CLTs.html#CLTbaseclass>`_		
 
-  
-.. _`lsst.pipe.base.CmdLineTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1base_1_1cmd_line_task_1_1_cmd_line_task.html
-
+ 
 Run method
 ----------
  
@@ -121,32 +117,31 @@ Run method
       icSourceCat = None,
       doUnpersist = True)		
 
-The required input to the `run`_ method (which is a thin wrapper
-around the `calibrate`_ method) is an already-characterized exposure
-(produced by e.g. :doc:`CharacterizeImage <charimg>`), and there are
-two optional inputs as well (which though are normally included at
-this point): an initial model of the background which has already
-subtracted from the exposure, and a source catalog, both provided by
+The required input to the `run` method (which is a thin wrapper around
+the `calibrate <apiUsage_calib.html#calibrate>`_ method) is an
+already-characterized exposure (produced by
+e.g. :doc:`CharacterizeImage <charimg>`), and there are two optional
+inputs as well (which though are normally included at this point): an
+initial model of the background which has already subtracted from the
+exposure, and a source catalog, both provided by
 e.g. :doc:`CharacterizeImage <charimg>`.
       
-.. _`run`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a067cbbb27a4f212aba05b419fcd17d28`
 
-If you want this task to `unpersist` inputs or `persist` outputs, then call the `run` method, however, if you already have the inputs `unpersisted` and do not want to `persist` the output then it is more direct to call the `calibrate` method straight off.
+
+If you want this task to `unpersist` inputs or `persist` outputs, then call the `run` method, however, if you already have the inputs `unpersisted` and do not want to `persist` the output then it is more direct to call the `calibrate`_ method straight off.
 
 .. As in charimg, we will link to pages that explain the persistence terms more technically
-   
-.. _`calibrate`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1calibrate_1_1_calibrate_task.html#a12bb075ab0bdf60d95ae30900688d9a4
 
 
 Parameters
 ^^^^^^^^^^
 
 `dataRef`
-  `Butler`_ data reference corresponding to a science image
+  `Butler <LSSTglossary.html#butlerlink>`_ data reference corresponding to a science image
 `exposure`
   Characterized exposure (an `lsst.afw.image.ExposureF` or similar), or ``None`` to unpersist existing `icExp` and `icBackground`. See the `calibrate`_ method for details of what is read and written.
 `background`
-  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList`_). May be ``None`` if no background has been subtracted, though that is unusual for calibration. A refined background model is output. Ignored if exposure is ``None``.
+  Initial model of background already subtracted from exposure (an `lsst.afw.math.BackgroundList <LSSTglossary.html#bkgdlist>`_). May be ``None`` if no background has been subtracted, though that is unusual for calibration. A refined background model is output. Ignored if exposure is ``None``.
 `icSourceCat`
   Catalog from which to copy the fields specified by `icSourceKeys`, or ``None``;
 `doUnpersist`
@@ -154,10 +149,8 @@ Parameters
      - if ``True``, exposure, `background` and `icSourceCat` are read from `dataRef` and those three arguments must all be ``None``;
      - if ``False`` the exposure must be provided; `background` and `icSourceCat` are optional. ``True`` is intended for running as a command-line task, ``False`` for running as a subtask
 
-.. _Butler: https://dev.lsstcorp.org/trac/wiki/glossary
 
 .. icexp and icbkgd: We want to eventually link the 2 types of exposures to a page with a descrip of the available types of them  
-.. Should we use same link for lsst.afw.math.BackgroundList as in charimg?
 .. Need a linked page to explain this icSourceKeys file 
 .. icSourceCat etc.: Really, we want to link to pages where all these exposures and catalogs are explained more
 
@@ -170,16 +163,11 @@ Returns pipe_base Struct containing these fields:
  - sourceCat - catalog of measured sources
  - astromMatches - list of source/refObj matches from the astrometry solver
 
-.. _`lsst.afw.math.BackgroundList`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_1_1math.html   
 
 Debugging
 =========
 
-- `calibrate` -  (an `int`, set to :math:`\le 0` to not display) frame in which to display the exposure, sources and matches. See `lsst.meas.astrom.display.displayAstrometry`_  for the meaning of the various symbols, and see `lsstDebug.info`_ for more on the debugging framework.
-
-.. _`lsstDebug.info`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_debug_1_1_info.html
-  
-.. _`lsst.meas.astrom.display.displayAstrometry`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1meas_1_1astrom_1_1display.html#aba98ee54d502f211b69ff35db4d36f94
+- `calibrate` -  (an `int`, set to :math:`\le 0` to not display) frame in which to display the exposure, sources and matches. See `lsst.meas.astrom.display.displayAstrometry <taskModules.html#dispastrom>`_  for the meaning of the various symbols, and see `lsstDebug.info <taskModules.html#info>`_ for more on the debugging framework.
 
 
 Examples
@@ -187,7 +175,7 @@ Examples
 
 This example script is `calibrateTask.py` (which calls :doc:`CharacterizeImageTask <charimg>` before calling this function (`CalibrateTask`) ) in the `$PIPE_TASKS/examples` directory, and the example is described already under `Examples` on :doc:`CharacterizeImageTask <charimg>`.
 
-.. This example is not working in the current stack (see https://jira.lsstcorp.org/browse/DM-9142)  --- 2/9/2017
+.. This example is not working in the current stack (see https://jira.lsstcorp.org/browse/DM-9142)  and has been removed from it --- 2/9/2017
 
    
    
@@ -197,35 +185,20 @@ Algorithm details
 `CalibrateTask` initially runs functions analogously to
 :doc:`CharacterizeImageTask <charimg>` (which is usually run before
 `CalibrateTask`) to this time perform deep detection and
-measurement (using subtasks which default to `SourceDetectionTask`_
-and `SingleFrameMeasurementTask`_) down to a configurable
+measurement (using subtasks which default to `SourceDetectionTask <taskModules.html#srcdet>`_
+and `SingleFrameMeasurementTask <taskModules.html#sfmtask>`_) down to a configurable
 signal-to-noise threshold (the point sources are the ones optimally
 detected at this stage).  If a flags are set for it to do so, it also
 optionally runs a deblender subtask (which defaults to
-`SourceDeblendTask`_), and an aperture correction subtask (which
-defaults to `ApplyApCorrTask`_) Some of its other primary functions
+`SourceDeblendTask <taskModules.html#srcdeblend>`_), and an aperture correction subtask (which
+defaults to `ApplyApCorrTask <taskModules.html#apcorr>`_) Some of its other primary functions
 are to do astrometric calibration on the exposure (using a subtask
-which defaults to `AstrometryTask`_), as well as photometric
-calibration on it (using a subtask which defaults to `PhotoCalTask`_).
+which defaults to `AstrometryTask <taskModules.html#astrom>`_), as well as photometric
+calibration on it (using a subtask which defaults to `PhotoCalTask <taskModules.html#photocal>`_).
 
 
-.. _`SingleFrameMeasurementTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1base_1_1sfm_1_1_single_frame_measurement_task.html
 
-.. _`ApplyApCorrTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1base_1_1apply_ap_corr_1_1_apply_ap_corr_task.html
 
-.. _`AstrometryTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1astrom_1_1astrometry_1_1_astrometry_task.html
-
-.. _`PhotoCalTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1photo_cal_1_1_photo_cal_task.html
-
-.. _`SubtractBackgroundTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1subtract_background_1_1_subtract_background_task.html
-
-.. _`SourceDetectionTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1algorithms_1_1detection_1_1_source_detection_task.html
-
-.. _`SourceDeblendTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1meas_1_1deblender_1_1deblend_1_1_source_deblend_task.html
-
-.. _`MeasurePsfTask`:  https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1measure_psf_1_1_measure_psf_task.html
-
-.. _`RepairTask`: https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1tasks_1_1repair_1_1_repair_task.html
 
 
 *[Need specific input from developers on what to insert for algorithmic details here.]*
