@@ -4,11 +4,11 @@ CharacterizeImageTask
 #####################
 
 Given an exposure with defects repaired (masked and interpolated over,
-e.g. as output by :doc:`IsrTask <isrtask>`, this task does initial
+e.g. as output by :doc:`IsrTask <isrtask>`), this task does initial
 source extraction and PSF estimation.
 
 
-Some of its primary functions are to:
+Its primary functions are to:
 
   - Detect and measure bright sources
 
@@ -17,25 +17,6 @@ Some of its primary functions are to:
   - Measure and subtract background
 
   - Measure the PSF
-
-In more detail: the first thing the entrypoint function
-``lsst.pipe.tasks.characterizeImage.run`` does is unpack the exposure
-and then pass the result of this to the
-``lsst.pipe.tasks.characterizeImage.characterize`` function.
-
-Next an initial background is estimated (by calling the
-``lsst.meas.algorithms.estimateBackground`` function), since this will
-be needed to make basic photometric measurements.
-
-After this, a straight subtraction of this background from the image
-itself is done (which is a necessary prerequisite to extracting out
-the actual objects in the image).
-
-Finally, the PSF is determined iteratively (by calling the
-``lsst.pipe.tasks.characterizeImage.detectMeasureAndEstimatePsf``
-method).  It's done this way so that every time it passes through and
-detects cosmic rays or the number of sources better than before, a
-better PSF is then determined.
 
 
 This task is implemented in the ``lsst.pipe.tasks`` module.
@@ -47,8 +28,39 @@ This task is implemented in the ``lsst.pipe.tasks`` module.
 Configuration
 =============
 
-Flags  and utility variables
-----------------------------
+
+Subtask Targets
+---------------
+
+-	``background`` - default = SubtractBackgroundTask -    Configuration for initial background estimation
+ 
+-	``detection`` - default = SourceDetectionTask - Detect sources
+ 
+-	``deblend`` - default = SourceDeblendTask - Split blended source into their components
+ 
+-	``measurement`` - default = SingleFrameMeasurementTask - Measure sources
+ 
+-	``measureApCorr`` -  default = MeasureApCorrTask - Subtask to measure aperture corrections
+ 
+-	``applyApCorr`` - default = ApplyApCorrTask - Subtask to apply aperture corrections
+ 
+-	``catalogCalculation`` - default = CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
+ 
+-	``installSimplePsf`` -  default = InstallGaussianPsfTask - Install a simple PSF model
+ 
+-	``refObjLoader`` -  default = LoadAstrometryNetObjectsTask - Reference object loader
+ 
+-	``astrometry`` - default = AstrometryTask - Task to load and match reference objects. Only used if `measurePsf` can use matches. Warning: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
+
+-	``measurePsf`` - default = MeasurePsfTask - Measure PSF
+
+ 
+-	``repair`` -  default = RepairTask - Remove cosmic rays
+ 
+
+
+Parameters
+----------
 
 -``doDeblend`` - (`bool`) - defaults to `True` - Run deblender on input exposure?
  
@@ -67,36 +79,6 @@ Flags  and utility variables
 
 -``checkUnitsParseStrict`` (`str`) - Strictness of Astropy unit compatibility check, can be 'raise', 'warn' or 'silent'
 
-Subtasks
---------
-
--	``background`` - target = SubtractBackgroundTask -    Configuration for initial background estimation
- 
--	``detection`` - target = SourceDetectionTask - Detect sources
- 
--	``deblend`` - target = SourceDeblendTask - Split blended source into their components
- 
--	``measurement`` - target = SingleFrameMeasurementTask - Measure sources
- 
--	``measureApCorr`` -  target = MeasureApCorrTask - Subtask to measure aperture corrections
- 
--	``applyApCorr`` - target = ApplyApCorrTask - Subtask to apply aperture corrections
- 
--	``catalogCalculation`` - target = CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
- 
--	``installSimplePsf`` -  target = InstallGaussianPsfTask - Install a simple PSF model
- 
--	``refObjLoader`` -  target = LoadAstrometryNetObjectsTask - Reference object loader
- 
--	``astrometry`` - target = AstrometryTask - Task to load and match reference objects. Only used if `measurePsf` can use matches. Warning: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
-
--	``measurePsf`` - target = MeasurePsfTask - Measure PSF
-
- 
--	``repair`` -  target = RepairTask - Remove cosmic rays
- 
-
-
 Entrypoint
 ==========
 
@@ -107,10 +89,15 @@ Butler Inputs
 =============
 
 A butler object is passed to the `refObjLoader` constructor in case it
-is needed to load catalogs. May be `None` if a catalog-based star
+is needed to load catalogs. It may be `None` if a catalog-based star
 selector is not used, if the reference object loader constructor does
 not require a butler, or if a reference object loader is passed
 directly via the `refObjLoader` argument.
+
+Butler Outputs
+=============
+
+Output catalogs are of type ``icSrc``.
 
 Examples
 ========
@@ -119,7 +106,7 @@ This code is in ``calibrateTask.py`` (which calls ``CharacterizeImageTask`` befo
 
      python examples/calibrateTask.py --display
 
-
+Running this example currently requires that over and above the DM Stack installation, ``afwdata`` is installed and set up (via the EUPS ``setup`` command).
 
 Debugging
 =========

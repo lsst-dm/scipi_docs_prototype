@@ -3,8 +3,11 @@
 CalibrateTask
 #############
 
-Given a properly characterized exposure, detect sources, measure their
-positions, and do a photometric measurement on them.
+Given a properly characterized exposure (which means one with a PSF
+determined and shipped along with the image, commonly done previous to
+running this Task by :doc:`CharacterizeImage <charimg>`), detect
+sources, measure their positions, and do a photometric measurement on
+them.
 
 This task is implemented in the ``lsst.pipe.tasks`` module.
 
@@ -15,14 +18,35 @@ This task is implemented in the ``lsst.pipe.tasks`` module.
 Configuration
 =============
 
-Flags and utility variables
----------------------------
+Subtask Targets
+----------------
+
+- 	``refObjLoader`` - default=LoadAstrometryNetObjectsTask -   reference object loader
+ 
+- 	``astrometry`` - default=AstrometryTask - Perform astrometric calibration to refine the WCS
+  
+- 	``photoCal`` - default=PhotoCalTask - Perform photometric calibration
+  
+- 	``detection`` - default=SourceDetectionTask - Detect sources
+ 
+ 
+- 	``deblend`` - default=SourceDeblendTask - Split blended sources into their components
+ 
+- 	``measurement`` - default=SingleFrameMeasurementTask - Measure sources
+ 
+ 
+- 	``applyApCorr`` - default=ApplyApCorrTask - Subtask to apply aperture corrections
+ 
+- 	``catalogCalculation`` - default=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
+
+
+
+Parameters
+----------
 
 -``doWrite``  (`bool`) - defaults to `True` - Save calibration results?
  
--``doWriteHeavyFootprintsInSources`` (`bool`) - defaults to `True` -
-    Include HeavyFootprint data in source table? If false then heavy
-    footprints are saved as normal footprints, which saves some space
+-``doWriteHeavyFootprintsInSources`` (`bool`) - defaults to `True` - Include HeavyFootprint data in source table? If false then heavy footprints are saved as normal footprints, which saves some space
  
 -``doWriteMatches``  (`bool`) - defaults to `True` - Write reference matches? (ignored if doWrite `false`)
  
@@ -51,29 +75,6 @@ Flags and utility variables
 
 -``doDeblend`` (`bool`) - defaults to `True` - Run deblender input exposure?
 	
------------
-
-Subtasks
---------
-
-- 	``refObjLoader`` - target=LoadAstrometryNetObjectsTask -   reference object loader
- 
-- 	``astrometry`` - target=AstrometryTask - Perform astrometric calibration to refine the WCS
-  
-- 	``photoCal`` - target=PhotoCalTask - Perform photometric calibration
-  
-- 	``detection`` - target=SourceDetectionTask - Detect sources
- 
- 
-- 	``deblend`` - target=SourceDeblendTask - Split blended sources into their components
- 
-- 	``measurement`` - target=SingleFrameMeasurementTask - Measure sources
- 
- 
-- 	``applyApCorr`` - target=ApplyApCorrTask - Subtask to apply aperture corrections
- 
-- 	``catalogCalculation`` - target=CatalogCalculationTask - Subtask to run catalogCalculation plugins on catalog
-
 
 
 Entrypoint
@@ -84,10 +85,12 @@ Entrypoint
 Butler Inputs
 =============
 
-The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly.
+The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly (type: ``icSrc_schema``).
 
 Butler Outputs
 ==============
+
+Source catalog of type ``src``.
 
 Examples
 ========
@@ -96,6 +99,7 @@ The example code is ``calibrateTask.py`` in the ``$PIPE_TASKS/examples`` directo
 
      python examples/calibrateTask.py --display
      
+Running this example currently requires that over and above the DM Stack installation, ``afwdata`` is installed and set up (via the EUPS ``setup`` command).
 
 Debugging
 =========
