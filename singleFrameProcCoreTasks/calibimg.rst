@@ -5,7 +5,8 @@ CalibrateTask
 Given a background subtracted image, a PSF for it, and an initial
 astrometric solution (all commonly provided to this task by
 :doc:`CharacterizeImage <charimg>`), this task will detect sources,
-measure their positions, and do a photometric calibration on them.
+measure their positions and fluxes, and do astrometric and photometric
+calibrations on them comparing to known reference catalogs.
 
 
 This task is implemented in the `lsst.pipe.tasks <taskModules.html#pipetasks>`_ module.
@@ -17,7 +18,6 @@ This task is implemented in the `lsst.pipe.tasks <taskModules.html#pipetasks>`_ 
 
     `API Usage`: See :doc:`CharacterizeImageTask API <apiUsage_calib>`
 
-   
     
 Configuration
 =============
@@ -29,20 +29,15 @@ Retargetable Subtasks
    :header: Task, Default, Description
    :widths: 15, 25, 50
 
-   `refObjLoader`, LoadAstrometryNetObjectsTask, Reference object loader
-   `astrometry`,   AstrometryTask, Perform astrometric calibration to refine the WCS
-   `photoCal`, PhotoCalTask, Perform photometric calibration  
-   `detection`,  SourceDetectionTask, Detect sources
-   `deblend`, SourceDeblendTask, Split blended sources into their components
-   `measurement`, SingleFrameMeasurementTask, Measure sources
-   `photoCal`, PhotoCalTask, Perform photometric calibration
-   `detection`, SourceDetectionTask, Detect sources
-   `deblend`, SourceDeblendTask, Split blended sources into their components
-   `measurement`, SingleFrameMeasurementTask, Measure sources
-   `applyApCorr`, ApplyApCorrTask, Subtask to apply aperture corrections
-   `catalogCalculation`, CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
-   `refObjLoader`, LoadAstrometryNetObjectsTask,   Reference object loader
-   `astrometry`, AstrometryTask, Perform astrometric calibration to refine the WCS
+   `refObjLoader`, `LoadAstrometryNetObjectsTask <taskModules.html#loadastrom>`_,Reference object loader
+   `astrometry`,   `AstrometryTask <taskModules.html#astrom>`_,Perform astrometric calibration to refine the WCS
+   `photoCal`, `PhotoCalTask <taskModules.html#photocal>`_,Perform photometric calibration  
+   `detection`,  `SourceDetectionTask <taskModules.html#srcdet>`_,Detect sources
+   `deblend`, `SourceDeblendTask <taskModules.html#srcdeblend>`_,Split blended sources into their components
+   `measurement`, `SingleFrameMeasurementTask <taskModules.html#sfmtask>`_,Measure sources
+   `applyApCorr`, `ApplyApCorrTask <taskModules.html#apcorr>`_,Subtask to apply aperture corrections
+   `catalogCalculation`, `CatalogCalculationTask <taskModules.html#catcalc>`_,Subtask to run catalogCalculation plugins on catalog
+
 
 	
 Parameters
@@ -184,17 +179,20 @@ Algorithm details
 
 `CalibrateTask` initially runs functions analogously to
 :doc:`CharacterizeImageTask <charimg>` (which is usually run before
-`CalibrateTask`) to this time perform deep detection and
-measurement (using subtasks which default to `SourceDetectionTask <taskModules.html#srcdet>`_
-and `SingleFrameMeasurementTask <taskModules.html#sfmtask>`_) down to a configurable
-signal-to-noise threshold (the point sources are the ones optimally
-detected at this stage).  If a flags are set for it to do so, it also
-optionally runs a deblender subtask (which defaults to
-`SourceDeblendTask <taskModules.html#srcdeblend>`_), and an aperture correction subtask (which
-defaults to `ApplyApCorrTask <taskModules.html#apcorr>`_) Some of its other primary functions
-are to do astrometric calibration on the exposure (using a subtask
-which defaults to `AstrometryTask <taskModules.html#astrom>`_), as well as photometric
-calibration on it (using a subtask which defaults to `PhotoCalTask <taskModules.html#photocal>`_).
+`CalibrateTask`) to this time perform deep detection and measurement
+(using subtasks which default to `SourceDetectionTask
+<taskModules.html#srcdet>`_ and `SingleFrameMeasurementTask
+<taskModules.html#sfmtask>`_) down to a configurable signal-to-noise
+threshold (the point sources are the ones optimally detected at this
+stage).  If a flags are set for it to do so, it also optionally runs a
+deblender subtask (which defaults to `SourceDeblendTask
+<taskModules.html#srcdeblend>`_), and an aperture correction subtask
+(which defaults to `ApplyApCorrTask <taskModules.html#apcorr>`_) Some
+of its other primary functions are to do astrometric calibration on
+the exposure (using a subtask which defaults to `AstrometryTask
+<taskModules.html#astrom>`_), as well as photometric calibration on it
+(using a subtask which defaults to `PhotoCalTask
+<taskModules.html#photocal>`_).
 
 
 

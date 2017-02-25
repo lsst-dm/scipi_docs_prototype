@@ -2,7 +2,6 @@
 ProcessCcdTask
 ##############
 
-
 `ProcessCcdTask` is a `command line task <CLTs.html>`_ which executes the
 processing steps to turn raw pixel-level data into characterized
 images and calibrated catalogs.
@@ -160,13 +159,13 @@ Parameters
    The butler is passed to the refObjLoader constructor in case it is needed. Ignored if the refObjLoader argument provides a loader directly.
  
 `psfRefObjLoader`
-   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for image characterization. An example of when this would be used is when a CatalogStarSelector is used. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a catalog are disabled.
+   An instance of `LoadReferenceObjectsTasks <taskModules.html#loadref>`_ that supplies an external reference catalog for image characterization. An example of when this would be used is when a CatalogStarSelector is used. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a catalog are disabled.
  
 `astromRefObjLoader`
-   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for astrometric calibration. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
+   An instance of `LoadReferenceObjectsTasks`_ that supplies an external reference catalog for astrometric calibration. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
  
 `photoRefObjLoader`
-   An instance of LoadReferenceObjectsTasks that supplies an external reference catalog for photometric calibration. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
+   An instance of `LoadReferenceObjectsTasks`_ that supplies an external reference catalog for photometric calibration. May be ``None`` if the desired loader can be constructed from the butler argument or all steps requiring a reference catalog are disabled.
  
 `**kwargs`
    Other keyword arguments for `lsst.pipe.base.CmdLineTask <CLTs.html#CLTbaseclass>`_.

@@ -5,6 +5,7 @@ LSST terminology
 ################
 
 .. _butlerlink:
+
 Butler
 ======
 
@@ -15,7 +16,9 @@ https://dev.lsstcorp.org/trac/wiki/DataButler
  (but updated relative to it).
 
 .. _exposure:
+
 .. _exposureF:
+
 Exposures 
 =========
 
@@ -27,6 +30,7 @@ We want to eventually explain the different kinds of exposures accessible in the
 
 
 .. _bkgdlist:
+
 Background List
 ===============
 
@@ -40,6 +44,7 @@ https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/namespacelsst_1_1afw_
 
 
 .. _postisrccd:
+
 postISRCCD Exposure
 ===================
 
@@ -50,6 +55,7 @@ https://dev.lsstcorp.org/trac/wiki/DataButler
  (but updated relative to it).
 
 .. _raw:
+
 Raw DataSetType
 ===============
 
@@ -61,8 +67,9 @@ https://dev.lsstcorp.org/trac/wiki/DataButler
 
 
 .. _catalogs:
-postISRCCD Exposure
-===================
+
+Catalog Types
+=============
 
 Description of what different types of catalogs are available (such as an `icSrc`) will go here, analogous to information in here:
 

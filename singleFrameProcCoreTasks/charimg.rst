@@ -2,14 +2,16 @@
 CharacterizeImageTask
 #####################
 
-Given an exposure that has been fully corrected for instrumental effects (e.g. as output by :doc:`IsrTask <isrtask>`), this task does initial
-source extraction and an iterative algorithm to converge to the best possible PSF estimate across the image.
+Given an exposure that has been fully corrected for instrumental
+effects (e.g. as output by :doc:`IsrTask <isrtask>`), this task does
+initial source extraction and an iterative algorithm to converge to
+the best possible PSF estimate across the image.
 
 Its primary sub-function steps in the iterative effort to achieve the above are to:
 
   - Detect and measure bright sources
 
-  - Repair cosmic rays
+  - Repair cosmic rays by interpolating over them
 
   - Measure and subtract background
 
@@ -37,18 +39,18 @@ Retargetable Subtasks
    :header: Task, Default, Description
    :widths: 15, 25, 50
 
-	`background`,  SubtractBackgroundTask,    Configuration for initial background estimation
-	`detection`,  SourceDetectionTask, Detect sources
-	`deblend`,  SourceDeblendTask, Split blended source into their components
-	`measurement`,  SingleFrameMeasurementTask, Measure sources
-	`measureApCorr`,   MeasureApCorrTask, Subtask to measure aperture corrections
-	`applyApCorr`,  ApplyApCorrTask, Subtask to apply aperture corrections
-	`catalogCalculation`,  CatalogCalculationTask, Subtask to run catalogCalculation plugins on catalog
-	`installSimplePsf`,   InstallGaussianPsfTask, Install a simple PSF model
-	`refObjLoader`,   LoadAstrometryNetObjectsTask, Reference object loader
-	`astrometry`,  AstrometryTask, Task to load and match reference objects. Only used if `measurePsf` can use matches. *Warning*: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
-	`measurePsf`,  MeasurePsfTask, Measure PSF
-	`repair`,   RepairTask, Remove cosmic rays
+	`background`,  `SubtractBackgroundTask <taskModules.html#subbkgd>`_,    Configuration for initial background estimation
+	`detection`,  `SourceDetectionTask <taskModules.html#srcdet>`_, Detect sources
+	`deblend`,  `SourceDeblendTask <taskModules.html#srcdeblend>`_, Split blended source into their components
+	`measurement`,  `SingleFrameMeasurementTask <taskModules.html#sfmtask>`_, Measure sources
+	`measureApCorr`,   `MeasureApCorrTask <taskModules.html#measap>`_ , Subtask to measure aperture corrections
+	`applyApCorr`,  `ApplyApCorrTask <taskModules.html#apcorr>`_, Subtask to apply aperture corrections
+	`catalogCalculation`,  `CatalogCalculationTask <taskModules.html#catcalc>`_, Subtask to run catalogCalculation plugins on catalog
+	`installSimplePsf`,   `InstallGaussianPsfTask <taskModules.html#installpsf>`_, Install a simple PSF model
+	`refObjLoader`,   `LoadAstrometryNetObjectsTask <taskModules.html#loadastrom>`_, Reference object loader
+	`astrometry`,  `AstrometryTask <taskModules.html#astrom>`_, Task to load and match reference objects. Only used if `measurePsf` can use matches. *Warning*: matching will only work well if the initial WCS is accurate enough to give good matches (roughly: good to 3 arcsec across the CCD).
+	`measurePsf`,  `MeasurePsfTask <taskModules.html#measpsf>`_, Measure PSF
+	`repair`,   `RepairTask <taskModules.html#repair>`_, Remove cosmic rays
  
 
 
@@ -128,7 +130,7 @@ Parameters
 
 
 `exposure`
-  Exposure to characterize (an `lsst.afw.image.ExposureF <LSSTglossary.html#exposureF>`_ or similar). If ``None`` then unpersist from `postISRCCD<LSSTglossary.html#postisrccd>`_. The following changes are made, depending on the config:
+  Exposure to characterize (an `lsst.afw.image.ExposureF <LSSTglossary.html#exposureF>`_ or similar). If ``None`` then unpersist from `postISRCCD <LSSTglossary.html#postisrccd>`_. The following changes are made, depending on the config:
 
   - set psf to the measured PSF
 
@@ -161,7 +163,7 @@ A pipe_base Struct containing these fields, all from the final iteration of `det
    
 `background`: model of background subtracted from exposure (an `lsst.afw.math.BackgroundList`_)
 
-`psfCellSet`: spatial cells of PSF candidates (an `lsst.afw.math.SpatialCellSet`_)
+`psfCellSet`: spatial cells of PSF candidates (an `lsst.afw.math.SpatialCellSet <objectClasses.html#scset>`_)
 
 
 
@@ -255,18 +257,21 @@ Algorithm details
 =================
 
 The PSF is iteratively arrived at by repeatedly interpolating over
-cosmic rays (using a subtask which defaults to `RepairTask <taskModules.html#repair>`_),
-estimating and subtracting the background (using a subtask which
-defaults to `SubtractBackgroundTask <taskModules.html#subbkgd>`_), detecting sources (using a
-subtask which defaults to `SourceDetectionTask <taskModules.html#srcdet>`_ ), optionally
-deblending them (using a task which defaults to `SourceDeblendTask <taskModules.html#srcdeblend>`_),
-and then measuring them (using a subtask which defaults to
-`SingleFrameMeasurementTask <taskModules.html#sfmtask>`_), and using those sources to estimate
-the PSF (using a subtask which defaults to `MeasurePsfTask <taskModules.html#measpsf>`_). This is
-repeated ``psfIterations`` times, gradually refining the PSF
-model. After the ultimate PSF has been so derived, it is used in final
-repair and measurement steps which produce the source catalog returned
-to the caller.
+cosmic rays (using a subtask which defaults to `RepairTask
+<taskModules.html#repair>`_), estimating and subtracting the
+background (using a subtask which defaults to `SubtractBackgroundTask
+<taskModules.html#subbkgd>`_), detecting sources (using a subtask
+which defaults to `SourceDetectionTask <taskModules.html#srcdet>`_ ),
+optionally deblending them (using a task which defaults to
+`SourceDeblendTask <taskModules.html#srcdeblend>`_), and then
+measuring them (using a subtask which defaults to
+`SingleFrameMeasurementTask <taskModules.html#sfmtask>`_), and using
+those sources to estimate the PSF (using a subtask which defaults to
+`MeasurePsfTask <taskModules.html#measpsf>`_). This is repeated
+``psfIterations`` times, gradually refining the PSF model. After the
+ultimate PSF has been so derived, it is used in final repair and
+measurement steps which produce the source catalog returned to the
+caller.
 
 
 *[Need more specific input from developers on what to insert for algorithmic details here.]*

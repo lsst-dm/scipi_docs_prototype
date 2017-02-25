@@ -5,6 +5,7 @@ Basic Object Type Descriptions
 ###############################
 
 .. _structlink:
+
 Struct   
 ======
 
@@ -14,6 +15,7 @@ https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1pipe_1_1
 
 
 .. _srctable:
+
 Source Table
 ============
 
@@ -22,6 +24,7 @@ A description of what a Source Table is will go here,  containing information li
 https://lsst-web.ncsa.illinois.edu/doxygen/x_masterDoxyDoc/classlsst_1_1afw_1_1table_1_1_source_table.html
 
 .. _scset:
+
 Spatial Cell Set
 ================
 

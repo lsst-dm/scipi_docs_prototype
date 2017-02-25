@@ -16,9 +16,9 @@ all the amplifier sub-images at once for a CCD.  `IsrTask` provides a
 generic implementation of doing these corrections, including the
 ability to turn certain corrections off.
 
-Further, `IsrTask` calls a subtask to trim and assemble the amplifier
-subimages into a single full CCD image ready for the next steps of
-image characterization and calibration.
+Further, `IsrTask` optionally calls a subtask to trim and assemble the
+amplifier subimages into a single full CCD image ready for the next
+steps of image characterization and calibration.
 
 This task is implemented in the `lsst.ip.isr <taskModules.html#ipisr>`_ module.
 
@@ -41,8 +41,8 @@ Retargetable Subtasks
    :header: Task, Default, Description
    :widths: 15, 25, 50
 
-	`assembleCcd` , AssembleCcdTask ,  CCD assembly task
-	`fringe` ,  FringeTask , Fringe subtraction task
+	`assembleCcd` , `AssembleCcdTask <taskModules.html#assembleccd>`_ ,  CCD assembly task
+	`fringe` ,  `FringeTask <taskModules.html#fringetask>`_ , Fringe subtraction task
  
 Parameters
 ----------
@@ -217,9 +217,6 @@ Returns
 ``struct`` -   `lsst.pipe.base.Struct <objectClasses.html#structlink>`_ with field: `exposure` (i.e. `lsst.afw.image.exposure`_  specifically of type `postISRCCD <LSSTglossary.html#postisrccd>`_.)
 
 
-
-
-
 Debugging
 =========
 
@@ -372,5 +369,3 @@ Document-19407) and references listed therein.
 *[Need specific input from developers on what to insert for algorithmic details here.]*
 
 [Extra reference: Section 4 of LSST DATA CHALLENGE HANDBOOK (2011) [https://project.lsst.org/sciencewiki/images/DC_Handbook_v1.1.pdf] , and http://hsca.ipmu.jp/public/index.html ]
-
-  
