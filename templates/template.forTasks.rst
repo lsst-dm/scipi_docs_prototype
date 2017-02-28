@@ -5,6 +5,8 @@
 ExampleTask
 ###########
 
+.. role:: red
+	  
 We give guidance here for developers on what to write into their
 docstrings in the code in order to populate the documentation page
 best.  These docstrings will be written in Numpydoc format.
@@ -17,11 +19,17 @@ Introduction
 
 This section will consist of the following, all of which need to be written:
 
-  - Summary/context (1-2 sentences): write this section concisely, as it should be very brief, and is primarily about whether the reader should choose to use this task to  achieve h/her goal in a very quick scan.
+- Summary/context (1-2 sentences):
 
-  - Concise summary of logic/algorithm in a paragaph and/or bullet list.  Be concise and link to other tasks wherever needed.  This can be a  few more sentences, but should not contain very many details or math  at this point (that will go at the bottom).  It should just say  where this fits into the larger DM structure, what retargetable  subtasks or methods within a task it calls by default.  The  doc-building code will automatically link these to the appropriate  destinations ultimately, as for other methods and tasks below as well.
+.. note:: Write this section concisely, as it should be very brief, and is primarily about whether the reader should choose to use this task to  achieve h/her goal in a very quick scan.
 
-  - If there are optional tasks that are called you can choose to fill those in here as well, but not them as optional and depending on  whether a flag is set in the configuration parameters
+- Concise summary of logic/algorithm in a paragaph and/or bullet list.
+
+.. note:: Be concise and link to other tasks wherever needed.  This can be a  few more sentences, but should not contain very many details or math  at this point (that will go at the bottom).  It should just say  where this fits into the larger DM structure, what retargetable  subtasks or methods within a task it calls by default.
+
+The  doc-building code will automatically link these to the appropriate  destinations ultimately, as for other methods and tasks below as well.
+
+.. note:: If there are optional tasks that are called you can choose to fill those in here as well, but not them as optional and depending on  whether a flag is set in the configuration parameters
 
 .. We used to have this, but i think it's covered now by the above:
 ..   - Do include a sentence about each step, which can be either a:
@@ -31,7 +39,7 @@ This section will consist of the following, all of which need to be written:
      
 - Module membership:
 
-  Here, simply state the module the task is implemented inside of.
+.. note::  Here, simply state the module the task is implemented inside of.
 
 .. seealso::
 
@@ -46,7 +54,7 @@ This section will consist of the following, all of which need to be written:
 
   - The API Usage page for this task
 
-So please fill in all the above types of tasks and pages into this section.  
+.. note:: So please fill in all the above types of tasks and pages into this section.  
 
     
 Configuration
@@ -63,7 +71,7 @@ Retargetable Subtasks
   - Default target
   - Description of what it does
 
-So please fill in the docstring for each subtask must with its default
+.. note:: So please fill in the docstring for each subtask must with its default
 target and further, a description of what the subtask is supposed to
 do.
 
@@ -91,7 +99,7 @@ Here, configuration parameters will be displayed in a table with the following f
 
 .. I don't think there are any examples in any of the sfp tasks.. i wonder if this should actually be in there.
    
-Please fill in the docstrings in the config class for this task with all the above (type, default value, description), for each parameter.
+.. note:: Please fill in the docstrings in the config class for this task with all the above (type, default value, description), for each parameter.
 
 .. - It would be good to call out the most frequently changed config vars in some way as well -- we haven't talked about asking developers to delineate these, yet.
 
@@ -108,7 +116,9 @@ This section will consist of:
   picked up automatically from the interface of the `__init__` method
   and will not require developer input.
   
-- Description of the parameters in the interface signature -- please separately enter information on each  parameter in a docstring in the `__init__` method.
+- Description of the parameters in the interface signature
+
+.. note:: Please separately enter information on each  parameter in a docstring in the `__init__` method.
   
 Run method
 ----------
@@ -121,11 +131,13 @@ This will consist of:
   require developer input.
 
 - A short description of what the `run` method requires as required
-  and optional inputs -- and again, please enter this information in a docstring in the `run` method.
+  and optional inputs
+
+.. note:: Again, please enter this information in a docstring in the `run` method.
   
-- Description of the parameters in the run signature -- once again,
-  please separately enter information on
-  each parameter in a docstring in the `run` method.
+- Description of the parameters in the run signature
+
+.. note:: Once again, please separately enter information on each parameter in a docstring in the `run` method.
   
 
 Debugging
@@ -139,14 +151,15 @@ Debugging
   - Parameter type
   - Parameter description
 
-Please fill in all of these are to be analogously to how the configuration
-parameters are done in docstrings.
+.. note:: Please fill in all of these are to be analogously to how the configuration parameters are done in docstrings.
 
 Examples
 ========
 
 - This will be a self-contained example of using this task that can be
-  tested by any reader -- making this is a substantial job which requires writing an
+  tested by any reader.
+
+.. note:: Making this is a substantial job which requires writing an
   actual example and then going through and describing line by line in 
   the docstrings inside of it what the example is doing.
 
