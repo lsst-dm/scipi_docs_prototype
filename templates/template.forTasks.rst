@@ -5,8 +5,6 @@
 ExampleTask
 ###########
 
-.. role:: red
-	  
 We give guidance here for developers on what to write into their
 docstrings in the code in order to populate the documentation page
 best.  These docstrings will be written in Numpydoc format.
@@ -18,10 +16,16 @@ Below, the normal text lists sections and general contents in them,
 while the "ToDo" boxes are specific directives to the developer of
 what to include into the docstrings for that section.
 
+[NB: The structure is substantially different from how docstrings were
+populated for DM's previous Doxygen documentation, for those familiar
+with it.]
+
 Introduction
 =============
 
-This section will consist of the following, all of which need to be written:
+This section will consist of the below, all of which need to be
+written.  These should be inserted into docstrings near the very top
+of the class definition for the task.
 
 - **Summary/context (1-2 sentences):**
 
@@ -29,11 +33,11 @@ This section will consist of the following, all of which need to be written:
 
 - **Concise summary of logic/algorithm in a paragaph and/or bullet list.**
 
-.. ToDo:: Be concise and link to other tasks wherever needed.  This can be a  few more sentences, but should not contain very many details or math  at this point (that will go at the bottom).  It should just say  where this fits into the larger DM structure, what retargetable  subtasks or methods within a task it calls by default.
+.. ToDo:: Be concise and link to other tasks wherever needed.  This can be a  few more sentences, but should not contain very many details or math  at this point (that will go in the algorithmic section at the bottom).  It should just say  where this fits into the larger DM structure, what retargetable  subtasks or methods within a task it calls by default.
 
 The  doc-building code will automatically link these to the appropriate  destinations ultimately, as for other methods and tasks below as well.
 
-.. ToDo:: If there are optional tasks that are called you can choose to fill those in here as well, but not them as optional and depending on  whether a flag is set in the configuration parameters
+.. ToDo:: If there are optional tasks that are called you can choose to fill those in here as well, but note them as optional and depending on  whether a flag is set in the configuration parameters
 
 .. We used to have this, but i think it's covered now by the above:
 ..   - Do include a sentence about each step, which can be either a:
@@ -64,7 +68,9 @@ The  doc-building code will automatically link these to the appropriate  destina
 Configuration
 =============
 
-- This section describes the task’s configurations defined in the task  class’s associated configuration class.  It will be split into 2  natural subsections, as below.
+- This section describes the task’s configurations defined in the task
+  class’s associated configuration class.  It will be split into 2
+  natural subsections, as below.
 
 Retargetable Subtasks
 ---------------------
@@ -75,7 +81,7 @@ Retargetable Subtasks
   - Default target
   - Description of what it does
 
-.. ToDo:: Please fill in the docstring for each subtask must with its default target and further, a description of what the subtask is supposed to do.
+.. ToDo:: This content goes at the top of the Task Config class (which is generally defined in the the same file as the Task itself). Please fill in the docstring for each subtask with its default target and further, a description of what the subtask is supposed to do.
 
 ..  [We would also like to provide list of everything to which this could be retargeted.. do we need the developer to do this too, we didn't for the sfp tasks..  ]
 
@@ -101,7 +107,7 @@ Here, configuration parameters will be displayed in a table with the following f
 
 .. I don't think there are any examples in any of the sfp tasks.. i wonder if this should actually be in there.
    
-.. ToDo:: Please fill in the docstrings in the config class for this task with all the above (type, default value, description), for each parameter.
+.. ToDo:: Like the Retargetable Subtaskss, this content goes at the top of the Task Config class.   Please fill in the docstrings in the config class for this task with all the above (type, default value, description), for each parameter.
 
 .. - It would be good to call out the most frequently changed config vars in some way as well -- we haven't talked about asking developers to delineate these, yet.
 
@@ -120,7 +126,7 @@ This section will consist of:
   
 - Description of the parameters in the interface signature
 
-.. ToDo:: Please separately enter information on each  parameter in a docstring in the `__init__` method.
+.. ToDo:: This content will go at the top of the `initializer` (constructor) method, i.e. top of the `__init__` method.  Please separately enter information on each  parameter in a docstring there.
   
 Run method
 ----------
@@ -135,7 +141,7 @@ This will consist of:
 - A short description of what the `run` method requires as required
   and optional inputs
 
-.. ToDo:: Again, please enter this information in a docstring in the `run` method.
+.. ToDo:: This will go at the top of the `run` method.  Please enter this information in a docstring there.
   
 - Description of the parameters in the run signature
 
@@ -153,7 +159,8 @@ Debugging
   - Parameter type
   - Parameter description
 
-.. ToDo:: Please fill in all of these are to be analogously to how the configuration parameters are done in docstrings.
+.. ToDo:: These should be inserted into docstrings again near the top
+of the class definition for the task, but after the above content listed in the `Introduction` section.  Please fill in all of these are to be analogously to how the configuration parameters are done in docstrings.
 
 Examples
 ========
@@ -161,9 +168,7 @@ Examples
 - This will be a self-contained example of using this task that can be
   tested by any reader.
 
-.. ToDo:: Making this is a substantial job which requires writing an
-  actual example and then going through and describing line by line in 
-  the docstrings inside of it what the example is doing.
+.. ToDo:: Making this is a substantial job which requires writing an  actual example and then going through and describing line by line in   the docstrings inside of it what the example is doing.  This should be inserted into docstrings again near the top of the class definition for the task, after the above content listed in the `Debug` section
 
 .. Since nothing but the procCcd example is currently working in sfp tasks, those aren't very good prototypes currently here.  We eventually need to figure out how to include these in CI, keep them updated, etc., which is a somewhat open q right now.
   
@@ -174,4 +179,4 @@ Algorithm details
   some thinking on what the significant parts
   of the algorithm are to be presented.  Mathjax will be implemented
   so that the math can be nicely displayed and written in straight tex
-  (though the ``math`` directive of reST).
+  (though the ``math`` directive of reST).  This should be inserted into docstrings in the class definition for the task, after the above content listed in the `Examples` section
