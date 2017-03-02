@@ -1,3 +1,4 @@
+:orphan: true
 
 From: https://dmtn-030.lsst.io/#framework-topic-type
 

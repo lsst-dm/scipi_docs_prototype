@@ -1,4 +1,5 @@
-
+:orphan: true
+	 
 Template file: Classname 
 =========================
 
