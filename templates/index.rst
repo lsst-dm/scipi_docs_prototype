@@ -10,9 +10,8 @@ LSST DM Stack documentation
 Contents:
 
 .. toctree::
-   :maxdepth: 1
 
- Task Template <template.forTasks>
+  Task Template <struc_template.forTasks>
 	      
 .. template.forCLT
 .. template.forFrameworks.rst

@@ -2,37 +2,37 @@
 	 
 .. Based on: https://dmtn-030.lsst.io/v/DM-7096/index.html#task-topic-type, with learnings from the 4 sfp pages built in branch DM-8717
 
-###########
-ExampleTask
-###########
+########################
+Structure of ExampleTask 
+########################
 
 Introduction
 =============
 
-This section will consist of the following, all of which need to be written:
+This section consists of the following:
 
 - Summary/context (1-2 sentences).
 
-- Concise summary of logic/algorithm in a paragaph and/or bullet list.  Be concise and link to other tasks wherever needed.
+- Concise summary of logic/algorithm in a paragaph and/or bullet list.
 
-- Include a sentence about each step, which can be either:
+- Includes a sentence about each step, which can be either:
 
   a) A retargetable sub-task
 
   b) A method within a task.
 
+`Guidance for the Introduction Section  <instruc_template.forTasks.html#intro>`_ .
 
-     
-- Module membership:
 
-  Here, simply state the module the task is implemented inside of.
+- Module Membership:
 
+  States the module the task is implemented inside of.
+
+`Guidance for the Module Membership Section  <instruc_template.forTasks.html#module>`_ .
 
 .. seealso::
   
-   -   We put in a `seealso` directive like this one. 
- 
-   -  It will link to related content, such as:
+   -  Things inside this `seealso` directive link to related content, such as:
   
          - Tasks that commonly use this task (this helps a reader landing on a subtask’s page find the appropriate driver task).
      
@@ -42,6 +42,7 @@ This section will consist of the following, all of which need to be written:
   
          - The API Usage page for this Task
      
+         `Guidance for the See Also Section  <instruc_template.forTasks.html#seealso>`_ .
 
     
 Configuration
@@ -50,6 +51,8 @@ Configuration
 - This section describes the task’s configurations defined in the task
   class’s associated configuration class.  It will be split into 2
   natural subsections, as below.
+
+`Guidance for the Configuration Section  <instruc_template.forTasks.html#config>`_ .
 
 Retargetable Subtasks
 ---------------------
@@ -61,10 +64,12 @@ Retargetable Subtasks
   - Description of what it does
 
 
-- Ultimately, the parameter type will link to a documentation  topic for that type (such as a class’s API reference), which will  happen automatically.
+- Ultimately, the parameter type will link to a documentation  topic for that type (such as a class’s API reference).
 
 .. For the sfp pages, these links were all stubs
 
+`Guidance for the Retargetable Subtasks Subsection  <instruc_template.forTasks.html#retarg>`_ .
+   
 Parameters
 ----------
 
@@ -85,6 +90,7 @@ Here, configuration parameters will be displayed in a table with the following f
    
 .. - It would be good to call out the most frequently changed config vars in some way as well -- we haven't talked about asking developers to delineate these, yet.
 
+`Guidance for the Parameters Subsection  <instruc_template.forTasks.html#params>`_ .
 
 Python usage
 ============
@@ -92,15 +98,14 @@ Python usage
 Class initialization
 --------------------
 
-This section will consist of:
+This section consists of:
 
-- Interface for declaring an instance of the class -- this will be
-  picked up automatically from the interface of the `__init__` method
-  and will not require developer input.
+- Interface for declaring an instance of the class
   
 - Description of the parameters in the interface signature
 
-  
+`Guidance for the Class initialization Subsection  <instruc_template.forTasks.html#initzn>`_ .
+
 Run method
 ----------
 
@@ -116,6 +121,8 @@ This will consist of:
 
 - Description of the parameters in the run signature
 
+`Guidance for the Run Method Subsection  <instruc_template.forTasks.html#run>`_ .
+
 
 Debugging
 =========
@@ -128,14 +135,20 @@ Debugging
   - Parameter type
   - Parameter description
 
+
+`Guidance for the Debugging Section  <instruc_template.forTasks.html#debug>`_ .
+    
 Examples
 ========
 
-- This will be a self-contained example of using this task that can be
+- This should be a self-contained example of using this task that can be
   tested by any reader.
 
 .. Since nothing but the procCcd example is currently working in sfp tasks, those aren't very good prototypes currently here.  We eventually need to figure out how to include these in CI, keep them updated, etc., which is a somewhat open q right now.
-  
+
+
+`Guidance for the Examples Subsection  <instruc_template.forTasks.html#examples>`_ .
+   
 Algorithm details
 ====================
 
@@ -145,4 +158,4 @@ Algorithm details
   so that the math can be nicely displayed and written in straight tex
   (though the **math** directive of reST).
 
-  
+`Guidance for the Algorithm Details Section  <instruc_template.forTasks.html#algo>`_ .
