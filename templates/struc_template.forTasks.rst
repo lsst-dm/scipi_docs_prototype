@@ -2,37 +2,36 @@
 	 
 .. Based on: https://dmtn-030.lsst.io/v/DM-7096/index.html#task-topic-type, with learnings from the 4 sfp pages built in branch DM-8717
 
+Please fill in the below sections with the contents as described in the reST comments, removing the comments as you do so, and using the links to locations in the Guidance Document if needed. 
+   
 ########################
 Structure of ExampleTask 
 ########################
 
-Introduction
-=============
+.. Introductory material - this section needs the following filled in:
 
-This section consists of the following:
+.. - Summary/context (1-2 sentences).
 
-- Summary/context (1-2 sentences).
+.. - Concise summary of logic/algorithm in a paragaph and/or bullet list.
 
-- Concise summary of logic/algorithm in a paragaph and/or bullet list.
+.. - A sentence about each step, which can be either:
 
-- Includes a sentence about each step, which can be either:
+..  a) A retargetable subtask
 
-  a) A retargetable sub-task
+..  b) A method within a task.
 
-  b) A method within a task.
-
-`Guidance for the Introduction Section  <instruc_template.forTasks.html#intro>`_ .
+.. `Guidance for the Introduction Section  <instruc_template.forTasks.html#intro>`_ .
 
 
-- Module Membership:
+.. - Module Membership:
 
-  States the module the task is implemented inside of.
+..  This section needs only the module the task is implemented inside of.
 
-`Guidance for the Module Membership Section  <instruc_template.forTasks.html#module>`_ .
+.. `Guidance for the Module Membership Section  <instruc_template.forTasks.html#module>`_ .
 
-.. seealso::
+.. SeeAlso Box:
   
-   -  Things inside this `seealso` directive link to related content, such as:
+..   -  Things inside the `seealso` directive box need to link to related content, such as:
   
          - Tasks that commonly use this task (this helps a reader landing on a subtask’s page find the appropriate driver task).
      
@@ -42,55 +41,51 @@ This section consists of the following:
   
          - The API Usage page for this Task
      
-         `Guidance for the See Also Section  <instruc_template.forTasks.html#seealso>`_ .
+..         `Guidance for the See Also Section  <instruc_template.forTasks.html#seealso>`_ .
 
     
 Configuration
 =============
 
-- This section describes the task’s configurations defined in the task
-  class’s associated configuration class.  It will be split into 2
-  natural subsections, as below.
-
-`Guidance for the Configuration Section  <instruc_template.forTasks.html#config>`_ .
+.. - This section describes the task’s configurations defined in the task class’s associated configuration class.  It will be split into 2  natural subsections, as below.
 
 Retargetable Subtasks
 ---------------------
 
-- For these subtasks, a table will be shown with 3 columns:
+.. - For these subtasks, a table will be shown with 3 columns:
 
-  - Subtask name
-  - Default target
-  - Description of what it does
+..  - Subtask name
+..  - Default target
+..  - Description of what it does
 
+.. In this case, the content is filled in strings in the code itself, not in this reST document (see Guidance Doc for details).   
 
-- Ultimately, the parameter type will link to a documentation  topic for that type (such as a class’s API reference).
+.. - Ultimately, the parameter type will link to a documentation topic for that type (such as a class’s API reference).
 
-.. For the sfp pages, these links were all stubs
+.. (For the sfp pages, these links were all stubs)
 
-`Guidance for the Retargetable Subtasks Subsection  <instruc_template.forTasks.html#retarg>`_ .
+.. `Guidance for the Retargetable Subtasks Subsection  <instruc_template.forTasks.html#retarg>`_ .
    
 Parameters
 ----------
 
-Here, configuration parameters will be displayed in a table with the following fields:
+.. Here, configuration parameters will be displayed in a table with the following fields:
 
-- Parameter name.
+.. - Parameter name.
 
-- Parameter type.  These are generally simple python var types
-  (i.e. `bool`, `int`, `float`, or `str`) , which will automatically be
-  linked to existing python documentation on these types)
+.. - Parameter type.  These are generally simple python var types (i.e. `bool`, `int`, `float`, or `str`) , which will automatically be  linked to existing python documentation on these types)
 
-- Default value of parameter.
+.. - Default value of parameter.
 
-- A description sentence or paragraph. The description should also
-  mention caveats, and possibly give an example.
+.. - A description sentence or paragraph. The description should also mention caveats, and possibly give an example.
 
-.. I don't think there are any examples in any of the sfp tasks.. i wonder if this should actually be in there.
+.. These are filled in in the code itself, not in this reST document.
+
+.. (I don't think there are any examples in any of the sfp tasks.. i wonder if this should actually be in there.)
    
-.. - It would be good to call out the most frequently changed config vars in some way as well -- we haven't talked about asking developers to delineate these, yet.
+.. (It would be good to call out the most frequently changed config vars in some way as well -- we haven't talked about asking developers to delineate these, yet.)
 
-`Guidance for the Parameters Subsection  <instruc_template.forTasks.html#params>`_ .
+.. `Guidance for the Parameters Subsection  <instruc_template.forTasks.html#params>`_ .
 
 Python usage
 ============
@@ -98,64 +93,57 @@ Python usage
 Class initialization
 --------------------
 
-This section consists of:
+.. This section consists of:
 
-- Interface for declaring an instance of the class
+.. - Interface for declaring an instance of the class
   
-- Description of the parameters in the interface signature
+.. - Description of the parameters in the interface signature
 
-`Guidance for the Class initialization Subsection  <instruc_template.forTasks.html#initzn>`_ .
+.. These are filled in in the code itself, not in this reST document.
+   
+.. `Guidance for the Class initialization Subsection  <instruc_template.forTasks.html#initzn>`_ .
 
 Run method
 ----------
 
-This will consist of:
+.. This will consist of:
 
-- A description of the interface for calling the primary entrypoint
-  function for the class -- again, this will be picked up
-  automatically from the interface of the `run` method and will not
-  require developer input.
+.. - A description of the interface for calling the primary entrypoint function for the class -- again, this will be picked up  automatically from the interface of the `run` method and will not  require developer input.
 
-- A short description of what the `run` method requires as required
-  and optional inputs
+.. - A short description of what the `run` method requires as required and optional inputs
 
-- Description of the parameters in the run signature
+.. - Description of the parameters in the run signature
 
-`Guidance for the Run Method Subsection  <instruc_template.forTasks.html#run>`_ .
+.. These are filled in in the code itself, not in this reST document.   
+
+.. `Guidance for the Run Method Subsection  <instruc_template.forTasks.html#run>`_ .
 
 
 Debugging
 =========
 
-- Debugging framework hooks: if there are several debugging
-  parameters, they will be displayed in a table similar to how the
-  configuration parameters are done, with three columns:
+.. - Debugging framework hooks: if there are several debugging parameters, they will be displayed in a table similar to how the  configuration parameters are done, with three columns:
 
-  - Parameter name
-  - Parameter type
-  - Parameter description
+..  - Parameter name
+..  - Parameter type
+..  - Parameter description
 
-
-`Guidance for the Debugging Section  <instruc_template.forTasks.html#debug>`_ .
+.. These are filled in in the code itself, not in this reST document.
+   
+.. `Guidance for the Debugging Section  <instruc_template.forTasks.html#debug>`_ .
     
 Examples
 ========
 
-- This should be a self-contained example of using this task that can be
-  tested by any reader.
+.. - This should be a self-contained example of using this task that can be tested by any reader.
 
-.. Since nothing but the procCcd example is currently working in sfp tasks, those aren't very good prototypes currently here.  We eventually need to figure out how to include these in CI, keep them updated, etc., which is a somewhat open q right now.
+.. (Since nothing but the procCcd example is currently working in sfp tasks, those aren't very good prototypes currently here.  We eventually need to figure out how to include these in CI, keep them updated, etc., which is a somewhat open q right now.)
 
-
-`Guidance for the Examples Subsection  <instruc_template.forTasks.html#examples>`_ .
+.. `Guidance for the Examples Subsection  <instruc_template.forTasks.html#examples>`_ .
    
 Algorithm details
 ====================
 
-- Extended description with mathematical details - this will require
-  some thinking on what the significant parts
-  of the algorithm are to be presented.  Mathjax will be implemented
-  so that the math can be nicely displayed and written in straight tex
-  (though the **math** directive of reST).
+.. - Extended description with mathematical details - this will require thinking on what the significant parts  of the algorithm are to be presented.  Mathjax will be implemented  so that the math can be nicely displayed and written in straight tex  (through the **math** directive of reST).
 
-`Guidance for the Algorithm Details Section  <instruc_template.forTasks.html#algo>`_ .
+.. `Guidance for the Algorithm Details Section  <instruc_template.forTasks.html#algo>`_ .
