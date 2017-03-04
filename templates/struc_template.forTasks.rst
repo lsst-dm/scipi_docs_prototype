@@ -58,7 +58,7 @@ Retargetable Subtasks
 ..  - Default target
 ..  - Description of what it does
 
-.. In this case, the content is filled in strings in the code itself, not in this reST document (see Guidance Doc for details).   
+.. In this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
 
 .. - Ultimately, the parameter type will link to a documentation topic for that type (such as a class’s API reference).
 

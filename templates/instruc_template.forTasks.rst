@@ -7,7 +7,7 @@ Guidance for ExampleTask
 ########################
 
 We give guidance here for developers on what to write into the reST
-template (and into descriptive strings and docstrings in the code) in
+template (and into descriptive strings and python docstrings in the code) in
 order to populate the documentation page best.  The docstrings will be
 written in Numpydoc format.
 
@@ -81,11 +81,9 @@ Configuration
 Retargetable Subtasks
 ---------------------
 
-.. Note:: This content will be derived from strings that describe the subtasks in the python code.  At the top of the Task Config class (which is generally defined in the the same file as the Task itself), please fill in a string for each subtask with its default target and another string with a description of what the subtask is supposed to do.
+.. Note:: This content will be derived from keywords that describe the subtasks in the python code, including a `doc` keyword in which the subtask is described.  Inside of the Task Config class (which is generally defined in the the same file as the Task itself), please fill in the `target` keyword with the name of the default subtask and the `doc` keyword with a string with a description of what the subtask is supposed to do.
 
-.. [We would also like to provide list of everything to which this could be retargeted.. do we need the developer to do this too, we didn't for the sfp tasks..  ]
-
-- Later, the parameter type will link to a documentation topic for that type automatically.
+.. [We would also like to provide a list of everything to which this could be retargeted.. do we need the developer to do this too, we didn't for the sfp tasks..  ]
 
 .. For the sfp pages, these links were all stubs
 
@@ -97,7 +95,10 @@ Parameters
 
 .. I don't think there are any examples in any of the sfp tasks.. i wonder if this should actually be in there.
    
-.. Note:: Like the Retargetable Subtasks, this content will be derived from strings that describe the parameters where they are defined at the top of the Task Config class.   Please fill in the descriptive strings in the Config Class for this task with the following properties for each parameter: type, default value, description.
+.. Note:: Like the Retargetable Subtasks, this content will be derived from keywords that describe the parameters where they are defined in the Task Config class.   Please fill in the keywords strings in the Config Class for this task with the following properties for each parameter: type, default value, description.
+
+- Later, the parameter type will link to a documentation topic for that type automatically.
+
 
 .. - It would be good to call out the most frequently changed config vars in some way as well -- we haven't talked about asking developers to delineate these, yet.
 
@@ -115,7 +116,7 @@ Class initialization
   picked up automatically from the interface of the `__init__` method
   and will not require developer input.
   
-.. Note:: The content describing the parameters in the interface signature will be derived from descriptive strings which will go at the top of the `__init__` method.  Please separately enter information on each parameter in a string there.
+.. Note:: The content describing the parameters in the interface signature will be derived from the content of a docstring which will go at the top of the `__init__` method.  Please separately enter information on each parameter there.
 
 .. _run:
 	  
@@ -124,16 +125,16 @@ Run method
 
 - Similarly to the Class initialization, the description of the interface for calling the primary entrypoint  function of the class will be picked up  automatically from the interface of the `run` method and will not  require developer input.
 
-.. Note::  The description of what the `run` method requires as required  and optional inputs goes at the top of the `run` method in descriptive strings.  Please enter this information.
+.. Note::  The description of what the `run` method requires as required  and optional inputs goes at the top of the `run` method in a docstring.  Please enter this information.
   
-.. Note:: Similarly, please separately enter information on each parameter in the run signature in a string in the `run` method.
+.. Note:: Similarly, please separately enter information on each parameter in the run signature in the same docstring in the `run` method.
   
 .. _debug:
 
 Debugging
 =========
 
-.. Note:: Information on the debugging parameter name, type, and description should be inserted into descriptive strings again near the top of the class definition for the task.
+.. Note:: Information on the debugging parameter name, type, and description should be inserted into a docstring also in the class definition for the task.
 
 .. _examples:
    
