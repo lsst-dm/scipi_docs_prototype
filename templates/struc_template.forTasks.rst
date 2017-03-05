@@ -3,7 +3,13 @@
 .. Based on: https://dmtn-030.lsst.io/v/DM-7096/index.html#task-topic-type, with learnings from the 4 sfp pages built in branch DM-8717
 
 Please fill in the below sections with the contents as described in the reST comments, removing the comments as you do so, and using the links to locations in the Guidance Document if needed. 
-   
+
+The four reST documents:
+
+procCcd, IsrTask, charImg, calibImg
+
+Can be used as examples of how to fill this page in thoroughly.
+
 ########################
 Structure of ExampleTask 
 ########################
@@ -52,13 +58,15 @@ Configuration
 Retargetable Subtasks
 ---------------------
 
+.. This section does not need filling in by hand as in this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
+
+.. (Wonder if i need to specify any of the below since we're not filling this in by hand..)
+   
 .. - For these subtasks, a table will be shown with 3 columns:
 
 ..  - Subtask name
 ..  - Default target
 ..  - Description of what it does
-
-.. In this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
 
 .. - Ultimately, the parameter type will link to a documentation topic for that type (such as a class’s API reference).
 
@@ -69,6 +77,8 @@ Retargetable Subtasks
 Parameters
 ----------
 
+.. This section does not need filling in by hand as in this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
+
 .. Here, configuration parameters will be displayed in a table with the following fields:
 
 .. - Parameter name.
@@ -78,8 +88,6 @@ Parameters
 .. - Default value of parameter.
 
 .. - A description sentence or paragraph. The description should also mention caveats, and possibly give an example.
-
-.. These are filled in in the code itself, not in this reST document.
 
 .. (I don't think there are any examples in any of the sfp tasks.. i wonder if this should actually be in there.)
    
@@ -92,6 +100,8 @@ Python usage
 
 Class initialization
 --------------------
+
+.. This section does not need filling in by hand as in this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
 
 .. This section consists of:
 
@@ -106,6 +116,8 @@ Class initialization
 Run method
 ----------
 
+.. This section does not need filling in by hand as in this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
+
 .. This will consist of:
 
 .. - A description of the interface for calling the primary entrypoint function for the class -- again, this will be picked up  automatically from the interface of the `run` method and will not  require developer input.
@@ -114,13 +126,13 @@ Run method
 
 .. - Description of the parameters in the run signature
 
-.. These are filled in in the code itself, not in this reST document.   
-
 .. `Guidance for the Run Method Subsection  <instruc_template.forTasks.html#run>`_ .
 
 
 Debugging
 =========
+
+.. This section does not need filling in by hand as in this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
 
 .. - Debugging framework hooks: if there are several debugging parameters, they will be displayed in a table similar to how the  configuration parameters are done, with three columns:
 
@@ -128,8 +140,6 @@ Debugging
 ..  - Parameter type
 ..  - Parameter description
 
-.. These are filled in in the code itself, not in this reST document.
-   
 .. `Guidance for the Debugging Section  <instruc_template.forTasks.html#debug>`_ .
     
 Examples
