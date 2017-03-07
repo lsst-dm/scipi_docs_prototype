@@ -4,11 +4,6 @@
 
 Please fill in the below sections with the contents as described in the reST comments, removing the comments as you do so, and using the links to locations in the Guidance Document if needed. 
 
-The four reST documents:
-
-procCcd, IsrTask, charImg, calibImg
-
-Can be used as examples of how to fill this page in thoroughly.
 
 ########################
 Structure of ExampleTask 
