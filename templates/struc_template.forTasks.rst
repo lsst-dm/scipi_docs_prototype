@@ -9,7 +9,7 @@ Please fill in the below sections with the contents as described in the reST com
 Structure of ExampleTask 
 ########################
 
-.. Introductory material - this section needs the following filled in:
+.. Fill in introductory material here - this section needs the following:
 
 .. - Summary/context (1-2 sentences).
 
@@ -21,16 +21,16 @@ Structure of ExampleTask
 
 ..  b) A method within a task.
 
-.. `Guidance for the Introduction Section  <instruc_template.forTasks.html#intro>`_ .
+`Guidance for the Introduction Section  <instruc_template.forTasks.html#intro>`_ .
 
 
-.. - Module Membership:
+.. - Insert Module Membership here:
 
 ..  This section needs only the module the task is implemented inside of.
 
-.. `Guidance for the Module Membership Section  <instruc_template.forTasks.html#module>`_ .
+`Guidance for the Module Membership Section  <instruc_template.forTasks.html#module>`_ .
 
-.. SeeAlso Box:
+.. Insert material for the SeeAlso Box here:
   
 ..   -  Things inside the `seealso` directive box need to link to related content, such as:
   
@@ -42,37 +42,31 @@ Structure of ExampleTask
   
          - The API Usage page for this Task
      
-..         `Guidance for the See Also Section  <instruc_template.forTasks.html#seealso>`_ .
+`Guidance for the See Also Section  <instruc_template.forTasks.html#seealso>`_ .
 
     
 Configuration
 =============
 
-.. - This section describes the task’s configurations defined in the task class’s associated configuration class.  It will be split into 2  natural subsections, as below.
+.. - This section will be autofilled -- it describes the task’s configurations defined in the task class’s associated configuration class.  It will be split into 2  natural subsections, as below.
 
 Retargetable Subtasks
 ---------------------
 
-.. This section does not need filling in by hand as in this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
+.. This section will be autofilled also -- the content is filled in from docstrings in the code itself, not in this reST document (see Guidance Doc for details).   
 
-.. (Wonder if i need to specify any of the below since we're not filling this in by hand..)
-   
 .. - For these subtasks, a table will be shown with 3 columns:
 
 ..  - Subtask name
 ..  - Default target
 ..  - Description of what it does
 
-.. - Ultimately, the parameter type will link to a documentation topic for that type (such as a class’s API reference).
-
-.. (For the sfp pages, these links were all stubs)
-
-.. `Guidance for the Retargetable Subtasks Subsection  <instruc_template.forTasks.html#retarg>`_ .
+`Details about the Retargetable Subtasks Subsection  <instruc_template.forTasks.html#retarg>`_ .
    
 Parameters
 ----------
 
-.. This section does not need filling in by hand as in this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
+.. This section will be autofilled also -- the content is filled in from docstrings in the code itself, not in this reST document (see Guidance Doc for details).   
 
 .. Here, configuration parameters will be displayed in a table with the following fields:
 
@@ -82,13 +76,9 @@ Parameters
 
 .. - Default value of parameter.
 
-.. - A description sentence or paragraph. The description should also mention caveats, and possibly give an example.
+.. - A description sentence or paragraph. 
 
-.. (I don't think there are any examples in any of the sfp tasks.. i wonder if this should actually be in there.)
-   
-.. (It would be good to call out the most frequently changed config vars in some way as well -- we haven't talked about asking developers to delineate these, yet.)
-
-.. `Guidance for the Parameters Subsection  <instruc_template.forTasks.html#params>`_ .
+`Details about the Parameters Subsection  <instruc_template.forTasks.html#params>`_ .
 
 Python usage
 ============
@@ -96,7 +86,7 @@ Python usage
 Class initialization
 --------------------
 
-.. This section does not need filling in by hand as in this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
+..  This section will be autofilled also -- the content is filled in from docstrings in the code itself, not in this reST document (see Guidance Doc for details).   
 
 .. This section consists of:
 
@@ -104,14 +94,12 @@ Class initialization
   
 .. - Description of the parameters in the interface signature
 
-.. These are filled in in the code itself, not in this reST document.
-   
-.. `Guidance for the Class initialization Subsection  <instruc_template.forTasks.html#initzn>`_ .
+`Details about the Class initialization Subsection  <instruc_template.forTasks.html#initzn>`_ .
 
 Run method
 ----------
 
-.. This section does not need filling in by hand as in this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
+.. This section will be autofilled also -- the content is filled in from docstrings in the code itself, not in this reST document (see Guidance Doc for details).   
 
 .. This will consist of:
 
@@ -121,13 +109,13 @@ Run method
 
 .. - Description of the parameters in the run signature
 
-.. `Guidance for the Run Method Subsection  <instruc_template.forTasks.html#run>`_ .
+`Details about the Run Method Subsection  <instruc_template.forTasks.html#run>`_ .
 
 
 Debugging
 =========
 
-.. This section does not need filling in by hand as in this case, the content is filled in from strings in the code itself, not in this reST document (see Guidance Doc for details).   
+.. This section will be autofilled also -- the content is filled in from docstrings in the code itself, not in this reST document (see Guidance Doc for details).   
 
 .. - Debugging framework hooks: if there are several debugging parameters, they will be displayed in a table similar to how the  configuration parameters are done, with three columns:
 
@@ -135,20 +123,18 @@ Debugging
 ..  - Parameter type
 ..  - Parameter description
 
-.. `Guidance for the Debugging Section  <instruc_template.forTasks.html#debug>`_ .
+`Details about the Debugging Section  <instruc_template.forTasks.html#debug>`_ .
     
 Examples
 ========
 
-.. - This should be a self-contained example of using this task that can be tested by any reader.
+.. - Fill in a self-contained example of using this task that can be tested by any reader.
 
-.. (Since nothing but the procCcd example is currently working in sfp tasks, those aren't very good prototypes currently here.  We eventually need to figure out how to include these in CI, keep them updated, etc., which is a somewhat open q right now.)
-
-.. `Guidance for the Examples Subsection  <instruc_template.forTasks.html#examples>`_ .
+`Guidance for the Examples Subsection  <instruc_template.forTasks.html#examples>`_ .
    
 Algorithm details
 ====================
 
-.. - Extended description with mathematical details - this will require thinking on what the significant parts  of the algorithm are to be presented.  Mathjax will be implemented  so that the math can be nicely displayed and written in straight tex  (through the **math** directive of reST).
+.. - Fill in an extended description with mathematical details - this will require thinking on what the significant parts  of the algorithm are to be presented.  Mathjax will be implemented  so that the math can be nicely displayed and written in straight Latex  (through the **math** directive of reST).
 
-.. `Guidance for the Algorithm Details Section  <instruc_template.forTasks.html#algo>`_ .
+`Guidance for the Algorithm Details Section  <instruc_template.forTasks.html#algo>`_ .
