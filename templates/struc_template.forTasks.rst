@@ -2,7 +2,7 @@
 	 
 .. Based on: https://dmtn-030.lsst.io/v/DM-7096/index.html#task-topic-type, with learnings from the 4 sfp pages built in branch DM-8717
 
-Please fill in the below sections with the contents as described in the reST comments, removing the comments as you do so, and using the links to locations in the Guidance Document if needed. 
+Please fill in the below sections with the contents as described in the reST comments, removing the comments as you do so, and using the links to locations in the `Guidance Document <instruc_template.forTasks.html>`_ if needed. 
 
 
 ########################
