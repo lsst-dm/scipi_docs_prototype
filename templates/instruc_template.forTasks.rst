@@ -152,3 +152,14 @@ directive of reST, for details see `this section of the Developer Guide that
 describes how to insert mathematical expressions
 <https://developer.lsst.io/docs/rst_styleguide.html#rst-math>`_ .
 
+Here is an example of the syntax for how one would insert an equation (from IsrTask):
+
+```:math:`Ic(x) = I(x) + {1 \over 2} {d \over dx} \left[ I(x) {d \over dx} \int K(x-y) I(y) dy  \right]`
+```
+
+.. Hm - how to remove initial and final bticks in how the above appears on the page.. (?)
+   
+Which will render as:
+
+:math:`Ic(x) = I(x) + {1 \over 2} {d \over dx} \left[ I(x) {d \over dx} \int K(x-y) I(y) dy  \right]`
+      
