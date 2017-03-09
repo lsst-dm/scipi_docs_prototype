@@ -25,7 +25,7 @@ direction to the developer of what to include into the reST for that
 section.
 
 To be explicit, we will give some examples for what to put into the
-sections taken primarily from procCcd specifically, but from other tasks as well.
+sections taken primarily from `ProcessCcd` specifically, but from other tasks as well.
 
 [NB: The structure is substantially different from how docstrings were
 populated for DM's previous Doxygen documentation, for those familiar
@@ -43,7 +43,7 @@ written.
 
 .. Note:: Write this section concisely, as it should be very brief, and is primarily about whether the reader should choose to use this task to  achieve h/her goal in a very quick scan.
 
-For example, for procCcd we might write:
+For example, for `ProcessCcd` we might write:
 
 ``ProcessCcdTask is a command line task which executes the processing
 steps to turn raw pixel-level data into characterized images and
@@ -54,7 +54,7 @@ calibrated catalogs.``
 
 .. Note:: Be concise and link to other tasks wherever needed.  This can be a  few more sentences, but should not contain very many details or math  at this point (that will go in the algorithmic section at the bottom).  It should just say  where this fits into the larger DM structure, what retargetable  subtasks or methods within a task it calls by default.
 
-For example, for procCcd we would give a list of the 3 subtasks that procCcd invokes to do its job.
+For example, for `ProcessCcd` we would give a list of the 3 subtasks that `ProcessCcd` invokes to do its job.
 	  
 .. Note:: If there are optional tasks that are called you can choose to fill those in here as well, but note them as optional and depending on  whether a flag is set in the configuration parameters
 
@@ -76,7 +76,7 @@ For example, for procCcd we would give a list of the 3 subtasks that procCcd inv
 
   - Pages in the Processing and Frameworks sections of the Science Pipelines documentation.
 
-In the case of procCcd, we would simply say is called as a `command line task`, where for e.g. IsrTask, we would say that that it is most commonly called by procCcd.
+In the case of `ProcessCcd`, we would simply say is called as a `command line task`, where for e.g. IsrTask, we would say that that it is most commonly called by `ProcessCcd`.
 
 .. _config:	  
     
@@ -136,7 +136,7 @@ Examples
 .. Note:: Making this can be a substantial job which requires writing an actual example and then going through and describing line by line in comments inside of it what the example is doing.
 
 
-The example should be very stripped down and use only the basic functionality of the Task.  You don't necessarily need to write a separate example, but can use example in a directory that already contains some data, for example for procCcd, one can just exercise the code via e.g.:
+The example should be very stripped down and use only the basic functionality of the Task.  You don't necessarily need to write a separate example, but can use run on a directory that already contains some test data, for example for `ProcessCcd`, one can just exercise the code via e.g.:
 
 ``processCcd.py $OBS_TEST_DIR/data/input --output processCcdOut --id``
 
