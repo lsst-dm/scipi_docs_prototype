@@ -154,9 +154,10 @@ describes how to insert mathematical expressions
 
 Here is an example of the syntax for how one would insert an equation (from IsrTask):
 
-```:math:`Ic(x) = I(x) + {1 \over 2} {d \over dx} \left[ I(x) {d \over dx} \int K(x-y) I(y) dy  \right]`
-```
+.. raw:: html
 
+  <h4> :math:`Ic(x) = I(x) + {1 \over 2} {d \over dx} \left[ I(x) {d \over dx} \int K(x-y) I(y) dy  \right]` </h4>	 
+   
 .. Hm - how to remove initial and final bticks in how the above appears on the page.. (?)
    
 Which will render as:
