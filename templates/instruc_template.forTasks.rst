@@ -41,22 +41,36 @@ written.
 
 - **Summary/context (1-2 sentences):**
 
-.. Note:: Write this section concisely, as it should be very brief, and is primarily about whether the reader should choose to use this task to  achieve h/her goal in a very quick scan.
+.. Note:: Write this section concisely, as it should be very brief,
+          and is primarily about whether the reader should choose to
+          use this task to achieve h/her goal in a very quick scan.
 
 For example, for `ProcessCcd` we might write:
 
-``ProcessCcdTask is a command line task which executes the processing
-steps to turn raw pixel-level data into characterized images and
-calibrated catalogs.``
+.. code-block:: rst
+
+ ProcessCcdTask is a command line task which executes the processing
+ steps to turn raw pixel-level data into characterized images and
+ calibrated catalogs.
 	  
 	  
 - **Concise summary of logic/algorithm in a paragaph and/or bullet list.**
 
-.. Note:: Be concise and link to other tasks wherever needed.  This can be a  few more sentences, but should not contain very many details or math  at this point (that will go in the algorithmic section at the bottom).  It should just say  where this fits into the larger DM structure, what retargetable  subtasks or methods within a task it calls by default.
+.. Note:: Be concise and link to other tasks wherever needed.  This
+          can be a few more sentences, but should not contain very
+          many details or math at this point (that will go in the
+          algorithmic section at the bottom).  It should just say
+          where this fits into the larger DM structure, what
+          retargetable subtasks or methods within a task it calls by
+          default.
 
-For example, for `ProcessCcd` we would give a list of the 3 subtasks that `ProcessCcd` invokes to do its job.
+For example, for `ProcessCcd` we would give a list of the 3 subtasks
+that `ProcessCcd` invokes to do its job.
 	  
-.. Note:: If there are optional tasks that are called you can choose to fill those in here as well, but note them as optional and depending on  whether a flag is set in the configuration parameters
+.. Note:: If there are optional tasks that are called you can choose
+          to fill those in here as well, but note them as optional and
+          depending on whether a flag is set in the configuration
+          parameters
 
 .. _module:
 
@@ -68,7 +82,9 @@ For example, for `ProcessCcd` we would give a list of the 3 subtasks that `Proce
 	   
 - **"SeeAlso" box:**
 
-.. Note:: The API Usage page for this task will automatically be linked to in this box, but please fill in the following types of tasks and pages into this section:
+.. Note:: The API Usage page for this task will automatically be
+          linked to in this box, but please fill in the following
+          types of tasks and pages into this section:
 
   - Tasks that commonly use this task
   
@@ -76,7 +92,9 @@ For example, for `ProcessCcd` we would give a list of the 3 subtasks that `Proce
 
   - Pages in the Processing and Frameworks sections of the Science Pipelines documentation.
 
-In the case of `ProcessCcd`, we would simply say is called as a `command line task`, where for e.g. IsrTask, we would say that that it is most commonly called by `ProcessCcd`.
+In the case of `ProcessCcd`, we would simply say is called as a
+`command line task`, where for e.g. IsrTask, we would say that that it
+is most commonly called by `ProcessCcd`.
 
 .. _config:	  
     
@@ -88,7 +106,10 @@ Configuration
 Retargetable Subtasks
 ---------------------
 
-.. Note:: This content will be automatically derived from the Task code (in which keywords that describe the subtasks in the python code, including a `doc` keyword in which the subtask is described, will already be written).
+.. Note:: This content will be automatically derived from the Task
+          code (in which keywords that describe the subtasks in the
+          python code, including a `doc` keyword in which the subtask
+          is described, will already be written).
 
 .. _params:
    
@@ -96,7 +117,9 @@ Parameters
 ----------
 
 
-.. Note:: Like the Retargetable Subtasks, this content will be derived from keywords that describe the parameters where they are defined in the Task Config class.
+.. Note:: Like the Retargetable Subtasks, this content will be derived
+          from keywords that describe the parameters where they are
+          defined in the Task Config class.
 
 
 .. _python:
@@ -118,7 +141,10 @@ Class initialization
 Run method
 ----------
 
-- Similarly to the Class initialization, the description of the interface for calling the primary entrypoint  function of the class will be picked up  automatically from the interface of the `run` method and will not  require developer input.
+- Similarly to the Class initialization, the description of the
+  interface for calling the primary entrypoint function of the class
+  will be picked up automatically from the interface of the `run`
+  method and will not require developer input.
 
   
 .. _debug:
@@ -126,19 +152,65 @@ Run method
 Debugging
 =========
 
-- Also similarly to the Class initialization, information on the debugging parameters, specifically their name, type, and description, will be picked up  automatically from docstrings in the class definition.
+- Also similarly to the Class initialization, information on the
+  debugging parameters, specifically their name, type, and
+  description, will be picked up automatically from docstrings in the
+  class definition.
 
 .. _examples:
    
 Examples
 ========
 
-.. Note:: Making this can be a substantial job which requires writing an actual example and then going through and describing line by line in comments inside of it what the example is doing.
+.. Note:: Making this can be a substantial job which requires writing
+          an actual example and then going through and describing line
+          by line in comments inside of it what the example is doing.
 
 
-The example should be very stripped down and use only the basic functionality of the Task.  You don't necessarily need to write a separate example, but can use run on a directory that already contains some test data, for example for `ProcessCcd`, one can just exercise the code via e.g.:
+The example should be very stripped down and use only the basic functionality of the Task.
 
-``processCcd.py $OBS_TEST_DIR/data/input --output processCcdOut --id``
+To give some specific guidance, we will give a few pointers for how
+one might write an example for IsrTask, which we will call
+`exampleIsrTask.py`, then describe it with reST.
+
+In this particular case, we need to use some functions which are
+normally in the `utils.py` class, and to make it more transparent, we
+might want to strip this down and rewrite them locally in the
+`exampleUtils.py` class.
+
+Next, we describe some of the details for the content of `exampleIsrTask.py`.
+
+Where needed, when describing code, the python code block directive can be used as so:
+
+.. code-block:: rst
+
+  .. code-block:: python
+
+    #Create the isr task with modified config
+    isrConfig = IsrTask.ConfigClass()
+    isrConfig.doBias = False #We didn't make a zero frame
+    isrConfig.doDark = True
+    isrConfig.doFlat = True
+    isrConfig.doFringe = False #There is no fringe frame for this example
+		   
+Then, to describe the block setting up configuration parameters, we can say in reST:
+
+.. code-block:: rst
+		
+ The first line: `isrConfig = IsrTask.ConfigClass()` indicates this is
+ a section about setting up the configuration that the code will be run
+ with.  The next several set up specific flags, indicating that we will
+ not do bias or fringing corrections in this code, but will do the dark
+ and flat corrections.
+
+We can then describe the other intermediate sections in ways similar to
+the above, saying that the final output is created with the call to
+the `IsrTask` `run` method:
+
+.. code-block:: python
+		
+       output = isrTask.run(rawExposure, dark=darkExposure, flat=flatExposure)
+
 
 .. _algo:
    
@@ -154,12 +226,10 @@ describes how to insert mathematical expressions
 
 Here is an example of the syntax for how one would insert an equation (from IsrTask):
 
-.. raw:: html
+.. code-block:: rst
 
-  <h4> :math:`Ic(x) = I(x) + {1 \over 2} {d \over dx} \left[ I(x) {d \over dx} \int K(x-y) I(y) dy  \right]` </h4>	 
-   
-.. Hm - how to remove initial and final bticks in how the above appears on the page.. (?)
-   
+  :math:`Ic(x) = I(x) + {1 \over 2} {d \over dx} \left[ I(x) {d \over dx} \int K(x-y) I(y) dy  \right]` 		
+  
 Which will render as:
 
 :math:`Ic(x) = I(x) + {1 \over 2} {d \over dx} \left[ I(x) {d \over dx} \int K(x-y) I(y) dy  \right]`
