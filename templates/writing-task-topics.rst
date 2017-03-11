@@ -2,39 +2,69 @@
 	 
 .. Based on: https://dmtn-030.lsst.io/v/DM-7096/index.html#task-topic-type, with learnings from the 4 sfp pages built in branch DM-8717
 
-########################
-Guidance for ExampleTask
-########################
+###################
+Writing Task Topics
+###################
 
-We give guidance here for developers on what to write into the
-reStructured Text (reST) `Task Template
-<struc_template.forTasks.html>`_ which, when processed by the
-documentation-building code, will make the primary page for that Task.
+This page describes how to document science pipelines tasks for the
+`pipelines.lsst.io <http://pipelines.lsst.io>`_ documentation project.
 
-Some sections are fully automatically populated from python docstrings
-in the code and will not require developer input, and this information
-is also copied into the API page for this Task.  We demarcate those
-sections as well and guidance for how to write those docstrings is
-covered in `this section of the Developer Guide
-<https://developer.lsst.io/docs/py_docs.html>`_ .
+Using the template
+==================
 
-Below, the normal text lists notes on the each of the sections of the
-template, some of which is repeated from the `Task Template
-<struc_template.forTasks.html>`_, but here with more specific
-direction to the developer of what to include into the reST for that
-section.
+We provide a standardized template for all task documentation
+pages. This required template ensures consistency and style, and also
+provides you tools for automatically extracting documentation from
+your code.
 
-To be explicit, we will give some examples for what to put into the
-sections taken primarily from `ProcessCcd` specifically, but from other tasks as well.
+You can obtain the template from :doc:`here <template-for-tasks>`.
 
-[NB: The structure is substantially different from how docstrings were
-populated for DM's previous Doxygen documentation, for those familiar
-with it.]
+Installing the template
+-----------------------
 
-.. _intro:
+To install the template, copy it into the `doc/tasks` directory of
+your stack package. Then name the file after the task class, with a
+`.rst` extension. For example: `doc/tasks/ProcessCcdTask.rst`.
+
+Filling out the template
+------------------------
+
+The template includes brief instructions as reStructuredText
+comments. Each component of the documentation page is described in
+more detail on this page, below,.
+
+
+..
+ We give guidance here for developers on what to write into the
+ reStructured Text (reST) `Task Template
+ <struc_template.forTasks.html>`_ which, when processed by the
+ documentation-building code, will make the primary page for that Task.
+
+ Some sections are fully automatically populated from python docstrings
+ in the code and will not require developer input, and this information
+ is also copied into the API page for this Task.  We demarcate those
+ sections as well and guidance for how to write those docstrings is
+ covered in `this section of the Developer Guide
+ <https://developer.lsst.io/docs/py_docs.html>`_ .
+
+ Below, the normal text lists notes on the each of the sections of the
+ template, some of which is repeated from the `Task Template
+ <struc_template.forTasks.html>`_, but here with more specific
+ direction to the developer of what to include into the reST for that
+ section.
+
+ To be explicit, we will give some examples for what to put into the
+ sections taken primarily from `ProcessCcd` specifically, but from other tasks as well.
+
+ [NB: The structure is substantially different from how docstrings were
+ populated for DM's previous Doxygen documentation, for those familiar
+ with it.]
+
+
+.. _task-topics-intro:
 
 Introduction
-=============
+============
 
 This section will consist of the below, all of which need to be
 written.

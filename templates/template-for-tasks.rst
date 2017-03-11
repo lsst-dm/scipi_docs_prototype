@@ -26,7 +26,7 @@ Structure of ExampleTask
 
 ..  b) A method within a task.
 
-`Guidance for the Introduction Section  <instruc_template.forTasks.html#intro>`_ .
+`Guidance for the Introduction Section  <instruc_template.forTasks.html#task-topics-intro>`_ .
 
 
 .. - Insert Module Membership here:
