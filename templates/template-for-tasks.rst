@@ -33,7 +33,7 @@ Structure of ExampleTask
 
 ..  This section needs only the module the task is implemented inside of.
 
-`Guidance for the Module Membership Section  <instruc_template.forTasks.html#module>`_ .
+`Guidance for the Module Membership Section  <writing-task-topics.html#task-topics-module>`_ .
 
 .. Insert material for the SeeAlso Box here:
   
@@ -50,7 +50,7 @@ Structure of ExampleTask
   
          - The API Usage page for this Task
      
-`Guidance for the See Also Section  <instruc_template.forTasks.html#seealso>`_ .
+`Guidance for the See Also Section  <writing-task-topics.html#task-topics-seealso>`_ .
 
     
 Configuration
@@ -73,7 +73,7 @@ Retargetable Subtasks
 ..  - Default target
 ..  - Description of what it does
 
-`Details about the Retargetable Subtasks Subsection  <instruc_template.forTasks.html#retarg>`_ .
+`Details about the Retargetable Subtasks Subsection  <writing-task-topics.html#task-topics-retarg>`_ .
    
 Parameters
 ----------
@@ -94,7 +94,7 @@ Parameters
 
 .. - A description sentence or paragraph. 
 
-`Details about the Parameters Subsection  <instruc_template.forTasks.html#params>`_ .
+`Details about the Parameters Subsection  <writing-task-topics.html#task-topics-params>`_ .
 
 Python usage
 ============
@@ -112,7 +112,7 @@ Class initialization
   
 .. - Description of the parameters in the interface signature
 
-`Details about the Class initialization Subsection  <instruc_template.forTasks.html#initzn>`_ .
+`Details about the Class initialization Subsection  <writing-task-topics.html#task-topics-initzn>`_ .
 
 Run method
 ----------
@@ -132,7 +132,7 @@ Run method
 
 .. - Description of the parameters in the run signature
 
-`Details about the Run Method Subsection  <instruc_template.forTasks.html#run>`_ .
+`Details about the Run Method Subsection  <writing-task-topics.html#task-topics-run>`_ .
 
 
 Debugging
@@ -150,14 +150,14 @@ Debugging
 ..  - Parameter type
 ..  - Parameter description
 
-`Details about the Debugging Section  <instruc_template.forTasks.html#debug>`_ .
+`Details about the Debugging Section  <writing-task-topics.html#task-topics-debug>`_ .
     
 Examples
 ========
 
 .. - Fill in a self-contained example of using this task that can be tested by any reader.
 
-`Guidance for the Examples Subsection  <instruc_template.forTasks.html#examples>`_ .
+`Guidance for the Examples Subsection  <writing-task-topics.html#task-topics-examples>`_ .
    
 Algorithm details
 ====================
@@ -168,4 +168,4 @@ Algorithm details
    the math can be nicely displayed and written in straight Latex
    (through the **math** directive of reST).
 
-`Guidance for the Algorithm Details Section  <instruc_template.forTasks.html#algo>`_ .
+`Guidance for the Algorithm Details Section  <writing-task-topics.html#task-topics-algorithm>`_ .

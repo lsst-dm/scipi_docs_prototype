@@ -102,13 +102,13 @@ that `ProcessCcd` invokes to do its job.
           depending on whether a flag is set in the configuration
           parameters
 
-.. _module:
+.. _task-topics-module:
 
 - **Module membership:**
 
 .. Note::  Here, simply state the module the task is implemented inside of, one sentence is sufficient.
 	   
-.. _seealso:
+.. _task-topics-seealso:
 	   
 - **"SeeAlso" box:**
 
@@ -126,12 +126,12 @@ In the case of `ProcessCcd`, we would simply say is called as a
 `command line task`, where for e.g. IsrTask, we would say that that it
 is most commonly called by `ProcessCcd`.
 
-.. _config:	  
+.. _task-topics-config:	  
     
 Configuration
 =============
 
-.. _retarg:
+.. _task-topics-retarg:
 
 Retargetable Subtasks
 ---------------------
@@ -141,7 +141,7 @@ Retargetable Subtasks
           python code, including a `doc` keyword in which the subtask
           is described, will already be written).
 
-.. _params:
+.. _task-topics-params:
    
 Parameters
 ----------
@@ -152,12 +152,12 @@ Parameters
           defined in the Task Config class.
 
 
-.. _python:
+.. _task-topics-python:
    
 Python usage
 ============
 
-.. _initzn:
+.. _task-topics-initzn:
 
 Class initialization
 --------------------
@@ -166,7 +166,7 @@ Class initialization
   picked up automatically from the interface of the `__init__` method
   and will not require developer input.
   
-.. _run:
+.. _task-topics-run:
 	  
 Run method
 ----------
@@ -177,7 +177,7 @@ Run method
   method and will not require developer input.
 
   
-.. _debug:
+.. _task-topics-debug:
 
 Debugging
 =========
@@ -187,7 +187,7 @@ Debugging
   description, will be picked up automatically from docstrings in the
   class definition.
 
-.. _examples:
+.. _task-topics-examples:
    
 Examples
 ========
@@ -242,7 +242,7 @@ the `IsrTask` `run` method:
        output = isrTask.run(rawExposure, dark=darkExposure, flat=flatExposure)
 
 
-.. _algo:
+.. _task-topics-algorithm:
    
 Algorithm details
 ====================
