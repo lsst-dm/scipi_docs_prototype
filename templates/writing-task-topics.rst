@@ -34,32 +34,6 @@ comments. Each component of the documentation page is described in
 more detail on this page, below,.
 
 
-..
- We give guidance here for developers on what to write into the
- reStructured Text (reST) `Task Template
- <struc_template.forTasks.html>`_ which, when processed by the
- documentation-building code, will make the primary page for that Task.
-
- Some sections are fully automatically populated from python docstrings
- in the code and will not require developer input, and this information
- is also copied into the API page for this Task.  We demarcate those
- sections as well and guidance for how to write those docstrings is
- covered in `this section of the Developer Guide
- <https://developer.lsst.io/docs/py_docs.html>`_ .
-
- Below, the normal text lists notes on the each of the sections of the
- template, some of which is repeated from the `Task Template
- <struc_template.forTasks.html>`_, but here with more specific
- direction to the developer of what to include into the reST for that
- section.
-
- To be explicit, we will give some examples for what to put into the
- sections taken primarily from `ProcessCcd` specifically, but from other tasks as well.
-
- [NB: The structure is substantially different from how docstrings were
- populated for DM's previous Doxygen documentation, for those familiar
- with it.]
-
 
 .. _task-topics-intro:
 
