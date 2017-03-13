@@ -11,7 +11,7 @@ Contents:
 
 .. toctree::
 
-  Task Template <struc_template.forTasks>
+  Task Template <template-for-tasks>
 	      
 .. template.forCLT
 .. template.forFrameworks.rst
