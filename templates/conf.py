@@ -22,3 +22,6 @@ html_static_path = []
 automodsumm_writereprocessed = False
 
 exclude_patterns += ['src']
+
+del intersphinx_mapping['scipy']
+del intersphinx_mapping['numpy']
