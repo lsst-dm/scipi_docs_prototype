@@ -3,9 +3,6 @@
 Template file: Classname 
 =========================
 
-- `Doxygen link`_
-.. _Doxygen link:
-
 
 API Ref 
 ++++++++++++++++++++++++++++++
