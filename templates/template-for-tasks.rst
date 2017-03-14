@@ -7,7 +7,7 @@
 Please fill in the below sections with the contents as described in
 the reST comments, removing the comments as you do so, and using the
 links to locations in the `Guidance Document
-<instruc_template.forTasks.html>`_ if needed.
+<writing-task-topics.html>`_ if needed.
 
 
 ########################
@@ -26,7 +26,7 @@ Structure of ExampleTask
 
 ..  b) A method within a task.
 
-`Guidance for the Introduction Section  <instruc_template.forTasks.html#task-topics-intro>`_ .
+`Guidance for the Introduction Section  <writing-task-topics.html#task-topics-intro>`_ .
 
 
 .. - Insert Module Membership here:
