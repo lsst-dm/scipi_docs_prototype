@@ -11,7 +11,7 @@
 .. The title of the page should be the name of the Task class (ProcessCcdTask, for example).
 .. Also, update the section anchor below to have the same name.
 .. See tbd URL (e.g. https://developer.lsst.io/writing/user-guides/task-topics.html#title) for details.
-
+.. `Guidance for the Titling Page  <writing-task-topics.html#task-topics-title>`_ .
 
 .. _TaskClassName:
 
@@ -19,14 +19,26 @@
 TaskClassName
 #############
 
-.. Fill in introductory material here - this section needs the following:
+.. `Guidance for the titling the page <writing-task-topics.html#task-topics-title>`_ .
+   
+.. Fill in introductory material here - this section needs the following sections:
+
+Summary/context (1-2 sentences)
+===============================
 .. - Summary/context (1-2 sentences).
+.. `Guidance for the Summary/context Section  <writing-task-topics.html#task-topics-summary>`_ .
+
+   
+Summary of logic/algorithm
+==========================
 .. - Concise summary of logic/algorithm in a paragaph and/or bullet list.
 .. - A sentence about each step, which can be either:
 ..  a) A retargetable subtask
 ..  b) A method within a task.
-.. `Guidance for the Introduction Section  <writing-task-topics.html#task-topics-intro>`_ .
-
+.. `Guidance for the Summary/context Section  <writing-task-topics.html#task-topics-logic>`_ .
+   
+Module membership
+=================
 .. - Insert Module Membership here:
 .. This component simply mentions and links to the task's parent module.
 .. Modify the module-anchor in the ref to point to the module page.
@@ -35,6 +47,8 @@ TaskClassName
 This task is implemented in the :ref:`module-anchor` module.
 
 
+"SeeAlso" Box
+=============
 .. SeeAlso Box:
 ..   -  Things inside the `SeeAlso` Directive Box need to link to related content, such as:  
          - Tasks that commonly use this task (this helps a reader
@@ -44,6 +58,8 @@ This task is implemented in the :ref:`module-anchor` module.
          - Pages in the **Processing** and **Frameworks** sections of
            the Science Pipelines documentation.  
          - The API Usage page for this Task     
+
+
 .. `Guidance for the See Also Section  <writing-task-topics.html#task-topics-seealso>`_ .
 
 .. seealso::
@@ -52,6 +68,8 @@ This task is implemented in the :ref:`module-anchor` module.
 .. For the anchor below and all similar ones below, replace
    "TaskClassName" with the actual name of the Task you are
    documenting.
+
+
    
 .. _TaskClassName-config:
       
