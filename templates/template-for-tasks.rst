@@ -76,6 +76,7 @@ This task is implemented in the :ref:`module-anchor` module.
    
 .. Python usage Section
 .. This section will be autofilled also.
+.. Details about the Configuration Subsection:  <writing-task-topics.html#task-python-usage> .
 .. _TaskClassName-python-usage:   
 
 .. Class initialization Section
@@ -88,8 +89,6 @@ This task is implemented in the :ref:`module-anchor` module.
 .. Guidance for the Run Method Subsection  <writing-task-topics.html#task-topics-run> .
 .. _TaskClassName-run:
 
-
-
 .. Debugging Section
 .. This section will be autofilled also.
 .. Details about the Debugging Section  <writing-task-topics.html#task-topics-debug> .
@@ -97,17 +96,11 @@ This task is implemented in the :ref:`module-anchor` module.
 
 .. Examples Section   
 .. - Fill in a self-contained example of using this task that can be tested by any reader.
-.. See:  writing-task-topics.html#task-topics-examples
+.. Guidance for the Examples Section:  <writing-task-topics.html#task-topics-examples> .
 .. _TaskClassName-examples:
 
 
-   
 .. Algorithm details Section
-.. - Fill in an extended description with mathematical details - this
-   will require thinking on what the significant parts of the
-   algorithm are to be presented.  Mathjax will be implemented so that
-   the math can be nicely displayed and written in straight Latex
-   (through the **math** directive of reST).
-
+.. - Fill in an extended description with mathematical details
 .. Guidance for the Algorithm Details Section  <writing-task-topics.html#task-topics-algorithm> .
 .. _TaskClassName-algorithm:   
