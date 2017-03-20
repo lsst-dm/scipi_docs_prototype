@@ -1,5 +1,3 @@
-:orphan: true
-	 
 .. Based on: https://dmtn-030.lsst.io/v/DM-7096/index.html#task-topic-type, with learnings from the 4 sfp pages built in branch DM-8717
 
 ###################
@@ -42,12 +40,6 @@ Titling the Page
 
 The title of the page should be the name of the task class (*ProcessCcdTask*, for example).
 
-.. _task-topics-intro:
-
-Introduction
-============
-
-This section will consist of the below, all of which need to be written.
 
 .. _task-topics-summary:
 
@@ -68,39 +60,49 @@ For example, for `ProcessCcd` we might write:
 Summary of logic/algorithm
 ==========================
 This should be done in just a paragaph and/or a bullet list.
+Be concise and link to other tasks wherever needed.
+This can be a few more sentences, but should not contain very many details or math at this point (that will go in the algorithmic section at the bottom).
+It should just say where this fits into the larger DM structure, what retargetable subtasks or methods within a task it calls by default.
 
-.. Note:: Be concise and link to other tasks wherever needed.  This
-          can be a few more sentences, but should not contain very
-          many details or math at this point (that will go in the
-          algorithmic section at the bottom).  It should just say
-          where this fits into the larger DM structure, what
-          retargetable subtasks or methods within a task it calls by
-          default.
+For example, for `ProcessCcd` we would give a list of the 3 subtasks that `ProcessCcd` invokes to do its job.  For another example, for `IsrTask` we might say:
 
-For example, for `ProcessCcd` we would give a list of the 3 subtasks that `ProcessCcd` invokes to do its job.
+.. code-block:: rst
+		
+   Instrument Signature Removal (ISR) is a sequence of steps taken to
+   correct the effects imprinted on the counts coming out of the readout
+   by the physical characteristics of the detector and the electronics of
+   the readout chain.  It is generally the very first procedure carried
+   out on the pixel-level data of an exposure.
 	  
-.. Note:: If there are optional tasks that are called you can choose
-          to fill those in here as well, but note them as optional and
-          depending on whether a flag is set in the configuration
-          parameters
+If there are optional tasks that are called you can choose to fill those in here as well, but note them as optional and depending on whether a flag is set in the configuration parameters
 
 .. _task-topics-module:
 
 Module membership
 =================
 Here, simply state the module the task is implemented inside of, filling in the required line in the template.
-	   
+
+For example, for `ProcessCcd`
+
+.. code-block:: rst
+		
+This task is implemented in the `lsst.pipe.tasks <taskModules.html#pipetasks>`_ module.
+
 .. _task-topics-seealso:
 	   
 "SeeAlso" box
 =============
 The API Usage page for this task will automatically be linked to in this box, but please fill in the following types of tasks and pages into this section:
 
-  - Tasks that commonly use this task
+  - Tasks that commonly use this task (this helps a reader
+    landing on a subtask’s page find the appropriate driver
+    task).     
   
-  - Tasks that can be used instead of this task
+  - Tasks that can be used instead of this task (to link families of subtasks).   
 
-  - Pages in the Processing and Frameworks sections of the Science Pipelines documentation.
+  - Pages in the **Processing** and **Frameworks** sections of the Science Pipelines documentation.
+
+  - The API Usage page for this Task
 
 In the case of `ProcessCcd`, we would simply say is called as a `command line task`, where for e.g. IsrTask, we would say that that it is most commonly called by `ProcessCcd`.
 
@@ -113,7 +115,6 @@ Configuration
 
 Retargetable Subtasks
 ---------------------
-
 
 .. _task-topics-params:
    
@@ -151,7 +152,8 @@ The example should be very stripped down and use only the basic functionality of
 
 To give some specific guidance, we will give a few pointers for how one might write an example for IsrTask, which we will call `exampleIsrTask.py`, then describe it with reST.
 
-In this particular case, we need to use some functions which are normally in the `utils.py` class, and to make it more transparent, we might want to strip this down and rewrite them locally in the `exampleUtils.py` class.
+In some cases, we might want to write a separate local `utilities.py` class which will contain some some utility functions which are normally spread found in other packages.
+By writing them locally, we can allow the user to inspect the functions immediately without going far afield for them.
 
 Next, we describe some of the details for the content of `exampleIsrTask.py`.
 
@@ -191,7 +193,7 @@ Algorithm details
 =================
 
 This should be written in detailed form and can refer to prior written documentation as long as it is accessible by all potential code users.
-Mathematical notation can be used here and written in Latex through the :rst:directive:`math directive <sphinx:math>` of reST, for details on this see `the reStructuredText Style Guide <https://developer.lsst.io/docs/rst_styleguide.html#rst-math>`_ .
+Mathematical notation can be used here and written in LaTeX through the :rst:directive:`math directive <sphinx:math>` of reST, for details on this see `the reStructuredText Style Guide <https://developer.lsst.io/docs/rst_styleguide.html#rst-math>`_ .
 
 Here is an example of the syntax for inserting an equation (from IsrTask):
 
