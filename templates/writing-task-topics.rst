@@ -110,20 +110,49 @@ In the case of `ProcessCcd`, we would simply say is called as a `command line ta
 
 Configuration
 =============
-The guidance here we give is how to describe configuration flags inside the codebase itself, as they will be picked up automatically and populated into this page.
+The guidance here we give is how to describe configuration flags inside the code itself, as they will be picked up automatically and populated into this page.
 
+At the very beginning of your TaskNameConfig class, you will put in a simple docstring that explains what this class does.
 
-.. _task-topics-retarg:
+E.g. at the top of `ProcessCcdConfig` we would write:
 
-Retargetable Subtasks
----------------------
-The guidance here we give is how to describe retargetable subtasks inside the codebase itself, as they will be picked up automatically and populated into this page.
+.. code-block:: rst
+		
+    """Config for ProcessCcd"""
+
+After this, we have the standard listing of configurable parameters and retargetable subtasks for the task, and inside of each of these write a description in a string for what that specific parameter or subtask does.
+
 
 .. _task-topics-params:
    
 Parameters
 ----------
-The guidance here we give is how to describe parameters inside the codebase itself, as they will be picked up automatically and populated into this page.
+
+To given one example here, for `ProcessCcdConfig` we have a `pexConfig.Field` configurable parameter called `doCalibrate`, and we can write into the string that describes it
+
+.. code-block:: rst
+
+   doc="Perform calibration?"
+
+These `doc` normal string variables will be be shown verbatim when the `--show config` flag is used when a command is executed, and should contain minimal reST syntax to make them more readable when printed out.
+   
+.. _task-topics-retarg:
+
+Retargetable Subtasks
+---------------------
+
+As an example for documenting the retargetable subtask named `calibrate` in `ProcessCcdConfig` we might write:
+
+.. code-block:: rst
+
+   doc="""Task to perform astrometric and photometric calibration:
+            - refine the WCS in the exposure
+            - refine the Calib photometric calibration object in the exposure
+            - detect sources, usually at low S/N
+       """
+
+
+As for parameters, the `doc` content will be shown verbatim when the `--show config` flag is used when a command is executed, and should contain minimal reST syntax to make them more readable when printed out.
 
 .. _task-topics-python:
    
@@ -134,20 +163,65 @@ Python usage
 
 Class initialization
 --------------------
-The guidance here we give is how to describe the class initialization and the parameters of the signature inside the codebase itself, as this will all be picked up automatically and populated into this page.
+The guidance here we give is how to describe the class initialization and the parameters of the signature inside the code itself, as this will all be picked up automatically and populated into this page.
+
+For the `__init__` class of `ProcessCcd` we might write for the starting part of the docstring:
+
+
+.. code-block:: rst
+		
+   """!
+   @param[in] butler  The butler is passed to the refObjLoader constructor in case it is
+      needed.  Ignored if the refObjLoader argument provides a loader directly.
+   @param[in] psfRefObjLoader  An instance of LoadReferenceObjectsTasks that supplies an
+      external reference catalog for image characterization.  An example of when this would
+      be used is when a CatalogStarSelector is used.  May be None if the desired loader can
+      be constructed from the butler argument or all steps requiring a catalog are disabled.
+   """
 
 .. _task-topics-run:
 	  
 Run method
 ----------
-The guidance here we give is how to describe the run method and the parameters of its signature inside the codebase itself, as this will all be picked up automatically and populated into this page.
+The guidance here we give is how to describe the run method and the parameters of its signature inside the code itself, as this will all be picked up automatically and populated into this page.
 
+We do this by inserting a docstring at the beginning of the `run` method, describing initially what it does, then the parameters and returns from it, as an example from `ProcessCcd` we might write:
+
+
+.. code-block:: rst
+
+   """Process one CCD
+
+   The sequence of operations is:
+   - remove instrument signature
+   - characterize image to estimate PSF and background
+   - calibrate astrometry and photometry
+
+   @param sensorRef: butler data reference for raw data
+
+   @return pipe_base Struct containing these fields:
+   - charRes: object returned by image characterization task; an lsst.pipe.base.Struct
+     that will include "background" and "sourceCat" fields
+   - calibRes: object returned by calibration task: an lsst.pipe.base.Struct
+     that will include "background" and "sourceCat" fields
+   - exposure: final exposure (an lsst.afw.image.ExposureF)
+   - background: final background model (an lsst.afw.math.BackgroundList)
+   """
+		
 .. _task-topics-debug:
 
 Debugging
 =========
-The guidance here we give is how to describe debugging flags inside the codebase itself, as they will be picked up automatically and populated into this page.
+The guidance here we give is how to describe debugging flags inside the code itself, as they will be picked up automatically and populated into this page.
 
+Here we will use an example for `IsrTask`, where we might write:
+
+.. code-block:: rst
+
+   - `display` - A dictionary containing debug point names as keys with frame number as value.  The only valid key is:
+
+      `postISRCCD`_ (to display exposure after ISR has been applied)
+		
 .. _task-topics-examples:
    
 Examples
