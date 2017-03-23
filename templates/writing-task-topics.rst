@@ -108,23 +108,22 @@ In the case of `ProcessCcd`, we would simply say is called as a `command line ta
 
 .. _task-topics-config:	  
 
-
-.. ----> put in the comments that these are autofilled here
-
-.. really do need to insert what to say about how to insert doc text for variables 
-   
 Configuration
 =============
+The guidance here we give is how to describe configuration flags inside the codebase itself, as they will be picked up automatically and populated into this page.
+
 
 .. _task-topics-retarg:
 
 Retargetable Subtasks
 ---------------------
+The guidance here we give is how to describe retargetable subtasks inside the codebase itself, as they will be picked up automatically and populated into this page.
 
 .. _task-topics-params:
    
 Parameters
 ----------
+The guidance here we give is how to describe parameters inside the codebase itself, as they will be picked up automatically and populated into this page.
 
 .. _task-topics-python:
    
@@ -135,16 +134,19 @@ Python usage
 
 Class initialization
 --------------------
+The guidance here we give is how to describe the class initialization and the parameters of the signature inside the codebase itself, as this will all be picked up automatically and populated into this page.
 
 .. _task-topics-run:
 	  
 Run method
 ----------
+The guidance here we give is how to describe the run method and the parameters of its signature inside the codebase itself, as this will all be picked up automatically and populated into this page.
 
 .. _task-topics-debug:
 
 Debugging
 =========
+The guidance here we give is how to describe debugging flags inside the codebase itself, as they will be picked up automatically and populated into this page.
 
 .. _task-topics-examples:
    
