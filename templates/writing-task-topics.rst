@@ -85,8 +85,8 @@ Here, simply state the module the task is implemented inside of, filling in the 
 For example, for `ProcessCcd`
 
 .. code-block:: rst
-		
-This task is implemented in the `lsst.pipe.tasks <taskModules.html#pipetasks>`_ module.
+
+   This task is implemented in the `lsst.pipe.tasks <taskModules.html#pipetasks>`_ module.
 
 .. _task-topics-seealso:
 	   
@@ -107,7 +107,12 @@ The API Usage page for this task will automatically be linked to in this box, bu
 In the case of `ProcessCcd`, we would simply say is called as a `command line task`, where for e.g. IsrTask, we would say that that it is most commonly called by `ProcessCcd`.
 
 .. _task-topics-config:	  
-    
+
+
+.. ----> put in the comments that these are autofilled here
+
+.. really do need to insert what to say about how to insert doc text for variables 
+   
 Configuration
 =============
 
