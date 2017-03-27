@@ -1,3 +1,4 @@
+:orphan: true
 
 .. Please fill in the below sections with the contents as described in
    the reST comments, removing the comments as you do so, and using the
@@ -58,12 +59,12 @@ This task is implemented in the :ref:`module-anchor` module.
          - Pages in the **Processing** and **Frameworks** sections of
            the Science Pipelines documentation.  
          - The API Usage page for this Task     
-
+	   
 .. Guidance for the See Also Box:  <http://developer.lsst.io/LOCATION/writing-task-topics.html#task-topics-seealso>.
 .. _TaskClassName-seealso:
 
 .. seealso::
-.. Insert material for the SeeAlso Box here  
+ [Insert material for the SeeAlso Box here]  
 
    
 .. Configuration Section
