@@ -23,6 +23,7 @@ Installing the template
 
 To install the template, copy it into the `doc/tasks` directory of your stack package. Then name the file after the task class, with a `.rst` extension.
 For example: `doc/tasks/ProcessCcdTask.rst`.
+(We will use the core image processing code `ProcessCcdTask` for demonstrating several of our examples below, but of course, it is a stand-in for any code you might specifically be working on.)
 
 .. _task-topics-instructions:
 
