@@ -1,5 +1,3 @@
-:orphan: true
-
 .. Please fill in the below sections with the contents as described in
    the reST comments, removing the comments as you do so, and using the
    links to locations in the "Guidance Document"
